@@ -12,6 +12,7 @@
   --secondary-color: #1e40af; /* Deep Navy */
   --tertiary-color: #ffffff; /* Pure White - clean, spacious feeling */
   --accent-color: #d4af37; /* Gold - drives action for CTAs */
+  --accent-dark: #8b6914; /* Dark gold — readable on white (WCAG AA) */
   --accent-light: #f4e4a6; /* Light Gold */
   --warm-cream: #f8fafc; /* Off White */
   --desert-sand: #e2e8f0; /* Light Gray */
@@ -97,33 +98,19 @@ body::before {
   flex-direction: column;
 }
 
-h1,
-h2,
-p {
-  font-weight: 400;
-  color: var(--heading-color);
-}
-
 p {
   line-height: 1.5;
 }
 
-a {
-  color: var(--accent-color);
+/* Let Tailwind/component classes control heading & link colors */
+main a:not([class*="text-"]):not([class*="hover:"]) {
+  color: var(--heading-color);
   text-decoration: none;
 }
 
-a:hover {
+main a:not([class*="text-"]):not([class*="hover:"]):hover {
+  color: var(--accent-dark);
   text-decoration: underline;
-}
-
-h1 {
-  font-size: 2rem;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1rem;
 }
 
 pre {
@@ -147,8 +134,3 @@ button:focus:not(:focus-visible) {
   outline: none;
 }
 
-@media (min-width: 720px) {
-  h1 {
-    font-size: 2.4rem;
-  }
-}

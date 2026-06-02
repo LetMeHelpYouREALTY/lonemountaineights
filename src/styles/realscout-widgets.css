@@ -1,0 +1,68 @@
+/* RealScout widget theme — navy + accessible contrast on white backgrounds */
+
+realscout-office-listings,
+realscout-your-listings {
+  --rs-listing-divider-color: #1e3a8a;
+  width: 100%;
+}
+
+realscout-simple-search {
+  --rs-ss-font-primary-color: #334155;
+  --rs-ss-searchbar-background-color: #ffffff;
+  --rs-ss-searchbar-border-color: #94a3b8;
+  --rs-ss-box-shadow: 0 4px 14px rgba(30, 58, 138, 0.12);
+  --rs-ss-widget-width: 100% !important;
+}
+
+realscout-home-value {
+  --rs-hvw-background-color: #ffffff;
+  --rs-hvw-title-color: #1e3a8a;
+  --rs-hvw-subtitle-color: #475569;
+  --rs-hvw-primary-button-text-color: #ffffff;
+  --rs-hvw-primary-button-color: #1e3a8a;
+  --rs-hvw-secondary-button-text-color: #1e3a8a;
+  --rs-hvw-secondary-button-color: #e2e8f0;
+  --rs-hvw-widget-width: 100%;
+  --rs-hvw-input-text-color: #1e293b;
+  --rs-hvw-input-placeholder-color: #64748b;
+  --rs-hvw-input-border-color: #94a3b8;
+  --rs-hvw-input-focus-border-color: #1e3a8a;
+}
+
+realscout-advanced-search {
+  --rs-as-button-text-color: #ffffff;
+  --rs-as-background-color: #ffffff;
+  --rs-as-button-color: #1e3a8a;
+  --rs-as-widget-width: 100% !important;
+}
+
+.realscout-widget-wrap {
+  width: 100%;
+  min-height: 120px;
+  border-radius: 0.75rem;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  padding: 0.5rem;
+}
+
+realscout-office-listings:not(:defined),
+realscout-home-value:not(:defined),
+realscout-simple-search:not(:defined),
+realscout-advanced-search:not(:defined),
+realscout-your-listings:not(:defined) {
+  display: block;
+  min-height: 120px;
+  border-radius: 0.75rem;
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: rs-shimmer 1.5s infinite;
+}
+
+@keyframes rs-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

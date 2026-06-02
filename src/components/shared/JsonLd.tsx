@@ -28,7 +28,7 @@ type RealScoutWidgetProps = {
 export function RealScoutWidget({ html, className }: RealScoutWidgetProps) {
   return (
     <div
-      className={className}
+      className={className ? `realscout-widget-wrap ${className}` : 'realscout-widget-wrap'}
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );

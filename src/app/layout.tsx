@@ -11,6 +11,7 @@ import {
 } from '@/lib/schema';
 import './globals.css';
 import '@/styles/ranchStyles.css';
+import '@/styles/realscout-widgets.css';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
@@ -45,12 +46,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://www.realscout.com" crossOrigin="" />
         <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="" />
         <JsonLd data={[localBusinessSchema, faqSchema]} />
-        <style>{`
-          realscout-office-listings {
-            --rs-listing-divider-color: rgb(101, 141, 172);
-            width: 100%;
-          }
-        `}</style>
       </head>
       <body className={inter.className}>
         <Navigation />

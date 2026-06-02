@@ -22,28 +22,28 @@ export function Hero() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--heading-color)]/80 to-[var(--heading-color)]/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--heading-color)]/92 via-[var(--heading-color)]/75 to-[var(--heading-color)]/55" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 py-16 md:py-24">
-        <div className="mb-10 max-w-2xl text-white">
-          <h1 className="mb-4 text-4xl font-bold leading-tight md:text-5xl">
+        <div className="mb-10 max-w-2xl text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]">
+          <h1 className="mb-4 text-4xl font-bold leading-tight text-white md:text-5xl">
             Find Your Dream Home in Lone Mountain Heights
           </h1>
-          <p className="text-lg text-white/90 md:text-xl">
+          <p className="text-lg text-white md:text-xl">
             Las Vegas&apos;s premier community with mountain views, luxury amenities, and exceptional value
           </p>
         </div>
 
-        <div className="max-w-3xl rounded-2xl bg-white/95 p-6 shadow-xl backdrop-blur md:p-8">
+        <div className="max-w-3xl rounded-2xl border border-slate-200 bg-white p-6 shadow-xl md:p-8">
           <div className="mb-6 flex gap-2">
             <button
               type="button"
               onClick={() => setActiveTab('search')}
               className={`flex-1 rounded-lg px-4 py-3 text-sm font-semibold transition ${
                 activeTab === 'search'
-                  ? 'bg-[var(--heading-color)] text-white'
-                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                  ? 'bg-[var(--heading-color)] text-white shadow-sm'
+                  : 'border border-slate-300 bg-white text-[var(--heading-color)] hover:bg-slate-50'
               }`}
             >
               🏠 Search Homes
@@ -53,8 +53,8 @@ export function Hero() {
               onClick={() => setActiveTab('valuation')}
               className={`flex-1 rounded-lg px-4 py-3 text-sm font-semibold transition ${
                 activeTab === 'valuation'
-                  ? 'bg-[var(--heading-color)] text-white'
-                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                  ? 'bg-[var(--heading-color)] text-white shadow-sm'
+                  : 'border border-slate-300 bg-white text-[var(--heading-color)] hover:bg-slate-50'
               }`}
             >
               💰 Home Value
@@ -64,13 +64,13 @@ export function Hero() {
           {activeTab === 'search' ? (
             <div>
               <h2 className="mb-1 text-xl font-bold text-[var(--heading-color)]">Search Properties</h2>
-              <p className="mb-4 text-sm text-[var(--text-light)]">Find your perfect home in Lone Mountain Heights</p>
+              <p className="mb-4 text-sm text-[var(--text-color)]">Find your perfect home in Lone Mountain Heights</p>
               <RealScoutSimpleSearch />
             </div>
           ) : (
             <div>
               <h2 className="mb-1 text-xl font-bold text-[var(--heading-color)]">Get Your Home&apos;s Value</h2>
-              <p className="mb-4 text-sm text-[var(--text-light)]">Free instant valuation powered by local market data</p>
+              <p className="mb-4 text-sm text-[var(--text-color)]">Free instant valuation powered by local market data</p>
               <RealScoutHomeValue />
             </div>
           )}

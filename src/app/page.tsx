@@ -49,9 +49,9 @@ export default function HomePage() {
       <div className="mx-auto max-w-6xl px-4 py-8 md:px-8">
         <TrustSignals />
 
-        <section className="my-10 rounded-xl bg-gradient-to-br from-[var(--accent-color)] to-[var(--accent-light)] p-8 text-center">
+        <section className="my-10 rounded-xl border border-[var(--accent-dark)]/30 bg-gradient-to-br from-[var(--accent-light)] to-[var(--accent-color)]/40 p-8 text-center shadow-sm">
           <h2 className="mb-2 text-2xl font-bold text-[var(--heading-color)]">Ready to take your next step?</h2>
-          <p className="mb-6 text-[var(--heading-color)]/90">Buy or sell your home in Lone Mountain Heights with a trusted local expert.</p>
+          <p className="mb-6 text-[var(--text-color)]">Buy or sell your home in Lone Mountain Heights with a trusted local expert.</p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx"
@@ -74,7 +74,7 @@ export default function HomePage() {
           </p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
-              <div key={s.title} className="rounded-xl border border-slate-100 bg-[var(--warm-cream)] p-6 text-center transition hover:-translate-y-1 hover:shadow-md">
+              <div key={s.title} className="rounded-xl border border-slate-200 bg-[var(--warm-cream)] p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                 <div className="mb-3 text-3xl">{s.icon}</div>
                 <h3 className="mb-2 font-semibold text-[var(--heading-color)]">{s.title}</h3>
                 <p className="text-sm text-[var(--text-light)]">{s.desc}</p>
@@ -83,9 +83,9 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="my-12 rounded-xl bg-slate-50 p-8">
+        <section className="my-12 rounded-xl border border-slate-200 bg-slate-50 p-8">
           <h2 className="mb-2 text-center text-3xl font-bold text-[var(--heading-color)]">Current Lone Mountain Heights Listings</h2>
-          <p className="mb-6 text-center text-[var(--text-light)]">Browse our latest homes for sale in Lone Mountain Heights, Las Vegas 89129</p>
+          <p className="mb-6 text-center text-[var(--text-color)]">Browse our latest homes for sale in Lone Mountain Heights, Las Vegas 89129</p>
           <RealScoutOfficeListings priceMin="500000" priceMax="1000000" />
         </section>
 
@@ -93,7 +93,7 @@ export default function HomePage() {
           <h2 className="mb-8 text-center text-3xl font-bold text-[var(--heading-color)]">Everything You Need to Know</h2>
           <div className="grid gap-6 sm:grid-cols-2">
             {quickLinks.map((q) => (
-              <Link key={q.title} href={q.href} className="rounded-xl bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+              <Link key={q.title} href={q.href} className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
                 <div className="mb-3 text-3xl">{q.icon}</div>
                 <h3 className="mb-2 text-lg font-semibold text-[var(--heading-color)]">{q.title}</h3>
                 <p className="text-sm text-[var(--text-light)]">{q.desc}</p>

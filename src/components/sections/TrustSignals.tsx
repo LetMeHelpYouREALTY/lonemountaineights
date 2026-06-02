@@ -34,8 +34,8 @@ export function TrustSignals() {
       <div className="mb-10 grid grid-cols-2 gap-4 md:grid-cols-4">
         {metrics.map((m) => (
           <div key={m.label} className="rounded-xl border border-slate-200 bg-white p-4 text-center shadow-sm">
-            <div className="text-2xl font-bold text-[var(--accent-color)]">{m.value}</div>
-            <div className="text-sm text-[var(--text-light)]">{m.label}</div>
+            <div className="mb-1 text-2xl font-bold text-[var(--heading-color)]">{m.value}</div>
+            <div className="text-sm font-medium text-[var(--text-color)]">{m.label}</div>
           </div>
         ))}
       </div>
