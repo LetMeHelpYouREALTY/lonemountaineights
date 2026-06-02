@@ -3,6 +3,8 @@
 // NAP matches Google Business Profile - Dr. Jan Duffy, License S.0197614.LLC
 // Berkshire Hathaway HomeServices Nevada Properties
 
+import { generateSiteGraphSchema, GEO_COORDINATES } from './structured-data';
+
 const NAP = {
   name: 'Dr. Jan Duffy',
   telephone: '+1-702-222-1964',
@@ -95,13 +97,6 @@ export function generateRealEstateSchema(_property) {
         },
       ],
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '127',
-      bestRating: '5',
-      worstRating: '1',
-    },
   };
 }
 
@@ -169,171 +164,40 @@ export function generatePropertySchema(property) {
       : [],
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: '36.1699',
-      longitude: '-115.1398',
+      latitude: GEO_COORDINATES.latitude,
+      longitude: GEO_COORDINATES.longitude,
     },
     provider: {
       '@type': 'RealEstateAgent',
-      name: NAP.name,
-      telephone: NAP.telephone,
-      email: NAP.email,
+      '@id': 'https://lonemountainheights.com/#realestate-agent',
     },
   };
 }
 
 export function generateLocalBusinessSchema() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'RealEstateAgent',
-    name: `${NAP.name} - Lone Mountain Heights Real Estate Expert`,
-    description:
-      'Premier real estate services in Lone Mountain Heights, Las Vegas. Your complete real estate partner with deep neighborhood expertise.',
-    url: 'https://lonemountainheights.com',
+  return generateSiteGraphSchema({
+    name: NAP.name,
     telephone: NAP.telephone,
     email: NAP.email,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: NAP.address.streetAddress,
-      addressLocality: NAP.address.addressLocality,
-      addressRegion: NAP.address.addressRegion,
-      postalCode: NAP.address.postalCode,
-      addressCountry: NAP.address.addressCountry,
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: '36.2569',
-      longitude: '-115.2419',
-    },
-    memberOf: {
-      '@type': 'Organization',
-      name: NAP.broker,
-      url: 'https://www.berkshirehathawayhomeservices.com',
-    },
     license: NAP.license,
-    hasMap: 'https://www.google.com/maps/place/Lone+Mountain+Heights,+Las+Vegas,+NV+89129',
-    areaServed: [
-      {
-        '@type': 'City',
-        name: 'Las Vegas',
-      },
-      {
-        '@type': 'Place',
-        name: 'Lone Mountain Heights',
-      },
-    ],
-    serviceType: 'Real Estate Services',
-    priceRange: '$$',
-    openingHours: 'Mo-Su 00:00-23:59',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '127',
-      bestRating: '5',
-      worstRating: '1',
-    },
-    review: [
-      {
-        '@type': 'Review',
-        author: {
-          '@type': 'Person',
-          name: 'Sarah Johnson',
-        },
-        reviewRating: {
-          '@type': 'Rating',
-          ratingValue: '5',
-          bestRating: '5',
-        },
-        reviewBody:
-          'Dr. Jan knew exactly which street would give us the best resale value. Sold our home in 8 days for $15K over asking!',
-      },
-      {
-        '@type': 'Review',
-        author: {
-          '@type': 'Person',
-          name: 'Mike Chen',
-        },
-        reviewRating: {
-          '@type': 'Rating',
-          ratingValue: '5',
-          bestRating: '5',
-        },
-        reviewBody:
-          'Her knowledge of Lone Mountain Heights is unmatched. Found us the perfect home with mountain views.',
-      },
-    ],
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Real Estate Services',
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Home Sales',
-            description:
-              'Expert real estate services for selling homes in Lone Mountain Heights',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Home Purchases',
-            description:
-              'Professional assistance buying homes in Lone Mountain Heights',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Home Valuation',
-            description: 'Instant home value estimates with market analysis',
-          },
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Market Reports',
-            description:
-              'Monthly market analysis and trends for Lone Mountain Heights',
-          },
-        },
-      ],
-    },
-  };
+    broker: NAP.broker,
+    address: NAP.address,
+    gbpReviewsUrl: GBP_URLS.reviews,
+    gbpMapUrl: GBP_URLS.reviews,
+  });
 }
 
 export { NAP };
 
-export function generateBreadcrumbSchema(breadcrumbs) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: breadcrumbs.map((crumb, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: crumb.name,
-      item: crumb.url,
-    })),
-  };
-}
-
-export function generateFAQSchema(faqs) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  };
-}
+export {
+  generateBreadcrumbSchema,
+  generateFAQSchema,
+  generatePlaceSchema,
+  generateSiteGraphSchema,
+  generateWebPageSchema,
+  GEO_COORDINATES,
+  SCHEMA_IDS,
+} from './structured-data';
 
 // Real Estate specific FAQ data
 export const realEstateFAQs = [

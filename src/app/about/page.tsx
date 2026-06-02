@@ -7,15 +7,16 @@ import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
 import { JsonLd, RealScoutOfficeListings } from '@/components/shared/JsonLd';
 import { aboutFAQs } from '@/lib/faqs';
-import { generateBreadcrumbSchema, generateFAQSchema, GBP_URLS, NAP } from '@/lib/schema';
-import { getAbsoluteImageUrl } from '@/lib/cloudflare-images';
+import { generateBreadcrumbSchema, generateFAQSchema, GBP_URLS, NAP, SCHEMA_IDS } from '@/lib/schema';
+import { generateWebPageSchema } from '@/lib/structured-data';
+import { buildPageMetadata } from '@/lib/site-metadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'About Dr. Jan Duffy | Lone Mountain Heights Expert | Las Vegas 89129',
   description:
     'Meet Dr. Jan Duffy, your complete real estate partner in Lone Mountain Heights, Las Vegas 89129. Berkshire Hathaway team leader and hyperlocal expert.',
-  alternates: { canonical: 'https://lonemountainheights.com/about' },
-};
+  path: '/about',
+});
 
 const advantages = [
   { icon: '📊', title: 'Data-Driven Valuations', desc: 'Advanced valuation technology with comps, trends, and neighborhood-specific insights.' },
@@ -34,12 +35,17 @@ const stats = [
 ];
 
 export default function AboutPage() {
-  const agentImage = getAbsoluteImageUrl('/images/agents/dr-jan-duffy.jpg', 400);
-
   return (
     <>
       <JsonLd
         data={[
+          generateWebPageSchema({
+            name: 'About Dr. Jan Duffy — Lone Mountain Heights Real Estate Expert',
+            description:
+              'Meet Dr. Jan Duffy, Berkshire Hathaway HomeServices Lone Mountain Heights team leader and hyperlocal Las Vegas 89129 expert.',
+            path: '/about',
+            includeSpeakable: true,
+          }),
           generateBreadcrumbSchema([
             { name: 'Home', url: 'https://lonemountainheights.com' },
             { name: 'About', url: 'https://lonemountainheights.com/about' },
@@ -47,17 +53,11 @@ export default function AboutPage() {
           generateFAQSchema(aboutFAQs),
           {
             '@context': 'https://schema.org',
-            '@type': 'Person',
-            name: 'Dr. Jan Duffy',
-            jobTitle: 'Head of Berkshire Hathaway HomeServices Lone Mountain Heights Team',
+            '@type': 'ProfilePage',
+            '@id': 'https://lonemountainheights.com/about#webpage',
+            name: 'About Dr. Jan Duffy',
             url: 'https://lonemountainheights.com/about',
-            telephone: NAP.telephone,
-            email: NAP.email,
-            image: agentImage,
-            worksFor: {
-              '@type': 'Organization',
-              name: 'Berkshire Hathaway HomeServices Nevada Properties',
-            },
+            mainEntity: { '@id': SCHEMA_IDS.person },
           },
         ]}
       />

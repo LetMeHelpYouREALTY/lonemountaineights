@@ -34,7 +34,7 @@ export function FAQSection({
               {faq.question}
             </h3>
             <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-              <p className="leading-relaxed text-[var(--text-color)]" itemProp="text">
+              <p className="faq-answer-text leading-relaxed text-[var(--text-color)]" itemProp="text">
                 {faq.answer}
               </p>
             </div>

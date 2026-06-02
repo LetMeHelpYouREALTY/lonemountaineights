@@ -6,12 +6,9 @@ import { Navigation } from '@/components/layouts/Navigation';
 import { CalendlyBadge } from '@/components/shared/CalendlyBadge';
 import { CalendlyScript } from '@/components/shared/CalendlyScript';
 import { JsonLd } from '@/components/shared/JsonLd';
-import {
-  generateFAQSchema,
-  generateLocalBusinessSchema,
-  realEstateFAQs,
-} from '@/lib/schema';
-import { getDefaultSocialMetadata } from '@/lib/site-metadata';
+import { GBP_URLS, NAP } from '@/lib/schema';
+import { generateSiteGraphSchema } from '@/lib/structured-data';
+import { getDefaultSocialMetadata, SITE_URL } from '@/lib/site-metadata';
 import './globals.css';
 import '@/styles/ranchStyles.css';
 import '@/styles/realscout-widgets.css';
@@ -28,14 +25,31 @@ export const metadata: Metadata = {
   },
   description:
     'Find homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy leads the Berkshire Hathaway HomeServices Lone Mountain Heights Team.',
+  keywords: [
+    'Lone Mountain Heights homes for sale',
+    'Las Vegas 89129 real estate',
+    'Dr. Jan Duffy',
+    'Lone Mountain Ranch',
+    'Desert Vista Estates',
+  ],
+  authors: [{ name: 'Dr. Jan Duffy', url: `${SITE_URL}/about` }],
+  creator: 'Dr. Jan Duffy',
   robots: { index: true, follow: true },
   openGraph: defaultSocial.openGraph,
   twitter: defaultSocial.twitter,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const localBusinessSchema = generateLocalBusinessSchema();
-  const faqSchema = generateFAQSchema(realEstateFAQs);
+  const siteGraphSchema = generateSiteGraphSchema({
+    name: NAP.name,
+    telephone: NAP.telephone,
+    email: NAP.email,
+    license: NAP.license,
+    broker: NAP.broker,
+    address: NAP.address,
+    gbpReviewsUrl: GBP_URLS.reviews,
+    gbpMapUrl: GBP_URLS.reviews,
+  });
 
   return (
     <html lang="en">
@@ -47,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://www.realscout.com" crossOrigin="" />
         <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="" />
         <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-        <JsonLd data={[localBusinessSchema, faqSchema]} />
+        <JsonLd data={siteGraphSchema} />
       </head>
       <body className={inter.className}>
         <Navigation />

@@ -4,6 +4,13 @@ import { ContentPage, buildPageMetadata } from '@/components/layouts/ContentPage
 import { RealScoutOfficeListings } from '@/components/shared/JsonLd';
 import { getBreadcrumbs, getPageConfig, getPageFaqs } from '@/lib/content-page';
 
+import { generatePlaceSchema } from '@/lib/structured-data';
+
+const LOCATION_SLUGS = new Set([
+  'locations/lone-mountain-ranch',
+  'locations/desert-vista-estates',
+]);
+
 type Props = { slug: string };
 
 export function makeContentPage(slug: string) {
@@ -14,6 +21,16 @@ export function makeContentPage(slug: string) {
   const faqs = getPageFaqs(pageConfig.faqKey);
   const breadcrumbs = getBreadcrumbs(pageConfig.canonical, pageConfig.h1);
 
+  const extraSchema = LOCATION_SLUGS.has(slug)
+    ? [
+        generatePlaceSchema({
+          name: pageConfig.h1,
+          description: pageConfig.description,
+          path: pageConfig.canonical,
+        }),
+      ]
+    : [];
+
   function Page() {
     return (
       <ContentPage
@@ -23,6 +40,7 @@ export function makeContentPage(slug: string) {
         canonical={pageConfig.canonical}
         breadcrumbs={breadcrumbs}
         faqs={faqs}
+        schema={extraSchema}
         showCta
         showHero
       >

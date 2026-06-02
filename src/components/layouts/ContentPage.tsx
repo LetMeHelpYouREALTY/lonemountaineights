@@ -4,7 +4,12 @@ import { FAQSection } from '@/components/sections/FAQSection';
 import { Breadcrumbs, ContactCTA } from '@/components/layouts/PageHeader';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
 import { JsonLd } from '@/components/shared/JsonLd';
-import { generateBreadcrumbSchema, generateFAQSchema } from '@/lib/schema';
+import { generateFAQSchema } from '@/lib/schema';
+import {
+  generateBreadcrumbSchema,
+  generateWebPageSchema,
+} from '@/lib/structured-data';
+import { buildPageMetadata as buildSiteMetadata } from '@/lib/site-metadata';
 
 type FAQ = { question: string; answer: string };
 type Crumb = { name: string; href?: string };
@@ -28,11 +33,7 @@ export function buildPageMetadata(
   description: string,
   canonical: string,
 ): Metadata {
-  return {
-    title,
-    description,
-    alternates: { canonical: `https://lonemountainheights.com${canonical}` },
-  };
+  return buildSiteMetadata({ title, description, path: canonical });
 }
 
 export function ContentPage({
@@ -54,7 +55,16 @@ export function ContentPage({
       url: b.href ? `https://lonemountainheights.com${b.href}` : `https://lonemountainheights.com${canonical}`,
     })),
   );
-  const schemas: Record<string, unknown>[] = [breadcrumbSchema, ...schema];
+  const schemas: Record<string, unknown>[] = [
+    generateWebPageSchema({
+      name: h1,
+      description,
+      path: canonical,
+      includeSpeakable: Boolean(faqs?.length),
+    }),
+    breadcrumbSchema,
+    ...schema,
+  ];
   if (faqs?.length) schemas.push(generateFAQSchema(faqs));
 
   return (

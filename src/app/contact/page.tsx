@@ -6,13 +6,15 @@ import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { CalendlyInline } from '@/components/shared/CalendlyInline';
 import { JsonLd, RealScoutOfficeListings } from '@/components/shared/JsonLd';
 import { contactFAQs } from '@/lib/faqs';
-import { generateBreadcrumbSchema, generateFAQSchema, GBP_URLS, NAP } from '@/lib/schema';
+import { generateBreadcrumbSchema, generateFAQSchema, GBP_URLS, NAP, SCHEMA_IDS } from '@/lib/schema';
+import { generateWebPageSchema } from '@/lib/structured-data';
+import { buildPageMetadata } from '@/lib/site-metadata';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Contact Dr. Jan Duffy | Lone Mountain Heights Expert | Las Vegas 89129',
   description: `Contact Dr. Jan Duffy for expert real estate services in Lone Mountain Heights, Las Vegas 89129. Call ${NAP.telDisplay} or schedule a consultation.`,
-  alternates: { canonical: 'https://lonemountainheights.com/contact' },
-};
+  path: '/contact',
+});
 
 const highlights = [
   '500+ Las Vegas transactions',
@@ -27,6 +29,12 @@ export default function ContactPage() {
     <>
       <JsonLd
         data={[
+          generateWebPageSchema({
+            name: 'Contact Dr. Jan Duffy — Lone Mountain Heights Real Estate',
+            description: `Contact Dr. Jan Duffy for Lone Mountain Heights real estate. Call ${NAP.telDisplay}.`,
+            path: '/contact',
+            includeSpeakable: true,
+          }),
           generateBreadcrumbSchema([
             { name: 'Home', url: 'https://lonemountainheights.com' },
             { name: 'Contact', url: 'https://lonemountainheights.com/contact' },
@@ -35,15 +43,10 @@ export default function ContactPage() {
           {
             '@context': 'https://schema.org',
             '@type': 'ContactPage',
+            '@id': 'https://lonemountainheights.com/contact#webpage',
             name: 'Contact Dr. Jan Duffy - Lone Mountain Heights Real Estate Expert',
             url: 'https://lonemountainheights.com/contact',
-            mainEntity: {
-              '@type': 'RealEstateAgent',
-              name: NAP.name,
-              telephone: NAP.telephone,
-              email: NAP.email,
-              license: NAP.license,
-            },
+            mainEntity: { '@id': SCHEMA_IDS.agent },
           },
         ]}
       />
