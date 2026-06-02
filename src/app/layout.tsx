@@ -9,11 +9,14 @@ import {
   generateLocalBusinessSchema,
   realEstateFAQs,
 } from '@/lib/schema';
+import { getDefaultSocialMetadata } from '@/lib/site-metadata';
 import './globals.css';
 import '@/styles/ranchStyles.css';
 import '@/styles/realscout-widgets.css';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
+
+const defaultSocial = getDefaultSocialMetadata();
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://lonemountainheights.com'),
@@ -24,12 +27,8 @@ export const metadata: Metadata = {
   description:
     'Find homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy leads the Berkshire Hathaway HomeServices Lone Mountain Heights Team.',
   robots: { index: true, follow: true },
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'Lone Mountain Heights Real Estate',
-    url: 'https://lonemountainheights.com',
-  },
+  openGraph: defaultSocial.openGraph,
+  twitter: defaultSocial.twitter,
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
