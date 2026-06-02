@@ -8,7 +8,7 @@ export const DEFAULT_OG_IMAGE_PATH = '/images/og/og-image.png';
 export const OG_IMAGE_WIDTH = 1200;
 export const OG_IMAGE_HEIGHT = 630;
 export const DEFAULT_OG_IMAGE_ALT =
-  'Lone Mountain Heights homes for sale — Dr. Jan Duffy, Las Vegas real estate expert';
+  'Lone Mountain Heights homes for sale in Las Vegas 89129 — Dr. Jan Duffy, Berkshire Hathaway real estate expert';
 
 type PageMetadataOptions = {
   title: string;
