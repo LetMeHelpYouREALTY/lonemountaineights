@@ -49,7 +49,7 @@ export function SiteFooter() {
           </div>
           <div>
             <h4 className="mb-4 text-lg font-bold text-white">Local Expertise</h4>
-            <p className="mb-2"><Link href="/neighborhoods" className="text-white/90 hover:text-white">Micro-Neighborhoods</Link></p>
+            <p className="mb-2"><Link href="/neighborhoods" className="text-white/90 hover:text-white">Neighborhoods & Communities</Link></p>
             <p className="mb-2"><Link href="/guide" className="text-white/90 hover:text-white">Living in Lone Mountain Heights</Link></p>
             <p className="mb-2"><Link href="/schools" className="text-white/90 hover:text-white">School Information</Link></p>
             <p><Link href="/amenities" className="text-white/90 hover:text-white">Local Amenities</Link></p>

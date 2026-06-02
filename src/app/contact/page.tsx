@@ -71,7 +71,7 @@ export default function ContactPage() {
               {[
                 { icon: '📞', title: 'Call or Text', value: NAP.telDisplay, href: NAP.telHref, note: 'Available 7 days a week' },
                 { icon: '✉️', title: 'Email', value: NAP.email, href: `mailto:${NAP.email}`, note: 'Response within 2 hours' },
-                { icon: '📍', title: 'Location', value: NAP.fullAddress, note: 'All Lone Mountain Heights micro-neighborhoods' },
+                { icon: '📍', title: 'Location', value: NAP.fullAddress, note: 'All Lone Mountain Heights neighborhoods and communities' },
               ].map((m) => (
                 <div key={m.title} className="flex gap-4 rounded-lg bg-[var(--warm-cream)] p-4">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--accent-color)] text-lg">{m.icon}</span>

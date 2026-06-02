@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import { GlobalSearchBar, SiteFooter } from '@/components/layouts/SiteFooter';
 import { Navigation } from '@/components/layouts/Navigation';
 import { CalendlyBadge } from '@/components/shared/CalendlyBadge';
+import { CalendlyScript } from '@/components/shared/CalendlyScript';
 import { JsonLd } from '@/components/shared/JsonLd';
 import {
   generateFAQSchema,
@@ -55,14 +56,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main-content">{children}</main>
         <SiteFooter />
         <CalendlyBadge />
+        <CalendlyScript />
 
         <Script
           src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
           strategy="afterInteractive"
-        />
-        <Script
-          src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="lazyOnload"
         />
         <Script id="widget-tracker" strategy="lazyOnload">{`
           (function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()

@@ -37,7 +37,7 @@ export const aboutFAQs = [
   {
     question: 'What areas does Dr. Jan Duffy serve?',
     answer:
-      'Dr. Jan Duffy specializes exclusively in Lone Mountain Heights and its micro-neighborhoods including Lone Mountain Ranch, Desert Vista Estates, and surrounding 89129 communities. Her hyperlocal focus means you work with an expert, not a generalist.',
+      'Dr. Jan Duffy specializes exclusively in Lone Mountain Heights and its neighborhoods and communities including Lone Mountain Ranch, Desert Vista Estates, and surrounding 89129 areas. Her local expertise means you work with an expert, not a generalist.',
   },
   {
     question: 'Is Dr. Jan Duffy a licensed real estate agent?',
@@ -68,7 +68,7 @@ export const valuationFAQs = [
   {
     question: 'How accurate is a free home valuation for Lone Mountain Heights?',
     answer:
-      'Dr. Jan Duffy uses real market data and comparable sales to provide accurate estimates. For a precise valuation tailored to your specific property and neighborhood, schedule a consultation—she analyzes recent sales, lot size, condition, and Lone Mountain Heights micro-neighborhood trends.',
+      'Dr. Jan Duffy uses real market data and comparable sales to provide accurate estimates. For a precise valuation tailored to your specific property and neighborhood, schedule a consultation—she analyzes recent sales, lot size, condition, and Lone Mountain Heights neighborhood trends.',
   },
   {
     question: 'Should I get a home valuation before selling in Lone Mountain Heights?',
@@ -78,7 +78,7 @@ export const valuationFAQs = [
   {
     question: 'What factors affect home values in Lone Mountain Heights?',
     answer:
-      'Location within micro-neighborhoods, school boundaries, lot size, upgrades, and recent comparable sales all matter. Dr. Jan Duffy has sold hundreds of homes in Lone Mountain Heights and knows exactly which factors drive value in each subdivision.',
+      'Location within neighborhoods and communities, school boundaries, lot size, upgrades, and recent comparable sales all matter. Dr. Jan Duffy has sold hundreds of homes in Lone Mountain Heights and knows exactly which factors drive value in each area.',
   },
 ];
 
@@ -104,7 +104,7 @@ export const neighborhoodsFAQs = [
   {
     question: 'What are the best neighborhoods in Lone Mountain Heights?',
     answer:
-      'Dr. Jan Duffy recommends Lone Mountain Ranch for families seeking great schools, Desert Vista Estates for value and amenities, and various micro-neighborhoods depending on your lifestyle. She can match you with the perfect community based on your priorities.',
+      'Dr. Jan Duffy recommends Lone Mountain Ranch for families seeking great schools, Desert Vista Estates for value and amenities, and various neighborhoods depending on your lifestyle. She can match you with the perfect community based on your priorities.',
   },
   {
     question: 'How do I choose the right Lone Mountain Heights neighborhood?',
@@ -269,6 +269,6 @@ export const toolsFAQs = [
   {
     question: 'Is the home value tool accurate for Lone Mountain Heights?',
     answer:
-      'The tool uses market data for estimates. For a precise valuation, Dr. Jan Duffy offers a complimentary analysis that considers your specific property, recent comparables, and her deep knowledge of Lone Mountain Heights micro-neighborhoods.',
+      'The tool uses market data for estimates. For a precise valuation, Dr. Jan Duffy offers a complimentary analysis that considers your specific property, recent comparables, and her deep knowledge of Lone Mountain Heights neighborhoods and communities.',
   },
 ];

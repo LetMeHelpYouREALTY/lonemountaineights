@@ -25,8 +25,7 @@ const NAP = {
 
 // GBP URLs - update when actual Place ID is available for View Google Reviews
 // Calendly – Dr. Jan's scheduling link
-export const CALENDLY_URL =
-  'https://calendly.com/drjanduffy/dr-duffy-private-15-min-conversation';
+export { CALENDLY_URL } from './calendly';
 
 export const GBP_URLS = {
   directions:

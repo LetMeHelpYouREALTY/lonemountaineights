@@ -30,7 +30,7 @@ const quickLinks = [
   { href: '/tools', icon: '🧮', title: 'Real Estate Tools', desc: 'Home value calculator, mortgage calculator, and home finder quiz' },
   { href: '/tools', icon: '📋', title: 'Mortgage Helpers', desc: 'Mortgage calculator, pre-approval guidance, and financing resources' },
   { href: '/market-intelligence', icon: '📈', title: 'Investment Info', desc: 'Market trends, ROI analysis, and investment property insights' },
-  { href: '/neighborhoods', icon: '🗺️', title: 'Neighborhood Guide', desc: 'Micro-neighborhoods, amenities, schools, and lifestyle features' },
+  { href: '/neighborhoods', icon: '🗺️', title: 'Neighborhood Guide', desc: 'Neighborhoods, communities, amenities, schools, and lifestyle features' },
 ];
 
 export default function HomePage() {

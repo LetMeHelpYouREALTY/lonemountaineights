@@ -23,13 +23,13 @@ export const pageConfigs: Record<string, PageConfig> = {
     faqKey: 'amenitiesFAQs',
   },
   neighborhoods: {
-    title: 'Lone Mountain Heights Neighborhoods | Micro-Communities Guide',
-    h1: 'Micro-Neighborhoods in Lone Mountain Heights',
+    title: 'Lone Mountain Heights Neighborhoods & Communities Guide | Las Vegas 89129',
+    h1: 'Neighborhoods & Communities in Lone Mountain Heights',
     description:
-      'Explore Lone Mountain Ranch, Desert Vista Estates, and every micro-neighborhood in Lone Mountain Heights 89129 with Dr. Jan Duffy.',
+      'Explore Lone Mountain Ranch, Desert Vista Estates, and every neighborhood and community in Lone Mountain Heights 89129 with Dr. Jan Duffy.',
     canonical: '/neighborhoods',
     body: [
-      'Lone Mountain Heights is not one uniform area — micro-neighborhoods differ in lot size, views, HOA fees, and school access.',
+      'Lone Mountain Heights is not one uniform area — neighborhoods and communities differ in lot size, views, HOA fees, and school access.',
       'Dr. Jan Duffy specializes in matching buyers to the right street and subdivision based on budget, lifestyle, and long-term investment goals.',
       'Browse location guides for Lone Mountain Ranch and Desert Vista Estates, or schedule a consultation for a personalized neighborhood tour.',
     ],
@@ -82,7 +82,7 @@ export const pageConfigs: Record<string, PageConfig> = {
     canonical: '/sales',
     body: [
       'Understanding recent sales is essential for pricing, offers, and investment decisions in Lone Mountain Heights.',
-      'Dr. Jan Duffy maintains detailed knowledge of closed transactions across every micro-neighborhood in 89129.',
+      'Dr. Jan Duffy maintains detailed knowledge of closed transactions across every neighborhood and community in 89129.',
       'Browse current listings below or contact Dr. Jan for a comp analysis on any address.',
     ],
     faqKey: 'salesFAQs',
@@ -192,7 +192,7 @@ export const pageConfigs: Record<string, PageConfig> = {
       'Homes for sale in Lone Mountain Ranch, Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy local expert.',
     canonical: '/locations/lone-mountain-ranch',
     body: [
-      'Lone Mountain Ranch is a sought-after micro-neighborhood within Lone Mountain Heights known for larger lots and mountain views.',
+      'Lone Mountain Ranch is a sought-after community within Lone Mountain Heights known for larger lots and mountain views.',
       'Dr. Jan Duffy has closed numerous transactions in Lone Mountain Ranch and knows every active and recent sale on each street.',
     ],
     faqKey: 'locationsLoneMountainRanch',
@@ -249,7 +249,7 @@ export const pageConfigs: Record<string, PageConfig> = {
       'Weekly market update for Lone Mountain Heights, Las Vegas 89129 — new listings, sales, and trends from Dr. Jan Duffy.',
     canonical: '/blog/this-week-in-lone-mountain-heights',
     body: [
-      'Each week Dr. Jan Duffy tracks new listings, pending sales, and price changes across Lone Mountain Heights micro-neighborhoods.',
+      'Each week Dr. Jan Duffy tracks new listings, pending sales, and price changes across Lone Mountain Heights neighborhoods and communities.',
       'Subscribe to updates by scheduling a consultation or calling 702-222-1964 for the latest 89129 market snapshot.',
     ],
   },

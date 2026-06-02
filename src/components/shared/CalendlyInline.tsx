@@ -1,49 +1,31 @@
-'use client';
-
-import { useEffect, useId } from 'react';
-import { CALENDLY_URL } from '@/lib/schema';
+import { CALENDLY_INLINE_EMBED_URL, CALENDLY_URL } from '@/lib/calendly';
 
 type CalendlyInlineProps = {
   minHeight?: number;
   className?: string;
 };
 
+/**
+ * Iframe embed — does not depend on widget.js, so it renders reliably on static pages.
+ */
 export function CalendlyInline({ minHeight = 700, className = '' }: CalendlyInlineProps) {
-  const reactId = useId();
-  const containerId = `calendly-inline-${reactId.replace(/:/g, '')}`;
-
-  useEffect(() => {
-    const init = () => {
-      const Calendly = (
-        window as Window & {
-          Calendly?: { initInlineWidget: (opts: { url: string; parentElement: HTMLElement }) => void };
-        }
-      ).Calendly;
-      const el = document.getElementById(containerId);
-      if (Calendly && el && !el.querySelector('iframe')) {
-        Calendly.initInlineWidget({ url: CALENDLY_URL, parentElement: el });
-      }
-    };
-
-    if ((window as Window & { Calendly?: unknown }).Calendly) {
-      init();
-    } else {
-      const timer = setInterval(() => {
-        if ((window as Window & { Calendly?: unknown }).Calendly) {
-          clearInterval(timer);
-          init();
-        }
-      }, 200);
-      return () => clearInterval(timer);
-    }
-  }, [containerId]);
-
   return (
     <div
-      id={containerId}
-      className={`calendly-inline-widget w-full overflow-hidden rounded-lg ${className}`}
+      className={`w-full overflow-hidden rounded-lg border border-slate-200 bg-white ${className}`}
       style={{ minWidth: '320px', height: `${minHeight}px` }}
-      aria-label="Schedule a call with Dr. Jan Duffy"
-    />
+    >
+      <iframe
+        src={CALENDLY_INLINE_EMBED_URL}
+        title="Schedule a free 15-minute conversation with Dr. Jan Duffy"
+        width="100%"
+        height="100%"
+        style={{ border: 0, minHeight: `${minHeight}px` }}
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      />
+      <p className="sr-only">
+        <a href={CALENDLY_URL}>Schedule time with Dr. Jan Duffy on Calendly</a>
+      </p>
+    </div>
   );
 }

@@ -17,11 +17,11 @@ const nextConfig: NextConfig = {
             value: [
               "default-src 'self'",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://em.realscout.com https://www.realscout.com https://assets.calendly.com https://widgetbe.com",
-              "connect-src 'self' https://www.realscout.com https://em.realscout.com https://calendly.com https://assets.calendly.com",
+              "connect-src 'self' https://www.realscout.com https://em.realscout.com https://calendly.com https://www.calendly.com https://assets.calendly.com https://*.calendly.com",
               "style-src 'self' 'unsafe-inline' https://assets.calendly.com https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: https: blob:",
-              "frame-src https://calendly.com https://www.google.com https://maps.google.com",
+              "frame-src https://calendly.com https://www.calendly.com https://*.calendly.com https://www.google.com https://maps.google.com",
             ].join('; '),
           },
         ],
