@@ -4,12 +4,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { RealScoutHomeValue, RealScoutSimpleSearch } from '@/components/shared/JsonLd';
+import { CalendlyInline } from '@/components/shared/CalendlyInline';
+import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { getCloudflareUrl } from '@/lib/cloudflare-images';
 
 const heroImage = getCloudflareUrl('/images/hero/hero-las-vegas.png', { width: 1920, quality: 85 });
 
 export function Hero() {
-  const [activeTab, setActiveTab] = useState<'search' | 'valuation'>('search');
+  const [activeTab, setActiveTab] = useState<'search' | 'valuation' | 'schedule'>('search');
 
   return (
     <section className="relative min-h-[70vh] overflow-hidden">
@@ -40,24 +42,35 @@ export function Hero() {
             <button
               type="button"
               onClick={() => setActiveTab('search')}
-              className={`flex-1 rounded-lg px-4 py-3 text-sm font-semibold transition ${
+              className={`flex-1 rounded-lg px-3 py-3 text-sm font-semibold transition ${
                 activeTab === 'search'
                   ? 'bg-[var(--heading-color)] text-white shadow-sm'
                   : 'border border-slate-300 bg-white text-[var(--heading-color)] hover:bg-slate-50'
               }`}
             >
-              🏠 Search Homes
+              🏠 Search
             </button>
             <button
               type="button"
               onClick={() => setActiveTab('valuation')}
-              className={`flex-1 rounded-lg px-4 py-3 text-sm font-semibold transition ${
+              className={`flex-1 rounded-lg px-3 py-3 text-sm font-semibold transition ${
                 activeTab === 'valuation'
                   ? 'bg-[var(--heading-color)] text-white shadow-sm'
                   : 'border border-slate-300 bg-white text-[var(--heading-color)] hover:bg-slate-50'
               }`}
             >
-              💰 Home Value
+              💰 Value
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveTab('schedule')}
+              className={`flex-1 rounded-lg px-3 py-3 text-sm font-semibold transition ${
+                activeTab === 'schedule'
+                  ? 'bg-[var(--heading-color)] text-white shadow-sm'
+                  : 'border border-slate-300 bg-white text-[var(--heading-color)] hover:bg-slate-50'
+              }`}
+            >
+              📅 Schedule
             </button>
           </div>
 
@@ -67,11 +80,19 @@ export function Hero() {
               <p className="mb-4 text-sm text-[var(--text-color)]">Find your perfect home in Lone Mountain Heights</p>
               <RealScoutSimpleSearch />
             </div>
-          ) : (
+          ) : activeTab === 'valuation' ? (
             <div>
               <h2 className="mb-1 text-xl font-bold text-[var(--heading-color)]">Get Your Home&apos;s Value</h2>
               <p className="mb-4 text-sm text-[var(--text-color)]">Free instant valuation powered by local market data</p>
               <RealScoutHomeValue />
+            </div>
+          ) : (
+            <div>
+              <h2 className="mb-1 text-xl font-bold text-[var(--heading-color)]">Schedule with Dr. Jan Duffy</h2>
+              <p className="mb-4 text-sm text-[var(--text-color)]">
+                Book a free 15-minute private conversation about buying or selling in Lone Mountain Heights
+              </p>
+              <CalendlyInline minHeight={580} />
             </div>
           )}
 
@@ -90,6 +111,10 @@ export function Hero() {
             >
               Detailed Valuation
             </Link>
+            <CalendlyLink
+              text="Schedule time with me"
+              className="rounded-lg bg-[var(--heading-color)] px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90"
+            />
           </div>
         </div>
       </div>

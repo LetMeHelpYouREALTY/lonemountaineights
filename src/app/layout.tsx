@@ -3,6 +3,7 @@ import Script from 'next/script';
 import { Inter } from 'next/font/google';
 import { GlobalSearchBar, SiteFooter } from '@/components/layouts/SiteFooter';
 import { Navigation } from '@/components/layouts/Navigation';
+import { CalendlyBadge } from '@/components/shared/CalendlyBadge';
 import { JsonLd } from '@/components/shared/JsonLd';
 import {
   generateFAQSchema,
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://em.realscout.com" crossOrigin="" />
         <link rel="preconnect" href="https://www.realscout.com" crossOrigin="" />
         <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="" />
+        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
         <JsonLd data={[localBusinessSchema, faqSchema]} />
       </head>
       <body className={inter.className}>
@@ -52,6 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <GlobalSearchBar />
         <main id="main-content">{children}</main>
         <SiteFooter />
+        <CalendlyBadge />
 
         <Script
           src="https://em.realscout.com/widgets/realscout-web-components.umd.js"

@@ -1,3 +1,7 @@
+import type { ReactNode } from 'react';
+import { CalendlyLink } from '@/components/shared/CalendlyLink';
+import { NAP } from '@/lib/schema';
+
 type Breadcrumb = { name: string; href?: string };
 
 export function Breadcrumbs({ items }: { items: Breadcrumb[] }) {
@@ -58,31 +62,25 @@ export function ContactCTA({
       <p className="mb-6 text-white/90">{subtext}</p>
       <div className="flex flex-wrap justify-center gap-4">
         <a
-          href="tel:+17022221964"
+          href={NAP.telHref}
           className="rounded-lg bg-[var(--accent-color)] px-6 py-3 font-semibold text-[var(--heading-color)] hover:opacity-90"
         >
-          📞 702-222-1964
+          📞 {NAP.telDisplay}
         </a>
+        <CalendlyLink
+          text="Schedule time with me"
+          className="rounded-lg border-2 border-white px-6 py-3 font-semibold hover:bg-white hover:text-[var(--heading-color)]"
+        />
         <a
           href="/contact"
-          className="rounded-lg border-2 border-white px-6 py-3 font-semibold hover:bg-white hover:text-[var(--heading-color)]"
-        >
-          Contact Us
-        </a>
-        <a
-          href="https://calendly.com/drjanduffy/15min"
-          target="_blank"
-          rel="noopener noreferrer"
           className="rounded-lg border-2 border-white/60 px-6 py-3 font-semibold hover:bg-white/10"
         >
-          Schedule Consultation
+          Contact & Directions
         </a>
       </div>
     </section>
   );
 }
-
-import type { ReactNode } from 'react';
 
 export function BtnPrimary({
   href,

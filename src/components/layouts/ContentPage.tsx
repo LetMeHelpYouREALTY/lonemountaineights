@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { Breadcrumbs, ContactCTA } from '@/components/layouts/PageHeader';
+import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
 import { JsonLd } from '@/components/shared/JsonLd';
 import { generateBreadcrumbSchema, generateFAQSchema } from '@/lib/schema';
 
@@ -79,7 +80,12 @@ export function ContentPage({
         {faqs && faqs.length > 0 && (
           <FAQSection faqs={faqs} title={faqTitle ?? `${title} — FAQs`} />
         )}
-        {showCta && <ContactCTA />}
+        {showCta && (
+          <>
+            <CalendlyScheduleSection />
+            <ContactCTA />
+          </>
+        )}
       </div>
     </>
   );

@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { Hero } from '@/components/sections/Hero';
 import { TrustSignals } from '@/components/sections/TrustSignals';
 import { FAQSection } from '@/components/sections/FAQSection';
+import { CalendlyLink } from '@/components/shared/CalendlyLink';
+import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
 import { JsonLd, RealScoutOfficeListings } from '@/components/shared/JsonLd';
 import { generateFAQSchema } from '@/lib/schema';
 import { homeFAQs } from '@/lib/faqs';
@@ -65,6 +67,10 @@ export default function HomePage() {
             <Link href="/valuation" className="rounded-lg border-2 border-[var(--heading-color)] px-6 py-3 font-semibold text-[var(--heading-color)] hover:bg-[var(--heading-color)] hover:text-white">
               Get Home Valuation
             </Link>
+            <CalendlyLink
+              text="Schedule time with me"
+              className="rounded-lg bg-[var(--accent-color)] px-6 py-3 font-semibold text-[var(--heading-color)] hover:opacity-90"
+            />
           </div>
         </section>
 
@@ -105,6 +111,11 @@ export default function HomePage() {
 
         <FAQSection faqs={homeFAQs} title="Lone Mountain Heights Real Estate FAQs" />
 
+        <CalendlyScheduleSection
+          title="Talk with Dr. Jan Duffy"
+          description="Schedule a free 15-minute private conversation about buying or selling in Lone Mountain Heights, Las Vegas 89129."
+        />
+
         <section className="my-12 rounded-xl bg-[var(--heading-color)] p-8 text-center text-white">
           <h2 className="mb-4 text-2xl font-bold">Work with Dr. Jan Duffy</h2>
           <p className="mb-6 text-white/90">Your complete real estate partner for Lone Mountain Heights, Las Vegas 89129</p>
@@ -112,8 +123,12 @@ export default function HomePage() {
             <a href="tel:+17022221964" className="rounded-lg bg-[var(--accent-color)] px-6 py-3 font-semibold text-[var(--heading-color)]">
               📞 702-222-1964
             </a>
-            <Link href="/contact" className="rounded-lg border-2 border-white px-6 py-3 font-semibold hover:bg-white hover:text-[var(--heading-color)]">
-              Contact Us
+            <CalendlyLink
+              text="Schedule time with me"
+              className="rounded-lg border-2 border-white px-6 py-3 font-semibold hover:bg-white hover:text-[var(--heading-color)]"
+            />
+            <Link href="/contact" className="rounded-lg border-2 border-white/60 px-6 py-3 font-semibold hover:bg-white/10">
+              Contact & Directions
             </Link>
           </div>
         </section>

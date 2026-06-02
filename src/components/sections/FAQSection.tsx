@@ -1,3 +1,5 @@
+import { CalendlyLink } from '@/components/shared/CalendlyLink';
+
 type FAQ = { question: string; answer: string };
 
 type FAQSectionProps = {
@@ -38,6 +40,13 @@ export function FAQSection({
             </div>
           </div>
         ))}
+      </div>
+      <div className="mt-8 rounded-lg bg-[var(--warm-cream)] p-5 text-center">
+        <p className="mb-3 text-[var(--text-color)]">Still have questions? Talk directly with Dr. Jan Duffy.</p>
+        <CalendlyLink
+          text="Schedule time with me"
+          className="inline-block rounded-lg bg-[var(--accent-color)] px-5 py-2.5 font-semibold text-[var(--heading-color)] hover:opacity-90"
+        />
       </div>
     </section>
   );

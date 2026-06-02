@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
 import { FAQSection } from '@/components/sections/FAQSection';
+import { CalendlyLink } from '@/components/shared/CalendlyLink';
+import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
 import { JsonLd, RealScoutOfficeListings } from '@/components/shared/JsonLd';
 import { luxuryFAQs } from '@/lib/faqs';
 import { luxuryHomes } from '@/lib/listings-data';
@@ -66,15 +67,21 @@ export default function LuxuryPage() {
                     <span key={f} className="rounded-full bg-slate-100 px-2 py-0.5 text-xs">{f}</span>
                   ))}
                 </div>
-                <Link href="/contact" className="block w-full rounded-lg bg-[var(--heading-color)] py-2 text-center text-sm font-semibold text-white hover:opacity-90">
-                  Schedule Showing
-                </Link>
+                <CalendlyLink
+                  text="Schedule Showing"
+                  className="block w-full rounded-lg bg-[var(--heading-color)] py-2 text-center text-sm font-semibold text-white hover:opacity-90"
+                />
               </div>
             </article>
           ))}
         </div>
 
         <FAQSection faqs={luxuryFAQs} title="Luxury Homes in Lone Mountain Heights — FAQs" />
+
+        <CalendlyScheduleSection
+          title="Schedule a Luxury Home Consultation"
+          description="Book a private conversation with Dr. Jan Duffy about luxury properties in Lone Mountain Heights."
+        />
 
         <section className="my-10 text-center">
           <h2 className="mb-2 text-2xl font-bold text-[var(--heading-color)]">Current Luxury Listings</h2>
@@ -88,9 +95,10 @@ export default function LuxuryPage() {
             Let Dr. Jan Duffy help you discover the perfect luxury property in Lone Mountain Heights.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="rounded-lg bg-[var(--accent-color)] px-6 py-3 font-semibold text-[var(--heading-color)]">
-              Schedule Consultation
-            </Link>
+            <CalendlyLink
+              text="Schedule time with me"
+              className="rounded-lg bg-[var(--accent-color)] px-6 py-3 font-semibold text-[var(--heading-color)] hover:opacity-90"
+            />
             <a href={NAP.telHref} className="rounded-lg border-2 border-[var(--heading-color)] px-6 py-3 font-semibold text-[var(--heading-color)]">
               Call {NAP.telDisplay}
             </a>

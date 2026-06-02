@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { CalendlyLink } from '@/components/shared/CalendlyLink';
+import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
 import { PageContainer, RealScoutOfficeListings } from '@/components/shared/JsonLd';
 import { NAP } from '@/lib/schema';
 
@@ -36,8 +37,13 @@ export default async function PropertyPage({ params }: PageProps) {
         Contact {NAP.name} at{' '}
         <a href={NAP.telHref} className="font-semibold text-[var(--accent-color)]">{NAP.telDisplay}</a>
         {' '}or{' '}
-        <Link href="/contact" className="font-semibold text-[var(--accent-color)]">schedule a consultation</Link>.
+        <CalendlyLink text="schedule a consultation" className="font-semibold text-[var(--accent-color)]" />.
       </p>
+      <CalendlyScheduleSection
+        title="Schedule a Property Consultation"
+        description={`Ask Dr. Jan Duffy about ${propertyAddress} or similar homes in Lone Mountain Heights.`}
+        className="mb-8"
+      />
       <section className="my-8">
         <h2 className="mb-4 text-xl font-semibold text-[var(--heading-color)]">More Lone Mountain Heights Listings</h2>
         <RealScoutOfficeListings />

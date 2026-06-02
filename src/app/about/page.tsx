@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { PageHeader, BtnPrimary, BtnSecondary } from '@/components/layouts/PageHeader';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
-import { CalendlyInline } from '@/components/shared/CalendlyInline';
+import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
 import { JsonLd, RealScoutOfficeListings } from '@/components/shared/JsonLd';
 import { aboutFAQs } from '@/lib/faqs';
 import { generateBreadcrumbSchema, generateFAQSchema, GBP_URLS, NAP } from '@/lib/schema';
@@ -123,6 +123,11 @@ export default function AboutPage() {
             </div>
           ))}
         </div>
+
+        <CalendlyScheduleSection
+          title="Schedule a Conversation with Dr. Jan Duffy"
+          description="Book a free 15-minute call to discuss buying or selling in Lone Mountain Heights."
+        />
 
         <FAQSection faqs={aboutFAQs} title="About Dr. Jan Duffy — FAQs" />
 

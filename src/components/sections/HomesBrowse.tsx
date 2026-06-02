@@ -3,6 +3,8 @@
 import Image from 'next/image';
 import { useMemo, useState } from 'react';
 import { FAQSection } from '@/components/sections/FAQSection';
+import { CalendlyLink } from '@/components/shared/CalendlyLink';
+import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
 import { RealScoutOfficeListings } from '@/components/shared/JsonLd';
 import { homesFAQs } from '@/lib/faqs';
 import { formatPrice } from '@/lib/format';
@@ -112,7 +114,11 @@ export function HomesBrowse() {
             {filtered.length === 0 ? (
               <div className="rounded-xl bg-white p-12 text-center shadow-md">
                 <h3 className="mb-2 text-xl font-bold">No homes match your criteria</h3>
-                <p className="text-[var(--text-light)]">Try adjusting filters or contact Dr. Jan for off-market opportunities.</p>
+                <p className="mb-4 text-[var(--text-light)]">Try adjusting filters or talk with Dr. Jan about off-market opportunities.</p>
+                <CalendlyLink
+                  text="Schedule time with me"
+                  className="inline-block rounded-lg bg-[var(--accent-color)] px-5 py-2.5 font-semibold text-[var(--heading-color)] hover:opacity-90"
+                />
               </div>
             ) : (
               <div className="grid gap-6 sm:grid-cols-2">
@@ -125,6 +131,11 @@ export function HomesBrowse() {
         </div>
 
         <FAQSection faqs={homesFAQs} title="Lone Mountain Heights Homes — Frequently Asked Questions" />
+
+        <CalendlyScheduleSection
+          title="Find the Right Home with Dr. Jan Duffy"
+          description="Schedule a free 15-minute call for a personalized home search in Lone Mountain Heights."
+        />
 
         <section className="mt-10 rounded-xl bg-slate-50 p-8 text-center">
           <h2 className="mb-2 text-2xl font-bold text-[var(--heading-color)]">Complete MLS Database</h2>

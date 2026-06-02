@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { PageHeader, BtnPrimary, BtnSecondary } from '@/components/layouts/PageHeader';
+import { PageHeader, BtnPrimary } from '@/components/layouts/PageHeader';
 import { FAQSection } from '@/components/sections/FAQSection';
+import { CalendlyLink } from '@/components/shared/CalendlyLink';
+import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
 import { JsonLd, RealScoutHomeValue } from '@/components/shared/JsonLd';
 import { valuationFAQs } from '@/lib/faqs';
 import { formatDate, formatPrice } from '@/lib/format';
@@ -99,6 +101,11 @@ export default function ValuationPage() {
 
         <FAQSection faqs={valuationFAQs} title="Home Valuation FAQs — Lone Mountain Heights" />
 
+        <CalendlyScheduleSection
+          title="Get a Personalized Home Valuation"
+          description="After your instant estimate, schedule a free call with Dr. Jan Duffy for a detailed pricing strategy."
+        />
+
         <section className="rounded-xl bg-slate-50 p-8 text-center">
           <h3 className="mb-2 text-xl font-bold text-[var(--heading-color)]">Ready to Sell Your Home?</h3>
           <p className="mb-6 text-[var(--text-light)]">
@@ -106,7 +113,10 @@ export default function ValuationPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <BtnPrimary href={NAP.telHref}>Call {NAP.telDisplay}</BtnPrimary>
-            <BtnSecondary href="/contact">Schedule Consultation</BtnSecondary>
+            <CalendlyLink
+              text="Schedule time with me"
+              className="inline-block rounded-lg border-2 border-[var(--heading-color)] px-5 py-2.5 font-semibold text-[var(--heading-color)] transition hover:bg-[var(--heading-color)] hover:text-white"
+            />
           </div>
         </section>
       </div>
