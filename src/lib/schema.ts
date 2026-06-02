@@ -6,7 +6,7 @@
 const NAP = {
   name: 'Dr. Jan Duffy',
   telephone: '+1-702-222-1964',
-  email: 'jan@lonemountainheights.com',
+  email: 'DrDuffySells@LoneMountainHeights.com',
   address: {
     streetAddress: 'Lone Mountain Heights',
     addressLocality: 'Las Vegas',

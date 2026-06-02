@@ -81,7 +81,7 @@ export const localSEOConfig = {
     description:
       'Leading real estate team specializing in Lone Mountain Heights, Las Vegas. 500+ successful transactions in the Lone Mountain area.',
     phone: '702-222-1964',
-    email: 'jan@lonemountainheights.com',
+    email: 'DrDuffySells@LoneMountainHeights.com',
     website: 'https://lonemountainheights.com',
     address: {
       street: 'Lone Mountain Heights',
