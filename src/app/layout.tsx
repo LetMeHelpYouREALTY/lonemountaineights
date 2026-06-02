@@ -1,0 +1,82 @@
+import type { Metadata } from 'next';
+import Script from 'next/script';
+import { Inter } from 'next/font/google';
+import { GlobalSearchBar, SiteFooter } from '@/components/layouts/SiteFooter';
+import { Navigation } from '@/components/layouts/Navigation';
+import { JsonLd } from '@/components/shared/JsonLd';
+import {
+  generateFAQSchema,
+  generateLocalBusinessSchema,
+  realEstateFAQs,
+} from '@/lib/schema';
+import './globals.css';
+import '@/styles/ranchStyles.css';
+
+const inter = Inter({ subsets: ['latin'], display: 'swap' });
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://lonemountainheights.com'),
+  title: {
+    default: 'Lone Mountain Heights Real Estate | Dr. Jan Duffy | Las Vegas 89129',
+    template: '%s | Lone Mountain Heights | Dr. Jan Duffy',
+  },
+  description:
+    'Find homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy leads the Berkshire Hathaway HomeServices Lone Mountain Heights Team.',
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'Lone Mountain Heights Real Estate',
+    url: 'https://lonemountainheights.com',
+  },
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const localBusinessSchema = generateLocalBusinessSchema();
+  const faqSchema = generateFAQSchema(realEstateFAQs);
+
+  return (
+    <html lang="en">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/images/icons/favicon.png" />
+        <link rel="apple-touch-icon" href="/images/icons/favicon.png" />
+        <link rel="preconnect" href="https://em.realscout.com" crossOrigin="" />
+        <link rel="preconnect" href="https://www.realscout.com" crossOrigin="" />
+        <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="" />
+        <JsonLd data={[localBusinessSchema, faqSchema]} />
+        <style>{`
+          realscout-office-listings {
+            --rs-listing-divider-color: rgb(101, 141, 172);
+            width: 100%;
+          }
+        `}</style>
+      </head>
+      <body className={inter.className}>
+        <Navigation />
+        <hr className="m-0 border-t border-slate-200" aria-hidden="true" />
+        <GlobalSearchBar />
+        <main id="main-content">{children}</main>
+        <SiteFooter />
+
+        <Script
+          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
+          strategy="afterInteractive"
+        />
+        <Script
+          src="https://assets.calendly.com/assets/external/widget.js"
+          strategy="lazyOnload"
+        />
+        <Script id="widget-tracker" strategy="lazyOnload">{`
+          (function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()
+          {(w[g].q=w[g].q||[]).push(arguments);}),(w[g].ds=1*new Date());(e="script"),
+          (t=d.createElement(e)),(e=d.getElementsByTagName(e)[0]);t.async=1;t.src=i;
+          e.parentNode.insertBefore(t,e);})
+          (window,"https://widgetbe.com/agent",document,"widgetTracker");
+          window.widgetTracker("create", "WT-XQHVYQWW");
+          window.widgetTracker("send", "pageview");
+        `}</Script>
+      </body>
+    </html>
+  );
+}

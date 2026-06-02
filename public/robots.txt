@@ -1,0 +1,12 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow: /todos/
+Disallow: /api/
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.lonemountainheights.com/sitemap.xml
+Sitemap: https://www.lonemountainheights.com/sitemap-index.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

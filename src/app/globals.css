@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+:root {
+  font-family:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-mono: "Fira Mono", monospace;
+  --pure-white: #ffffff;
+
+  /* Luxury color palette - Navy + White + Gold */
+  --primary-color: #1e3a8a; /* Navy Blue - builds trust and professionalism */
+  --secondary-color: #1e40af; /* Deep Navy */
+  --tertiary-color: #ffffff; /* Pure White - clean, spacious feeling */
+  --accent-color: #d4af37; /* Gold - drives action for CTAs */
+  --accent-light: #f4e4a6; /* Light Gold */
+  --warm-cream: #f8fafc; /* Off White */
+  --desert-sand: #e2e8f0; /* Light Gray */
+  --mountain-gray: #334155; /* Slate Gray */
+
+  --heading-color: #1e3a8a; /* Navy blue for headings */
+  --text-color: #334155; /* Slate gray for text */
+  --text-light: #64748b; /* Medium gray for secondary text */
+  --background-without-opacity: rgba(248, 248, 248, 0.95);
+  --column-width: 42rem;
+  --column-margin-top: 4rem;
+
+  /* Real estate specific colors */
+  --success-green: #059669; /* Success green */
+  --warning-orange: #d97706; /* Warning orange */
+  --error-red: #dc2626; /* Error red */
+  --info-blue: #2563eb; /* Info blue */
+
+  /* Ranch Style Colors - Navy + White + Gold */
+  --ranch-terracotta: #d4af37; /* Gold */
+  --ranch-sage: #059669; /* Success Green */
+  --ranch-cream: #ffffff; /* Pure White */
+  --ranch-adobe: #f1f5f9; /* Light Gray */
+  --ranch-sandstone: #e2e8f0; /* Light Slate */
+  --ranch-slate: #334155; /* Slate Gray */
+  --ranch-charcoal: #1e3a8a; /* Navy Blue */
+  --ranch-burgundy: #dc2626; /* Error Red */
+  --ranch-gold: #d4af37; /* Gold */
+  --ranch-copper: #d97706; /* Warning Orange */
+
+  /* Estate Colors - Navy + White + Gold */
+  --estate-gold: #d4af37; /* Gold */
+  --estate-silver: #94a3b8; /* Silver */
+  --estate-bronze: #d97706; /* Bronze */
+  --estate-marble: #ffffff; /* Pure White Marble */
+  --estate-granite: #1e3a8a; /* Navy Blue Granite */
+
+  /* Ranch Architecture Shadows - Navy Theme */
+  --ranch-shadow-light: 0 2px 8px rgba(30, 58, 138, 0.1);
+  --ranch-shadow-medium: 0 4px 16px rgba(30, 58, 138, 0.15);
+  --ranch-shadow-heavy: 0 8px 32px rgba(30, 58, 138, 0.2);
+
+  /* Estate Shadows - Navy Theme */
+  --estate-shadow-light: 0 2px 8px rgba(30, 58, 138, 0.1);
+  --estate-shadow-medium: 0 4px 16px rgba(30, 58, 138, 0.15);
+  --estate-shadow-heavy: 0 8px 32px rgba(30, 58, 138, 0.2);
+  --info-blue: #3b82f6;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background-color: var(--tertiary-color);
+  background: linear-gradient(
+    180deg,
+    var(--tertiary-color) 0%,
+    var(--warm-cream) 20%,
+    var(--pure-white) 60%,
+    var(--warm-cream) 100%
+  );
+}
+
+body::before {
+  content: "";
+  width: 80vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 10vw;
+  z-index: -1;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    var(--pure-white) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  opacity: 0.05;
+}
+
+#svelte {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+p {
+  font-weight: 400;
+  color: var(--heading-color);
+}
+
+p {
+  line-height: 1.5;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1rem;
+}
+
+pre {
+  font-size: 16px;
+  font-family: var(--font-mono);
+  background-color: rgba(255, 255, 255, 0.45);
+  border-radius: 3px;
+  box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
+  padding: 0.5em;
+  overflow-x: auto;
+  color: var(--text-color);
+}
+
+input,
+button {
+  font-size: inherit;
+  font-family: inherit;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (min-width: 720px) {
+  h1 {
+    font-size: 2.4rem;
+  }
+}

@@ -16,12 +16,11 @@
 // ---------------------------------------------------------------------------
 
 /** Cloudflare Images account hash (public, appears in delivery URLs) */
-export const CF_ACCOUNT_HASH = import.meta.env.VITE_CF_ACCOUNT_HASH || '';
+export const CF_ACCOUNT_HASH = process.env.NEXT_PUBLIC_CF_ACCOUNT_HASH || '';
 
-/** Master switch — set VITE_CF_IMAGES_ENABLED=true in .env to activate */
+/** Master switch — set NEXT_PUBLIC_CF_IMAGES_ENABLED=true in .env to activate */
 export const CF_ENABLED =
-  typeof import.meta.env !== 'undefined' &&
-  import.meta.env.VITE_CF_IMAGES_ENABLED === 'true' &&
+  process.env.NEXT_PUBLIC_CF_IMAGES_ENABLED === 'true' &&
   CF_ACCOUNT_HASH !== '';
 
 // ---------------------------------------------------------------------------
@@ -36,7 +35,7 @@ export const CF_ENABLED =
  * Key:   local path as used in src attributes (e.g. "/images/hero/hero-las-vegas.png")
  * Value: Cloudflare Image UUID returned by the upload API
  */
-export const IMAGE_MAP = {
+export const IMAGE_MAP: Record<string, string> = {
   '/images/agents/design 0001_new 2.jpg': 'lonemountaineights/agents/design-0001.jpg',
   '/images/agents/design 0002_new 2.jpg': 'lonemountaineights/agents/design-0002.jpg',
   '/images/agents/design 0003 _new 03.jpg': 'lonemountaineights/agents/design-0003.jpg',
@@ -94,7 +93,15 @@ export const NAMED_VARIANTS = {
  * @param {string} [opts.format]  — auto | webp | avif | json (default "auto")
  * @returns {string} Full URL — either imagedelivery.net or original local path
  */
-export function getCloudflareUrl(localPath, opts = {}) {
+type ImageOpts = {
+  width?: number;
+  height?: number;
+  quality?: number;
+  fit?: string;
+  format?: string;
+};
+
+export function getCloudflareUrl(localPath: string, opts: ImageOpts = {}): string {
   if (!CF_ENABLED) return localPath;
 
   const imageId = IMAGE_MAP[localPath];
@@ -130,7 +137,7 @@ export function getCloudflareUrl(localPath, opts = {}) {
  * @param {string} variantName — one of: hero, card, thumb, og, avatar
  * @returns {string} Full URL — imagedelivery.net with named variant, or local fallback
  */
-export function getVariantUrl(localPath, variantName) {
+export function getVariantUrl(localPath: string, variantName: string): string {
   if (!CF_ENABLED) return localPath;
 
   const imageId = IMAGE_MAP[localPath];
@@ -148,7 +155,7 @@ export function getVariantUrl(localPath, variantName) {
  * @param {number}   [opts.quality] — 1-100
  * @returns {string} srcset attribute value, or empty string if CF disabled
  */
-export function getSrcset(localPath, opts = {}) {
+export function getSrcset(localPath: string, opts: { widths?: number[]; quality?: number } = {}): string {
   if (!CF_ENABLED) return '';
 
   const imageId = IMAGE_MAP[localPath];
@@ -171,7 +178,7 @@ export function getSrcset(localPath, opts = {}) {
  * @param {number} [width=1200]
  * @returns {string}
  */
-export function getOgImageUrl(localPath, width = 1200) {
+export function getOgImageUrl(localPath: string, width = 1200): string {
   return getCloudflareUrl(localPath, { width, quality: 90, fit: 'cover' });
 }
 
@@ -191,7 +198,7 @@ export const SITE_ORIGIN = 'https://lonemountainheights.com';
  * @param {number} [width=1200]
  * @returns {string} Always an absolute URL
  */
-export function getAbsoluteImageUrl(localPath, width = 1200) {
+export function getAbsoluteImageUrl(localPath: string, width = 1200): string {
   if (CF_ENABLED) {
     const cfUrl = getOgImageUrl(localPath, width);
     if (cfUrl !== localPath) return cfUrl; // successfully resolved

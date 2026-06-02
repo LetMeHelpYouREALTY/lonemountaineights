@@ -1,0 +1,68 @@
+{
+  "name": "Lone Mountain Heights Real Estate",
+  "short_name": "Lone Mountain Heights",
+  "description": "Find your dream home in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy, your complete real estate partner.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F9FC",
+  "theme_color": "#3A8DDE",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["real-estate", "business", "lifestyle"],
+  "icons": [
+    {
+      "src": "/images/icons/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Search Homes",
+      "short_name": "Search",
+      "description": "Search for homes in Lone Mountain Heights",
+      "url": "/homes",
+      "icons": [
+        {
+          "src": "/images/icons/favicon.png",
+          "sizes": "32x32"
+        }
+      ]
+    },
+    {
+      "name": "Get Home Value",
+      "short_name": "Valuation",
+      "description": "Get your home's current market value",
+      "url": "/valuation",
+      "icons": [
+        {
+          "src": "/images/icons/favicon.png",
+          "sizes": "32x32"
+        }
+      ]
+    },
+    {
+      "name": "Contact Dr. Jan",
+      "short_name": "Contact",
+      "description": "Contact Dr. Jan Duffy directly",
+      "url": "/contact",
+      "icons": [
+        {
+          "src": "/images/icons/favicon.png",
+          "sizes": "32x32"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+}

@@ -1,30 +1,67 @@
-# SvelteKit
+# Lone Mountain Heights | Dr. Jan Duffy Real Estate
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte), deployed to [Vercel](https://vercel.com).
+Next.js 15 App Router site for **Lone Mountain Heights, Las Vegas 89129** — hyperlocal real estate with SEO, GEO, and AEO optimizations.
 
-## Deploy Your Own
+**Agent:** Dr. Jan Duffy · License S.0197614.LLC · Berkshire Hathaway HomeServices Nevada Properties
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fvercel%2Ftree%2Fmain%2Fexamples%2Fsveltekit&project-name=sveltekit-vercel&repository-name=sveltekit-vercel&demo-title=SvelteKit%20%2B%20Vercel&demo-description=A%20SvelteKit%20app%20optimized%20Edge-first.&demo-url=https%3A%2F%2Fsveltekit-template.vercel.app%2F)
+## Stack
 
-_Live Example: https://sveltekit-template.vercel.app_
+- **Next.js 15** (App Router, React 19, TypeScript)
+- **Tailwind CSS 4**
+- **RealScout** widgets (global script + custom elements)
+- **Cloudflare Images** (optional CDN via env vars)
+- **Cloudflare Worker** (`workers/realscout-global-injector`) for multi-site RealScout injection
 
-## Developing
-
-Once you've installed dependencies with `pnpm install`, start a development server:
-
-```bash
-pnpm run dev
-
-# or start the server and open the app in a new browser tab
-pnpm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+## Develop
 
 ```bash
-pnpm run build
+pnpm install
+pnpm dev
 ```
 
-You can preview the production build with `npm run preview`.
+Open [http://localhost:3000](http://localhost:3000)
+
+## Build
+
+```bash
+pnpm build
+pnpm start
+```
+
+For Vercel production builds, use `vercel build` per project standards.
+
+## Environment
+
+Copy `.env.example` to `.env.local`:
+
+| Variable | Description |
+|----------|-------------|
+| `NEXT_PUBLIC_CF_IMAGES_ENABLED` | `true` to use Cloudflare Images CDN |
+| `NEXT_PUBLIC_CF_ACCOUNT_HASH` | Cloudflare Images account hash |
+
+## Project structure
+
+```
+src/
+├── app/              # App Router pages (migrated from SvelteKit)
+├── components/       # React components (layouts, sections, shared)
+├── lib/              # Schema, FAQs, SEO, Cloudflare image helpers
+└── styles/           # Global CSS supplements
+public/               # Static assets (sitemap, robots, images)
+_archive/svelte-routes/  # Original SvelteKit pages (reference during migration)
+workers/              # Cloudflare Workers
+scripts/              # Deploy & migration scripts
+```
+
+## Migration notes
+
+This site was converted from SvelteKit to Next.js. Original Svelte pages are archived in `_archive/svelte-routes/`. Run `node scripts/generate-nextjs-pages.mjs` to regenerate stub pages from the archive.
+
+Individual pages can be enriched by porting content from the archive into their `src/app/**/page.tsx` files.
+
+## SEO
+
+- LocalBusiness / RealEstateAgent JSON-LD on all pages (root layout)
+- Per-page metadata via `export const metadata`
+- Dynamic `sitemap.ts` and `robots.ts`
+- FAQ schema for AEO on homepage and FAQ routes
