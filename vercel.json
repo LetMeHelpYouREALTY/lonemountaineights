@@ -1,5 +1,6 @@
 {
   "framework": "nextjs",
   "buildCommand": "pnpm run build",
-  "installCommand": "pnpm install"
+  "installCommand": "pnpm install",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- . ':(exclude)README.md' ':(exclude)**/*.md' ':(exclude)**/*.mdx' || exit 1"
 }
