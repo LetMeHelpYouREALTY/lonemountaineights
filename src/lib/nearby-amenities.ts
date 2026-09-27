@@ -142,7 +142,7 @@ export const CURATED_NEARBY_PLACES: CuratedPlace[] = [
     lat: 36.2718,
     lng: -115.2664,
     schemaType: 'GroceryStore',
-    sourceUrl: 'https://www.walmart.com/store/3359-las-vegas-nv',
+    sourceUrl: 'https://www.walmart.com/store/2884-las-vegas-nv',
   },
   {
     name: 'Downtown Summerlin',

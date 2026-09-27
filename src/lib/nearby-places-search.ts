@@ -19,11 +19,12 @@ export function searchCategory(
       const { places } = await Place.searchNearby({
         fields: ['displayName', 'location', 'formattedAddress', 'googleMapsURI'],
         locationRestriction: {
-          center: { latitude: center.lat, longitude: center.lng },
+          center,
           radius: 5000,
         },
         includedPrimaryTypes: cat.includedTypes,
         maxResultCount: 10,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Places API rankPreference string (senior review pattern)
         rankPreference: 'POPULARITY' as any,
       });
       return places;

@@ -60,14 +60,21 @@ function curatedToResults(category: AmenityCategoryId): PlaceResult[] {
   }));
 }
 
+function placeDisplayName(place: google.maps.places.Place): string | undefined {
+  const dn = place.displayName;
+  if (!dn) return undefined;
+  if (typeof dn === 'string') return dn;
+  return String(dn);
+}
+
 function placeFromGoogle(place: google.maps.places.Place): PlaceResult | null {
-  const name = place.displayName;
+  const name = placeDisplayName(place);
   const loc = place.location;
   if (!name || !loc) return null;
   const { lat, lng } = loc.toJSON();
   return {
     name,
-    address: place.formattedAddress,
+    address: place.formattedAddress ?? undefined,
     lat,
     lng,
   };
