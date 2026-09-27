@@ -33,8 +33,7 @@ export function AmenityMapFallback({
       {showCuratedList && (
         <div className="border-t border-slate-100 p-4 md:p-6">
           <p className="mb-3 text-sm text-[var(--text-light)]">
-            Interactive amenity search loads when Google Maps is configured. Featured places near{' '}
-            {COMMUNITY.name}:
+            Featured places near {COMMUNITY.name}:
           </p>
           <ul className="grid gap-2 sm:grid-cols-2">
             {(filtered.length > 0 ? filtered : CURATED_NEARBY_PLACES.slice(0, 6)).map((place) => (

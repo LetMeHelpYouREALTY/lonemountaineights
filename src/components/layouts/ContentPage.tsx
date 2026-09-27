@@ -9,7 +9,7 @@ import {
   generateBreadcrumbSchema,
   generateWebPageSchema,
 } from '@/lib/structured-data';
-import { buildPageMetadata as buildSiteMetadata } from '@/lib/site-metadata';
+import { buildPageMetadata as buildSiteMetadata, SITE_URL } from '@/lib/site-metadata';
 
 type FAQ = { question: string; answer: string };
 type Crumb = { name: string; href?: string };
@@ -52,7 +52,7 @@ export function ContentPage({
   const breadcrumbSchema = generateBreadcrumbSchema(
     breadcrumbs.map((b, i) => ({
       name: b.name,
-      url: b.href ? `https://lonemountainheights.com${b.href}` : `https://lonemountainheights.com${canonical}`,
+      url: b.href ? `${SITE_URL}${b.href}` : `${SITE_URL}${canonical}`,
     })),
   );
   const schemas: Record<string, unknown>[] = [

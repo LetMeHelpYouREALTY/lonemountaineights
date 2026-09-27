@@ -256,10 +256,11 @@ export function generateWebPageSchema({
 /** Neighborhood / location guides — Place schema for local geo discovery. */
 type FeaturedPlace = {
   name: string;
-  address: string;
+  address?: string;
   schemaType: string;
   lat: number;
   lng: number;
+  sourceUrl?: string;
 };
 
 /** ItemList of verified nearby places for amenities / local SEO. */
@@ -277,13 +278,18 @@ export function generateFeaturedPlacesItemListSchema(
       item: {
         '@type': place.schemaType,
         name: place.name,
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: place.address,
-          addressLocality: 'Las Vegas',
-          addressRegion: 'NV',
-          addressCountry: 'US',
-        },
+        ...(place.sourceUrl ? { url: place.sourceUrl } : {}),
+        ...(place.address
+          ? {
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: place.address,
+                addressLocality: 'Las Vegas',
+                addressRegion: 'NV',
+                addressCountry: 'US',
+              },
+            }
+          : {}),
         geo: {
           '@type': 'GeoCoordinates',
           latitude: place.lat,

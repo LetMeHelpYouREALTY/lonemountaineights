@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 
-const BASE = 'https://lonemountainheights.com';
+import { SITE_URL } from '@/lib/site-metadata';
+
+const BASE = SITE_URL;
 
 const routes = [
   '/',

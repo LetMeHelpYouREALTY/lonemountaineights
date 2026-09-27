@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Luxury Homes in Lone Mountain Heights | Dr. Jan Duffy',
   description:
     'Discover luxury homes in Lone Mountain Heights with Dr. Jan Duffy. Premium properties with mountain views, pools, and high-end amenities.',
-  alternates: { canonical: 'https://lonemountainheights.com/luxury' },
+  alternates: { canonical: 'https://www.lonemountainheights.com/luxury' },
 };
 
 const stats = [

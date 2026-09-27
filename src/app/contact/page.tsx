@@ -36,16 +36,16 @@ export default function ContactPage() {
             includeSpeakable: true,
           }),
           generateBreadcrumbSchema([
-            { name: 'Home', url: 'https://lonemountainheights.com' },
-            { name: 'Contact', url: 'https://lonemountainheights.com/contact' },
+            { name: 'Home', url: 'https://www.lonemountainheights.com' },
+            { name: 'Contact', url: 'https://www.lonemountainheights.com/contact' },
           ]),
           generateFAQSchema(contactFAQs),
           {
             '@context': 'https://schema.org',
             '@type': 'ContactPage',
-            '@id': 'https://lonemountainheights.com/contact#webpage',
+            '@id': 'https://www.lonemountainheights.com/contact#webpage',
             name: 'Contact Dr. Jan Duffy - Lone Mountain Heights Real Estate Expert',
-            url: 'https://lonemountainheights.com/contact',
+            url: 'https://www.lonemountainheights.com/contact',
             mainEntity: { '@id': SCHEMA_IDS.agent },
           },
         ]}

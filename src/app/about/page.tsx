@@ -7,7 +7,7 @@ import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
 import { JsonLd, RealScoutOfficeListings } from '@/components/shared/JsonLd';
 import { aboutFAQs } from '@/lib/faqs';
-import { generateBreadcrumbSchema, generateFAQSchema, NAP } from '@/lib/schema';
+import { generateBreadcrumbSchema, generateFAQSchema, GBP_URLS, NAP } from '@/lib/schema';
 import { generateWebPageSchema, SCHEMA_IDS } from '@/lib/structured-data';
 import { buildPageMetadata } from '@/lib/site-metadata';
 
@@ -47,16 +47,16 @@ export default function AboutPage() {
             includeSpeakable: true,
           }),
           generateBreadcrumbSchema([
-            { name: 'Home', url: 'https://lonemountainheights.com' },
-            { name: 'About', url: 'https://lonemountainheights.com/about' },
+            { name: 'Home', url: 'https://www.lonemountainheights.com' },
+            { name: 'About', url: 'https://www.lonemountainheights.com/about' },
           ]),
           generateFAQSchema(aboutFAQs),
           {
             '@context': 'https://schema.org',
             '@type': 'ProfilePage',
-            '@id': 'https://lonemountainheights.com/about#webpage',
+            '@id': 'https://www.lonemountainheights.com/about#webpage',
             name: 'About Dr. Jan Duffy',
-            url: 'https://lonemountainheights.com/about',
+            url: 'https://www.lonemountainheights.com/about',
             mainEntity: { '@id': SCHEMA_IDS.person },
           },
         ]}

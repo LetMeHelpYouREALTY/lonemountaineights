@@ -14,7 +14,7 @@ import {
 } from '@/lib/nearby-amenities';
 import { getBreadcrumbs } from '@/lib/content-page';
 import { GBP_URLS } from '@/lib/schema';
-import { buildPageMetadata } from '@/lib/site-metadata';
+import { buildPageMetadata, SITE_URL } from '@/lib/site-metadata';
 import {
   generateBreadcrumbSchema,
   generateFAQSchema,
@@ -71,9 +71,7 @@ export default function AmenitiesPage() {
           generateBreadcrumbSchema(
             breadcrumbs.map((b) => ({
               name: b.name,
-              url: b.href
-                ? `https://lonemountainheights.com${b.href}`
-                : `https://lonemountainheights.com${canonical}`,
+              url: b.href ? `${SITE_URL}${b.href}` : `${SITE_URL}${canonical}`,
             })),
           ),
           generateFAQSchema(AMENITIES_PAGE_FAQS),
@@ -124,7 +122,9 @@ export default function AmenitiesPage() {
             {CURATED_NEARBY_PLACES.map((place) => (
               <li key={place.name} className="rounded-lg bg-white p-4 shadow-sm">
                 <h3 className="font-semibold text-[var(--heading-color)]">{place.name}</h3>
-                <p className="text-sm text-[var(--text-light)]">{place.address}</p>
+                {place.address ? (
+                  <p className="text-sm text-[var(--text-light)]">{place.address}</p>
+                ) : null}
                 {place.note && <p className="mt-1 text-sm text-[var(--text-color)]">{place.note}</p>}
               </li>
             ))}

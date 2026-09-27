@@ -34,7 +34,7 @@ export function generateHyperLocalMeta(subdivisionId, pageType = 'overview') {
     title: pageTitles[pageType] || baseTitle,
     description: pageDescriptions[pageType] || baseDescription,
     keywords: generateMicroNeighborhoodKeywords(subdivision),
-    canonical: `https://lonemountainheights.com/neighborhoods/${subdivisionId}`,
+    canonical: `https://www.lonemountainheights.com/neighborhoods/${subdivisionId}`,
     ogTitle: pageTitles[pageType] || baseTitle,
     ogDescription: pageDescriptions[pageType] || baseDescription,
     ogImage: getAbsoluteImageUrl('/images/og/og-image.png'),
@@ -210,14 +210,14 @@ export function generateMicroNeighborhoodBreadcrumbs(
   if (!subdivision) return [];
 
   const baseBreadcrumbs = [
-    { name: 'Home', url: 'https://lonemountainheights.com' },
+    { name: 'Home', url: 'https://www.lonemountainheights.com' },
     {
       name: 'Micro-Neighborhoods',
-      url: 'https://lonemountainheights.com/neighborhoods',
+      url: 'https://www.lonemountainheights.com/neighborhoods',
     },
     {
       name: subdivision.name,
-      url: `https://lonemountainheights.com/neighborhoods/${subdivisionId}`,
+      url: `https://www.lonemountainheights.com/neighborhoods/${subdivisionId}`,
     },
   ];
 
@@ -226,21 +226,21 @@ export function generateMicroNeighborhoodBreadcrumbs(
       ...baseBreadcrumbs,
       {
         name: 'Homes for Sale',
-        url: `https://lonemountainheights.com/neighborhoods/${subdivisionId}/homes`,
+        url: `https://www.lonemountainheights.com/neighborhoods/${subdivisionId}/homes`,
       },
     ],
     market: [
       ...baseBreadcrumbs,
       {
         name: 'Market Report',
-        url: `https://lonemountainheights.com/neighborhoods/${subdivisionId}/market`,
+        url: `https://www.lonemountainheights.com/neighborhoods/${subdivisionId}/market`,
       },
     ],
     guide: [
       ...baseBreadcrumbs,
       {
         name: 'Neighborhood Guide',
-        url: `https://lonemountainheights.com/neighborhoods/${subdivisionId}/guide`,
+        url: `https://www.lonemountainheights.com/neighborhoods/${subdivisionId}/guide`,
       },
     ],
   };

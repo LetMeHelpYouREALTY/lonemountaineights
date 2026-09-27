@@ -10,10 +10,10 @@ import { generateFAQSchema } from '@/lib/schema';
 import { generateWebPageSchema } from '@/lib/structured-data';
 import { homeFAQs } from '@/lib/faqs';
 import { NearbyAmenitiesSection } from '@/components/sections/NearbyAmenitiesSection';
-import { buildPageMetadata } from '@/lib/site-metadata';
+import { buildPageMetadata, SITE_URL } from '@/lib/site-metadata';
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Lone Mountain Heights Homes for Sale | Dr. Jan Duffy Expert | Las Vegas 89129',
+  title: 'Lone Mountain Heights Homes for Sale | 89129',
   description:
     'Find your dream home in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy offers exclusive listings, market insights, and personalized service.',
   path: '/',
@@ -53,7 +53,7 @@ export default function HomePage() {
           {
             '@context': 'https://schema.org',
             '@type': 'BreadcrumbList',
-            itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://lonemountainheights.com' }],
+            itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL }],
           },
         ]}
       />
