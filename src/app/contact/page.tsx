@@ -6,8 +6,8 @@ import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { CalendlyInline } from '@/components/shared/CalendlyInline';
 import { JsonLd, RealScoutOfficeListings } from '@/components/shared/JsonLd';
 import { contactFAQs } from '@/lib/faqs';
-import { generateBreadcrumbSchema, generateFAQSchema, GBP_URLS, NAP, SCHEMA_IDS } from '@/lib/schema';
-import { generateWebPageSchema } from '@/lib/structured-data';
+import { generateBreadcrumbSchema, generateFAQSchema, GBP_URLS, NAP } from '@/lib/schema';
+import { generateWebPageSchema, SCHEMA_IDS } from '@/lib/structured-data';
 import { buildPageMetadata } from '@/lib/site-metadata';
 
 export const metadata: Metadata = buildPageMetadata({
@@ -36,16 +36,16 @@ export default function ContactPage() {
             includeSpeakable: true,
           }),
           generateBreadcrumbSchema([
-            { name: 'Home', url: 'https://lonemountainheights.com' },
-            { name: 'Contact', url: 'https://lonemountainheights.com/contact' },
+            { name: 'Home', url: 'https://www.lonemountainheights.com' },
+            { name: 'Contact', url: 'https://www.lonemountainheights.com/contact' },
           ]),
           generateFAQSchema(contactFAQs),
           {
             '@context': 'https://schema.org',
             '@type': 'ContactPage',
-            '@id': 'https://lonemountainheights.com/contact#webpage',
+            '@id': 'https://www.lonemountainheights.com/contact#webpage',
             name: 'Contact Dr. Jan Duffy - Lone Mountain Heights Real Estate Expert',
-            url: 'https://lonemountainheights.com/contact',
+            url: 'https://www.lonemountainheights.com/contact',
             mainEntity: { '@id': SCHEMA_IDS.agent },
           },
         ]}

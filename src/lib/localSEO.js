@@ -81,7 +81,7 @@ export const localSEOConfig = {
       'Leading real estate team specializing in Lone Mountain Heights, Las Vegas. 500+ successful transactions in the Lone Mountain area.',
     phone: '702-222-1964',
     email: 'DrDuffySells@LoneMountainHeights.com',
-    website: 'https://lonemountainheights.com',
+    website: 'https://www.lonemountainheights.com',
     address: {
       street: 'Lone Mountain Heights',
       city: 'Las Vegas',
@@ -99,7 +99,7 @@ export function generateLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
-    '@id': 'https://lonemountainheights.com/#realestateagent',
+    '@id': 'https://www.lonemountainheights.com/#realestateagent',
     name: localSEOConfig.businessInfo.name,
     description: localSEOConfig.businessInfo.description,
     url: localSEOConfig.businessInfo.website,
@@ -193,7 +193,7 @@ export function generateLocationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Place',
-    '@id': 'https://lonemountainheights.com/#location',
+    '@id': 'https://www.lonemountainheights.com/#location',
     name: localSEOConfig.location.name,
     description:
       'Gated community in Las Vegas with 3-5 bedroom homes featuring mountain views',
@@ -316,7 +316,7 @@ export function generatePropertySchema(property) {
     description:
       property.insight ||
       `Beautiful ${property.bedrooms} bedroom home in Lone Mountain Heights`,
-    url: `https://lonemountainheights.com/homes/${property.id}`,
+    url: `https://www.lonemountainheights.com/homes/${property.id}`,
     image: property.image,
     address: {
       '@type': 'PostalAddress',
@@ -446,7 +446,7 @@ export function generateOrganizationSchema() {
     alternateName: 'Lone Mountain Heights Real Estate Team',
     description: localSEOConfig.businessInfo.description,
     url: localSEOConfig.businessInfo.website,
-    logo: 'https://lonemountainheights.com/logo.png',
+    logo: 'https://www.lonemountainheights.com/logo.png',
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: localSEOConfig.businessInfo.phone,
@@ -482,12 +482,12 @@ export function generateLocalSEOMetaTags(pageType = 'home') {
     title: `Lone Mountain Heights Real Estate | Dr. Jan Duffy Team | Las Vegas 89129`,
     description: `Find homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy leads the Berkshire Hathaway HomeServices Nevada Properties team as your complete real estate partner. Expert local knowledge.`,
     keywords: allKeywords,
-    canonical: `https://lonemountainheights.com/${pageType}`,
+    canonical: `https://www.lonemountainheights.com/${pageType}`,
     openGraph: {
       title: `Lone Mountain Heights Real Estate | Dr. Jan Duffy Team`,
       description: `Expert real estate services for Lone Mountain Heights, Las Vegas. 500+ successful transactions.`,
       type: 'website',
-      url: `https://lonemountainheights.com/${pageType}`,
+      url: `https://www.lonemountainheights.com/${pageType}`,
       siteName: 'Lone Mountain Heights Real Estate',
       locale: 'en_US',
       image: getAbsoluteImageUrl('/images/og/og-image.png'),

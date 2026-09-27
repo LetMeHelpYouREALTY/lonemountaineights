@@ -45,7 +45,7 @@ export function generateRealEstateSchema(_property) {
     name: NAP.name,
     description:
       'Lone Mountain Heights Real Estate Expert - 500+ Las Vegas Transactions',
-    url: 'https://lonemountainheights.com',
+    url: 'https://www.lonemountainheights.com',
     telephone: NAP.telephone,
     email: NAP.email,
     address: {
@@ -106,7 +106,7 @@ export function generatePropertySchema(property) {
     '@type': 'RealEstateListing',
     name: property.address,
     description: `${property.bedrooms} bedroom, ${property.bathrooms} bathroom home in Lone Mountain Heights`,
-    url: `https://lonemountainheights.com/homes/${property.id}`,
+    url: `https://www.lonemountainheights.com/homes/${property.id}`,
     image: property.image,
     offers: {
       '@type': 'Offer',
@@ -169,7 +169,7 @@ export function generatePropertySchema(property) {
     },
     provider: {
       '@type': 'RealEstateAgent',
-      '@id': 'https://lonemountainheights.com/#realestate-agent',
+      '@id': 'https://www.lonemountainheights.com/#realestate-agent',
     },
   };
 }

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: 'Lone Mountain Heights Home Valuation | Las Vegas 89129',
   description:
     "Get instant home valuation for Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy's expert market analysis and pricing strategy.",
-  alternates: { canonical: 'https://lonemountainheights.com/valuation' },
+  alternates: { canonical: 'https://www.lonemountainheights.com/valuation' },
 };
 
 const comparableSales = [
@@ -36,8 +36,8 @@ export default function ValuationPage() {
       <JsonLd
         data={[
           generateBreadcrumbSchema([
-            { name: 'Home', url: 'https://lonemountainheights.com' },
-            { name: 'Home Valuation', url: 'https://lonemountainheights.com/valuation' },
+            { name: 'Home', url: 'https://www.lonemountainheights.com' },
+            { name: 'Home Valuation', url: 'https://www.lonemountainheights.com/valuation' },
           ]),
           generateFAQSchema(valuationFAQs),
         ]}

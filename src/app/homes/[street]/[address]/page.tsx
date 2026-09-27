@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${propertyAddress} | ${streetName} | Lone Mountain Heights Homes`,
     description: `View ${propertyAddress} on ${streetName} in Lone Mountain Heights, Las Vegas 89129. Contact Dr. Jan Duffy for details.`,
     alternates: {
-      canonical: `https://lonemountainheights.com/homes/${street}/${address}`,
+      canonical: `https://www.lonemountainheights.com/homes/${street}/${address}`,
     },
   };
 }

@@ -187,12 +187,12 @@ export function getOgImageUrl(localPath: string, width = 1200): string {
 // ---------------------------------------------------------------------------
 
 /** Site origin — used when CF is disabled to build absolute URLs */
-export const SITE_ORIGIN = 'https://lonemountainheights.com';
+export const SITE_ORIGIN = 'https://www.lonemountainheights.com';
 
 /**
  * Get an absolute image URL suitable for OG / meta / JSON-LD.
  * Returns a Cloudflare delivery URL when enabled, otherwise the full
- * https://lonemountainheights.com/images/… URL.
+ * https://www.lonemountainheights.com/images/… URL.
  *
  * @param {string} localPath — e.g. "/images/og/og-image.png"
  * @param {number} [width=1200]

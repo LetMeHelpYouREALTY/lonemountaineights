@@ -18,7 +18,7 @@ const inter = Inter({ subsets: ['latin'], display: 'swap' });
 const defaultSocial = getDefaultSocialMetadata();
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://lonemountainheights.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Lone Mountain Heights Real Estate | Dr. Jan Duffy | Las Vegas 89129',
     template: '%s | Lone Mountain Heights | Dr. Jan Duffy',
