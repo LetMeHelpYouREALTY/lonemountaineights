@@ -4,7 +4,10 @@ import { ContentPage, buildPageMetadata } from '@/components/layouts/ContentPage
 import { RealScoutOfficeListings } from '@/components/shared/JsonLd';
 import { getBreadcrumbs, getPageConfig, getPageFaqs } from '@/lib/content-page';
 
+import { NearbyAmenitiesSection } from '@/components/sections/NearbyAmenitiesSection';
 import { generatePlaceSchema } from '@/lib/structured-data';
+
+const NEARBY_MAP_SLUGS = new Set(['guide', 'neighborhoods']);
 
 const LOCATION_SLUGS = new Set([
   'locations/lone-mountain-ranch',
@@ -79,6 +82,11 @@ export function makeContentPage(slug: string) {
                 Go to Valuation Tool →
               </Link>
             </div>
+          )}
+          {NEARBY_MAP_SLUGS.has(slug) && (
+            <NearbyAmenitiesSection
+              title={slug === 'guide' ? 'Life Near Lone Mountain Heights' : 'Amenities Near Your Neighborhood'}
+            />
           )}
           <section className="my-8">
             <h2 className="mb-4 text-xl font-semibold text-[var(--heading-color)]">Current Listings</h2>
