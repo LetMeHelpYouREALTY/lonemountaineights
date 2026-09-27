@@ -254,6 +254,46 @@ export function generateWebPageSchema({
 }
 
 /** Neighborhood / location guides — Place schema for local geo discovery. */
+type FeaturedPlace = {
+  name: string;
+  address: string;
+  schemaType: string;
+  lat: number;
+  lng: number;
+};
+
+/** ItemList of verified nearby places for amenities / local SEO. */
+export function generateFeaturedPlacesItemListSchema(
+  places: FeaturedPlace[],
+  listName: string,
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: listName,
+    itemListElement: places.map((place, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': place.schemaType,
+        name: place.name,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: place.address,
+          addressLocality: 'Las Vegas',
+          addressRegion: 'NV',
+          addressCountry: 'US',
+        },
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: place.lat,
+          longitude: place.lng,
+        },
+      },
+    })),
+  };
+}
+
 export function generatePlaceSchema({ name, description, path }: PlaceSchemaOptions) {
   const url = `${SITE_URL}${path}`;
 

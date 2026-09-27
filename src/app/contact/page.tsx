@@ -6,8 +6,8 @@ import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { CalendlyInline } from '@/components/shared/CalendlyInline';
 import { JsonLd, RealScoutOfficeListings } from '@/components/shared/JsonLd';
 import { contactFAQs } from '@/lib/faqs';
-import { generateBreadcrumbSchema, generateFAQSchema, GBP_URLS, NAP, SCHEMA_IDS } from '@/lib/schema';
-import { generateWebPageSchema } from '@/lib/structured-data';
+import { generateBreadcrumbSchema, generateFAQSchema, GBP_URLS, NAP } from '@/lib/schema';
+import { generateWebPageSchema, SCHEMA_IDS } from '@/lib/structured-data';
 import { buildPageMetadata } from '@/lib/site-metadata';
 
 export const metadata: Metadata = buildPageMetadata({

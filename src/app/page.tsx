@@ -9,6 +9,7 @@ import { JsonLd, RealScoutOfficeListings } from '@/components/shared/JsonLd';
 import { generateFAQSchema } from '@/lib/schema';
 import { generateWebPageSchema } from '@/lib/structured-data';
 import { homeFAQs } from '@/lib/faqs';
+import { NearbyAmenitiesSection } from '@/components/sections/NearbyAmenitiesSection';
 import { buildPageMetadata } from '@/lib/site-metadata';
 
 export const metadata: Metadata = buildPageMetadata({
@@ -99,6 +100,8 @@ export default function HomePage() {
             ))}
           </div>
         </section>
+
+        <NearbyAmenitiesSection title="What's Nearby in Lone Mountain Heights" />
 
         <section className="my-12 rounded-xl border border-slate-200 bg-slate-50 p-8">
           <h2 className="mb-2 text-center text-3xl font-bold text-[var(--heading-color)]">Current Lone Mountain Heights Listings</h2>
