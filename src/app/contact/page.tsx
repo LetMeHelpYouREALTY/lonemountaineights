@@ -115,7 +115,7 @@ export default function ContactPage() {
         <section className="mb-10 rounded-xl bg-white p-6 shadow-md">
           <h2 className="mb-2 text-2xl font-bold text-[var(--heading-color)]">Find Us</h2>
           <p className="mb-4 text-[var(--text-light)]">
-            Lone Mountain Heights service area — {NAP.name}, Berkshire Hathaway HomeServices Nevada Properties
+            Lone Mountain Heights service area — {NAP.name}
           </p>
           <div className="overflow-hidden rounded-lg shadow">
             <iframe

@@ -58,7 +58,7 @@ export function TrustSignals() {
       </div>
 
       <p className="mt-8 text-center text-sm text-[var(--text-light)]">
-        {NAP.name} · License {NAP.license} · Berkshire Hathaway HomeServices Nevada Properties
+        {NAP.name} · Top 1% Las Vegas REALTOR® · In real estate since 1983
       </p>
     </section>
   );

@@ -14,7 +14,7 @@ import { buildPageMetadata } from '@/lib/site-metadata';
 export const metadata: Metadata = buildPageMetadata({
   title: 'About Dr. Jan Duffy | Lone Mountain Heights Expert | Las Vegas 89129',
   description:
-    'Meet Dr. Jan Duffy, your complete real estate partner in Lone Mountain Heights, Las Vegas 89129. Berkshire Hathaway team leader and hyperlocal expert.',
+    'Meet Dr. Jan Duffy, your complete real estate partner in Lone Mountain Heights, Las Vegas 89129. Lone Mountain Heights team leader and hyperlocal expert.',
   path: '/about',
 });
 
@@ -23,15 +23,15 @@ const advantages = [
   { icon: '🏆', title: 'Luxury Market Focus', desc: 'Global luxury resources for affluent buyers and sellers in Lone Mountain Heights.' },
   { icon: '🤝', title: 'Forever Agent Commitment', desc: 'Long-term support for every client — not just the transaction.' },
   { icon: '📈', title: 'Advanced Marketing Tools', desc: 'Digital marketing including Zillow Showcase for maximum listing exposure.' },
-  { icon: '🌍', title: 'Global Network Access', desc: '1,600+ Berkshire Hathaway offices worldwide and $154.7B in sales volume.' },
+  { icon: '🌍', title: 'Proven Experience', desc: 'In real estate since 1983, with $127M+ in closed transactions.' },
   { icon: '❤️', title: 'Community Impact', desc: 'Committed to service in Las Vegas and the Lone Mountain Heights community.' },
 ];
 
 const stats = [
   { value: '500+', label: 'Las Vegas Transactions' },
   { value: '89129', label: 'Hyperlocal Focus' },
-  { value: '1,600+', label: 'BHHS Offices Worldwide' },
-  { value: '$154.7B', label: 'Network Sales Volume' },
+  { value: 'Since 1983', label: 'In Real Estate' },
+  { value: '$127M+', label: 'Sales Volume' },
 ];
 
 export default function AboutPage() {
@@ -42,7 +42,7 @@ export default function AboutPage() {
           generateWebPageSchema({
             name: 'About Dr. Jan Duffy — Lone Mountain Heights Real Estate Expert',
             description:
-              'Meet Dr. Jan Duffy, Berkshire Hathaway HomeServices Lone Mountain Heights team leader and hyperlocal Las Vegas 89129 expert.',
+              'Meet Dr. Jan Duffy, Lone Mountain Heights team leader and hyperlocal Las Vegas 89129 expert.',
             path: '/about',
             includeSpeakable: true,
           }),
@@ -63,9 +63,9 @@ export default function AboutPage() {
       />
 
       <PageHeader
-        badge="Berkshire Hathaway HomeServices · Lone Mountain Heights Team"
+        badge="Top 1% Las Vegas REALTOR® · Lone Mountain Heights Team"
         title="About Dr. Jan Duffy"
-        subtitle="Head of the Berkshire Hathaway HomeServices Lone Mountain Heights Team — your complete real estate partner"
+        subtitle="Head of the Lone Mountain Heights Team — your complete real estate partner"
       />
 
       <div className="mx-auto max-w-6xl px-4 py-10 md:px-8">
@@ -85,12 +85,11 @@ export default function AboutPage() {
               Your Lone Mountain Heights Expert
             </h2>
             <p className="mb-4 leading-relaxed text-[var(--text-color)]">
-              Dr. Jan Duffy brings 500+ Las Vegas transactions, deep neighborhood knowledge, and Berkshire Hathaway
-              resources to every buyer and seller in Lone Mountain Heights, Las Vegas 89129. She knows every street,
+              Dr. Jan Duffy has been in real estate since 1983 and brings 500+ Las Vegas transactions and deep neighborhood knowledge to every buyer and seller in Lone Mountain Heights, Las Vegas 89129. She knows every street,
               every subdivision, and every opportunity in the community.
             </p>
             <p className="mb-6 leading-relaxed text-[var(--text-color)]">
-              License {NAP.license} · {NAP.hours} · {NAP.fullAddress}
+              {NAP.hours} · {NAP.fullAddress}
             </p>
             <div className="flex flex-wrap gap-3">
               <CalendlyLink
@@ -112,7 +111,7 @@ export default function AboutPage() {
         </div>
 
         <h2 className="mb-6 text-center text-2xl font-bold text-[var(--heading-color)]">
-          Berkshire Hathaway Advantages
+          The Dr. Jan Duffy Advantage
         </h2>
         <div className="mb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {advantages.map((a) => (

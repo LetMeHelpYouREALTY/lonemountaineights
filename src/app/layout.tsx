@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: '%s | Lone Mountain Heights | Dr. Jan Duffy',
   },
   description:
-    'Find homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy leads the Berkshire Hathaway HomeServices Lone Mountain Heights Team.',
+    'Find homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy leads the Lone Mountain Heights Team.',
   keywords: [
     'Lone Mountain Heights homes for sale',
     'Las Vegas 89129 real estate',

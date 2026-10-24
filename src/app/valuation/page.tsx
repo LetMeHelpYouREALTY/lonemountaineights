@@ -44,7 +44,7 @@ export default function ValuationPage() {
       />
 
       <PageHeader
-        badge="Berkshire Hathaway HomeServices"
+        badge="Dr. Jan Duffy, REALTOR®"
         title="Lone Mountain Heights Home Valuation"
         subtitle="Instant home valuation with Dr. Jan Duffy's expert market analysis"
       />

@@ -17,7 +17,7 @@ export const metadata: Metadata = buildPageMetadata({
     'Find your dream home in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy offers exclusive listings, market insights, and personalized service.',
   path: '/',
   ogImageAlt:
-    'Lone Mountain Heights homes for sale in Las Vegas 89129 — Dr. Jan Duffy, Berkshire Hathaway real estate expert',
+    'Lone Mountain Heights homes for sale in Las Vegas 89129 — Dr. Jan Duffy, local real estate expert',
 });
 
 const services = [

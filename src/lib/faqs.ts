@@ -9,7 +9,7 @@ export const homeFAQs = [
   {
     question: 'Who is the best real estate agent in Lone Mountain Heights?',
     answer:
-      'Dr. Jan Duffy is the leading Lone Mountain Heights real estate expert, with 500+ Las Vegas transactions and deep knowledge of every street and subdivision. As head of the Berkshire Hathaway HomeServices Lone Mountain Heights Team, she provides personalized service for buyers and sellers.',
+      'Dr. Jan Duffy is the leading Lone Mountain Heights real estate expert, with 500+ Las Vegas transactions and deep knowledge of every street and subdivision. As head of the Lone Mountain Heights Team, she provides personalized service for buyers and sellers.',
   },
   {
     question: 'What makes Lone Mountain Heights a great place to buy a home?',
@@ -32,7 +32,7 @@ export const aboutFAQs = [
   {
     question: 'Why should I choose Dr. Jan Duffy for Lone Mountain Heights real estate?',
     answer:
-      'Dr. Jan Duffy brings 500+ Las Vegas transactions, Berkshire Hathaway resources, and unmatched local expertise. She knows every street, every subdivision, and every opportunity in Lone Mountain Heights—and serves as your forever agent for all future real estate needs.',
+      'Dr. Jan Duffy, in real estate since 1983, brings 500+ Las Vegas transactions and unmatched local expertise. She knows every street, every subdivision, and every opportunity in Lone Mountain Heights—and serves as your forever agent for all future real estate needs.',
   },
   {
     question: 'What areas does Dr. Jan Duffy serve?',
@@ -42,7 +42,7 @@ export const aboutFAQs = [
   {
     question: 'Is Dr. Jan Duffy a licensed real estate agent?',
     answer:
-      'Yes. Dr. Jan Duffy holds Nevada license S.0197614.LLC and leads the Berkshire Hathaway HomeServices Lone Mountain Heights Team. She is available seven days a week for buyers and sellers.',
+      'Yes. Dr. Jan Duffy is a licensed Nevada REALTOR®, in real estate since 1983, and leads the Lone Mountain Heights Team. She is available seven days a week for buyers and sellers.',
   },
 ];
 
@@ -195,7 +195,7 @@ export const careersFAQs = [
   {
     question: 'How do I join Dr. Jan Duffy\'s real estate team in Lone Mountain Heights?',
     answer:
-      'Dr. Jan Duffy leads the Berkshire Hathaway HomeServices Lone Mountain Heights Team. Interested agents can review open positions on this page and submit their information. She looks for agents who share her commitment to local expertise and client service.',
+      'Dr. Jan Duffy leads the Lone Mountain Heights Team. Interested agents can review open positions on this page and submit their information. She looks for agents who share her commitment to local expertise and client service.',
   },
 ];
 

@@ -25,9 +25,7 @@ export function SiteFooter() {
         <div className="mx-auto grid max-w-6xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <h4 className="mb-4 text-lg font-bold text-white">{NAP.name}</h4>
-            <p className="mb-2 text-sm text-white/80">Berkshire Hathaway HomeServices Nevada Properties</p>
             <p className="mb-2 text-sm text-white/80">Head of Lone Mountain Heights Team</p>
-            <p className="mb-2 text-sm text-white/80">License {NAP.license}</p>
             <p className="mb-2 text-sm text-white/80">{NAP.fullAddress}</p>
             <p className="text-sm text-white/80"><strong>Hours:</strong> {NAP.hours}</p>
           </div>
@@ -56,7 +54,8 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="mx-auto mt-8 max-w-6xl border-t border-white/20 pt-6 text-center text-sm text-white/80">
-          <p>&copy; 2026 Lone Mountain Heights | Homes by Dr. Jan Duffy {NAP.license}. Berkshire Hathaway HomeServices Nevada Properties. All rights reserved.</p>
+          <p>&copy; 2026 Lone Mountain Heights | Homes by Dr. Jan Duffy. All rights reserved.</p>
+          <p className="mt-2">Berkshire Hathaway HomeServices Nevada Properties since September 2008 · License S.0197614.LLC</p>
         </div>
       </footer>
     </>

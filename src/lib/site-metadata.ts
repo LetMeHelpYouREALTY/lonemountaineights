@@ -8,7 +8,7 @@ export const DEFAULT_OG_IMAGE_PATH = '/images/og/og-image.png';
 export const OG_IMAGE_WIDTH = 1200;
 export const OG_IMAGE_HEIGHT = 630;
 export const DEFAULT_OG_IMAGE_ALT =
-  'Lone Mountain Heights homes for sale in Las Vegas 89129 — Dr. Jan Duffy, Berkshire Hathaway real estate expert';
+  'Lone Mountain Heights homes for sale in Las Vegas 89129 — Dr. Jan Duffy, local real estate expert';
 
 type PageMetadataOptions = {
   title: string;
@@ -68,7 +68,7 @@ export function getDefaultSocialMetadata(): Pick<Metadata, 'openGraph' | 'twitte
   const ogImageUrl = getDefaultOgImageUrl();
   const title = 'Lone Mountain Heights Real Estate | Dr. Jan Duffy | Las Vegas 89129';
   const description =
-    'Find homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy leads the Berkshire Hathaway HomeServices Lone Mountain Heights Team.';
+    'Find homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy leads the Lone Mountain Heights Team.';
 
   return {
     openGraph: {

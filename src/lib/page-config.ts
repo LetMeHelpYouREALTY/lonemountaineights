@@ -104,11 +104,11 @@ export const pageConfigs: Record<string, PageConfig> = {
     title: 'Real Estate Careers | Join Dr. Jan Duffy Team',
     h1: 'Real Estate Careers with Dr. Jan Duffy',
     description:
-      'Join the Berkshire Hathaway HomeServices Lone Mountain Heights team led by Dr. Jan Duffy. Las Vegas real estate career opportunities.',
+      'Join the Lone Mountain Heights team led by Dr. Jan Duffy. Las Vegas real estate career opportunities.',
     canonical: '/careers',
     body: [
       'Dr. Jan Duffy leads a hyperlocal team focused exclusively on Lone Mountain Heights and surrounding 89129 communities.',
-      'Berkshire Hathaway HomeServices Nevada Properties provides training, marketing technology, and global network access.',
+      'The team provides training, marketing technology, and referral network access.',
       'Contact Dr. Jan Duffy to discuss career opportunities on the Lone Mountain Heights team.',
     ],
     faqKey: 'careersFAQs',
