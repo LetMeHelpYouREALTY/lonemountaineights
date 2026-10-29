@@ -35,7 +35,7 @@ const overlaySvg = `
   <rect x="72" y="430" width="420" height="52" rx="8" fill="#d4af37"/>
   <text x="92" y="465" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#1e3a8a">Schedule your private consultation →</text>
   <text x="72" y="548" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#d4af37">lonemountainheights.com</text>
-  <text x="420" y="548" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#ffffff">702-222-1964</text>
+  <text x="420" y="548" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#ffffff">702-500-1955</text>
 </svg>
 `;
 

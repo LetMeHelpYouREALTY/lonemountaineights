@@ -130,8 +130,8 @@ export default function HomePage() {
           <h2 className="mb-4 text-2xl font-bold">Work with Dr. Jan Duffy</h2>
           <p className="mb-6 text-white/90">Your complete real estate partner for Lone Mountain Heights, Las Vegas 89129</p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="tel:+17022221964" className="rounded-lg bg-[var(--accent-color)] px-6 py-3 font-semibold text-[var(--heading-color)]">
-              📞 702-222-1964
+            <a href="tel:+17025001955" className="rounded-lg bg-[var(--accent-color)] px-6 py-3 font-semibold text-[var(--heading-color)]">
+              📞 702-500-1955
             </a>
             <CalendlyLink
               text="Schedule time with me"

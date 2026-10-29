@@ -250,7 +250,7 @@ export const pageConfigs: Record<string, PageConfig> = {
     canonical: '/blog/this-week-in-lone-mountain-heights',
     body: [
       'Each week Dr. Jan Duffy tracks new listings, pending sales, and price changes across Lone Mountain Heights neighborhoods and communities.',
-      'Subscribe to updates by scheduling a consultation or calling 702-222-1964 for the latest 89129 market snapshot.',
+      'Subscribe to updates by scheduling a consultation or calling 702-500-1955 for the latest 89129 market snapshot.',
     ],
   },
   'blog/complete-guide-living-lone-mountain-heights': {

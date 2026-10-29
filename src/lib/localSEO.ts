@@ -80,7 +80,7 @@ export const localSEOConfig = {
     legalName: 'Lone Mountain Heights | Homes by Dr. Jan Duffy S.0197614',
     description:
       'Leading real estate team specializing in Lone Mountain Heights, Las Vegas. 500+ successful transactions in the Lone Mountain area.',
-    phone: '702-222-1964',
+    phone: '702-500-1955',
     email: 'DrDuffySells@LoneMountainHeights.com',
     website: 'https://www.lonemountainheights.com',
     address: {
