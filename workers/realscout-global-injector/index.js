@@ -378,7 +378,7 @@ ${schema}
 </style>
 
 <div class="drj-float-btn">
-  <a href="tel:7022221964" id="drj-book-btn">
+  <a href="tel:7025001955" id="drj-book-btn">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
       <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
     </svg>
@@ -392,8 +392,8 @@ ${schema}
     <div class="drj-popup-badge">${esc(cta.badge)}</div>
     <h3>${esc(cta.headline)}</h3>
     <p>${esc(cta.subheadline)}</p>
-    <a href="tel:7022221964" class="drj-popup-cta">${esc(cta.ctaText)}</a>
-    <a href="sms:7022221964" class="drj-popup-secondary">Or text me instead &rarr;</a>
+    <a href="tel:7025001955" class="drj-popup-cta">${esc(cta.ctaText)}</a>
+    <a href="sms:7025001955" class="drj-popup-secondary">Or text me instead &rarr;</a>
     <div class="drj-popup-trust">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -552,21 +552,21 @@ function getCTAConfig(pageType) {
       badge: '55+ Community Expert',
       headline: 'Find Your Perfect Active Adult Community',
       subheadline: 'Sun City, Del Webb, Heritage at Stonebridge \u2014 I know every community, every floor plan, and every lifestyle perk. Let me match you with your ideal fit.',
-      ctaText: 'Call Dr. Jan: 702-222-1964'
+      ctaText: 'Call Dr. Jan: 702-500-1955'
     },
     'seller': {
       buttonText: 'Home Value',
       badge: 'Free Home Valuation',
       headline: 'Your Home May Be Worth More Than You Think',
       subheadline: 'Online estimates miss the upgrades and location premiums that matter. Get a real market analysis from someone who knows every sale in your neighborhood.',
-      ctaText: 'Get My Free CMA: 702-222-1964'
+      ctaText: 'Get My Free CMA: 702-500-1955'
     },
     'newconstruction': {
       buttonText: 'Builder Info',
       badge: 'Builder Specialist',
       headline: "Don\u2019t Miss Current Builder Incentives",
       subheadline: 'KB Home, Lennar, Toll Brothers, Century Communities \u2014 I know which lots are releasing, what incentives are running, and how to negotiate your best deal.',
-      ctaText: 'Get Insider Access: 702-222-1964'
+      ctaText: 'Get Insider Access: 702-500-1955'
     },
     'luxury': {
       buttonText: 'Private Tour',
@@ -580,7 +580,7 @@ function getCTAConfig(pageType) {
       badge: 'Investment Expert',
       headline: "Let\u2019s Run the Numbers Together",
       subheadline: "Cap rates, cash flow, appreciation potential \u2014 I\u2019ll help you analyze deals and find properties that actually pencil out.",
-      ctaText: 'Get ROI Analysis: 702-222-1964'
+      ctaText: 'Get ROI Analysis: 702-500-1955'
     },
     'divorce': {
       buttonText: 'Private Call',
@@ -594,21 +594,21 @@ function getCTAConfig(pageType) {
       badge: 'Relocation Expert',
       headline: 'Moving to Las Vegas? Let Me Be Your Guide',
       subheadline: "From neighborhoods to schools to commute times \u2014 I\u2019ll help you find the perfect area and home for your lifestyle and budget.",
-      ctaText: 'Start Your Search: 702-222-1964'
+      ctaText: 'Start Your Search: 702-500-1955'
     },
     'multigen': {
       buttonText: 'Multi-Gen Expert',
       badge: 'Multi-Generational Specialist',
       headline: 'Find the Perfect Home for Your Whole Family',
       subheadline: 'Dual master suites, separate entrances, casitas \u2014 I know every multi-gen floor plan in Las Vegas and which builders offer the best options.',
-      ctaText: 'Call Dr. Jan: 702-222-1964'
+      ctaText: 'Call Dr. Jan: 702-500-1955'
     },
     'buyer': {
       buttonText: 'Book Call',
       badge: 'Las Vegas Expert',
       headline: "Before You Go \u2014 Let\u2019s Talk",
       subheadline: "30+ years in Las Vegas real estate, 500+ families helped. I can show you homes before they hit the market and help you win in competitive situations.",
-      ctaText: 'Call Dr. Jan: 702-222-1964'
+      ctaText: 'Call Dr. Jan: 702-500-1955'
     }
   };
   return configs[pageType] || configs.buyer;
@@ -626,7 +626,7 @@ function getSchemaMarkup(hostname, pathname, pageType) {
     "name": "Dr. Jan Duffy | Las Vegas Real Estate Expert",
     "description": "Dr. Jan Duffy, REALTOR\u00ae at Berkshire Hathaway HomeServices Nevada Properties, specializes in Las Vegas real estate with 30+ years experience, $127M+ in career sales, and 500+ families served.",
     "url": `https://${hostname}/`,
-    "telephone": "+17022221964",
+    "telephone": "+17025001955",
     "image": {
       "@type": "ImageObject",
       "url": `https://${hostname}/dr-jan-duffy-profile.jpg`

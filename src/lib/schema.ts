@@ -7,7 +7,7 @@ import { generateSiteGraphSchema, GEO_COORDINATES } from './structured-data';
 
 const NAP = {
   name: 'Dr. Jan Duffy',
-  telephone: '+1-702-222-1964',
+  telephone: '+1-702-500-1955',
   email: 'DrDuffySells@LoneMountainHeights.com',
   address: {
     streetAddress: 'Lone Mountain Heights',
@@ -20,9 +20,9 @@ const NAP = {
   license: 'S.0197614.LLC',
   hours: 'Available 7 Days a Week',
   fullAddress: 'Lone Mountain Heights, Las Vegas, NV 89129',
-  telHref: 'tel:+17022221964',
-  telDisplay: '702-222-1964',
-  smsHref: 'sms:7022221964',
+  telHref: 'tel:+17025001955',
+  telDisplay: '702-500-1955',
+  smsHref: 'sms:7025001955',
 };
 
 // GBP URLs - update when actual Place ID is available for View Google Reviews

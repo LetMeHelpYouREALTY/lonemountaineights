@@ -50,7 +50,7 @@ export const contactFAQs = [
   {
     question: 'How do I schedule a call with Dr. Jan Duffy?',
     answer:
-      'Schedule a free 15-minute consultation with Dr. Jan Duffy using the Calendly widget on this page, or call 702-222-1964 directly. She responds within 2 hours and is available 7 days a week for Lone Mountain Heights buyers and sellers.',
+      'Schedule a free 15-minute consultation with Dr. Jan Duffy using the Calendly widget on this page, or call 702-500-1955 directly. She responds within 2 hours and is available 7 days a week for Lone Mountain Heights buyers and sellers.',
   },
   {
     question: 'What should I expect when contacting Dr. Jan Duffy about a home?',
