@@ -351,7 +351,7 @@ export const realEstateFAQs = [
   {
     question: 'What are the best streets in Lone Mountain Heights?',
     answer:
-      'The most desirable streets include Mountain Ridge Dr (mountain views, larger lots), Desert View Ln (great value, updated homes), and Canyon Heights Blvd (quiet cul-de-sac, family-friendly).',
+      'The most desirable streets include Mountain Ridge Dr (mountain views, larger lots), Desert View Ln (great value, updated homes), and Canyon Heights Blvd (quiet cul-de-sac).',
   },
   {
     question: 'What schools serve the Lone Mountain Heights area?',
@@ -361,6 +361,6 @@ export const realEstateFAQs = [
   {
     question: 'Is Lone Mountain Heights a good investment?',
     answer:
-      'Yes, Lone Mountain Heights offers strong investment potential with 5.2% price appreciation year-over-year, low inventory (2.1 months supply), and high demand from buyers seeking quality homes in established neighborhoods.',
+      'Yes, Lone Mountain Heights offers strong investment potential with 5.2% price appreciation year-over-year, low inventory (2.1 months supply), and high demand from buyers seeking quality homes in older neighborhoods.',
   },
 ];

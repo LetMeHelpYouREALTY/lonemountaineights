@@ -39,7 +39,7 @@ export const microNeighborhoods = {
       id: 'desert-vista-estates',
       name: 'Desert Vista Estates',
       description:
-        'Established community with mature landscaping and family-friendly atmosphere',
+        'Community with mature landscaping and parks and community amenities',
       avgPrice: 825000,
       priceRange: { min: 650000, max: 950000 },
       homeStyles: ['Two Story', 'Single Story', 'Split Level'],
@@ -55,7 +55,7 @@ export const microNeighborhoods = {
         'Family homes Desert Vista',
       ],
       marketInsights:
-        'Great value with established neighborhood feel and excellent resale potential',
+        'Great value with older neighborhood feel and excellent resale potential',
     },
     {
       id: 'mountain-crest',
@@ -108,7 +108,7 @@ export const microNeighborhoods = {
       id: 'desert-foothills',
       name: 'Desert Foothills',
       description:
-        'Established neighborhood with diverse home styles and excellent location',
+        'Older neighborhood with diverse home styles and excellent location',
       avgPrice: 780000,
       priceRange: { min: 600000, max: 950000 },
       homeStyles: ['Two Story', 'Single Story', 'Ranch'],
@@ -116,12 +116,12 @@ export const microNeighborhoods = {
       yearBuilt: '2000-2015',
       hoa: false,
       hoaFee: 0,
-      amenities: ['No HOA', 'Mature Landscaping', 'Established Community'],
+      amenities: ['No HOA', 'Mature Landscaping', 'Older community'],
       keyStreets: ['Desert Foothills Dr', 'Foothills Way', 'Desert Ridge Ln'],
       seoKeywords: [
         'Desert Foothills homes',
         'No HOA Desert Foothills',
-        'Established neighborhood Desert Foothills',
+        'Older neighborhood Desert Foothills',
       ],
       marketInsights:
         'No HOA community with diverse home styles and strong resale values',
@@ -166,7 +166,7 @@ export const microNeighborhoods = {
         "Family homes Mountain's Edge",
       ],
       marketInsights:
-        'Newer construction with modern amenities and growing family community',
+        'Newer construction with modern amenities and a growing community',
     },
     {
       id: 'providence-communities',
@@ -249,7 +249,7 @@ export const microNeighborhoods = {
       description: 'Established residential area with mature landscaping',
       avgPrice: 780000,
       keyStreets: ['Desert Foothills Dr', 'Foothills Way', 'Desert Ridge Dr'],
-      characteristics: ['Established', 'Mature Trees', 'Family Friendly'],
+      characteristics: ['Mature Landscaping', 'Mature Trees', 'Parks'],
       seoKeywords: [
         'Desert Foothills Drive homes',
         'Foothills area real estate',
@@ -341,7 +341,7 @@ export const microNeighborhoods = {
         'Providence Communities',
       ],
       avgPrice: 800000,
-      characteristics: ['Family Focus', 'Good Schools', 'Safe Streets'],
+      characteristics: ['Parks', 'Nearby Schools', 'Quiet Streets'],
       amenities: ['Parks', 'Playgrounds', 'Walking Trails', 'Community Events'],
       seoKeywords: [
         'Family homes Lone Mountain Heights',
@@ -385,13 +385,13 @@ export const microNeighborhoods = {
       avgPrice: 900000,
       characteristics: [
         'Mature Landscaping',
-        'Established Community',
+        'Older community',
         'Proven Values',
       ],
       amenities: ['Mature Trees', 'Established HOA', 'Community History'],
       seoKeywords: [
-        'Established neighborhoods Lone Mountain Heights',
-        'Mature communities Las Vegas',
+        'Older neighborhoods Lone Mountain Heights',
+        'Older communities Las Vegas',
         'Established homes Lone Mountain Heights',
       ],
     },
@@ -456,7 +456,7 @@ export const microNeighborhoods = {
         'Providence Communities',
       ],
       avgPrice: 800000,
-      characteristics: ['Low Traffic', 'Family Friendly', 'Quiet Streets'],
+      characteristics: ['Low Traffic', 'Parks', 'Quiet Streets'],
       seoKeywords: [
         'Cul-de-sac homes Lone Mountain Heights',
         'Quiet street homes Las Vegas',

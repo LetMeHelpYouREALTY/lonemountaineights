@@ -48,7 +48,7 @@ const questions = [
       {
         value: '3',
         label: '3 Bedrooms',
-        description: 'Ideal for growing families',
+        description: 'Ideal for move-up buyers',
       },
       {
         value: '4',
@@ -74,7 +74,7 @@ const questions = [
       {
         value: 'family',
         label: 'Family-Focused',
-        description: 'Need great schools and family amenities',
+        description: 'Need nearby public schools and family amenities',
       },
       {
         value: 'luxury',
@@ -160,9 +160,9 @@ const neighborhoodData = {
   'desert-vista-estates': {
     name: 'Desert Vista Estates',
     priceRange: '$500,000 - $800,000',
-    description: 'Family-friendly community with excellent schools and parks',
+    description: 'Community with parks and nearby public schools',
     features: [
-      'Top-Rated Schools',
+      'Nearby Public Schools',
       'Community Pool',
       'Parks & Trails',
       'Family Amenities',
@@ -192,7 +192,7 @@ const neighborhoodData = {
       'Great Value',
       'Community Pool',
       'Low HOA Fees',
-      'Family Friendly',
+      'Community Amenities',
     ],
     bestFor: ['low-maintenance', 'family', 'pool'],
     image: '/images/photos/home-featured-3.jpg',

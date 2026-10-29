@@ -180,7 +180,7 @@ export const pageConfigs: Record<string, PageConfig> = {
       'Find 3 bedroom homes for sale in Lone Mountain Heights, Las Vegas 89129 with Dr. Jan Duffy.',
     canonical: '/property-types/3-bedroom-homes',
     body: [
-      'Three-bedroom homes in Lone Mountain Heights typically range from 1,750–2,500 sq ft and appeal to growing families and professionals.',
+      'Three-bedroom homes in Lone Mountain Heights typically range from 1,750–2,500 sq ft and appeal to move-up buyers and professionals.',
       'Dr. Jan Duffy maintains an updated search of all 3-bedroom listings in 89129 — schedule a call for a curated list.',
     ],
     faqKey: 'propertyTypeFAQs',
@@ -204,16 +204,16 @@ export const pageConfigs: Record<string, PageConfig> = {
       'Homes for sale in Desert Vista Estates, Lone Mountain Heights, Las Vegas 89129 with Dr. Jan Duffy.',
     canonical: '/locations/desert-vista-estates',
     body: [
-      'Desert Vista Estates offers a quiet, family-friendly setting within Lone Mountain Heights with strong school access and community amenities.',
+      'Desert Vista Estates offers a quiet setting within Lone Mountain Heights near public schools and community amenities.',
       'Contact Dr. Jan Duffy for current listings, recent sales, and off-market opportunities in Desert Vista Estates.',
     ],
     faqKey: 'locationsDesertVista',
   },
   'faq/best-schools': {
-    title: 'Best Schools Near Lone Mountain Heights | FAQ',
-    h1: 'What Are the Best Schools Near Lone Mountain Heights?',
+    title: 'Public Schools Near Lone Mountain Heights | FAQ',
+    h1: 'What Are the Public Schools Near Lone Mountain Heights?',
     description:
-      'FAQ: Best schools serving Lone Mountain Heights, Las Vegas 89129. Expert answer from Dr. Jan Duffy.',
+      'FAQ: Nearby public schools serving Lone Mountain Heights, Las Vegas 89129. Expert answer from Dr. Jan Duffy.',
     canonical: '/faq/best-schools',
     body: [
       'Lone Mountain Heights is served by highly rated CCSD schools. Assignments vary by address — always verify boundaries before purchasing.',
