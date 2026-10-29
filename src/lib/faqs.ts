@@ -14,7 +14,7 @@ export const homeFAQs = [
   {
     question: 'What makes Lone Mountain Heights a great place to buy a home?',
     answer:
-      'Lone Mountain Heights offers mountain views, established neighborhoods, top-rated schools, and excellent value. Dr. Jan Duffy recommends the area for families and professionals seeking quality Las Vegas living with a strong sense of community and low HOA fees.',
+      'Lone Mountain Heights offers mountain views, older neighborhoods, nearby public schools, and excellent value. Dr. Jan Duffy recommends the area for families and professionals seeking quality Las Vegas living with a strong sense of community and low HOA fees.',
   },
   {
     question: 'How do I find homes for sale in Lone Mountain Heights Las Vegas?',
@@ -104,7 +104,7 @@ export const neighborhoodsFAQs = [
   {
     question: 'What are the best neighborhoods in Lone Mountain Heights?',
     answer:
-      'Dr. Jan Duffy recommends Lone Mountain Ranch for families seeking great schools, Desert Vista Estates for value and amenities, and various neighborhoods depending on your lifestyle. She can match you with the perfect community based on your priorities.',
+      'Dr. Jan Duffy recommends Lone Mountain Ranch for buyers who want nearby schools, Desert Vista Estates for value and amenities, and various neighborhoods depending on your lifestyle. She can match you with the perfect community based on your priorities.',
   },
   {
     question: 'How do I choose the right Lone Mountain Heights neighborhood?',
@@ -135,7 +135,7 @@ export const schoolsFAQs = [
   {
     question: 'Do school ratings affect home values in Lone Mountain Heights?',
     answer:
-      'Yes. Strong school ratings often increase demand and home values. Dr. Jan Duffy helps families prioritize school boundaries when searching and explains how different attendance zones impact resale value in Lone Mountain Heights.',
+      'Yes. School attendance zones often affect demand and home values. Dr. Jan Duffy helps buyers prioritize school boundaries when searching and explains how different attendance zones impact resale value in Lone Mountain Heights.',
   },
 ];
 
@@ -143,12 +143,12 @@ export const guideFAQs = [
   {
     question: 'What is it like living in Lone Mountain Heights Las Vegas?',
     answer:
-      'Lone Mountain Heights offers suburban tranquility with easy access to Summerlin, downtown Las Vegas, and Red Rock Canyon. Dr. Jan Duffy has helped hundreds of families relocate here—she describes the community as family-friendly with excellent schools and a strong sense of belonging.',
+      'Lone Mountain Heights offers suburban tranquility with easy access to Summerlin, downtown Las Vegas, and Red Rock Canyon. Dr. Jan Duffy has helped hundreds of buyers relocate here—she describes the community as close-knit, with nearby schools and parks.',
   },
   {
     question: 'Is Lone Mountain Heights a good place for families?',
     answer:
-      'Yes. Dr. Jan Duffy recommends Lone Mountain Heights for families seeking safe neighborhoods, quality schools, parks, and a tight-knit community. Many of her clients move here specifically for the family-oriented lifestyle and outdoor recreation.',
+      'Yes. Dr. Jan Duffy recommends Lone Mountain Heights for buyers seeking nearby schools, parks, and a tight-knit community. Many of her clients move here specifically for the outdoor recreation and larger lots.',
   },
 ];
 
@@ -212,7 +212,7 @@ export const locationsFAQs = {
     {
       question: 'What makes Lone Mountain Ranch a desirable neighborhood?',
       answer:
-        'Lone Mountain Ranch offers excellent schools, family-friendly streets, and a strong community feel. Dr. Jan Duffy has sold many homes here and recommends it for buyers seeking quality and established neighborhoods in Lone Mountain Heights.',
+        'Lone Mountain Ranch offers nearby schools, quiet streets, and a strong community feel. Dr. Jan Duffy has sold many homes here and recommends it for buyers seeking quality and older neighborhoods in Lone Mountain Heights.',
     },
     {
       question: 'What is the average home price in Lone Mountain Ranch?',
@@ -238,7 +238,7 @@ export const priceRangeFAQs = [
   {
     question: 'What can I buy in Lone Mountain Heights for $600K–$800K?',
     answer:
-      'The $600K–$800K range offers well-maintained 3–4 bedroom homes in established neighborhoods. Dr. Jan Duffy knows the best streets and subdivisions in this price band and can show you properties that represent strong value.',
+      'The $600K–$800K range offers well-maintained 3–4 bedroom homes in older neighborhoods. Dr. Jan Duffy knows the best streets and subdivisions in this price band and can show you properties that represent strong value.',
   },
   {
     question: 'Is $600K–$800K a good price range for Lone Mountain Heights?',

@@ -59,7 +59,7 @@ const pointsOfInterest = [
     id: 'community-park',
     name: 'Lone Mountain Community Park',
     type: 'Park',
-    description: 'Family-friendly park with playgrounds and walking trails',
+    description: 'Community park with playgrounds and walking trails',
     coordinates: { x: 45, y: 55 },
     icon: '🌳',
     color: 'var(--success-green)',
