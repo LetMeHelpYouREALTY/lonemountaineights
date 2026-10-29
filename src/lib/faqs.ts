@@ -32,7 +32,7 @@ export const aboutFAQs = [
   {
     question: 'Why should I choose Dr. Jan Duffy for Lone Mountain Heights real estate?',
     answer:
-      'Dr. Jan Duffy, in real estate since 1983, brings 500+ Las Vegas transactions and unmatched local expertise. She knows every street, every subdivision, and every opportunity in Lone Mountain Heights—and serves as your forever agent for all future real estate needs.',
+      'Dr. Jan Duffy, licensed since 2008 · 35 years in Las Vegas, brings 500+ Las Vegas transactions and unmatched local expertise. She knows every street, every subdivision, and every opportunity in Lone Mountain Heights—and serves as your forever agent for all future real estate needs.',
   },
   {
     question: 'What areas does Dr. Jan Duffy serve?',
@@ -42,7 +42,7 @@ export const aboutFAQs = [
   {
     question: 'Is Dr. Jan Duffy a licensed real estate agent?',
     answer:
-      'Yes. Dr. Jan Duffy is a licensed Nevada REALTOR®, in real estate since 1983, and leads the Lone Mountain Heights Team. She is available seven days a week for buyers and sellers.',
+      'Yes. Dr. Jan Duffy is a licensed Nevada REALTOR®, licensed since 2008 · 35 years in Las Vegas, and leads the Lone Mountain Heights Team. She is available seven days a week for buyers and sellers.',
   },
 ];
 
