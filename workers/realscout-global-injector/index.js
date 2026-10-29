@@ -573,7 +573,7 @@ function getCTAConfig(pageType) {
       badge: 'Luxury Specialist',
       headline: 'Exclusive Properties Require Expert Guidance',
       subheadline: "The Ridges, Red Rock Country Club, The Summit \u2014 I specialize in Las Vegas luxury and can show you properties before they hit the market.",
-      ctaText: 'Schedule Private Tour: 702-222-1964'
+      ctaText: 'Schedule Private Tour: 702-500-1955'
     },
     'investor': {
       buttonText: 'ROI Analysis',
@@ -587,7 +587,7 @@ function getCTAConfig(pageType) {
       badge: 'Confidential Support',
       headline: 'Clear Options During Uncertain Times',
       subheadline: "I\u2019ve helped many families navigate property decisions during transitions. Let\u2019s discuss your options privately \u2014 no pressure, just clarity.",
-      ctaText: 'Private Consultation: 702-222-1964'
+      ctaText: 'Private Consultation: 702-500-1955'
     },
     'relocation': {
       buttonText: 'Relocation Help',
