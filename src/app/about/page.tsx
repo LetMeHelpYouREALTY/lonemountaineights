@@ -23,14 +23,14 @@ const advantages = [
   { icon: '🏆', title: 'Luxury Market Focus', desc: 'Global luxury resources for affluent buyers and sellers in Lone Mountain Heights.' },
   { icon: '🤝', title: 'Forever Agent Commitment', desc: 'Long-term support for every client — not just the transaction.' },
   { icon: '📈', title: 'Advanced Marketing Tools', desc: 'Digital marketing including Zillow Showcase for maximum listing exposure.' },
-  { icon: '🌍', title: 'Proven Experience', desc: 'In real estate since 1983, with $127M+ in closed transactions.' },
+  { icon: '🌍', title: 'Proven Experience', desc: 'Licensed since 2008 · 35 years in Las Vegas, with $127M+ in Dr. Duffy Group career sales.' },
   { icon: '❤️', title: 'Community Impact', desc: 'Committed to service in Las Vegas and the Lone Mountain Heights community.' },
 ];
 
 const stats = [
   { value: '500+', label: 'Las Vegas Transactions' },
   { value: '89129', label: 'Hyperlocal Focus' },
-  { value: 'Since 1983', label: 'In Real Estate' },
+  { value: 'Since 2008', label: 'In Real Estate' },
   { value: '$127M+', label: 'Sales Volume' },
 ];
 
@@ -63,7 +63,7 @@ export default function AboutPage() {
       />
 
       <PageHeader
-        badge="Top 1% Las Vegas REALTOR® · Lone Mountain Heights Team"
+        badge="Las Vegas REALTOR® · Lone Mountain Heights Team"
         title="About Dr. Jan Duffy"
         subtitle="Head of the Lone Mountain Heights Team — your complete real estate partner"
       />
@@ -85,7 +85,7 @@ export default function AboutPage() {
               Your Lone Mountain Heights Expert
             </h2>
             <p className="mb-4 leading-relaxed text-[var(--text-color)]">
-              Dr. Jan Duffy has been in real estate since 1983 and brings 500+ Las Vegas transactions and deep neighborhood knowledge to every buyer and seller in Lone Mountain Heights, Las Vegas 89129. She knows every street,
+              Dr. Jan Duffy has been licensed since 2008, with 35 years in Las Vegas, and brings 500+ Las Vegas transactions and deep neighborhood knowledge to every buyer and seller in Lone Mountain Heights, Las Vegas 89129. She knows every street,
               every subdivision, and every opportunity in the community.
             </p>
             <p className="mb-6 leading-relaxed text-[var(--text-color)]">

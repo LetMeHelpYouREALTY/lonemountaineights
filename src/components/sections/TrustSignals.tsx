@@ -58,7 +58,7 @@ export function TrustSignals() {
       </div>
 
       <p className="mt-8 text-center text-sm text-[var(--text-light)]">
-        {NAP.name} · Top 1% Las Vegas REALTOR® · In real estate since 1983
+        {NAP.name} · Las Vegas REALTOR® · Licensed since 2008 · 35 years in Las Vegas
       </p>
     </section>
   );
