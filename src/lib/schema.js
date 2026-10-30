@@ -95,13 +95,6 @@ export function generateRealEstateSchema(_property) {
         },
       ],
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '127',
-      bestRating: '5',
-      worstRating: '1',
-    },
   };
 }
 
@@ -224,13 +217,6 @@ export function generateLocalBusinessSchema() {
     serviceType: 'Real Estate Services',
     priceRange: '$$',
     openingHours: 'Mo-Su 00:00-23:59',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '127',
-      bestRating: '5',
-      worstRating: '1',
-    },
     review: [
       {
         '@type': 'Review',

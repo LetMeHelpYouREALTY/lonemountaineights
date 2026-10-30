@@ -169,13 +169,6 @@ export function generateLocalBusinessSchema() {
           'Complete real estate services for Lone Mountain Heights, Las Vegas',
       },
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      reviewCount: '500',
-      bestRating: '5',
-      worstRating: '1',
-    },
     priceRange: '$$',
     currenciesAccepted: 'USD',
     paymentAccepted: 'Cash, Check, Credit Card, Financing',
@@ -598,13 +591,6 @@ export function generateLocalBusinessJSONLD() {
     currenciesAccepted: 'USD',
     paymentAccepted: 'Cash, Check, Credit Card, Financing',
     openingHours: 'Mo-Su 00:00-23:59',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      reviewCount: '500',
-      bestRating: '5',
-      worstRating: '1',
-    },
   };
 }
 
