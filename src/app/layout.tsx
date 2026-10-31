@@ -12,6 +12,8 @@ import { getDefaultSocialMetadata, SITE_URL } from '@/lib/site-metadata';
 import './globals.css';
 import '@/styles/ranchStyles.css';
 import '@/styles/realscout-widgets.css';
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import { SpeedInsights as VercelSpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
@@ -85,6 +87,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           window.widgetTracker("create", "WT-XQHVYQWW");
           window.widgetTracker("send", "pageview");
         `}</Script>
+        <VercelAnalytics />
+        <VercelSpeedInsights />
       </body>
     </html>
   );

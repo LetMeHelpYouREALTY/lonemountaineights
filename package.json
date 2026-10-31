@@ -2,7 +2,7 @@
   "name": "lonemountaineights",
   "version": "1.0.0",
   "private": true,
-  "description": "Lone Mountain Heights real estate site — Dr. Jan Duffy, Las Vegas 89129",
+  "description": "Lone Mountain Heights real estate site \u2014 Dr. Jan Duffy, Las Vegas 89129",
   "packageManager": "pnpm@10.28.0",
   "engines": {
     "node": ">=20.18.0",
@@ -23,7 +23,9 @@
     "next": "^15.5.28",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "schema-dts": "^1.1.5"
+    "schema-dts": "^1.1.5",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
