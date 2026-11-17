@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useMemo, useState } from 'react';
 import { FAQSection } from '@/components/sections/FAQSection';
+import { NearbyAmenitiesSection } from '@/components/sections/NearbyAmenitiesSection';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
 import { RealScoutOfficeListings } from '@/components/shared/JsonLd';
@@ -129,6 +130,8 @@ export function HomesBrowse() {
             )}
           </div>
         </div>
+
+        <NearbyAmenitiesSection title="What's Near These Homes" compact />
 
         <FAQSection faqs={homesFAQs} title="Lone Mountain Heights Homes — Frequently Asked Questions" />
 
