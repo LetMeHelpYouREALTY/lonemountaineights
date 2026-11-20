@@ -1,5 +1,4 @@
 import { RealScoutOfficeListings } from '@/components/shared/JsonLd';
-import { MlsDisclaimer } from '@/components/shared/MlsDisclaimer';
 
 type ListingsBelowHeroProps = {
   title?: string;
@@ -9,13 +8,26 @@ type ListingsBelowHeroProps = {
   className?: string;
 };
 
+function formatPrice(value: string): string {
+  const n = Number(value);
+  return n >= 1_000_000 ? `$${Number((n / 1_000_000).toFixed(1))}M` : `$${Math.round(n / 1000)}K`;
+}
+
+/**
+ * realscout-office-listings shows the office's newest listings valley-wide (it has no location filter),
+ * so copy here must not describe them as Lone Mountain Heights homes.
+ */
 export function ListingsBelowHero({
-  title = 'Current Lone Mountain Heights Listings',
-  description = 'Live MLS homes in Las Vegas 89129 — updated in real time',
-  priceMin,
-  priceMax,
+  title = 'Featured Las Vegas Listings',
+  description,
+  priceMin = '500000',
+  priceMax = '800000',
   className = '',
 }: ListingsBelowHeroProps) {
+  const subtitle =
+    description ??
+    `Newest ${formatPrice(priceMin)}–${formatPrice(priceMax)} listings from Dr. Jan Duffy's office across the Las Vegas Valley, live from the MLS`;
+
   return (
     <section
       className={`border-b border-slate-200 bg-slate-50 px-4 py-8 ${className}`}
@@ -28,9 +40,8 @@ export function ListingsBelowHero({
         >
           {title}
         </h2>
-        <p className="mb-6 text-center text-[var(--text-color)]">{description}</p>
+        <p className="mb-6 text-center text-[var(--text-color)]">{subtitle}</p>
         <RealScoutOfficeListings priceMin={priceMin} priceMax={priceMax} />
-        <MlsDisclaimer />
       </div>
     </section>
   );

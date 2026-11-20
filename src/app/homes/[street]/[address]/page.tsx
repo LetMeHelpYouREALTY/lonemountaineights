@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
 import { PageContainer, RealScoutOfficeListings } from '@/components/shared/JsonLd';
-import { MlsDisclaimer } from '@/components/shared/MlsDisclaimer';
 import { NAP } from '@/lib/schema';
 
 type PageProps = {
@@ -48,9 +47,8 @@ export default async function PropertyPage({ params }: PageProps) {
         className="mb-8"
       />
       <section className="my-8">
-        <h2 className="mb-4 text-xl font-semibold text-[var(--heading-color)]">More Lone Mountain Heights Listings</h2>
+        <h2 className="mb-4 text-xl font-semibold text-[var(--heading-color)]">More Las Vegas Listings</h2>
         <RealScoutOfficeListings />
-        <MlsDisclaimer />
       </section>
     </PageContainer>
   );
