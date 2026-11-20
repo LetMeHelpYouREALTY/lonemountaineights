@@ -109,7 +109,7 @@ export const pageConfigs: Record<string, PageConfig> = {
     body: [
       'Dr. Jan Duffy leads a hyperlocal team focused exclusively on Lone Mountain Heights and surrounding 89129 communities.',
       'The team provides training, marketing technology, and referral network access.',
-      'Contact Dr. Jan Duffy to discuss career opportunities on the Lone Mountain Heights team.',
+      'Schedule a Calendly call with Dr. Jan Duffy to discuss career opportunities on the Lone Mountain Heights team — no web forms required.',
     ],
     faqKey: 'careersFAQs',
   },

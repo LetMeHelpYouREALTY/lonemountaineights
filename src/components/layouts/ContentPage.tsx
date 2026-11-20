@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { Breadcrumbs, ContactCTA } from '@/components/layouts/PageHeader';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
+import { ListingsBelowHero } from '@/components/sections/ListingsBelowHero';
 import { JsonLd } from '@/components/shared/JsonLd';
 import { generateFAQSchema } from '@/lib/schema';
 import {
@@ -26,6 +27,7 @@ type ContentPageProps = {
   schema?: Record<string, unknown>[];
   showCta?: boolean;
   showHero?: boolean;
+  listingsBelowHero?: false | { priceMin?: string; priceMax?: string; title?: string; description?: string };
 };
 
 export function buildPageMetadata(
@@ -48,7 +50,12 @@ export function ContentPage({
   schema = [],
   showCta = true,
   showHero = false,
+  listingsBelowHero,
 }: ContentPageProps) {
+  const listingsStrip =
+    listingsBelowHero === false
+      ? null
+      : listingsBelowHero ?? (showHero ? {} : null);
   const breadcrumbSchema = generateBreadcrumbSchema(
     breadcrumbs.map((b, i) => ({
       name: b.name,
@@ -77,6 +84,14 @@ export function ContentPage({
             <p className="text-lg opacity-90">{description}</p>
           </div>
         </header>
+      )}
+      {listingsStrip && (
+        <ListingsBelowHero
+          title={listingsStrip.title}
+          description={listingsStrip.description}
+          priceMin={listingsStrip.priceMin}
+          priceMax={listingsStrip.priceMax}
+        />
       )}
       <div className="mx-auto max-w-6xl px-4 py-8 md:px-8">
         <Breadcrumbs items={breadcrumbs} />

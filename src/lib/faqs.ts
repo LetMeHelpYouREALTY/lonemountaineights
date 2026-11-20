@@ -14,7 +14,7 @@ export const homeFAQs = [
   {
     question: 'What makes Lone Mountain Heights a great place to buy a home?',
     answer:
-      'Lone Mountain Heights offers mountain views, older neighborhoods, nearby public schools, and excellent value. Dr. Jan Duffy recommends the area for families and professionals seeking quality Las Vegas living with a strong sense of community and low HOA fees.',
+      'Lone Mountain Heights offers mountain views, mature landscaping, nearby public schools, and excellent value. Dr. Jan Duffy recommends the area for buyers who want larger lots, low HOA fees, and quick access to Summerlin and Red Rock Canyon.',
   },
   {
     question: 'How do I find homes for sale in Lone Mountain Heights Las Vegas?',
@@ -195,7 +195,7 @@ export const careersFAQs = [
   {
     question: 'How do I join Dr. Jan Duffy\'s real estate team in Lone Mountain Heights?',
     answer:
-      'Dr. Jan Duffy leads the Lone Mountain Heights Team. Interested agents can review open positions on this page and submit their information. She looks for agents who share her commitment to local expertise and client service.',
+      'Dr. Jan Duffy leads the Lone Mountain Heights Team. Interested agents can review the overview on this page and schedule a Calendly conversation to discuss fit, training, and local lead flow.',
   },
 ];
 
