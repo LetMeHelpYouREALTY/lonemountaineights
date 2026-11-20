@@ -21,9 +21,17 @@ type PageMetadataOptions = {
   ogImageAlt?: string;
 };
 
+/** Bump when og-image.png is regenerated; social platforms cache share images by URL. */
+const OG_IMAGE_VERSION = '2026-11-20';
+
+function ogImageUrlFor(localPath: string): string {
+  const url = getAbsoluteImageUrl(localPath, OG_IMAGE_WIDTH);
+  return localPath === DEFAULT_OG_IMAGE_PATH ? `${url}?v=${OG_IMAGE_VERSION}` : url;
+}
+
 /** Absolute OG/Twitter image URL (Cloudflare CDN when enabled, else site origin). */
 export function getDefaultOgImageUrl(): string {
-  return getAbsoluteImageUrl(DEFAULT_OG_IMAGE_PATH, OG_IMAGE_WIDTH);
+  return ogImageUrlFor(DEFAULT_OG_IMAGE_PATH);
 }
 
 export function buildPageMetadata({
@@ -34,7 +42,7 @@ export function buildPageMetadata({
   ogImageAlt = DEFAULT_OG_IMAGE_ALT,
 }: PageMetadataOptions): Metadata {
   const canonical = path === '/' ? SITE_URL : `${SITE_URL}${path}`;
-  const ogImageUrl = getAbsoluteImageUrl(ogImagePath, OG_IMAGE_WIDTH);
+  const ogImageUrl = ogImageUrlFor(ogImagePath);
 
   return {
     // Page titles already carry the brand; the layout template would append it a second time.

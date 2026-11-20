@@ -31,8 +31,8 @@ const overlaySvg = `
   <text x="72" y="178" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="600" fill="#d4af37">Homes for Sale · Las Vegas 89129</text>
   <text x="72" y="238" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#f8fafc">Dr. Jan Duffy · Real Estate Expert</text>
   <text x="72" y="286" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#cbd5e1">Berkshire Hathaway HomeServices Nevada Properties</text>
-  <text x="72" y="340" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#e2e8f0">Exclusive listings · Market insights · Personalized service</text>
-  <rect x="72" y="430" width="420" height="52" rx="8" fill="#d4af37"/>
+  <text x="72" y="340" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#e2e8f0">Live MLS search · Free home valuations · Private consultations</text>
+  <rect x="72" y="430" width="490" height="52" rx="8" fill="#d4af37"/>
   <text x="92" y="465" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#1e3a8a">Schedule your private consultation →</text>
   <text x="72" y="548" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#d4af37">lonemountainheights.com</text>
   <text x="420" y="548" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#ffffff">702-500-1955</text>
