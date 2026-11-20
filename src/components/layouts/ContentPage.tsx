@@ -5,9 +5,10 @@ import { Breadcrumbs, ContactCTA } from '@/components/layouts/PageHeader';
 import { PageHero } from '@/components/layouts/PageHero';
 import { AuthorByline } from '@/components/shared/AuthorByline';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
-import type { HeroImage } from '@/lib/hero-images';
 import { ListingsBelowHero } from '@/components/sections/ListingsBelowHero';
 import { JsonLd } from '@/components/shared/JsonLd';
+import type { CalendlyEvent } from '@/lib/calendly';
+import type { HeroImage } from '@/lib/hero-images';
 import { generateFAQSchema } from '@/lib/schema';
 import {
   generateBreadcrumbSchema,
@@ -19,6 +20,7 @@ type FAQ = { question: string; answer: string };
 type Crumb = { name: string; href?: string };
 
 type ContentPageProps = {
+  title: string;
   h1: string;
   description: string;
   canonical: string;
@@ -31,6 +33,7 @@ type ContentPageProps = {
   showHero?: boolean;
   heroImage?: HeroImage;
   listingsBelowHero?: false | { priceMin?: string; priceMax?: string; title?: string; description?: string };
+  calendlyEvent?: CalendlyEvent;
 };
 
 export function buildPageMetadata(
@@ -42,6 +45,7 @@ export function buildPageMetadata(
 }
 
 export function ContentPage({
+  title,
   h1,
   description,
   canonical,
@@ -54,7 +58,9 @@ export function ContentPage({
   showHero = false,
   heroImage,
   listingsBelowHero,
+  calendlyEvent = 'consult',
 }: ContentPageProps) {
+  const placement = `page${canonical.replace(/\//g, '-')}`;
   const listingsStrip =
     listingsBelowHero === false
       ? null
@@ -91,21 +97,26 @@ export function ContentPage({
       )}
       <div className="mx-auto max-w-6xl px-4 py-8 md:px-8">
         <Breadcrumbs items={breadcrumbs} />
-        <AuthorByline />
         {!showHero && (
           <>
             <h1 className="mb-4 text-3xl font-bold text-[var(--heading-color)]">{h1}</h1>
             <p className="mb-8 max-w-3xl text-lg leading-relaxed text-[var(--text-color)]">{description}</p>
           </>
         )}
+        <AuthorByline />
         {children}
         {faqs && faqs.length > 0 && (
-          <FAQSection faqs={faqs} title={faqTitle ?? `${h1} — Frequently Asked Questions`} />
+          <FAQSection
+            faqs={faqs}
+            title={faqTitle ?? `${title.split(/[|:]/)[0].trim()} FAQs`}
+            calendlyEvent={calendlyEvent}
+            calendlyPlacement={`${placement}-faq`}
+          />
         )}
         {showCta && (
           <>
-            <CalendlyScheduleSection />
-            <ContactCTA />
+            <CalendlyScheduleSection event={calendlyEvent} placement={`${placement}-schedule`} />
+            <ContactCTA calendlyEvent={calendlyEvent} calendlyPlacement={`${placement}-cta`} />
           </>
         )}
       </div>

@@ -10,49 +10,46 @@ import { NAP } from '@/lib/schema';
 type NavLink = { href: string; label: string };
 
 const searchLinks: NavLink[] = [
-  { href: '/homes', label: 'All Lone Mountain Heights Homes' },
-  { href: '/property-types/3-bedroom-homes', label: '3-Bedroom Homes in 89129' },
+  { href: '/homes', label: 'Search All Homes' },
+  { href: '/property-types/3-bedroom-homes', label: '3 Bedroom Homes' },
   { href: '/price-ranges/600k-800k', label: 'Homes $600K–$800K' },
-  { href: '/luxury', label: 'Luxury Homes $1M+' },
-  { href: '/valuation', label: 'Home Value Estimate' },
+  { href: '/valuation', label: 'Home Value Calculator' },
 ];
 
 const buyerLinks: NavLink[] = [
-  { href: '/guide', label: 'Living in Lone Mountain Heights' },
+  { href: '/homes', label: 'Browse All Listings' },
+  { href: '/neighborhoods', label: 'Neighborhoods' },
   { href: '/sales', label: 'Recent Sales' },
-  { href: '/market-report', label: 'Market Report' },
-  { href: '/faq/hoa-fees', label: 'HOA Fees FAQ' },
-  { href: '/tools', label: 'Buyer Tools & Calculators' },
+  { href: '/market-report', label: 'Market Data' },
 ];
 
 const sellerLinks: NavLink[] = [
-  { href: '/valuation', label: 'Free Home Valuation' },
-  { href: '/market-intelligence', label: 'Market Intelligence' },
-  { href: '/sales', label: 'Comparable Sales' },
-  { href: '/contact', label: 'Listing Consultation' },
-];
-
-const communityLinks: NavLink[] = [
-  { href: '/neighborhoods', label: 'Lone Mountain Heights Neighborhoods' },
-  { href: '/locations/lone-mountain-ranch', label: 'Lone Mountain Ranch' },
-  { href: '/locations/desert-vista-estates', label: 'Desert Vista Estates' },
-  { href: '/amenities', label: 'Parks, Trails & Amenities' },
-  { href: '/schools', label: 'Schools & CCSD Zoning' },
+  { href: '/valuation', label: 'Home Valuation' },
+  { href: '/market-report', label: 'Market Analysis' },
+  { href: '/amenities', label: 'Local Amenities' },
+  { href: '/contact', label: 'Selling Process' },
 ];
 
 const aboutLinks: NavLink[] = [
-  { href: '/about', label: 'About Dr. Jan Duffy' },
-  { href: '/blog', label: 'Blog & Market Updates' },
+  { href: '/about', label: 'About Dr. Jan' },
   { href: '/gallery', label: 'Photo Gallery' },
   { href: '/careers', label: 'Careers' },
+  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ];
 
-const mobileLinks: NavLink[] = [
-  ...new Map(
-    [...searchLinks, ...buyerLinks, ...sellerLinks, ...communityLinks, ...aboutLinks].map((link) => [link.href, link]),
-  ).values(),
+const topLinks: NavLink[] = [
+  { href: '/neighborhoods', label: 'COMMUNITIES' },
+  { href: '/luxury', label: 'LUXURY' },
 ];
+
+const mobileLinks: NavLink[] = [
+  ...searchLinks,
+  ...buyerLinks,
+  ...sellerLinks,
+  { href: '/luxury', label: 'Luxury Homes' },
+  ...aboutLinks,
+].filter((link, i, all) => all.findIndex((other) => other.href === link.href) === i);
 
 function NavDropdown({
   label,
@@ -68,30 +65,29 @@ function NavDropdown({
   setOpenId: (id: string | null) => void;
 }) {
   const open = openId === id;
-  const menuId = `nav-menu-${id}`;
+  const panelId = `nav-panel-${id}`;
   return (
     <li className="relative">
       <button
         type="button"
-        className="flex items-center gap-1 whitespace-nowrap px-2 py-2 text-xs font-bold tracking-wider text-[var(--heading-color)] hover:text-[var(--accent-color)] xl:px-3"
+        className="flex items-center gap-1 whitespace-nowrap px-2.5 py-2 text-xs font-bold tracking-wider text-[var(--heading-color)] hover:text-[var(--accent-color)]"
         aria-expanded={open}
-        aria-controls={menuId}
+        aria-controls={panelId}
         onClick={() => setOpenId(open ? null : id)}
       >
-        {label} <span aria-hidden="true" className="text-[10px]">▼</span>
+        {label} <span className="text-[10px]" aria-hidden="true">▼</span>
       </button>
-      {/* Rendered while closed so every nav link stays in the server HTML for crawlers. */}
       <div
-        id={menuId}
-        className={`absolute left-0 top-full z-50 min-w-[240px] rounded-lg border border-slate-200 bg-white py-2 shadow-lg ${
-          open ? 'block' : 'hidden'
+        id={panelId}
+        className={`absolute left-0 top-full z-50 min-w-[220px] rounded-lg border border-slate-200 bg-white py-2 shadow-lg ${
+          open ? '' : 'hidden'
         }`}
       >
         {links.map((link) => (
           <Link
             key={link.href}
             href={link.href}
-            className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-[var(--accent-dark)]"
+            className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-[var(--heading-color)]"
             onClick={() => setOpenId(null)}
           >
             {link.label}
@@ -131,68 +127,76 @@ export function Navigation() {
     <header ref={navRef} className="sticky top-0 z-40 border-b border-slate-200 bg-white shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
         <Link href="/" className="flex shrink-0 items-center gap-3" onClick={closeAll}>
-          <AgentPortrait size={40} linked={false} eager />
+          <AgentPortrait size={40} linked={false} decorative />
           <div className="flex flex-col leading-tight">
             <span className="text-sm font-bold tracking-wide text-[var(--heading-color)] md:text-base">
               DR. JAN DUFFY
             </span>
-            <span className="text-[10px] font-medium text-[var(--text-light)] md:text-xs lg:hidden xl:inline">
+            <span className="text-[10px] font-medium text-[var(--text-light)] md:text-xs">
               LONE MOUNTAIN HEIGHTS EXPERT
             </span>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
+        <nav className="hidden items-center xl:flex" aria-label="Main navigation">
           <ul className="flex items-center">
             <NavDropdown label="SEARCH" links={searchLinks} id="search" openId={openDropdown} setOpenId={setOpenDropdown} />
             <NavDropdown label="BUYERS" links={buyerLinks} id="buyers" openId={openDropdown} setOpenId={setOpenDropdown} />
             <NavDropdown label="SELLERS" links={sellerLinks} id="sellers" openId={openDropdown} setOpenId={setOpenDropdown} />
-            <NavDropdown label="COMMUNITIES" links={communityLinks} id="communities" openId={openDropdown} setOpenId={setOpenDropdown} />
-            <li>
-              <Link
-                href="/luxury"
-                aria-current={pathname === '/luxury' ? 'page' : undefined}
-                className={`whitespace-nowrap px-2 py-2 text-xs font-bold tracking-wider hover:text-[var(--accent-color)] xl:px-3 ${
-                  pathname === '/luxury' ? 'text-[var(--accent-dark)]' : 'text-[var(--heading-color)]'
-                }`}
-              >
-                LUXURY
-              </Link>
-            </li>
-            <NavDropdown label="ABOUT" links={aboutLinks} id="about" openId={openDropdown} setOpenId={setOpenDropdown} />
+            {topLinks.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className={`whitespace-nowrap px-2.5 py-2 text-xs font-bold tracking-wider hover:text-[var(--accent-color)] ${
+                    pathname === item.href ? 'text-[var(--accent-color)]' : 'text-[var(--heading-color)]'
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+            <NavDropdown label="ABOUT US" links={aboutLinks} id="about" openId={openDropdown} setOpenId={setOpenDropdown} />
           </ul>
         </nav>
 
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden shrink-0 items-center gap-2 xl:flex">
           <CalendlyLink
             text="Schedule time with me"
+            placement="header"
             className="whitespace-nowrap rounded-md bg-[var(--accent-color)] px-3 py-2 text-xs font-semibold text-[var(--heading-color)]"
           />
           <a
             href={NAP.telHref}
-            aria-label={`Call Dr. Jan Duffy at ${NAP.telDisplay}`}
             className="whitespace-nowrap rounded-md border border-[var(--heading-color)] px-3 py-2 text-xs font-semibold text-[var(--heading-color)] hover:bg-[var(--heading-color)] hover:text-white"
           >
-            <span aria-hidden="true">📞</span>
-            <span className="hidden xl:inline"> CALL {NAP.telDisplay}</span>
+            📞 CALL {NAP.telDisplay}
           </a>
         </div>
 
-        <button
-          type="button"
-          className="flex flex-col gap-1.5 p-2 lg:hidden"
-          aria-label="Toggle mobile menu"
-          aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          <span className="block h-0.5 w-6 bg-[var(--heading-color)]" />
-          <span className="block h-0.5 w-6 bg-[var(--heading-color)]" />
-          <span className="block h-0.5 w-6 bg-[var(--heading-color)]" />
-        </button>
+        <div className="flex items-center gap-2 xl:hidden">
+          <a
+            href={NAP.telHref}
+            className="hidden whitespace-nowrap rounded-md border border-[var(--heading-color)] px-3 py-2 text-xs font-semibold text-[var(--heading-color)] sm:inline-block"
+          >
+            📞 {NAP.telDisplay}
+          </a>
+          <button
+            type="button"
+            className="flex flex-col gap-1.5 p-2"
+            aria-label="Toggle mobile menu"
+            aria-expanded={mobileOpen}
+            aria-controls={mobileOpen ? 'mobile-menu' : undefined}
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            <span className="block h-0.5 w-6 bg-[var(--heading-color)]" />
+            <span className="block h-0.5 w-6 bg-[var(--heading-color)]" />
+            <span className="block h-0.5 w-6 bg-[var(--heading-color)]" />
+          </button>
+        </div>
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-slate-200 bg-white px-4 py-4 lg:hidden">
+        <div id="mobile-menu" className="border-t border-slate-200 bg-white px-4 py-4 xl:hidden">
           <div className="space-y-4">
             {mobileLinks.map((link) => (
               <Link
@@ -204,7 +208,11 @@ export function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <CalendlyLink text="Schedule time with me" className="block text-sm font-semibold text-[var(--accent-color)]" />
+            <CalendlyLink
+              text="Schedule time with me"
+              placement="mobile-menu"
+              className="block text-sm font-semibold text-[var(--heading-color)] underline underline-offset-2"
+            />
             <a href={NAP.telHref} className="block text-sm font-semibold text-[var(--heading-color)]">
               📞 Call {NAP.telDisplay}
             </a>

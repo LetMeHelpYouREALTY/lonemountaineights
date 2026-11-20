@@ -5,20 +5,27 @@ type AgentPortraitProps = {
   size?: number;
   className?: string;
   linked?: boolean;
-  /** Above-the-fold placements (nav) load immediately; preloading stays reserved for the hero image. */
-  eager?: boolean;
+  /** Use when the name is already printed next to the photo. */
+  decorative?: boolean;
+  priority?: boolean;
 };
 
-export function AgentPortrait({ size = 44, className = '', linked = true, eager = false }: AgentPortraitProps) {
+export function AgentPortrait({
+  size = 44,
+  className = '',
+  linked = true,
+  decorative = false,
+  priority = false,
+}: AgentPortraitProps) {
   const image = (
     <Image
       src="/images/agents/dr-jan-duffy-headshot.jpg"
-      alt="Dr. Jan Duffy — Lone Mountain Heights real estate expert"
+      alt={decorative ? '' : 'Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices Nevada Properties'}
       width={size}
       height={size}
-      className={`rounded-full object-cover ring-2 ring-[var(--accent-color)] ${className}`}
-      loading={eager ? 'eager' : 'lazy'}
-      fetchPriority={eager ? 'low' : undefined}
+      sizes={`${size}px`}
+      className={`shrink-0 rounded-full object-cover ring-2 ring-[var(--accent-color)] ${className}`}
+      priority={priority}
     />
   );
 

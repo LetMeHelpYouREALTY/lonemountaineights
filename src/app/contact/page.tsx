@@ -3,6 +3,7 @@ import { PageHeader, BtnPrimary, BtnSecondary } from '@/components/layouts/PageH
 import { ListingsBelowHero } from '@/components/sections/ListingsBelowHero';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
+import { AgentPortrait } from '@/components/shared/AgentPortrait';
 import { CalendlyInline } from '@/components/shared/CalendlyInline';
 import { JsonLd } from '@/components/shared/JsonLd';
 import { contactFAQs } from '@/lib/faqs';
@@ -12,16 +13,16 @@ import { buildPageMetadata } from '@/lib/site-metadata';
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Contact Dr. Jan Duffy | Lone Mountain Heights 89129',
-  description: `Contact Dr. Jan Duffy for expert real estate services in Lone Mountain Heights, Las Vegas 89129. Call ${NAP.telDisplay} or schedule a consultation.`,
+  description: `Contact Dr. Jan Duffy, REALTOR®, for Lone Mountain Heights homes in Las Vegas 89129. Call ${NAP.telDisplay} or book a free 15-minute call online.`,
   path: '/contact',
 });
 
 const highlights = [
   '500+ Las Vegas transactions',
-  'Deep Lone Mountain Heights expertise',
-  'Knows every street and subdivision',
-  'Personalized market analysis',
-  'Proven track record of success',
+  'Licensed in Nevada since 2008',
+  '5.0★ Realtor.com rating (50 reviews)',
+  'Focused on Lone Mountain Heights and ZIP 89129',
+  'Free comparative market analysis for sellers',
 ];
 
 export default function ContactPage() {
@@ -61,12 +62,21 @@ export default function ContactPage() {
       <div className="mx-auto max-w-6xl px-4 py-10 md:px-8">
         <div className="mb-10 grid gap-8 lg:grid-cols-2">
           <div className="rounded-xl bg-white p-6 shadow-md md:p-8">
-            <h2 className="mb-4 text-2xl font-bold text-[var(--heading-color)]">Get in Touch</h2>
-            <p className="mb-6 text-[var(--text-light)]">
-              Dr. Jan Duffy is here to help with all your Lone Mountain Heights real estate needs.
-            </p>
+            <div className="mb-6 flex items-center gap-4">
+              <AgentPortrait size={88} linked={false} />
+              <div>
+                <h2 className="mb-1 text-2xl font-bold text-[var(--heading-color)]">Get in Touch</h2>
+                <p className="text-[var(--text-light)]">
+                  Dr. Jan Duffy is here to help with all your Lone Mountain Heights real estate needs.
+                </p>
+              </div>
+            </div>
             <div className="mb-8 flex flex-wrap gap-3">
-              <CalendlyLink text="Schedule time with me" className="rounded-lg bg-[var(--accent-color)] px-4 py-2 font-semibold text-[var(--heading-color)]" />
+              <CalendlyLink
+                text="Schedule time with me"
+                placement="contact-card"
+                className="rounded-lg bg-[var(--accent-color)] px-4 py-2 font-semibold text-[var(--heading-color)]"
+              />
               <BtnPrimary href={NAP.telHref}>Call {NAP.telDisplay}</BtnPrimary>
               <BtnSecondary href={GBP_URLS.directions}>Directions</BtnSecondary>
               <BtnSecondary href={GBP_URLS.reviews}>View Google Reviews</BtnSecondary>
@@ -75,7 +85,7 @@ export default function ContactPage() {
             <div className="space-y-4">
               {[
                 { icon: '📞', title: 'Call or Text', value: NAP.telDisplay, href: NAP.telHref, note: 'Available 7 days a week' },
-                { icon: '✉️', title: 'Email', value: NAP.email, href: `mailto:${NAP.email}`, note: 'Response within 2 hours' },
+                { icon: '✉️', title: 'Email', value: NAP.email, href: `mailto:${NAP.email}`, note: 'Best for documents and detailed questions' },
                 { icon: '📍', title: 'Location', value: NAP.fullAddress, note: 'All Lone Mountain Heights neighborhoods and communities' },
               ].map((m) => (
                 <div key={m.title} className="flex gap-4 rounded-lg bg-[var(--warm-cream)] p-4">
@@ -83,7 +93,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-[var(--heading-color)]">{m.title}</h3>
                     {m.href ? (
-                      <a href={m.href} className="font-medium text-[var(--accent-color)] hover:underline">{m.value}</a>
+                      <a href={m.href} className="font-medium text-[var(--heading-color)] underline-offset-2 hover:underline">{m.value}</a>
                     ) : (
                       <p>{m.value}</p>
                     )}
@@ -110,7 +120,7 @@ export default function ContactPage() {
             <p className="mb-4 text-[var(--text-light)]">
               Book a time — Dr. Jan will call or meet to discuss your Lone Mountain Heights goals.
             </p>
-            <CalendlyInline />
+            <CalendlyInline placement="contact-scheduler" />
           </div>
         </div>
 
@@ -132,7 +142,11 @@ export default function ContactPage() {
           </div>
         </section>
 
-        <FAQSection faqs={contactFAQs} title="Contact Dr. Jan Duffy — Frequently Asked Questions" />
+        <FAQSection
+          faqs={contactFAQs}
+          title="Contact Dr. Jan Duffy — Frequently Asked Questions"
+          calendlyPlacement="contact-faq"
+        />
       </div>
     </>
   );

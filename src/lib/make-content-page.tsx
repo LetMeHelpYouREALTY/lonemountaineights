@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import { AnswerLead } from '@/components/sections/AnswerLead';
 import { ContentPage, buildPageMetadata } from '@/components/layouts/ContentPage';
 import { getBreadcrumbs, getPageConfig, getPageFaqs } from '@/lib/content-page';
 import { HERO_IMAGES } from '@/lib/hero-images';
@@ -11,6 +12,8 @@ const LOCATION_SLUGS = new Set([
   'locations/lone-mountain-ranch',
   'locations/desert-vista-estates',
 ]);
+
+const SCHOOL_ZONING_SLUGS = new Set(['schools', 'faq/best-schools']);
 
 export function makeContentPage(slug: string) {
   const config = getPageConfig(slug);
@@ -33,16 +36,26 @@ export function makeContentPage(slug: string) {
   function Page() {
     return (
       <ContentPage
+        title={pageConfig.title}
         h1={pageConfig.h1}
         description={pageConfig.description}
         canonical={pageConfig.canonical}
         breadcrumbs={breadcrumbs}
         faqs={faqs}
         schema={extraSchema}
+        calendlyEvent={pageConfig.calendlyEvent}
+        listingsBelowHero={pageConfig.listings}
         showCta
         showHero
-        heroImage={slug === 'careers' ? HERO_IMAGES.bhhsOffice : HERO_IMAGES.loneMountain}
+        heroImage={slug === 'careers' ? HERO_IMAGES.bhhsOffice : undefined}
       >
+          {slug === 'market-report' && (
+            <AnswerLead
+              updatedLabel="Updated November 2026"
+              heading="How do I read the Lone Mountain Heights market?"
+              answer="Use live MLS inventory on this site for actives, then ask Dr. Jan Duffy for sold comps on your street in 89129. She explains days on market, list-to-sale ratios, and pricing strategy for your specific home—not a citywide average."
+            />
+          )}
           <div className="prose prose-slate mb-8 max-w-none">
             {pageConfig.body.map((paragraph) => (
               <p key={paragraph.slice(0, 40)} className="mb-4 leading-relaxed text-[var(--text-color)]">
@@ -50,29 +63,42 @@ export function makeContentPage(slug: string) {
               </p>
             ))}
           </div>
+          {SCHOOL_ZONING_SLUGS.has(slug) && (
+            <p className="mb-8">
+              <a
+                href="https://www.ccsd.net/zoning"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block rounded-lg bg-[var(--accent-color)] px-5 py-2.5 font-semibold text-[var(--heading-color)] hover:opacity-90"
+              >
+                Look up school zoning on ccsd.net
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </p>
+          )}
           {slug === 'blog' && (
             <div className="mb-8 grid gap-4 sm:grid-cols-2">
               <Link href="/blog/complete-guide-living-lone-mountain-heights" className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md">
                 <h3 className="font-semibold text-[var(--heading-color)]">Complete Guide to Living Here</h3>
-                <p className="text-sm text-[var(--text-light)]">The definitive Lone Mountain Heights community guide</p>
+                <p className="text-sm text-[var(--text-light)]">Location, homes, parks and trails, and school zoning in 89129</p>
               </Link>
               <Link href="/blog/this-week-in-lone-mountain-heights" className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md">
                 <h3 className="font-semibold text-[var(--heading-color)]">This Week in Lone Mountain Heights</h3>
-                <p className="text-sm text-[var(--text-light)]">Weekly market update and new listings</p>
+                <p className="text-sm text-[var(--text-light)]">New listings, pending sales, and price changes</p>
               </Link>
             </div>
           )}
           {slug === 'gallery' && (
-            <figure className="mb-8">
+            <figure className="mb-8 overflow-hidden rounded-xl bg-white shadow-md">
               <Image
                 src={HERO_IMAGES.loneMountain.src}
-                alt={HERO_IMAGES.loneMountain.alt}
+                alt="Lone Mountain, a rocky desert butte in northwest Las Vegas, rising above neighborhoods with mountains behind it"
                 placeholder="blur"
                 sizes="(min-width: 1152px) 1088px, 100vw"
-                className="w-full rounded-xl object-cover shadow-md"
+                className="h-auto w-full"
               />
-              <figcaption className="mt-3 text-sm text-[var(--text-light)]">
-                Lone Mountain, the peak Lone Mountain Heights is named for, above the Las Vegas Valley.
+              <figcaption className="px-4 py-3 text-sm text-[var(--text-light)]">
+                Lone Mountain, northwest Las Vegas (ZIP 89129).
               </figcaption>
             </figure>
           )}

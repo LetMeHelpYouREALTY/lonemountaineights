@@ -12,7 +12,7 @@ const updatedLabel = new Date(`${CONTENT_UPDATED}T12:00:00Z`).toLocaleDateString
 export function AuthorByline() {
   return (
     <div className="mb-8 flex items-center gap-3 border-b border-slate-200 pb-6">
-      <AgentPortrait size={48} linked={false} />
+      <AgentPortrait size={48} linked={false} decorative />
       <p className="text-sm leading-snug text-[var(--text-light)]">
         <Link href="/about" className="font-semibold text-[var(--heading-color)] hover:text-[var(--accent-dark)]">
           Dr. Jan Duffy, REALTOR®

@@ -20,8 +20,8 @@ const defaultSocial = getDefaultSocialMetadata();
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Lone Mountain Heights Real Estate | Dr. Jan Duffy',
-    template: '%s | Dr. Jan Duffy',
+    default: 'Lone Mountain Heights Real Estate | Dr. Jan Duffy | Las Vegas 89129',
+    template: '%s | Lone Mountain Heights | Dr. Jan Duffy',
   },
   description:
     'Find homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy leads the Lone Mountain Heights Team.',
@@ -47,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     license: NAP.license,
     broker: NAP.broker,
     address: NAP.address,
+    gbpReviewsUrl: GBP_URLS.reviews,
     gbpMapUrl: GBP_URLS.reviews,
   });
 
@@ -54,6 +55,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/images/icons/favicon.png" type="image/png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/images/icons/favicon-180.png" sizes="180x180" />
         <link rel="preconnect" href="https://em.realscout.com" crossOrigin="" />
         <link rel="preconnect" href="https://www.realscout.com" crossOrigin="" />
         <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="" />

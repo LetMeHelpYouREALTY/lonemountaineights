@@ -35,10 +35,9 @@ const routes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date(`${CONTENT_UPDATED}T00:00:00Z`);
   return routes.map((path) => ({
     url: `${BASE}${path === '/' ? '' : path}`,
-    lastModified,
+    lastModified: CONTENT_UPDATED,
     changeFrequency: path === '/' || path === '/homes' ? 'daily' : 'weekly',
     priority: path === '/' ? 1 : path === '/homes' ? 0.9 : 0.7,
   }));

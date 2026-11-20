@@ -1,12 +1,24 @@
 /**
  * JSON-LD structured data — RealEstateAgent entity graph, WebPage, Place, FAQ (AEO).
- * Aligned with schema.org + Google Search Central FAQ guidance (2025–2026).
+ * Aligned with schema.org + Google Search Central Organization / FAQ guidance (2025–2026).
+ *
+ * Entity split (SEO/GEO/AEO):
+ * - Person.image = agent portrait
+ * - RealEstateAgent.logo/image = agent brand (portrait favicon / photo)
+ * - Organization.logo = BHHS Nevada lockup (not the agent face)
  */
 
-import { CONTENT_UPDATED, SITE_URL } from '@/lib/site-metadata';
+import {
+  AGENT_SAME_AS,
+  BRAND_ASSETS,
+  BROKERAGE,
+  ORGANIZATION_SAME_AS,
+} from '@/lib/brand';
+import { calendlyUrl } from '@/lib/calendly';
+import { CONTENT_UPDATED, SITE_NAME, SITE_URL } from '@/lib/site-metadata';
 
 export const SCHEMA_IDS = {
-  agent: `${SITE_URL}/#realestate-agent`,
+  agent: `${SITE_URL}/#realestateagent`,
   person: `${SITE_URL}/#person`,
   organization: `${SITE_URL}/#organization`,
   website: `${SITE_URL}/#website`,
@@ -18,12 +30,46 @@ export const GEO_COORDINATES = {
   longitude: -115.2419,
 };
 
-export const AREA_SERVED_PLACES = [
-  { name: 'Lone Mountain Heights', type: 'Place' as const },
-  { name: 'Lone Mountain Ranch', type: 'Place' as const },
-  { name: 'Desert Vista Estates', type: 'Place' as const },
-  { name: 'Las Vegas', type: 'City' as const },
-  { name: '89129', type: 'PostalCode' as const },
+const LAS_VEGAS = {
+  '@type': 'City',
+  name: 'Las Vegas',
+  containedInPlace: { '@type': 'State', name: 'Nevada' },
+} as const;
+
+const GEO = {
+  '@type': 'GeoCoordinates',
+  latitude: GEO_COORDINATES.latitude,
+  longitude: GEO_COORDINATES.longitude,
+} as const;
+
+const ZIP_89129_ADDRESS = {
+  '@type': 'PostalAddress',
+  addressLocality: 'Las Vegas',
+  addressRegion: 'NV',
+  postalCode: '89129',
+  addressCountry: 'US',
+} as const;
+
+/** Lone Mountain Heights as a Place nested in its real city (fleet areaServed standard). */
+const LONE_MOUNTAIN_HEIGHTS_PLACE = {
+  '@type': 'Place',
+  name: 'Lone Mountain Heights',
+  address: ZIP_89129_ADDRESS,
+  geo: GEO,
+  containedInPlace: LAS_VEGAS,
+} as const;
+
+const AREA_SERVED = [
+  LONE_MOUNTAIN_HEIGHTS_PLACE,
+  { '@type': 'Place', name: 'Lone Mountain Ranch', containedInPlace: LAS_VEGAS },
+  { '@type': 'Place', name: 'Desert Vista Estates', containedInPlace: LAS_VEGAS },
+  {
+    '@type': 'Place',
+    name: 'Las Vegas, NV 89129',
+    address: ZIP_89129_ADDRESS,
+    containedInPlace: LAS_VEGAS,
+  },
+  LAS_VEGAS,
 ];
 
 type FAQ = { question: string; answer: string };
@@ -55,24 +101,25 @@ export function generateSiteGraphSchema(nap: {
     postalCode: string;
     addressCountry: string;
   };
+  gbpReviewsUrl: string;
   gbpMapUrl: string;
 }) {
-  const logoUrl = `${SITE_URL}/images/icons/icon-512.png`;
-  const agentPhoto = `${SITE_URL}/images/agents/dr-jan-duffy-headshot.jpg`;
-
-  const areaServed = AREA_SERVED_PLACES.map((place) => ({
-    '@type': place.type,
-    name: place.name,
-    ...(place.type === 'Place' && place.name === 'Lone Mountain Heights'
-      ? {
-          geo: {
-            '@type': 'GeoCoordinates',
-            latitude: GEO_COORDINATES.latitude,
-            longitude: GEO_COORDINATES.longitude,
-          },
-        }
-      : {}),
-  }));
+  const openingHoursSpecification = [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday',
+      ],
+      opens: '08:00',
+      closes: '20:00',
+    },
+  ];
 
   return {
     '@context': 'https://schema.org',
@@ -86,8 +133,8 @@ export function generateSiteGraphSchema(nap: {
         url: SITE_URL,
         telephone: nap.telephone,
         email: nap.email,
-        image: agentPhoto,
-        logo: logoUrl,
+        image: BRAND_ASSETS.agentPhoto,
+        logo: BRAND_ASSETS.agentLogo,
         address: {
           '@type': 'PostalAddress',
           streetAddress: nap.address.streetAddress,
@@ -96,13 +143,10 @@ export function generateSiteGraphSchema(nap: {
           postalCode: nap.address.postalCode,
           addressCountry: nap.address.addressCountry,
         },
-        geo: {
-          '@type': 'GeoCoordinates',
-          latitude: GEO_COORDINATES.latitude,
-          longitude: GEO_COORDINATES.longitude,
-        },
+        geo: GEO,
         hasMap: nap.gbpMapUrl,
-        areaServed,
+        areaServed: AREA_SERVED,
+        openingHoursSpecification,
         serviceType: [
           'Residential real estate',
           'Home buyer representation',
@@ -124,11 +168,20 @@ export function generateSiteGraphSchema(nap: {
           name: `Nevada Real Estate License ${nap.license}`,
         },
         memberOf: { '@id': SCHEMA_IDS.organization },
+        parentOrganization: { '@id': SCHEMA_IDS.organization },
+        sameAs: [...AGENT_SAME_AS],
         priceRange: '$$',
         potentialAction: {
           '@type': 'ReserveAction',
           name: 'Schedule a consultation',
-          target: `${SITE_URL}/contact`,
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: calendlyUrl('consult', 'schema'),
+            actionPlatform: [
+              'http://schema.org/DesktopWebPlatform',
+              'http://schema.org/MobileWebPlatform',
+            ],
+          },
         },
       },
       {
@@ -137,31 +190,57 @@ export function generateSiteGraphSchema(nap: {
         name: nap.name,
         jobTitle: 'Real Estate Agent — Lone Mountain Heights Specialist',
         url: `${SITE_URL}/about`,
-        image: agentPhoto,
+        image: BRAND_ASSETS.agentPhoto,
         telephone: nap.telephone,
         email: nap.email,
         worksFor: { '@id': SCHEMA_IDS.organization },
+        affiliation: { '@id': SCHEMA_IDS.organization },
+        sameAs: [...AGENT_SAME_AS],
         knowsAbout: [
           'Lone Mountain Heights real estate',
           'Las Vegas home sales',
           '89129 neighborhoods',
         ],
+        hasCredential: {
+          '@type': 'EducationalOccupationalCredential',
+          credentialCategory: 'Real Estate License',
+          name: `Nevada Real Estate License ${nap.license}`,
+        },
       },
       {
         '@type': 'Organization',
         '@id': SCHEMA_IDS.organization,
-        name: nap.broker,
-        url: 'https://www.bhhsnv.com',
+        name: nap.broker || BROKERAGE.name,
+        alternateName: BROKERAGE.shortName,
+        url: BROKERAGE.url,
+        logo: {
+          '@type': 'ImageObject',
+          url: BRAND_ASSETS.organizationLogo,
+          width: 512,
+          height: 512,
+        },
+        image: BRAND_ASSETS.organizationLogo,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: '3185 St. Rose Parkway, Suite 100',
+          addressLocality: 'Henderson',
+          addressRegion: 'NV',
+          postalCode: '89052',
+          addressCountry: 'US',
+        },
+        sameAs: [...ORGANIZATION_SAME_AS],
         employee: { '@id': SCHEMA_IDS.person },
       },
       {
         '@type': 'WebSite',
         '@id': SCHEMA_IDS.website,
-        name: 'Lone Mountain Heights Real Estate | Dr. Jan Duffy',
+        name: SITE_NAME,
+        alternateName: 'LoneMountainHeights.com',
         url: SITE_URL,
         description:
-          'Homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy, Berkshire Hathaway HomeServices.',
+          'Homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.',
         publisher: { '@id': SCHEMA_IDS.agent },
+        about: { '@id': SCHEMA_IDS.agent },
         inLanguage: 'en-US',
       },
     ],
@@ -214,31 +293,16 @@ export function generateWebPageSchema({
     url,
     name,
     description,
-    inLanguage: 'en-US',
-    dateModified: CONTENT_UPDATED,
-    author: { '@id': SCHEMA_IDS.person },
     isPartOf: { '@id': SCHEMA_IDS.website },
-    about: {
-      '@type': 'Place',
-      name: 'Lone Mountain Heights',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Las Vegas',
-        addressRegion: 'NV',
-        postalCode: '89129',
-        addressCountry: 'US',
-      },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: GEO_COORDINATES.latitude,
-        longitude: GEO_COORDINATES.longitude,
-      },
-    },
+    inLanguage: 'en-US',
+    about: LONE_MOUNTAIN_HEIGHTS_PLACE,
+    author: { '@id': SCHEMA_IDS.person },
+    dateModified: CONTENT_UPDATED,
     ...(includeSpeakable
       ? {
           speakable: {
             '@type': 'SpeakableSpecification',
-            cssSelector: ['#faq-heading', '.faq-answer-text'],
+            cssSelector: ['#faq-heading', '.faq-question-text', '.faq-answer-text'],
           },
         }
       : {}),
@@ -256,21 +320,7 @@ export function generatePlaceSchema({ name, description, path }: PlaceSchemaOpti
     name,
     description,
     url,
-    containedInPlace: {
-      '@type': 'Place',
-      name: 'Lone Mountain Heights',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Las Vegas',
-        addressRegion: 'NV',
-        postalCode: '89129',
-        addressCountry: 'US',
-      },
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: GEO_COORDINATES.latitude,
-      longitude: GEO_COORDINATES.longitude,
-    },
+    address: ZIP_89129_ADDRESS,
+    containedInPlace: LONE_MOUNTAIN_HEIGHTS_PLACE,
   };
 }

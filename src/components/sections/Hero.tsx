@@ -35,7 +35,8 @@ export function Hero() {
             Find Your Dream Home in Lone Mountain Heights
           </h1>
           <p className="text-lg text-white md:text-xl">
-            Las Vegas&apos;s premier community with mountain views, luxury amenities, and exceptional value
+            Homes near Lone Mountain in northwest Las Vegas (89129), with live MLS search, instant home
+            values, and private consultations with Dr. Jan Duffy
           </p>
         </div>
 
@@ -94,7 +95,7 @@ export function Hero() {
               <p className="mb-4 text-sm text-[var(--text-color)]">
                 Book a free 15-minute private conversation about buying or selling in Lone Mountain Heights
               </p>
-              <CalendlyInline minHeight={580} />
+              <CalendlyInline minHeight={580} placement="home-hero-scheduler" />
             </div>
           )}
 
@@ -106,6 +107,7 @@ export function Hero() {
               className="rounded-lg bg-[var(--accent-color)] px-5 py-2.5 text-sm font-semibold text-[var(--heading-color)] hover:opacity-90"
             >
               Open Full Search
+              <span className="sr-only"> (opens RealScout in a new tab)</span>
             </a>
             <Link
               href="/valuation"
@@ -115,6 +117,7 @@ export function Hero() {
             </Link>
             <CalendlyLink
               text="Schedule time with me"
+              placement="home-hero"
               className="rounded-lg bg-[var(--heading-color)] px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90"
             />
           </div>

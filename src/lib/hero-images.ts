@@ -12,7 +12,7 @@ export type HeroImage = {
 export const HERO_IMAGES = {
   loneMountain: {
     src: lonePeak,
-    alt: 'Lone Mountain, the northwest Las Vegas peak Lone Mountain Heights is named for',
+    alt: 'Lone Mountain rising above northwest Las Vegas neighborhoods near Lone Mountain Heights, ZIP 89129',
     position: 'center 45%',
   },
   bhhsOffice: {

@@ -13,12 +13,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const streetName = decodeURIComponent(street).replace(/-/g, ' ');
   const propertyAddress = decodeURIComponent(address).replace(/-/g, ' ');
   return {
-    title: `${propertyAddress} | ${streetName} | Lone Mountain Heights Homes`,
-    description: `View ${propertyAddress} on ${streetName} in Lone Mountain Heights, Las Vegas 89129. Contact Dr. Jan Duffy for details.`,
+    title: { absolute: `${propertyAddress} | Lone Mountain Heights Homes` },
+    description: `Ask Dr. Jan Duffy about ${propertyAddress} on ${streetName} in Lone Mountain Heights, Las Vegas 89129.`,
     alternates: {
       canonical: `https://www.lonemountainheights.com/homes/${street}/${address}`,
     },
-    // Any /homes/<street>/<address> path renders, so these pages must stay out of the index.
+    // Any street/address renders here without MLS data behind it; keep these out of the index.
     robots: { index: false, follow: true },
   };
 }
@@ -37,13 +37,23 @@ export default async function PropertyPage({ params }: PageProps) {
       </p>
       <p className="mb-8 text-[var(--text-light)]">
         Contact {NAP.name} at{' '}
-        <a href={NAP.telHref} className="font-semibold text-[var(--accent-color)]">{NAP.telDisplay}</a>
+        <a href={NAP.telHref} className="font-semibold text-[var(--heading-color)] underline underline-offset-2">
+          {NAP.telDisplay}
+        </a>
         {' '}or{' '}
-        <CalendlyLink text="schedule a consultation" className="font-semibold text-[var(--accent-color)]" />.
+        <CalendlyLink
+          text="schedule a showing"
+          event="showing"
+          placement="property-detail"
+          className="font-semibold text-[var(--heading-color)] underline underline-offset-2"
+        />
+        .
       </p>
       <CalendlyScheduleSection
-        title="Schedule a Property Consultation"
+        title="Schedule a Showing"
         description={`Ask Dr. Jan Duffy about ${propertyAddress} or similar homes in Lone Mountain Heights.`}
+        event="showing"
+        placement="property-schedule"
         className="mb-8"
       />
       <section className="my-8">

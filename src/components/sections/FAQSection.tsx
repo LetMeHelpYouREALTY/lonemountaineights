@@ -1,4 +1,5 @@
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
+import type { CalendlyEvent } from '@/lib/calendly';
 
 type FAQ = { question: string; answer: string };
 
@@ -6,12 +7,16 @@ type FAQSectionProps = {
   faqs: FAQ[];
   title?: string;
   sectionId?: string;
+  calendlyEvent?: CalendlyEvent;
+  calendlyPlacement?: string;
 };
 
 export function FAQSection({
   faqs,
   title = 'Frequently Asked Questions',
   sectionId = 'faq',
+  calendlyEvent = 'consult',
+  calendlyPlacement = 'faq',
 }: FAQSectionProps) {
   if (!faqs?.length) return null;
 
@@ -25,12 +30,15 @@ export function FAQSection({
         {title}
       </h2>
       <p className="mb-6 text-[var(--text-light)]">
-        Expert answers from Dr. Jan Duffy, your Lone Mountain Heights real estate specialist
+        Answers from Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices Nevada Properties
       </p>
       <div className="divide-y divide-slate-200">
         {faqs.map((faq) => (
           <div key={faq.question} className="py-5" itemScope itemType="https://schema.org/Question">
-            <h3 className="mb-2 text-lg font-semibold text-[var(--heading-color)]" itemProp="name">
+            <h3
+              className="faq-question-text mb-2 text-lg font-semibold text-[var(--heading-color)]"
+              itemProp="name"
+            >
               {faq.question}
             </h3>
             <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
@@ -45,6 +53,8 @@ export function FAQSection({
         <p className="mb-3 text-[var(--text-color)]">Still have questions? Talk directly with Dr. Jan Duffy.</p>
         <CalendlyLink
           text="Schedule time with me"
+          event={calendlyEvent}
+          placement={calendlyPlacement}
           className="inline-block rounded-lg bg-[var(--accent-color)] px-5 py-2.5 font-semibold text-[var(--heading-color)] hover:opacity-90"
         />
       </div>

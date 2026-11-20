@@ -29,6 +29,11 @@ const NAP = {
 // Calendly – Dr. Jan's scheduling link
 export { CALENDLY_URL } from './calendly';
 
+/**
+ * Area maps for Lone Mountain Heights (89129). Agent Knowledge Graph panel:
+ * https://g.co/kgs/uwtzcWj (wired via AGENT_SAME_AS in brand.ts).
+ * Replace reviews with a listing-specific GBP Place ID when available.
+ */
 export const GBP_URLS = {
   directions:
     'https://www.google.com/maps/dir/?api=1&destination=Lone+Mountain+Heights,+Las+Vegas,+NV+89129',
@@ -36,6 +41,7 @@ export const GBP_URLS = {
     'https://www.google.com/maps/place/Lone+Mountain+Heights,+Las+Vegas,+NV+89129/@36.2569,-115.2419,15z',
   mapEmbed:
     'https://maps.google.com/maps?q=Lone+Mountain+Heights,+Las+Vegas,+NV+89129&t=&z=14&ie=UTF8&iwloc=&output=embed',
+  agentKnowledgeGraph: 'https://g.co/kgs/uwtzcWj',
 };
 
 export function generateRealEstateSchema(_property) {
@@ -169,7 +175,7 @@ export function generatePropertySchema(property) {
     },
     provider: {
       '@type': 'RealEstateAgent',
-      '@id': 'https://www.lonemountainheights.com/#realestate-agent',
+      '@id': 'https://www.lonemountainheights.com/#realestateagent',
     },
   };
 }
@@ -182,6 +188,7 @@ export function generateLocalBusinessSchema() {
     license: NAP.license,
     broker: NAP.broker,
     address: NAP.address,
+    gbpReviewsUrl: GBP_URLS.reviews,
     gbpMapUrl: GBP_URLS.reviews,
   });
 }
@@ -197,5 +204,3 @@ export {
   GEO_COORDINATES,
   SCHEMA_IDS,
 } from './structured-data';
-
-// Real Estate specific FAQ data

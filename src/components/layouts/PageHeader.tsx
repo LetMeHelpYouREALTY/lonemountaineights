@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { PageHero } from '@/components/layouts/PageHero';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import type { HeroImage } from '@/lib/hero-images';
+import type { CalendlyEvent } from '@/lib/calendly';
 import { NAP } from '@/lib/schema';
 
 type Breadcrumb = { name: string; href?: string };
@@ -44,9 +45,13 @@ export function PageHeader({
 export function ContactCTA({
   heading = 'Ready to take your next step?',
   subtext = 'Buy or sell in Lone Mountain Heights with Dr. Jan Duffy.',
+  calendlyEvent = 'consult',
+  calendlyPlacement = 'contact-cta',
 }: {
   heading?: string;
   subtext?: string;
+  calendlyEvent?: CalendlyEvent;
+  calendlyPlacement?: string;
 }) {
   return (
     <section className="my-10 rounded-xl bg-[var(--heading-color)] p-8 text-center text-white">
@@ -61,6 +66,8 @@ export function ContactCTA({
         </a>
         <CalendlyLink
           text="Schedule time with me"
+          event={calendlyEvent}
+          placement={calendlyPlacement}
           className="rounded-lg border-2 border-white px-6 py-3 font-semibold hover:bg-white hover:text-[var(--heading-color)]"
         />
         <a

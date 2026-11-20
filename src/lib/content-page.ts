@@ -43,17 +43,22 @@ export function getPageFaqs(faqKey?: string): FAQ[] | undefined {
 
 type Crumb = { name: string; href?: string };
 
+/** Parent crumbs for nested routes; only /blog exists as its own page, the rest map to hubs. */
+const SECTION_HUBS: Record<string, Crumb | null> = {
+  blog: { name: 'Blog', href: '/blog' },
+  locations: { name: 'Neighborhoods', href: '/neighborhoods' },
+  'price-ranges': { name: 'Homes for Sale', href: '/homes' },
+  'property-types': { name: 'Homes for Sale', href: '/homes' },
+  faq: null,
+};
+
 export function getBreadcrumbs(canonical: string, h1: string): Crumb[] {
   const segments = canonical.split('/').filter(Boolean);
   const crumbs: Crumb[] = [{ name: 'Home', href: '/' }];
-  let path = '';
-  for (let i = 0; i < segments.length; i++) {
-    path += `/${segments[i]}`;
-    const isLast = i === segments.length - 1;
-    crumbs.push({
-      name: isLast ? h1.split('|')[0].trim() : segments[i].replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()),
-      ...(isLast ? {} : { href: path }),
-    });
+  if (segments.length > 1) {
+    const hub = SECTION_HUBS[segments[0]];
+    if (hub) crumbs.push(hub);
   }
+  crumbs.push({ name: h1.split('|')[0].trim() });
   return crumbs;
 }
