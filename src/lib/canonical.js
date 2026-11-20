@@ -157,15 +157,8 @@ export function getAllCanonicalUrls() {
     },
   ];
 
-  // Add location-specific URLs
-  const locations = [
-    'lone-mountain-ranch',
-    'desert-vista-estates',
-    'mountain-view-estates',
-    'sunset-ridge',
-    'eagle-canyon',
-  ];
-
+  // Only include routes that return 200 (avoid GSC 404 / soft-404 noise)
+  const locations = ['lone-mountain-ranch', 'desert-vista-estates'];
   locations.forEach((location) => {
     urls.push({
       url: generateLocationCanonicalUrl(location),
@@ -175,36 +168,18 @@ export function getAllCanonicalUrls() {
     });
   });
 
-  // Add property type URLs
-  const propertyTypes = [
-    '3-bedroom-homes',
-    '4-bedroom-homes',
-    '5-bedroom-homes',
-    'luxury-homes',
-    'corner-lot-homes',
-    'single-story-homes',
-    'homes-with-mountain-views',
-  ];
-
-  propertyTypes.forEach((type) => {
-    urls.push({
-      url: generatePropertyTypeCanonicalUrl(type),
-      priority: 0.75,
-      changefreq: 'weekly',
-      lastmod: new Date().toISOString().split('T')[0],
-    });
+  urls.push({
+    url: generatePropertyTypeCanonicalUrl('3-bedroom-homes'),
+    priority: 0.75,
+    changefreq: 'weekly',
+    lastmod: new Date().toISOString().split('T')[0],
   });
 
-  // Add price range URLs
-  const priceRanges = ['400k-600k', '600k-800k', '800k-1m', '1m-plus'];
-
-  priceRanges.forEach((range) => {
-    urls.push({
-      url: generatePriceRangeCanonicalUrl(range),
-      priority: 0.75,
-      changefreq: 'weekly',
-      lastmod: new Date().toISOString().split('T')[0],
-    });
+  urls.push({
+    url: generatePriceRangeCanonicalUrl('600k-800k'),
+    priority: 0.75,
+    changefreq: 'weekly',
+    lastmod: new Date().toISOString().split('T')[0],
   });
 
   return urls;
@@ -224,8 +199,6 @@ Allow: /
 # Sitemaps
 Sitemap: ${BASE_URL}/sitemap.xml
 Sitemap: ${BASE_URL}/sitemap-index.xml
-Sitemap: ${BASE_URL}/sitemap-news.xml
-
 # Crawl-delay for respectful crawling
 Crawl-delay: 1`;
 }

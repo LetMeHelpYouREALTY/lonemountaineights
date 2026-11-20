@@ -60,7 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://em.realscout.com" crossOrigin="" />
         <link rel="preconnect" href="https://www.realscout.com" crossOrigin="" />
         <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="" />
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+        <link rel="dns-prefetch" href="https://assets.calendly.com" />
         <JsonLd data={siteGraphSchema} />
       </head>
       <body className={inter.className}>
@@ -72,9 +72,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CalendlyBadge />
         <CalendlyScript />
 
+        {/* afterInteractive: beforeInteractive was blocking LCP (~4s mobile) for RealScout UMD */}
         <Script
           src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
         {/* WidgetBe (widgetbe.com) intentionally not loaded: its CTA uses 702-500-1942
             instead of this site's client line 702-500-1955. RealScout does not need it. */}

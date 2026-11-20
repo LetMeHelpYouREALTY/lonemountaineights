@@ -163,20 +163,4 @@
              <changefreq>monthly</changefreq>
              <priority>0.7</priority>
            </url>
-
-           <!-- Sample Property Pages (Dynamic URLs) -->
-           <url>
-             <loc>https://www.lonemountainheights.com/homes/lone-mountain-ranch/1234-mountain-view-dr</loc>
-             <lastmod>2024-12-19</lastmod>
-             <changefreq>weekly</changefreq>
-             <priority>0.8</priority>
-           </url>
-
-           <url>
-             <loc>https://www.lonemountainheights.com/homes/desert-vista-estates/5678-desert-bloom-ct</loc>
-             <lastmod>2024-12-19</lastmod>
-             <changefreq>weekly</changefreq>
-             <priority>0.8</priority>
-           </url>
-
-         </urlset>
+</urlset>

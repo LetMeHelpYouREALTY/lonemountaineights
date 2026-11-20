@@ -71,19 +71,99 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Prefer www permanently when a request still reaches the app (Vercel apex
+      // domain redirect should also be set to 308 in project domain settings).
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'lonemountainheights.com' }],
+        destination: 'https://www.lonemountainheights.com/:path*',
+        permanent: true,
+      },
       {
         source: '/locations',
         destination: '/neighborhoods',
         permanent: true,
       },
       {
-        source: '/faq',
-        destination: '/#faq-heading',
-        permanent: false,
-      },
-      {
         source: '/listings',
         destination: '/homes',
+        permanent: true,
+      },
+      // Sample/demo property URLs historically listed in static sitemaps — consolidate.
+      {
+        source: '/homes/lone-mountain-ranch/1234-mountain-view-dr',
+        destination: '/homes',
+        permanent: true,
+      },
+      {
+        source: '/homes/desert-vista-estates/5678-desert-bloom-ct',
+        destination: '/homes',
+        permanent: true,
+      },
+      // Dead routes that still appear in Search Console / old canonical lists.
+      {
+        source: '/locations/mountain-view-estates',
+        destination: '/neighborhoods',
+        permanent: true,
+      },
+      {
+        source: '/locations/sunset-ridge',
+        destination: '/neighborhoods',
+        permanent: true,
+      },
+      {
+        source: '/locations/eagle-canyon',
+        destination: '/neighborhoods',
+        permanent: true,
+      },
+      {
+        source: '/property-types/4-bedroom-homes',
+        destination: '/property-types/3-bedroom-homes',
+        permanent: true,
+      },
+      {
+        source: '/property-types/5-bedroom-homes',
+        destination: '/property-types/3-bedroom-homes',
+        permanent: true,
+      },
+      {
+        source: '/property-types/luxury-homes',
+        destination: '/luxury',
+        permanent: true,
+      },
+      {
+        source: '/property-types/corner-lot-homes',
+        destination: '/homes',
+        permanent: true,
+      },
+      {
+        source: '/property-types/single-story-homes',
+        destination: '/homes',
+        permanent: true,
+      },
+      {
+        source: '/property-types/homes-with-mountain-views',
+        destination: '/homes',
+        permanent: true,
+      },
+      {
+        source: '/price-ranges/400k-600k',
+        destination: '/price-ranges/600k-800k',
+        permanent: true,
+      },
+      {
+        source: '/price-ranges/800k-1m',
+        destination: '/price-ranges/600k-800k',
+        permanent: true,
+      },
+      {
+        source: '/price-ranges/1m-plus',
+        destination: '/luxury',
+        permanent: true,
+      },
+      {
+        source: '/sitemap-news.xml',
+        destination: '/sitemap.xml',
         permanent: true,
       },
     ];

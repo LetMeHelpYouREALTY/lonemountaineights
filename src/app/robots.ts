@@ -2,7 +2,10 @@ import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site-metadata';
 
 export default function robots(): MetadataRoute.Robots {
-  const allowPublic = { allow: '/' as const, disallow: ['/api/'] as string[] };
+  const allowPublic = {
+    allow: '/' as const,
+    disallow: ['/api/', '/todos/', '/todos'] as string[],
+  };
 
   return {
     rules: [

@@ -13,6 +13,7 @@ const routes = [
   '/blog/complete-guide-living-lone-mountain-heights',
   '/careers',
   '/contact',
+  '/faq',
   '/faq/best-schools',
   '/faq/hoa-fees',
   '/faq/home-prices-2025',
