@@ -16,6 +16,7 @@ const contentSecurityPolicy = [
     'https://www.realscout.com',
     'https://*.realscout.com',
     'https://assets.calendly.com',
+    'https://va.vercel-scripts.com',
   ].join(' '),
   [
     "connect-src 'self'",
@@ -28,6 +29,7 @@ const contentSecurityPolicy = [
     'https://www.calendly.com',
     'https://assets.calendly.com',
     'https://*.calendly.com',
+    'https://vitals.vercel-insights.com',
   ].join(' '),
   [
     "style-src 'self' 'unsafe-inline'",
