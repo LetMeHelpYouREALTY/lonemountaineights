@@ -6,6 +6,7 @@ import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { AgentPortrait } from '@/components/shared/AgentPortrait';
 import { CalendlyInline } from '@/components/shared/CalendlyInline';
 import { JsonLd } from '@/components/shared/JsonLd';
+import { REVIEW_PROFILES } from '@/lib/brand';
 import { contactFAQs } from '@/lib/faqs';
 import { generateBreadcrumbSchema, generateFAQSchema, GBP_URLS, NAP } from '@/lib/schema';
 import { generateWebPageSchema, SCHEMA_IDS } from '@/lib/structured-data';
@@ -20,7 +21,7 @@ export const metadata: Metadata = buildPageMetadata({
 const highlights = [
   '500+ Las Vegas transactions',
   'Licensed in Nevada since 2008',
-  '5.0★ Realtor.com rating (50 reviews)',
+  `${REVIEW_PROFILES.realtorCom.rating}★ Realtor.com rating (${REVIEW_PROFILES.realtorCom.reviewCount} reviews)`,
   'Focused on Lone Mountain Heights and ZIP 89129',
   'Free comparative market analysis for sellers',
 ];

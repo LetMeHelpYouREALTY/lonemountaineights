@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { BROKERAGE } from '@/lib/brand';
+import { BROKERAGE, REVIEW_PROFILES } from '@/lib/brand';
 import { calendlyUrl } from '@/lib/calendly';
 import { SITE_URL } from '@/lib/site-metadata';
 
@@ -15,7 +15,7 @@ const body = `# Lone Mountain Heights Real Estate — Dr. Jan Duffy
 - Lone Mountain is a rocky butte just inside the 215 Beltway. Its summit trail climbs about 550 feet in 1.2 miles.
 - Nearby parks: Lone Mountain Regional Park, Lone Mountain Discovery Park, Majestic Park, Trigono Hills Park.
 - Public schools are Clark County School District (CCSD), assigned by street address. Verify any address at https://www.ccsd.net/zoning.
-- Dr. Jan Duffy: licensed since 2008, 35 years in Las Vegas, 500+ Las Vegas transactions, $127M+ in Dr. Duffy Group career sales, 5.0★ Realtor.com rating from 50 reviews.
+- Dr. Jan Duffy: licensed since 2008, 35 years in Las Vegas, 500+ Las Vegas transactions, $127M+ in Dr. Duffy Group career sales, ${REVIEW_PROFILES.realtorCom.rating}★ Realtor.com rating from ${REVIEW_PROFILES.realtorCom.reviewCount} reviews (checked ${REVIEW_PROFILES.realtorCom.checked}): ${REVIEW_PROFILES.realtorCom.url}
 - Listing widgets on this site show live MLS data from RealScout for Dr. Jan Duffy's ${BROKERAGE.shortName} office across the Las Vegas Valley, not only ZIP 89129.
 
 ## Primary pages

@@ -16,9 +16,19 @@ export const BROKERAGE = {
   name: 'Berkshire Hathaway HomeServices Nevada Properties',
   shortName: 'BHHS Nevada Properties',
   url: 'https://www.bhhsnv.com/',
-  nationalUrl: 'https://www.berkshirehathawayhomeservices.com',
+  nationalUrl: 'https://www.bhhs.com/',
   brokerOfRecord: 'Forrest Barbee',
   officeAddress: '3185 St. Rose Parkway, Suite 100, Henderson, NV 89052',
+} as const;
+
+/** Third-party ratings change; re-check the profile before editing copy that cites these numbers. */
+export const REVIEW_PROFILES = {
+  realtorCom: {
+    url: 'https://www.realtor.com/realestateagents/63340593275bf055fedf5ff1',
+    rating: '4.9',
+    reviewCount: 51,
+    checked: 'November 2026',
+  },
 } as const;
 
 /**
@@ -28,6 +38,8 @@ export const BROKERAGE = {
  */
 export const AGENT_SAME_AS = [
   'https://g.co/kgs/uwtzcWj',
+  REVIEW_PROFILES.realtorCom.url,
+  'https://www.zillow.com/profile/DrJanDuffy',
   'https://www.instagram.com/drjanduffy/',
   'https://www.facebook.com/DrJanDuffyRealtorCentennialHills/',
   'https://www.youtube.com/@DrDuffy',
