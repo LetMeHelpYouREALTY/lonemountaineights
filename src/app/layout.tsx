@@ -55,8 +55,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" href="/images/icons/favicon.png" />
-        <link rel="apple-touch-icon" href="/images/icons/favicon-180.png" />
+        <link rel="icon" href="/images/icons/favicon.png" type="image/png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/images/icons/favicon-180.png" sizes="180x180" />
         <link rel="preconnect" href="https://em.realscout.com" crossOrigin="" />
         <link rel="preconnect" href="https://www.realscout.com" crossOrigin="" />
         <link rel="preconnect" href="https://assets.calendly.com" crossOrigin="" />
