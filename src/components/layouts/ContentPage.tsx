@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { FAQSection } from '@/components/sections/FAQSection';
+import { HeroRealScoutBand } from '@/components/sections/HeroRealScoutBand';
 import { Breadcrumbs, ContactCTA } from '@/components/layouts/PageHeader';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
 import { JsonLd } from '@/components/shared/JsonLd';
@@ -71,12 +72,15 @@ export function ContentPage({
     <>
       <JsonLd data={schemas} />
       {showHero && (
-        <header className="bg-gradient-to-br from-[var(--accent-color)] to-[var(--accent-light)] px-4 py-12 text-center text-[var(--heading-color)]">
-          <div className="mx-auto max-w-4xl">
-            <h1 className="mb-4 text-3xl font-bold md:text-4xl">{h1}</h1>
-            <p className="text-lg opacity-90">{description}</p>
-          </div>
-        </header>
+        <>
+          <header className="bg-gradient-to-br from-[var(--accent-color)] to-[var(--accent-light)] px-4 py-12 text-center text-[var(--heading-color)]">
+            <div className="mx-auto max-w-4xl">
+              <h1 className="mb-4 text-3xl font-bold md:text-4xl">{h1}</h1>
+              <p className="text-lg opacity-90">{description}</p>
+            </div>
+          </header>
+          <HeroRealScoutBand showListings={false} />
+        </>
       )}
       <div className="mx-auto max-w-6xl px-4 py-8 md:px-8">
         <Breadcrumbs items={breadcrumbs} />

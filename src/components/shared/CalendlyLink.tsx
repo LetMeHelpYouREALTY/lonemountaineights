@@ -36,6 +36,7 @@ export function CalendlyLink({
       aria-label={ready ? text : `${text} (opens Calendly)`}
     >
       {text}
+      <span className="sr-only"> (opens Calendly in a new tab)</span>
     </a>
   );
 }

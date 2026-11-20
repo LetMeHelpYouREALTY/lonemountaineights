@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
+import { AgentPortrait } from '@/components/shared/AgentPortrait';
 import { NAP } from '@/lib/schema';
 
 type NavLink = { href: string; label: string };
@@ -107,16 +108,7 @@ export function Navigation() {
   return (
     <header ref={navRef} className="sticky top-0 z-40 border-b border-slate-200 bg-white shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
-        <Link href="/" className="shrink-0" onClick={closeAll}>
-          <div className="flex flex-col leading-tight">
-            <span className="text-sm font-bold tracking-wide text-[var(--heading-color)] md:text-base">
-              DR. JAN DUFFY
-            </span>
-            <span className="text-[10px] font-medium text-[var(--text-light)] md:text-xs">
-              LONE MOUNTAIN HEIGHTS EXPERT
-            </span>
-          </div>
-        </Link>
+        <AgentPortrait size={40} showCaption onNavigate={closeAll} className="shrink-0" />
 
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
           <ul className="flex items-center" role="menubar">

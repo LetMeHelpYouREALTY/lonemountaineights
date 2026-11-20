@@ -14,7 +14,7 @@ export const homeFAQs = [
   {
     question: 'What makes Lone Mountain Heights a great place to buy a home?',
     answer:
-      'Lone Mountain Heights offers mountain views, older neighborhoods, nearby public schools, and excellent value. Dr. Jan Duffy recommends the area for families and professionals seeking quality Las Vegas living with a strong sense of community and low HOA fees.',
+      'Lone Mountain Heights offers mountain views, older neighborhoods, nearby public schools, and strong value. Dr. Jan Duffy helps buyers and sellers compare pockets, HOA structures, and commute options across northwest Las Vegas.',
   },
   {
     question: 'How do I find homes for sale in Lone Mountain Heights Las Vegas?',
@@ -146,9 +146,9 @@ export const guideFAQs = [
       'Lone Mountain Heights offers suburban tranquility with easy access to Summerlin, downtown Las Vegas, and Red Rock Canyon. Dr. Jan Duffy has helped hundreds of buyers relocate here—she describes the community as close-knit, with nearby schools and parks.',
   },
   {
-    question: 'Is Lone Mountain Heights a good place for families?',
+    question: 'What draws buyers to Lone Mountain Heights?',
     answer:
-      'Yes. Dr. Jan Duffy recommends Lone Mountain Heights for buyers seeking nearby schools, parks, and a tight-knit community. Many of her clients move here specifically for the outdoor recreation and larger lots.',
+      'Buyers often choose Lone Mountain Heights for nearby schools, parks, and a tight-knit community. Dr. Jan Duffy helps you compare lots, HOA structures, and commute times to Summerlin and the Strip corridor.',
   },
 ];
 
@@ -251,7 +251,7 @@ export const propertyTypeFAQs = [
   {
     question: 'Are 3-bedroom homes common in Lone Mountain Heights?',
     answer:
-      'Yes. Three-bedroom homes are popular in Lone Mountain Heights and appeal to families and downsizers. Dr. Jan Duffy can filter listings to show you the best 3-bedroom options in your preferred neighborhoods and price range.',
+      'Yes. Three-bedroom homes are popular in Lone Mountain Heights and appeal to a wide range of buyers, including those upsizing or downsizing. Dr. Jan Duffy can filter listings to show you the best 3-bedroom options in your preferred neighborhoods and price range.',
   },
   {
     question: 'What should I expect when buying a 3-bedroom home in Lone Mountain Heights?',

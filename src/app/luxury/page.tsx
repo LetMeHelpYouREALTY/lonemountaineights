@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
+import { HeroRealScoutBand } from '@/components/sections/HeroRealScoutBand';
 import { JsonLd, RealScoutOfficeListings } from '@/components/shared/JsonLd';
 import { luxuryFAQs } from '@/lib/faqs';
 import { luxuryHomes } from '@/lib/listings-data';
@@ -37,6 +38,12 @@ export default function LuxuryPage() {
           </p>
         </div>
       </header>
+
+      <HeroRealScoutBand
+        priceMin="800000"
+        priceMax="2500000"
+        listingsTitle="Luxury listings in Lone Mountain Heights"
+      />
 
       <div className="mx-auto max-w-6xl px-4 py-10 md:px-8">
         <div className="mb-12 grid grid-cols-3 gap-6 text-center">
