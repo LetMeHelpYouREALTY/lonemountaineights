@@ -24,7 +24,7 @@ export const homeFAQs = [
   {
     question: 'What is the average home price in Lone Mountain Heights 89129?',
     answer:
-      'The average sale price in Lone Mountain Heights is approximately $847,000. Dr. Jan Duffy provides free instant home valuations and market reports so you can make informed decisions whether buying or selling in the 89129 area.',
+      'Prices in Lone Mountain Heights change month to month and vary by street, lot size, and upgrades. The live MLS listings on this site show current asking prices, and Dr. Jan Duffy provides free valuations and market reports with recent closed sales for the 89129 area.',
   },
 ];
 
@@ -96,7 +96,7 @@ export const homesFAQs = [
   {
     question: 'How fast do homes sell in Lone Mountain Heights?',
     answer:
-      'Homes in Lone Mountain Heights sell quickly—often within 12–23 days on average. Dr. Jan Duffy helps buyers act fast with strong offers and guides sellers on pricing to attract serious buyers without overpricing.',
+      'Days on market depends on price point, condition, and season. Dr. Jan Duffy pulls current days-on-market for 89129 from the MLS, helps buyers act fast with strong offers, and guides sellers on pricing that attracts serious buyers without overpricing.',
   },
 ];
 
@@ -130,10 +130,10 @@ export const schoolsFAQs = [
   {
     question: 'What schools serve Lone Mountain Heights Las Vegas 89129?',
     answer:
-      'Lone Mountain Heights students typically attend Lone Mountain Elementary, Desert Ridge Middle, and Shadow Ridge High—all highly rated. Dr. Jan Duffy can show you which homes fall into which school boundaries so you buy in the right zone.',
+      'Lone Mountain Heights is served by Clark County School District (CCSD), and school assignments vary by street address. Dr. Jan Duffy checks the zoned elementary, middle, and high school for any home you are considering with CCSD before you write an offer.',
   },
   {
-    question: 'Do school ratings affect home values in Lone Mountain Heights?',
+    question: 'Do school attendance zones affect home values in Lone Mountain Heights?',
     answer:
       'Yes. School attendance zones often affect demand and home values. Dr. Jan Duffy helps buyers prioritize school boundaries when searching and explains how different attendance zones impact resale value in Lone Mountain Heights.',
   },
@@ -143,12 +143,12 @@ export const guideFAQs = [
   {
     question: 'What is it like living in Lone Mountain Heights Las Vegas?',
     answer:
-      'Lone Mountain Heights offers suburban tranquility with easy access to Summerlin, downtown Las Vegas, and Red Rock Canyon. Dr. Jan Duffy has helped hundreds of buyers relocate here—she describes the community as close-knit, with nearby schools and parks.',
+      'Lone Mountain Heights offers suburban streets with easy access to Summerlin, downtown Las Vegas, and Red Rock Canyon, plus nearby parks and the Lone Mountain trails. Dr. Jan Duffy walks buyers through lot sizes, HOA rules, and commute times street by street.',
   },
   {
-    question: 'Is Lone Mountain Heights a good place for families?',
+    question: 'Is Lone Mountain Heights a good place to live?',
     answer:
-      'Yes. Dr. Jan Duffy recommends Lone Mountain Heights for buyers seeking nearby schools, parks, and a tight-knit community. Many of her clients move here specifically for the outdoor recreation and larger lots.',
+      'Dr. Jan Duffy recommends Lone Mountain Heights for buyers who want nearby parks and trails, larger lots, and quick access to Summerlin and Red Rock Canyon. Many of her clients move here specifically for the outdoor recreation and larger lots.',
   },
 ];
 
@@ -251,7 +251,7 @@ export const propertyTypeFAQs = [
   {
     question: 'Are 3-bedroom homes common in Lone Mountain Heights?',
     answer:
-      'Yes. Three-bedroom homes are popular in Lone Mountain Heights and appeal to families and downsizers. Dr. Jan Duffy can filter listings to show you the best 3-bedroom options in your preferred neighborhoods and price range.',
+      'Yes. Three-bedroom homes are popular in Lone Mountain Heights. Dr. Jan Duffy can filter listings to show you the best 3-bedroom options in your preferred neighborhoods and price range.',
   },
   {
     question: 'What should I expect when buying a 3-bedroom home in Lone Mountain Heights?',

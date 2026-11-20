@@ -43,7 +43,7 @@ export function HomesBrowse() {
         <section className="mb-10 rounded-xl border border-slate-200 bg-[var(--warm-cream)] p-8 text-center">
           <h2 className="mb-2 text-2xl font-bold text-[var(--heading-color)]">Need a curated shortlist?</h2>
           <p className="mb-6 text-[var(--text-light)]">
-            Dr. Jan Duffy matches buyers to streets, schools, and floor plans — schedule a free 15-minute call.
+            Dr. Jan Duffy matches buyers to streets, lot sizes, and floor plans — schedule a free 15-minute call.
           </p>
           <CalendlyLink
             text="Schedule time with me"

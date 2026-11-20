@@ -42,9 +42,9 @@ export const pageConfigs: Record<string, PageConfig> = {
       'Schools serving Lone Mountain Heights, Las Vegas 89129 — CCSD attendance zones, campus names, and private options, with boundary checks from Dr. Jan Duffy.',
     canonical: '/schools',
     body: [
-      'Families in Lone Mountain Heights are served by Clark County School District schools including Eileen Conners Elementary, Walter Johnson Junior High, and Centennial High School.',
+      'Lone Mountain Heights is served by Clark County School District schools including Eileen Conners Elementary, Walter Johnson Junior High, and Centennial High School. Assignments vary by address, so verify zoning with CCSD before you buy.',
       'The area also offers access to Somerset Academy Lone Mountain and private options like The Meadows School.',
-      'Dr. Jan Duffy helps relocating families verify school boundaries before they buy — a critical step in Lone Mountain Heights real estate.',
+      'Dr. Jan Duffy helps relocating buyers verify school boundaries before they buy — a critical step in Lone Mountain Heights real estate.',
     ],
     faqKey: 'schoolsFAQs',
   },
@@ -57,7 +57,7 @@ export const pageConfigs: Record<string, PageConfig> = {
     body: [
       'Lone Mountain Heights is a gated community developed between 2001–2005 featuring 3–5 bedroom homes from 2,500–4,400 sq ft with mature landscaping and mountain views.',
       'The community balances suburban tranquility with access to Summerlin amenities, golf, and major employment centers via the 215 Beltway.',
-      'Dr. Jan Duffy has guided hundreds of buyers and sellers through Lone Mountain Heights — use this guide as a starting point, then call for hyperlocal advice.',
+      'Use this guide as a starting point, then call Dr. Jan Duffy for street-level advice on lots, HOA rules, and recent sales.',
     ],
     faqKey: 'guideFAQs',
   },
@@ -68,8 +68,8 @@ export const pageConfigs: Record<string, PageConfig> = {
       'Monthly market analysis for Lone Mountain Heights, Las Vegas 89129 — prices, inventory, days on market, and trends from Dr. Jan Duffy.',
     canonical: '/market-report',
     body: [
-      'The Lone Mountain Heights market averages approximately $847,000 with homes selling in about 12–23 days depending on price point and condition.',
-      'Inventory remains tight in the 89129 zip code, supporting strong list-to-sale ratios for well-priced, well-marketed properties.',
+      'Prices and days on market in Lone Mountain Heights shift month to month and vary by price point, condition, and street — the live MLS listings on this page show what is for sale today.',
+      'For pricing, offers, and timing, recent closed sales on your street matter more than zip-code averages.',
       'Request a free custom market report from Dr. Jan Duffy for your specific street or subdivision.',
     ],
     faqKey: 'marketReportFAQs',
@@ -143,7 +143,7 @@ export const pageConfigs: Record<string, PageConfig> = {
       'Investment insights, ROI analysis, and market intelligence for Lone Mountain Heights real estate from Dr. Jan Duffy.',
     canonical: '/market-intelligence',
     body: [
-      'Lone Mountain Heights has shown strong year-over-year appreciation with limited inventory supporting long-term value.',
+      'Appreciation in Lone Mountain Heights varies by subdivision and price band, so Dr. Jan Duffy pulls year-over-year closed-sale data for the streets you are considering.',
       'Dr. Jan Duffy provides ROI analysis for investors considering rental, flip, or long-hold strategies in 89129.',
       'Request a custom investment brief tailored to your goals and budget.',
     ],
@@ -156,8 +156,8 @@ export const pageConfigs: Record<string, PageConfig> = {
       'Overview of the Lone Mountain Heights community in Las Vegas 89129 — homes, lifestyle, and real estate with Dr. Jan Duffy.',
     canonical: '/neighborhood',
     body: [
-      'Lone Mountain Heights is one of Las Vegas\'s most desirable northwest communities, known for gated streets, quality builders, and mountain views.',
-      'Dr. Jan Duffy is the recognized local expert — contact her for a personalized neighborhood orientation.',
+      'Lone Mountain Heights is a northwest Las Vegas community known for gated streets and mountain views.',
+      'Contact Dr. Jan Duffy for a personalized neighborhood orientation.',
     ],
     faqKey: 'neighborhoodsFAQs',
   },
@@ -168,7 +168,7 @@ export const pageConfigs: Record<string, PageConfig> = {
       'Browse Lone Mountain Heights homes priced between $600,000 and $800,000. Expert guidance from Dr. Jan Duffy, Las Vegas 89129.',
     canonical: '/price-ranges/600k-800k',
     body: [
-      'The $600K–$800K range is the sweet spot for many Lone Mountain Heights families — updated single-story and two-story homes with pools and mountain views.',
+      'The $600K–$800K range covers many updated single-story and two-story Lone Mountain Heights homes, often with pools and mountain views.',
       'Dr. Jan Duffy knows which streets offer the best value in this band and which homes have the strongest resale potential.',
     ],
     faqKey: 'priceRangeFAQs',
@@ -180,7 +180,7 @@ export const pageConfigs: Record<string, PageConfig> = {
       'Find 3 bedroom homes for sale in Lone Mountain Heights, Las Vegas 89129 with Dr. Jan Duffy.',
     canonical: '/property-types/3-bedroom-homes',
     body: [
-      'Three-bedroom homes in Lone Mountain Heights typically range from 1,750–2,500 sq ft and appeal to move-up buyers and professionals.',
+      'Three-bedroom homes in Lone Mountain Heights typically range from 1,750–2,500 sq ft.',
       'Dr. Jan Duffy maintains an updated search of all 3-bedroom listings in 89129 — schedule a call for a curated list.',
     ],
     faqKey: 'propertyTypeFAQs',
@@ -193,7 +193,7 @@ export const pageConfigs: Record<string, PageConfig> = {
     canonical: '/locations/lone-mountain-ranch',
     body: [
       'Lone Mountain Ranch is a sought-after community within Lone Mountain Heights known for larger lots and mountain views.',
-      'Dr. Jan Duffy has closed numerous transactions in Lone Mountain Ranch and knows every active and recent sale on each street.',
+      'Dr. Jan Duffy can pull every active listing and recent closed sale on any Lone Mountain Ranch street.',
     ],
     faqKey: 'locationsLoneMountainRanch',
   },
@@ -216,8 +216,8 @@ export const pageConfigs: Record<string, PageConfig> = {
       'FAQ: Nearby public schools serving Lone Mountain Heights, Las Vegas 89129. Expert answer from Dr. Jan Duffy.',
     canonical: '/faq/best-schools',
     body: [
-      'Lone Mountain Heights is served by highly rated CCSD schools. Assignments vary by address — always verify boundaries before purchasing.',
-      'Dr. Jan Duffy helps families map school zones to specific streets and listings in 89129.',
+      'Lone Mountain Heights is served by Clark County School District (CCSD) schools. Assignments vary by address — always verify boundaries with CCSD before purchasing.',
+      'Dr. Jan Duffy helps buyers map school zones to specific streets and listings in 89129.',
     ],
   },
   'faq/hoa-fees': {
@@ -238,7 +238,7 @@ export const pageConfigs: Record<string, PageConfig> = {
       'FAQ: Current home prices and market trends in Lone Mountain Heights, Las Vegas 89129 for 2025.',
     canonical: '/faq/home-prices-2025',
     body: [
-      'Average sale prices in Lone Mountain Heights are approximately $847,000 with a range from the mid-$600s to $1M+ for luxury properties.',
+      'Lone Mountain Heights prices vary widely by street, lot size, and upgrades, and luxury properties list above $1M. The live MLS listings on this page show current asking prices.',
       'Contact Dr. Jan Duffy for a free updated market report with current comps for your target price range.',
     ],
   },
@@ -262,7 +262,7 @@ export const pageConfigs: Record<string, PageConfig> = {
     body: [
       'Lone Mountain Heights is a gated master-planned community in northwest Las Vegas (89129) built primarily between 2001 and 2005.',
       'Homes range from 2,500 to 4,400 sq ft with 3–5 bedrooms, mature landscaping, and mountain views throughout.',
-      'Dr. Jan Duffy is the community\'s leading real estate expert — schedule a call to discuss buying or selling in Lone Mountain Heights.',
+      'Schedule a call with Dr. Jan Duffy to discuss buying or selling in Lone Mountain Heights.',
     ],
     faqKey: 'guideFAQs',
   },

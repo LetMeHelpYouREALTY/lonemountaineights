@@ -199,31 +199,3 @@ export {
 } from './structured-data';
 
 // Real Estate specific FAQ data
-export const realEstateFAQs = [
-  {
-    question: 'What is the average home price in Lone Mountain Heights?',
-    answer:
-      'The average home price in Lone Mountain Heights is currently $847,000, with prices ranging from $680,000 to $950,000 depending on size, location, and features.',
-  },
-  {
-    question:
-      'How long do homes typically stay on the market in Lone Mountain Heights?',
-    answer:
-      'Homes in Lone Mountain Heights typically sell within 12 days on average, which is faster than the Las Vegas metro average of 20 days.',
-  },
-  {
-    question: 'What are the best streets in Lone Mountain Heights?',
-    answer:
-      'The most desirable streets include Mountain Ridge Dr (mountain views, larger lots), Desert View Ln (great value, updated homes), and Canyon Heights Blvd (quiet cul-de-sac).',
-  },
-  {
-    question: 'What schools serve the Lone Mountain Heights area?',
-    answer:
-      'Lone Mountain Elementary (K-5), Desert Ridge Middle School (6-8), and Shadow Ridge High School (9-12) serve the area, all with excellent ratings of 8-9/10.',
-  },
-  {
-    question: 'Is Lone Mountain Heights a good investment?',
-    answer:
-      'Yes, Lone Mountain Heights offers strong investment potential with 5.2% price appreciation year-over-year, low inventory (2.1 months supply), and high demand from buyers seeking quality homes in older neighborhoods.',
-  },
-];
