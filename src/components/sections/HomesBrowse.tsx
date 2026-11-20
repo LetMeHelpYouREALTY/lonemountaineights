@@ -1,5 +1,6 @@
 'use client';
 
+import { PageHero } from '@/components/layouts/PageHero';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { ListingsBelowHero } from '@/components/sections/ListingsBelowHero';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
@@ -12,30 +13,25 @@ const REALSCOUT_SEARCH =
 export function HomesBrowse() {
   return (
     <>
-      <header className="bg-gradient-to-br from-[var(--accent-color)] to-[var(--accent-light)] px-4 py-12 text-center text-[var(--heading-color)]">
-        <div className="mx-auto max-w-4xl">
-          <h1 className="mb-4 text-3xl font-bold md:text-4xl">
-            Lone Mountain Heights Homes for Sale | Las Vegas 89129
-          </h1>
-          <p className="mb-8 text-lg opacity-90">
-            Live MLS listings curated by Dr. Jan Duffy — your complete real estate partner
+      <PageHero
+        title="Lone Mountain Heights Homes for Sale in Las Vegas 89129"
+        subtitle="Live MLS listings curated by Dr. Jan Duffy — your complete real estate partner"
+      >
+        <div className="mx-auto mt-8 max-w-3xl rounded-xl bg-white p-6 text-left text-[var(--heading-color)] shadow-lg">
+          <h2 className="mb-2 text-xl font-bold">Open full MLS search</h2>
+          <p className="mb-4 text-sm text-[var(--text-light)]">
+            Advanced filters, saved searches, and instant alerts on every Lone Mountain Heights listing
           </p>
-          <div className="rounded-xl bg-white p-6 text-left shadow-lg">
-            <h2 className="mb-2 text-xl font-bold">Open full MLS search</h2>
-            <p className="mb-4 text-sm text-[var(--text-light)]">
-              Advanced filters, saved searches, and instant alerts on every Lone Mountain Heights listing
-            </p>
-            <a
-              href={REALSCOUT_SEARCH}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg bg-[var(--heading-color)] px-6 py-3 font-semibold text-white hover:opacity-90"
-            >
-              Search all homes in Lone Mountain Heights →
-            </a>
-          </div>
+          <a
+            href={REALSCOUT_SEARCH}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg bg-[var(--heading-color)] px-6 py-3 font-semibold text-white hover:opacity-90"
+          >
+            Search all homes in Lone Mountain Heights →
+          </a>
         </div>
-      </header>
+      </PageHero>
 
       <ListingsBelowHero priceMin="600000" priceMax="1500000" />
 

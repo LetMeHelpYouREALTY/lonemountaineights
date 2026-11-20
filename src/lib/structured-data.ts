@@ -58,7 +58,7 @@ export function generateSiteGraphSchema(nap: {
   gbpMapUrl: string;
 }) {
   const logoUrl = `${SITE_URL}/images/icons/icon-512.png`;
-  const agentPhoto = `${SITE_URL}/images/agents/dr-jan-duffy.jpg`;
+  const agentPhoto = `${SITE_URL}/images/agents/dr-jan-duffy-headshot.jpg`;
 
   const areaServed = AREA_SERVED_PLACES.map((place) => ({
     '@type': place.type,

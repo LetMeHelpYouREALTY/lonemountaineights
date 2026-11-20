@@ -8,11 +8,35 @@ const root = path.join(__dirname, '..');
 const source = path.join(root, 'public/images/agents/dr-jan-duffy.jpg');
 
 // dr-jan-duffy.jpg is 1800x1800 with the gold-ring portrait centered at (900, 900);
-// the gold ring's outer edge sits at r≈795, the black square frame starts beyond r≈850.
+// the photo ends at r≈677, the gold ring's outer edge sits at r≈795, the black square frame starts beyond r≈850.
 const CENTER = 900;
 const RADIUS = 800;
+const PHOTO_RADIUS = 665;
 
 const WHITE = { r: 255, g: 255, b: 255, alpha: 1 };
+const PHOTO_BACKDROP = { r: 238, g: 254, b: 225, alpha: 1 };
+
+/** Square headshot without the ring/frame artwork — avatars (CSS adds the ring) and schema.org Person image. */
+async function headshot(size) {
+  const crop = await sharp(source)
+    .extract({
+      left: CENTER - PHOTO_RADIUS,
+      top: CENTER - PHOTO_RADIUS,
+      width: PHOTO_RADIUS * 2,
+      height: PHOTO_RADIUS * 2,
+    })
+    .resize(size, size, { kernel: 'lanczos3' })
+    .toBuffer();
+  const mask = Buffer.from(
+    `<svg width="${size}" height="${size}"><circle cx="${size / 2}" cy="${size / 2}" r="${size / 2}" fill="#fff"/></svg>`,
+  );
+  const circle = await sharp(crop).ensureAlpha().composite([{ input: mask, blend: 'dest-in' }]).png().toBuffer();
+  return sharp({ create: { width: size, height: size, channels: 4, background: PHOTO_BACKDROP } })
+    .composite([{ input: circle }])
+    .flatten({ background: PHOTO_BACKDROP })
+    .jpeg({ quality: 82, mozjpeg: true })
+    .toBuffer();
+}
 
 /** Circular gold-ring portrait with transparent corners. */
 async function circlePortrait(size) {
@@ -84,7 +108,9 @@ async function main() {
   // Maskable safe zone is the central 80% circle.
   await writeFile(out('public/images/icons/icon-maskable-512.png'), await optimized(await portraitOnSquare(512, 0.8)));
 
-  console.log('Wrote favicon.ico, icon.png, apple-icon.png and PWA icons from', path.relative(root, source));
+  await writeFile(out('public/images/agents/dr-jan-duffy-headshot.jpg'), await headshot(800));
+
+  console.log('Wrote favicon.ico, icon.png, apple-icon.png, PWA icons and headshot from', path.relative(root, source));
 }
 
 main().catch((err) => {

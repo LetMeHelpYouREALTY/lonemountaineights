@@ -83,7 +83,7 @@ export const pageConfigs: Record<string, PageConfig> = {
     body: [
       'Understanding recent sales is essential for pricing, offers, and investment decisions in Lone Mountain Heights.',
       'Dr. Jan Duffy maintains detailed knowledge of closed transactions across every neighborhood and community in 89129.',
-      'Browse current listings below or contact Dr. Jan for a comp analysis on any address.',
+      'Browse featured listings above, or ask Dr. Jan for a comparable-sales analysis on any Lone Mountain Heights address.',
     ],
     faqKey: 'salesFAQs',
   },
@@ -129,11 +129,11 @@ export const pageConfigs: Record<string, PageConfig> = {
     title: 'Photo Gallery | Lone Mountain Heights Homes & Community',
     h1: 'Lone Mountain Heights Photo Gallery',
     description:
-      'Photos of Lone Mountain Heights homes, community, and Las Vegas 89129 lifestyle from Dr. Jan Duffy.',
+      'See Lone Mountain, the peak Lone Mountain Heights is named for, and full MLS photo galleries for every home for sale in Las Vegas 89129.',
     canonical: '/gallery',
     body: [
-      'Explore the beauty of Lone Mountain Heights — mountain views, mature landscaping, and quality construction throughout the community.',
-      'Dr. Jan Duffy uses professional photography and video for every listing to maximize exposure and buyer engagement.',
+      'Lone Mountain Heights takes its name from Lone Mountain, the freestanding desert peak in northwest Las Vegas. Mountain views and mature landscaping run throughout the community.',
+      'Every active listing above opens to its full MLS photo set. Dr. Jan Duffy uses professional photography and video for every listing she represents.',
     ],
   },
   'market-intelligence': {

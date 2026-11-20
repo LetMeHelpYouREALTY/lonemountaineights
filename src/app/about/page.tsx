@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
-import { PageHeader, BtnPrimary, BtnSecondary } from '@/components/layouts/PageHeader';
+import { PageHeader, BtnSecondary } from '@/components/layouts/PageHeader';
 import { ListingsBelowHero } from '@/components/sections/ListingsBelowHero';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
 import { JsonLd } from '@/components/shared/JsonLd';
 import { aboutFAQs } from '@/lib/faqs';
-import { generateBreadcrumbSchema, generateFAQSchema, GBP_URLS, NAP } from '@/lib/schema';
+import { HERO_IMAGES } from '@/lib/hero-images';
+import { generateBreadcrumbSchema, generateFAQSchema, NAP } from '@/lib/schema';
 import { generateWebPageSchema, SCHEMA_IDS } from '@/lib/structured-data';
 import { buildPageMetadata } from '@/lib/site-metadata';
 
@@ -67,6 +67,7 @@ export default function AboutPage() {
         badge="Las Vegas REALTOR® · Lone Mountain Heights Team"
         title="About Dr. Jan Duffy"
         subtitle="Head of the Lone Mountain Heights Team — your complete real estate partner"
+        image={HERO_IMAGES.bhhsOffice}
       />
 
       <ListingsBelowHero />
@@ -80,7 +81,6 @@ export default function AboutPage() {
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 400px"
-              priority
             />
           </div>
           <div>

@@ -6,9 +6,9 @@ import { useState } from 'react';
 import { RealScoutHomeValue, RealScoutSimpleSearch } from '@/components/shared/JsonLd';
 import { CalendlyInline } from '@/components/shared/CalendlyInline';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
-import { getCloudflareUrl } from '@/lib/cloudflare-images';
+import { HERO_IMAGES } from '@/lib/hero-images';
 
-const heroImage = getCloudflareUrl('/images/hero/hero-las-vegas.png', { width: 1920, quality: 85 });
+const heroImage = HERO_IMAGES.loneMountain;
 
 export function Hero() {
   const [activeTab, setActiveTab] = useState<'search' | 'valuation' | 'schedule'>('search');
@@ -17,11 +17,13 @@ export function Hero() {
     <section className="relative min-h-[70vh] overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src={heroImage.startsWith('http') ? heroImage : '/images/hero/hero-las-vegas.png'}
-          alt="Lone Mountain Heights Las Vegas skyline"
+          src={heroImage.src}
+          alt={heroImage.alt}
           fill
           priority
+          placeholder="blur"
           className="object-cover"
+          style={{ objectPosition: heroImage.position }}
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[var(--heading-color)]/92 via-[var(--heading-color)]/75 to-[var(--heading-color)]/55" />

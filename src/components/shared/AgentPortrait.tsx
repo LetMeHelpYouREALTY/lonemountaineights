@@ -5,17 +5,20 @@ type AgentPortraitProps = {
   size?: number;
   className?: string;
   linked?: boolean;
+  /** Above-the-fold placements (nav) load immediately; preloading stays reserved for the hero image. */
+  eager?: boolean;
 };
 
-export function AgentPortrait({ size = 44, className = '', linked = true }: AgentPortraitProps) {
+export function AgentPortrait({ size = 44, className = '', linked = true, eager = false }: AgentPortraitProps) {
   const image = (
     <Image
-      src="/images/agents/dr-jan-duffy.jpg"
+      src="/images/agents/dr-jan-duffy-headshot.jpg"
       alt="Dr. Jan Duffy — Lone Mountain Heights real estate expert"
       width={size}
       height={size}
       className={`rounded-full object-cover ring-2 ring-[var(--accent-color)] ${className}`}
-      priority
+      loading={eager ? 'eager' : 'lazy'}
+      fetchPriority={eager ? 'low' : undefined}
     />
   );
 

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { PageHero } from '@/components/layouts/PageHero';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { ListingsBelowHero } from '@/components/sections/ListingsBelowHero';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
@@ -65,24 +66,13 @@ export default function LuxuryPage() {
         ]}
       />
 
-      <header className="bg-gradient-to-br from-slate-900 to-slate-700 px-4 py-16 text-center text-white">
-        <div className="mx-auto max-w-3xl">
-          <h1 className="mb-4 bg-gradient-to-r from-[var(--accent-color)] to-[var(--accent-light)] bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
-            Luxury Homes in Lone Mountain Heights
-          </h1>
-          <p className="text-lg text-white/90">
-            $1M+ properties with premium finishes, mountain views, and high-end amenities — curated by
-            Dr. Jan Duffy
-          </p>
-        </div>
-      </header>
-
-      <ListingsBelowHero
-        title="Luxury Listings in Lone Mountain Heights"
-        description="Live MLS homes $1M–$5M in Las Vegas 89129"
-        priceMin="1000000"
-        priceMax="5000000"
+      <PageHero
+        badge="$1M+ Homes · Las Vegas 89129"
+        title="Luxury Homes in Lone Mountain Heights"
+        subtitle="$1M+ properties with premium finishes, mountain views, and high-end amenities — curated by Dr. Jan Duffy"
       />
+
+      <ListingsBelowHero title="Featured Luxury Listings" priceMin="1000000" priceMax="5000000" />
 
       <div className="mx-auto max-w-6xl px-4 py-10 md:px-8">
         <div className="mb-12 grid gap-6 md:grid-cols-3">

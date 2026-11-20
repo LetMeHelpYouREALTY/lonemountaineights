@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { PageHeader, BtnPrimary, BtnSecondary } from '@/components/layouts/PageHeader';
 import { ListingsBelowHero } from '@/components/sections/ListingsBelowHero';
 import { FAQSection } from '@/components/sections/FAQSection';

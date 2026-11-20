@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ContentPage, buildPageMetadata } from '@/components/layouts/ContentPage';
 import { getBreadcrumbs, getPageConfig, getPageFaqs } from '@/lib/content-page';
+import { HERO_IMAGES } from '@/lib/hero-images';
 
 import { generatePlaceSchema } from '@/lib/structured-data';
 
@@ -9,8 +11,6 @@ const LOCATION_SLUGS = new Set([
   'locations/lone-mountain-ranch',
   'locations/desert-vista-estates',
 ]);
-
-type Props = { slug: string };
 
 export function makeContentPage(slug: string) {
   const config = getPageConfig(slug);
@@ -33,7 +33,6 @@ export function makeContentPage(slug: string) {
   function Page() {
     return (
       <ContentPage
-        title={pageConfig.title}
         h1={pageConfig.h1}
         description={pageConfig.description}
         canonical={pageConfig.canonical}
@@ -42,6 +41,7 @@ export function makeContentPage(slug: string) {
         schema={extraSchema}
         showCta
         showHero
+        heroImage={slug === 'careers' ? HERO_IMAGES.bhhsOffice : HERO_IMAGES.loneMountain}
       >
           <div className="prose prose-slate mb-8 max-w-none">
             {pageConfig.body.map((paragraph) => (
@@ -63,12 +63,18 @@ export function makeContentPage(slug: string) {
             </div>
           )}
           {slug === 'gallery' && (
-            <div className="mb-8 grid grid-cols-2 gap-4 md:grid-cols-3">
-              {['/images/photos/home-featured-1.jpg', '/images/photos/home-featured-2.jpg', '/images/photos/home-featured-3.jpg', '/images/photos/las-vegas-neighborhood.jpg', '/images/hero/hero-las-vegas.png', '/images/hero/Lone_Mountain.jpg'].map((src) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img key={src} src={src} alt="Lone Mountain Heights" className="aspect-video rounded-lg object-cover shadow" loading="lazy" />
-              ))}
-            </div>
+            <figure className="mb-8">
+              <Image
+                src={HERO_IMAGES.loneMountain.src}
+                alt={HERO_IMAGES.loneMountain.alt}
+                placeholder="blur"
+                sizes="(min-width: 1152px) 1088px, 100vw"
+                className="w-full rounded-xl object-cover shadow-md"
+              />
+              <figcaption className="mt-3 text-sm text-[var(--text-light)]">
+                Lone Mountain, the peak Lone Mountain Heights is named for, above the Las Vegas Valley.
+              </figcaption>
+            </figure>
           )}
           {slug === 'tools' && (
             <div className="mb-8 rounded-xl bg-white p-6 shadow-md">

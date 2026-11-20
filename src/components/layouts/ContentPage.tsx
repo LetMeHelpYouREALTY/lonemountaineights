@@ -2,7 +2,10 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { Breadcrumbs, ContactCTA } from '@/components/layouts/PageHeader';
+import { PageHero } from '@/components/layouts/PageHero';
+import { AuthorByline } from '@/components/shared/AuthorByline';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
+import type { HeroImage } from '@/lib/hero-images';
 import { ListingsBelowHero } from '@/components/sections/ListingsBelowHero';
 import { JsonLd } from '@/components/shared/JsonLd';
 import { generateFAQSchema } from '@/lib/schema';
@@ -16,7 +19,6 @@ type FAQ = { question: string; answer: string };
 type Crumb = { name: string; href?: string };
 
 type ContentPageProps = {
-  title: string;
   h1: string;
   description: string;
   canonical: string;
@@ -27,6 +29,7 @@ type ContentPageProps = {
   schema?: Record<string, unknown>[];
   showCta?: boolean;
   showHero?: boolean;
+  heroImage?: HeroImage;
   listingsBelowHero?: false | { priceMin?: string; priceMax?: string; title?: string; description?: string };
 };
 
@@ -39,7 +42,6 @@ export function buildPageMetadata(
 }
 
 export function ContentPage({
-  title,
   h1,
   description,
   canonical,
@@ -50,6 +52,7 @@ export function ContentPage({
   schema = [],
   showCta = true,
   showHero = false,
+  heroImage,
   listingsBelowHero,
 }: ContentPageProps) {
   const listingsStrip =
@@ -57,7 +60,7 @@ export function ContentPage({
       ? null
       : listingsBelowHero ?? (showHero ? {} : null);
   const breadcrumbSchema = generateBreadcrumbSchema(
-    breadcrumbs.map((b, i) => ({
+    breadcrumbs.map((b) => ({
       name: b.name,
       url: b.href ? `${SITE_URL}${b.href}` : `${SITE_URL}${canonical}`,
     })),
@@ -77,14 +80,7 @@ export function ContentPage({
   return (
     <>
       <JsonLd data={schemas} />
-      {showHero && (
-        <header className="bg-gradient-to-br from-[var(--accent-color)] to-[var(--accent-light)] px-4 py-12 text-center text-[var(--heading-color)]">
-          <div className="mx-auto max-w-4xl">
-            <h1 className="mb-4 text-3xl font-bold md:text-4xl">{h1}</h1>
-            <p className="text-lg opacity-90">{description}</p>
-          </div>
-        </header>
-      )}
+      {showHero && <PageHero title={h1} subtitle={description} image={heroImage} />}
       {listingsStrip && (
         <ListingsBelowHero
           title={listingsStrip.title}
@@ -95,6 +91,7 @@ export function ContentPage({
       )}
       <div className="mx-auto max-w-6xl px-4 py-8 md:px-8">
         <Breadcrumbs items={breadcrumbs} />
+        <AuthorByline />
         {!showHero && (
           <>
             <h1 className="mb-4 text-3xl font-bold text-[var(--heading-color)]">{h1}</h1>
@@ -103,7 +100,7 @@ export function ContentPage({
         )}
         {children}
         {faqs && faqs.length > 0 && (
-          <FAQSection faqs={faqs} title={faqTitle ?? `${title} — FAQs`} />
+          <FAQSection faqs={faqs} title={faqTitle ?? `${h1} — Frequently Asked Questions`} />
         )}
         {showCta && (
           <>

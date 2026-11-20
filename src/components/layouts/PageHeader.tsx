@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
+import { PageHero } from '@/components/layouts/PageHero';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
+import type { HeroImage } from '@/lib/hero-images';
 import { NAP } from '@/lib/schema';
 
 type Breadcrumb = { name: string; href?: string };
@@ -29,24 +31,14 @@ export function PageHeader({
   title,
   subtitle,
   badge,
+  image,
 }: {
   title: string;
   subtitle?: string;
   badge?: string;
+  image?: HeroImage;
 }) {
-  return (
-    <header className="bg-gradient-to-br from-[var(--accent-color)] to-[var(--accent-light)] px-4 py-12 text-center text-[var(--heading-color)] md:py-16">
-      <div className="mx-auto max-w-4xl">
-        {badge && (
-          <div className="mb-4 inline-block rounded-md bg-[var(--heading-color)] px-4 py-2 text-xs font-semibold text-white">
-            {badge}
-          </div>
-        )}
-        <h1 className="mb-4 text-3xl font-bold md:text-4xl">{title}</h1>
-        {subtitle && <p className="text-lg opacity-90">{subtitle}</p>}
-      </div>
-    </header>
-  );
+  return <PageHero title={title} subtitle={subtitle} badge={badge} image={image} />;
 }
 
 export function ContactCTA({
