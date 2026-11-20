@@ -1,26 +1,10 @@
 import Link from 'next/link';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
-import { RealScoutOfficeListings } from '@/components/shared/JsonLd';
 import { GBP_URLS, NAP } from '@/lib/schema';
 
 export function SiteFooter() {
   return (
     <>
-      <section
-        className="border-t border-slate-200 bg-slate-50 px-4 py-10"
-        aria-label="Current Lone Mountain Heights listings"
-      >
-        <div className="mx-auto max-w-6xl text-center">
-          <h2 className="mb-2 text-2xl font-bold text-[var(--heading-color)]">
-            Homes for Sale in Lone Mountain Heights
-          </h2>
-          <p className="mb-6 text-[var(--text-color)]">
-            Browse current listings $500K–$800K — Dr. Jan Duffy, your local expert
-          </p>
-          <RealScoutOfficeListings />
-        </div>
-      </section>
-
       <footer className="bg-[var(--heading-color)] px-4 py-12 text-white">
         <div className="mx-auto grid max-w-6xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>

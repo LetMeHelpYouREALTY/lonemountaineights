@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
 import { PageContainer, RealScoutOfficeListings } from '@/components/shared/JsonLd';
+import { MlsDisclaimer } from '@/components/shared/MlsDisclaimer';
 import { NAP } from '@/lib/schema';
 
 type PageProps = {
@@ -18,6 +19,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `https://www.lonemountainheights.com/homes/${street}/${address}`,
     },
+    // Any /homes/<street>/<address> path renders, so these pages must stay out of the index.
+    robots: { index: false, follow: true },
   };
 }
 
@@ -47,6 +50,7 @@ export default async function PropertyPage({ params }: PageProps) {
       <section className="my-8">
         <h2 className="mb-4 text-xl font-semibold text-[var(--heading-color)]">More Lone Mountain Heights Listings</h2>
         <RealScoutOfficeListings />
+        <MlsDisclaimer />
       </section>
     </PageContainer>
   );

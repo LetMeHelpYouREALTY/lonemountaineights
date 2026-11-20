@@ -6,6 +6,12 @@ realscout-your-listings {
   width: 100%;
 }
 
+/* Reserve roughly the rendered card-carousel height so the strip under each hero doesn't shift the page (CLS). */
+realscout-office-listings {
+  display: block;
+  min-height: 380px;
+}
+
 realscout-simple-search {
   --rs-ss-font-primary-color: #334155;
   --rs-ss-searchbar-background-color: #ffffff;

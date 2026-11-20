@@ -1,4 +1,5 @@
 import { RealScoutOfficeListings } from '@/components/shared/JsonLd';
+import { MlsDisclaimer } from '@/components/shared/MlsDisclaimer';
 
 type ListingsBelowHeroProps = {
   title?: string;
@@ -18,12 +19,18 @@ export function ListingsBelowHero({
   return (
     <section
       className={`border-b border-slate-200 bg-slate-50 px-4 py-8 ${className}`}
-      aria-label={title}
+      aria-labelledby="listings-below-hero-heading"
     >
       <div className="mx-auto max-w-6xl">
-        <h2 className="mb-2 text-center text-2xl font-bold text-[var(--heading-color)]">{title}</h2>
+        <h2
+          id="listings-below-hero-heading"
+          className="mb-2 text-center text-2xl font-bold text-[var(--heading-color)]"
+        >
+          {title}
+        </h2>
         <p className="mb-6 text-center text-[var(--text-color)]">{description}</p>
         <RealScoutOfficeListings priceMin={priceMin} priceMax={priceMax} />
+        <MlsDisclaimer />
       </div>
     </section>
   );
