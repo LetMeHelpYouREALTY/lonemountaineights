@@ -124,10 +124,13 @@ pre {
   color: var(--text-color);
 }
 
-input,
-button {
-  font-size: inherit;
-  font-family: inherit;
+/* Layered so text-* utilities on buttons and inputs still apply. */
+@layer base {
+  input,
+  button {
+    font-size: inherit;
+    font-family: inherit;
+  }
 }
 
 button:focus:not(:focus-visible) {
