@@ -47,7 +47,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     license: NAP.license,
     broker: NAP.broker,
     address: NAP.address,
-    gbpReviewsUrl: GBP_URLS.reviews,
     gbpMapUrl: GBP_URLS.reviews,
   });
 

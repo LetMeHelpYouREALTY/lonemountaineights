@@ -4,6 +4,9 @@ import { getAbsoluteImageUrl } from '@/lib/cloudflare-images';
 export const SITE_URL = 'https://www.lonemountainheights.com';
 export const SITE_NAME = 'Lone Mountain Heights Real Estate';
 
+/** Last content review (YYYY-MM-DD). Drives sitemap lastmod, WebPage dateModified and the visible byline — bump on content edits. */
+export const CONTENT_UPDATED = '2026-11-20';
+
 export const DEFAULT_OG_IMAGE_PATH = '/images/og/og-image.png';
 export const OG_IMAGE_WIDTH = 1200;
 export const OG_IMAGE_HEIGHT = 630;

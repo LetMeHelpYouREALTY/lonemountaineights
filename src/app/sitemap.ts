@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-import { SITE_URL } from '@/lib/site-metadata';
+import { CONTENT_UPDATED, SITE_URL } from '@/lib/site-metadata';
 
 const BASE = SITE_URL;
 
@@ -35,10 +35,10 @@ const routes = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  const lastModified = new Date(`${CONTENT_UPDATED}T00:00:00Z`);
   return routes.map((path) => ({
     url: `${BASE}${path === '/' ? '' : path}`,
-    lastModified: now,
+    lastModified,
     changeFrequency: path === '/' || path === '/homes' ? 'daily' : 'weekly',
     priority: path === '/' ? 1 : path === '/homes' ? 0.9 : 0.7,
   }));

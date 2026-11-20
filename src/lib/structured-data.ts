@@ -3,7 +3,7 @@
  * Aligned with schema.org + Google Search Central FAQ guidance (2025–2026).
  */
 
-import { SITE_URL } from '@/lib/site-metadata';
+import { CONTENT_UPDATED, SITE_URL } from '@/lib/site-metadata';
 
 export const SCHEMA_IDS = {
   agent: `${SITE_URL}/#realestate-agent`,
@@ -55,7 +55,6 @@ export function generateSiteGraphSchema(nap: {
     postalCode: string;
     addressCountry: string;
   };
-  gbpReviewsUrl: string;
   gbpMapUrl: string;
 }) {
   const logoUrl = `${SITE_URL}/images/icons/icon-512.png`;
@@ -125,7 +124,6 @@ export function generateSiteGraphSchema(nap: {
           name: `Nevada Real Estate License ${nap.license}`,
         },
         memberOf: { '@id': SCHEMA_IDS.organization },
-        sameAs: [nap.gbpReviewsUrl, 'https://www.berkshirehathawayhomeservices.com'],
         priceRange: '$$',
         potentialAction: {
           '@type': 'ReserveAction',
@@ -153,8 +151,7 @@ export function generateSiteGraphSchema(nap: {
         '@type': 'Organization',
         '@id': SCHEMA_IDS.organization,
         name: nap.broker,
-        url: 'https://www.berkshirehathawayhomeservices.com',
-        logo: logoUrl,
+        url: 'https://www.bhhsnv.com',
         employee: { '@id': SCHEMA_IDS.person },
       },
       {
@@ -166,14 +163,6 @@ export function generateSiteGraphSchema(nap: {
           'Homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy, Berkshire Hathaway HomeServices.',
         publisher: { '@id': SCHEMA_IDS.agent },
         inLanguage: 'en-US',
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: {
-            '@type': 'EntryPoint',
-            urlTemplate: `${SITE_URL}/homes?q={search_term_string}`,
-          },
-          'query-input': 'required name=search_term_string',
-        },
       },
     ],
   };
@@ -225,6 +214,9 @@ export function generateWebPageSchema({
     url,
     name,
     description,
+    inLanguage: 'en-US',
+    dateModified: CONTENT_UPDATED,
+    author: { '@id': SCHEMA_IDS.person },
     isPartOf: { '@id': SCHEMA_IDS.website },
     about: {
       '@type': 'Place',
