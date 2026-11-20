@@ -58,7 +58,7 @@ export function generateSiteGraphSchema(nap: {
   gbpReviewsUrl: string;
   gbpMapUrl: string;
 }) {
-  const logoUrl = `${SITE_URL}/images/icons/favicon.png`;
+  const logoUrl = `${SITE_URL}/images/icons/icon-512.png`;
   const agentPhoto = `${SITE_URL}/images/agents/dr-jan-duffy.jpg`;
 
   const areaServed = AREA_SERVED_PLACES.map((place) => ({
