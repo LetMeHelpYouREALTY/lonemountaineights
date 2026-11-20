@@ -43,16 +43,19 @@ export default function ValuationPage() {
         subtitle="Instant home valuation with Dr. Jan Duffy's expert market analysis"
       />
 
-      <ListingsBelowHero priceMin="500000" priceMax="1200000" />
-
-      <div className="mx-auto max-w-3xl px-4 py-10 md:px-8">
-        <section className="mb-8 rounded-xl bg-white p-6 shadow-md md:p-8">
+      <div className="border-b border-slate-200 bg-white px-4 py-10">
+        <div className="mx-auto max-w-3xl rounded-xl border border-slate-200 bg-white p-6 shadow-md md:p-8">
           <h2 className="mb-1 text-2xl font-bold text-[var(--heading-color)]">Get Your Home&apos;s Value</h2>
           <p className="mb-6 text-[var(--text-light)]">
             Free instant valuation powered by RealScout — then schedule a call for comps and pricing strategy
           </p>
           <RealScoutHomeValue />
-        </section>
+        </div>
+      </div>
+
+      <ListingsBelowHero priceMin="500000" priceMax="1200000" />
+
+      <div className="mx-auto max-w-3xl px-4 py-10 md:px-8">
 
         <section className="mb-8 rounded-xl bg-white p-6 shadow-md md:p-8 text-center">
           <h2 className="mb-3 text-xl font-bold text-[var(--heading-color)]">Want a seller pricing consult?</h2>
