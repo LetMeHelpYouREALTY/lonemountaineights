@@ -13,9 +13,9 @@ import { homeFAQs } from '@/lib/faqs';
 import { buildPageMetadata, SITE_URL } from '@/lib/site-metadata';
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Lone Mountain Heights Homes for Sale | 89129',
+  title: 'Lone Mountain Heights Homes for Sale | Dr. Jan Duffy',
   description:
-    'Find your dream home in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy offers exclusive listings, market insights, and personalized service.',
+    'Lone Mountain Heights homes for sale in Las Vegas 89129: live MLS listings, free home valuations, and private consultations with Dr. Jan Duffy.',
   path: '/',
   ogImageAlt:
     'Lone Mountain Heights homes for sale in Las Vegas 89129 — Dr. Jan Duffy, local real estate expert',
@@ -45,7 +45,7 @@ export default function HomePage() {
           generateWebPageSchema({
             name: 'Lone Mountain Heights Homes for Sale | Dr. Jan Duffy',
             description:
-              'Find your dream home in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy offers exclusive listings, market insights, and personalized service.',
+              'Lone Mountain Heights homes for sale in Las Vegas 89129: live MLS listings, free home valuations, and private consultations with Dr. Jan Duffy.',
             path: '/',
             includeSpeakable: true,
           }),

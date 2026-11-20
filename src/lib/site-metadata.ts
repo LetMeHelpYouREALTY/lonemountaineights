@@ -34,7 +34,8 @@ export function buildPageMetadata({
   const ogImageUrl = getAbsoluteImageUrl(ogImagePath, OG_IMAGE_WIDTH);
 
   return {
-    title,
+    // Page titles already carry the brand; the layout template would append it a second time.
+    title: { absolute: title },
     description,
     alternates: { canonical },
     openGraph: {

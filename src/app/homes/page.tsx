@@ -3,13 +3,14 @@ import { HomesBrowse } from '@/components/sections/HomesBrowse';
 import { JsonLd } from '@/components/shared/JsonLd';
 import { generateBreadcrumbSchema, generateFAQSchema } from '@/lib/schema';
 import { homesFAQs } from '@/lib/faqs';
+import { buildPageMetadata } from '@/lib/site-metadata';
 
-export const metadata: Metadata = {
-  title: 'Lone Mountain Heights Homes for Sale | Las Vegas 89129',
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Lone Mountain Heights Listings | Live MLS Search 89129',
   description:
-    'Browse exclusive homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy expert insights on every listing.',
-  alternates: { canonical: 'https://www.lonemountainheights.com/homes' },
-};
+    'Search live MLS listings in Lone Mountain Heights, Las Vegas 89129, then book a free 15-minute call with Dr. Jan Duffy to tour any home.',
+  path: '/homes',
+});
 
 export default function HomesPage() {
   return (

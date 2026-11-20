@@ -13,7 +13,7 @@ import { generateWebPageSchema, SCHEMA_IDS } from '@/lib/structured-data';
 import { buildPageMetadata } from '@/lib/site-metadata';
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'About Dr. Jan Duffy | Lone Mountain Heights Expert | Las Vegas 89129',
+  title: 'About Dr. Jan Duffy | Lone Mountain Heights REALTOR®',
   description:
     'Meet Dr. Jan Duffy, your complete real estate partner in Lone Mountain Heights, Las Vegas 89129. Lone Mountain Heights team leader and hyperlocal expert.',
   path: '/about',

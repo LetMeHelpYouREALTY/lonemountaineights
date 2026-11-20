@@ -20,8 +20,8 @@ const defaultSocial = getDefaultSocialMetadata();
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Lone Mountain Heights Real Estate | Dr. Jan Duffy | Las Vegas 89129',
-    template: '%s | Lone Mountain Heights | Dr. Jan Duffy',
+    default: 'Lone Mountain Heights Real Estate | Dr. Jan Duffy',
+    template: '%s | Dr. Jan Duffy',
   },
   description:
     'Find homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy leads the Lone Mountain Heights Team.',

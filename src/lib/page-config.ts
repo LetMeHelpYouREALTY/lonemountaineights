@@ -10,7 +10,7 @@ export type PageConfig = {
 
 export const pageConfigs: Record<string, PageConfig> = {
   amenities: {
-    title: 'Lone Mountain Heights Amenities | Parks, Shopping & Recreation',
+    title: 'Lone Mountain Heights Amenities | Parks, Trails & Shopping',
     h1: 'Local Amenities Near Lone Mountain Heights',
     description:
       'Explore parks, shopping, dining, and recreation near Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy guides buyers to the lifestyle that fits.',
@@ -23,7 +23,7 @@ export const pageConfigs: Record<string, PageConfig> = {
     faqKey: 'amenitiesFAQs',
   },
   neighborhoods: {
-    title: 'Lone Mountain Heights Neighborhoods & Communities Guide | Las Vegas 89129',
+    title: 'Lone Mountain Heights Neighborhoods | Las Vegas 89129',
     h1: 'Neighborhoods & Communities in Lone Mountain Heights',
     description:
       'Explore Lone Mountain Ranch, Desert Vista Estates, and every neighborhood and community in Lone Mountain Heights 89129 with Dr. Jan Duffy.',
@@ -39,7 +39,7 @@ export const pageConfigs: Record<string, PageConfig> = {
     title: 'Lone Mountain Heights Schools | CCSD Guide Las Vegas 89129',
     h1: 'Schools Serving Lone Mountain Heights',
     description:
-      'School information for Lone Mountain Heights, Las Vegas 89129 — CCSD assignments, ratings, and private options from Dr. Jan Duffy.',
+      'Schools serving Lone Mountain Heights, Las Vegas 89129 — CCSD attendance zones, campus names, and private options, with boundary checks from Dr. Jan Duffy.',
     canonical: '/schools',
     body: [
       'Families in Lone Mountain Heights are served by Clark County School District schools including Eileen Conners Elementary, Walter Johnson Junior High, and Centennial High School.',
@@ -78,7 +78,7 @@ export const pageConfigs: Record<string, PageConfig> = {
     title: 'Recent Sales in Lone Mountain Heights | Las Vegas 89129',
     h1: 'Recent Lone Mountain Heights Sales',
     description:
-      'See recent home sales in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy tracks every transaction in the community.',
+      'See recent home sales in Lone Mountain Heights, Las Vegas 89129, and request a comparable-sales analysis for any address from Dr. Jan Duffy.',
     canonical: '/sales',
     body: [
       'Understanding recent sales is essential for pricing, offers, and investment decisions in Lone Mountain Heights.',
@@ -101,7 +101,7 @@ export const pageConfigs: Record<string, PageConfig> = {
     faqKey: 'toolsFAQs',
   },
   careers: {
-    title: 'Real Estate Careers | Join Dr. Jan Duffy Team',
+    title: 'Real Estate Careers in Las Vegas | Dr. Jan Duffy Team',
     h1: 'Real Estate Careers with Dr. Jan Duffy',
     description:
       'Join the Lone Mountain Heights team led by Dr. Jan Duffy. Las Vegas real estate career opportunities.',
@@ -150,7 +150,7 @@ export const pageConfigs: Record<string, PageConfig> = {
     faqKey: 'marketReportFAQs',
   },
   neighborhood: {
-    title: 'Lone Mountain Heights Neighborhood Overview',
+    title: 'Lone Mountain Heights Neighborhood Overview | 89129',
     h1: 'Lone Mountain Heights Neighborhood Overview',
     description:
       'Overview of the Lone Mountain Heights community in Las Vegas 89129 — homes, lifestyle, and real estate with Dr. Jan Duffy.',
@@ -162,7 +162,7 @@ export const pageConfigs: Record<string, PageConfig> = {
     faqKey: 'neighborhoodsFAQs',
   },
   'price-ranges/600k-800k': {
-    title: 'Homes $600K–$800K in Lone Mountain Heights',
+    title: 'Homes $600K–$800K in Lone Mountain Heights | Las Vegas',
     h1: 'Homes $600K–$800K in Lone Mountain Heights',
     description:
       'Browse Lone Mountain Heights homes priced between $600,000 and $800,000. Expert guidance from Dr. Jan Duffy, Las Vegas 89129.',
@@ -221,7 +221,7 @@ export const pageConfigs: Record<string, PageConfig> = {
     ],
   },
   'faq/hoa-fees': {
-    title: 'HOA Fees in Lone Mountain Heights | FAQ',
+    title: 'HOA Fees in Lone Mountain Heights | Las Vegas 89129 FAQ',
     h1: 'HOA Fees in Lone Mountain Heights',
     description:
       'FAQ: HOA fees and community costs in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy explains.',
