@@ -1,21 +1,20 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
-import { PageHeader, BtnPrimary, BtnSecondary } from '@/components/layouts/PageHeader';
+import { PageHeader, BtnSecondary } from '@/components/layouts/PageHeader';
 import { ListingsBelowHero } from '@/components/sections/ListingsBelowHero';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
 import { JsonLd } from '@/components/shared/JsonLd';
 import { aboutFAQs } from '@/lib/faqs';
-import { generateBreadcrumbSchema, generateFAQSchema, GBP_URLS, NAP } from '@/lib/schema';
+import { generateBreadcrumbSchema, generateFAQSchema, NAP } from '@/lib/schema';
 import { generateWebPageSchema, SCHEMA_IDS } from '@/lib/structured-data';
 import { buildPageMetadata } from '@/lib/site-metadata';
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'About Dr. Jan Duffy | Lone Mountain Heights Expert | Las Vegas 89129',
+  title: 'About Dr. Jan Duffy | Lone Mountain Heights REALTOR®',
   description:
-    'Meet Dr. Jan Duffy, your complete real estate partner in Lone Mountain Heights, Las Vegas 89129. Lone Mountain Heights team leader and hyperlocal expert.',
+    'Meet Dr. Jan Duffy, REALTOR® with Berkshire Hathaway HomeServices Nevada Properties: licensed since 2008, 500+ Las Vegas transactions, 89129 focus.',
   path: '/about',
 });
 
@@ -32,7 +31,7 @@ const stats = [
   { value: '500+', label: 'Las Vegas Transactions' },
   { value: '89129', label: 'Hyperlocal Focus' },
   { value: 'Since 2008', label: 'In Real Estate' },
-  { value: '$127M+', label: 'Sales Volume' },
+  { value: '$127M+', label: 'Dr. Duffy Group Career Sales' },
 ];
 
 export default function AboutPage() {
@@ -97,6 +96,7 @@ export default function AboutPage() {
             <div className="flex flex-wrap gap-3">
               <CalendlyLink
                 text="Schedule time with me"
+                placement="about-bio"
                 className="rounded-lg bg-[var(--accent-color)] px-5 py-2.5 font-semibold text-[var(--heading-color)]"
               />
               <BtnSecondary href={NAP.telHref}>Call {NAP.telDisplay}</BtnSecondary>
@@ -107,7 +107,7 @@ export default function AboutPage() {
         <div className="mb-12 grid grid-cols-2 gap-4 md:grid-cols-4">
           {stats.map((s) => (
             <div key={s.label} className="rounded-xl bg-[var(--warm-cream)] p-4 text-center">
-              <div className="text-2xl font-bold text-[var(--accent-color)]">{s.value}</div>
+              <div className="text-2xl font-bold text-[var(--heading-color)]">{s.value}</div>
               <div className="text-sm text-[var(--text-light)]">{s.label}</div>
             </div>
           ))}
@@ -129,9 +129,10 @@ export default function AboutPage() {
         <CalendlyScheduleSection
           title="Schedule a Conversation with Dr. Jan Duffy"
           description="Book a free 15-minute call to discuss buying or selling in Lone Mountain Heights."
+          placement="about-schedule"
         />
 
-        <FAQSection faqs={aboutFAQs} title="About Dr. Jan Duffy — FAQs" />
+        <FAQSection faqs={aboutFAQs} title="About Dr. Jan Duffy — FAQs" calendlyPlacement="about-faq" />
 
       </div>
     </>

@@ -1,30 +1,32 @@
 // @ts-nocheck
 /**
- * Page-specific FAQs for AEO (Answer Engine Optimization)
- * Positions Dr. Jan Duffy as the expert Lone Mountain Heights realtor
- * Format: { question: string, answer: string }
+ * Page-specific FAQs for AEO (Answer Engine Optimization).
+ * Rendered visibly by FAQSection and as FAQPage JSON-LD from the same data,
+ * so markup always matches on-page text.
+ * Keep answers verifiable: no unsourced averages, no school-quality claims,
+ * no "families"/"safe"/"exclusive" style wording (Fair Housing).
  */
 
 export const homeFAQs = [
   {
     question: 'Who is the best real estate agent in Lone Mountain Heights?',
     answer:
-      'Dr. Jan Duffy is the leading Lone Mountain Heights real estate expert, with 500+ Las Vegas transactions and deep knowledge of every street and subdivision. As head of the Lone Mountain Heights Team, she provides personalized service for buyers and sellers.',
+      'Look for verified local results and a license you can check. Dr. Jan Duffy (Nevada license S.0197614.LLC) is a REALTOR® with Berkshire Hathaway HomeServices Nevada Properties, licensed since 2008, with 500+ Las Vegas transactions. She focuses on Lone Mountain Heights and ZIP 89129 and is available 7 days a week at 702-500-1955.',
   },
   {
     question: 'What makes Lone Mountain Heights a great place to buy a home?',
     answer:
-      'Lone Mountain Heights offers mountain views, mature landscaping, nearby public schools, and excellent value. Dr. Jan Duffy recommends the area for buyers who want larger lots, low HOA fees, and quick access to Summerlin and Red Rock Canyon.',
+      'Location and views. Lone Mountain Heights is in northwest Las Vegas (89129), near Lone Mountain and the 215 Beltway, a short drive from Summerlin and Red Rock Canyon National Conservation Area. Lot sizes, HOA dues, and views vary by street, so Dr. Jan Duffy compares homes listing by listing.',
   },
   {
     question: 'How do I find homes for sale in Lone Mountain Heights Las Vegas?',
     answer:
-      'Dr. Jan Duffy maintains an up-to-date search of all Lone Mountain Heights listings. Visit this site to browse current homes, or schedule a 15-minute call with Dr. Jan for a personalized search tailored to your budget and preferences.',
+      'Start with the live MLS listings on this site, which update automatically through RealScout. For a search set to your budget and must-haves, book a 30-minute buyer consultation with Dr. Jan Duffy.',
   },
   {
     question: 'What is the average home price in Lone Mountain Heights 89129?',
     answer:
-      'The average sale price in Lone Mountain Heights is approximately $847,000. Dr. Jan Duffy provides free instant home valuations and market reports so you can make informed decisions whether buying or selling in the 89129 area.',
+      'Prices move month to month and vary widely by size, lot, and upgrades, so a single average can mislead. Live MLS listings show current asking prices. For recent sold prices on your street, ask Dr. Jan Duffy for a free comparative market analysis (CMA).',
   },
 ];
 
@@ -32,17 +34,17 @@ export const aboutFAQs = [
   {
     question: 'Why should I choose Dr. Jan Duffy for Lone Mountain Heights real estate?',
     answer:
-      'Dr. Jan Duffy, licensed since 2008 · 35 years in Las Vegas, brings 500+ Las Vegas transactions and unmatched local expertise. She knows every street, every subdivision, and every opportunity in Lone Mountain Heights—and serves as your forever agent for all future real estate needs.',
+      'Dr. Jan Duffy has been licensed since 2008, has lived in Las Vegas for 35 years, and has 500+ Las Vegas transactions. She works with Berkshire Hathaway HomeServices Nevada Properties, focuses on Lone Mountain Heights and the 89129 area, and stays your agent for future moves.',
   },
   {
     question: 'What areas does Dr. Jan Duffy serve?',
     answer:
-      'Dr. Jan Duffy specializes exclusively in Lone Mountain Heights and its neighborhoods and communities including Lone Mountain Ranch, Desert Vista Estates, and surrounding 89129 areas. Her local expertise means you work with an expert, not a generalist.',
+      'Dr. Jan Duffy focuses on Lone Mountain Heights and nearby 89129 neighborhoods, including Lone Mountain Ranch and Desert Vista Estates. She also helps buyers and sellers across the Las Vegas Valley.',
   },
   {
     question: 'Is Dr. Jan Duffy a licensed real estate agent?',
     answer:
-      'Yes. Dr. Jan Duffy is a licensed Nevada REALTOR®, licensed since 2008 · 35 years in Las Vegas, and leads the Lone Mountain Heights Team. She is available seven days a week for buyers and sellers.',
+      'Yes. Dr. Jan Duffy is a licensed Nevada REALTOR® (license S.0197614.LLC), licensed since 2008, with Berkshire Hathaway HomeServices Nevada Properties. She leads the Lone Mountain Heights Team and is available seven days a week.',
   },
 ];
 
@@ -50,17 +52,17 @@ export const contactFAQs = [
   {
     question: 'How do I schedule a call with Dr. Jan Duffy?',
     answer:
-      'Schedule a free 15-minute consultation with Dr. Jan Duffy using the Calendly widget on this page, or call 702-500-1955 directly. She responds within 2 hours and is available 7 days a week for Lone Mountain Heights buyers and sellers.',
+      'Pick a time in the Calendly scheduler on this page for a free 15-minute call, or call 702-500-1955. Dr. Jan Duffy is available 7 days a week for Lone Mountain Heights buyers and sellers.',
   },
   {
     question: 'What should I expect when contacting Dr. Jan Duffy about a home?',
     answer:
-      'Dr. Jan Duffy will listen to your goals, answer your questions about Lone Mountain Heights, and provide a personalized plan—whether you are buying, selling, or exploring. No pressure, just expert guidance from your local real estate partner.',
+      'Dr. Jan Duffy will listen to your goals, answer your questions about Lone Mountain Heights, and lay out a plan, whether you are buying, selling, or still exploring. There is no pressure and no cost for the first conversation.',
   },
   {
     question: 'Does Dr. Jan Duffy offer free home valuations in Lone Mountain Heights?',
     answer:
-      'Yes. Dr. Jan Duffy provides free instant home value estimates and detailed market analysis for any Lone Mountain Heights property. Use the Home Value tool on this site or schedule a call for a comprehensive valuation.',
+      'Yes. Use the instant home value tool on the valuation page, then book a listing consultation for a comparative market analysis based on recent closed sales near your home.',
   },
 ];
 
@@ -68,17 +70,17 @@ export const valuationFAQs = [
   {
     question: 'How accurate is a free home valuation for Lone Mountain Heights?',
     answer:
-      'Dr. Jan Duffy uses real market data and comparable sales to provide accurate estimates. For a precise valuation tailored to your specific property and neighborhood, schedule a consultation—she analyzes recent sales, lot size, condition, and Lone Mountain Heights neighborhood trends.',
+      'Instant online estimates are a starting point. They can miss upgrades, condition, and lot details. For a precise number, Dr. Jan Duffy prepares a comparative market analysis from recent closed MLS sales near your home.',
   },
   {
     question: 'Should I get a home valuation before selling in Lone Mountain Heights?',
     answer:
-      'Yes. Dr. Jan Duffy recommends all sellers get a professional valuation before listing. Understanding your home\'s value helps you price competitively, avoid leaving money on the table, and sell faster in the Lone Mountain Heights market.',
+      'Yes. Knowing your home\'s value before you list helps you price competitively and avoid leaving money on the table. Dr. Jan Duffy recommends a professional valuation for every seller.',
   },
   {
     question: 'What factors affect home values in Lone Mountain Heights?',
     answer:
-      'Location within neighborhoods and communities, school boundaries, lot size, upgrades, and recent comparable sales all matter. Dr. Jan Duffy has sold hundreds of homes in Lone Mountain Heights and knows exactly which factors drive value in each area.',
+      'Lot size and position, views, upgrades and condition, HOA dues, and recent comparable sales on nearby streets all matter. Dr. Jan Duffy weighs each factor against current MLS data for your subdivision.',
   },
 ];
 
@@ -86,17 +88,17 @@ export const homesFAQs = [
   {
     question: 'How many homes are currently for sale in Lone Mountain Heights?',
     answer:
-      'Inventory changes daily. Dr. Jan Duffy keeps the listings on this site updated with the newest Lone Mountain Heights homes for sale. For a live search filtered to your criteria, use the Open Full Search link or contact her directly.',
+      'Inventory changes daily. The listings on this site come straight from the MLS through RealScout and update automatically. For a search filtered to your criteria, open the full Las Vegas home search or book a buyer consultation with Dr. Jan Duffy.',
   },
   {
     question: 'What price range can I expect for homes in Lone Mountain Heights?',
     answer:
-      'Lone Mountain Heights homes typically range from the mid-$600s to over $1.5M. Dr. Jan Duffy can filter listings by your budget and show you the best value in each price range within the 89129 area.',
+      'Prices vary by size, lot, and upgrades. The live MLS listings on this page show current asking prices, and Dr. Jan Duffy can add recent sold prices for your budget.',
   },
   {
     question: 'How fast do homes sell in Lone Mountain Heights?',
     answer:
-      'Homes in Lone Mountain Heights sell quickly—often within 12–23 days on average. Dr. Jan Duffy helps buyers act fast with strong offers and guides sellers on pricing to attract serious buyers without overpricing.',
+      'It depends on price, condition, and season. Dr. Jan Duffy pulls current days-on-market for your price range from the MLS, so buyers can time offers and sellers can price to attract serious buyers.',
   },
 ];
 
@@ -104,12 +106,12 @@ export const neighborhoodsFAQs = [
   {
     question: 'What are the best neighborhoods in Lone Mountain Heights?',
     answer:
-      'Dr. Jan Duffy recommends Lone Mountain Ranch for buyers who want nearby schools, Desert Vista Estates for value and amenities, and various neighborhoods depending on your lifestyle. She can match you with the perfect community based on your priorities.',
+      'The best fit depends on your priorities: lot size, views, HOA dues, commute, and budget. Lone Mountain Ranch and Desert Vista Estates are two areas buyers often compare. Dr. Jan Duffy can show current listings and recent sales in each.',
   },
   {
     question: 'How do I choose the right Lone Mountain Heights neighborhood?',
     answer:
-      'Consider schools, HOA fees, commute, and lifestyle. Dr. Jan Duffy knows every street and subdivision—she will ask about your needs and show you neighborhoods that fit, with insider knowledge on quiet streets, views, and future development.',
+      'List your must-haves first: commute routes, HOA dues, lot size, views, and nearby parks. Dr. Jan Duffy will match them to specific streets and flag any planned development nearby.',
   },
 ];
 
@@ -117,12 +119,12 @@ export const luxuryFAQs = [
   {
     question: 'What defines a luxury home in Lone Mountain Heights?',
     answer:
-      'Dr. Jan Duffy considers luxury homes in Lone Mountain Heights to be those above $1M with premium finishes, mountain or city views, larger lots, and high-end amenities. She specializes in matching discerning buyers with exceptional properties.',
+      'On this site, luxury means homes listed at $1 million or more. They often have larger lots, views, pools, and higher-end finishes. The luxury page shows live MLS listings from $1M to $5M.',
   },
   {
     question: 'Are there luxury gated communities in Lone Mountain Heights?',
     answer:
-      'Yes. Lone Mountain Heights includes several desirable communities with gates, pools, and resort-style amenities. Dr. Jan Duffy has sold homes in the area\'s finest subdivisions and can guide you through your options.',
+      'Gate access varies by subdivision. Check each listing\'s HOA details, and Dr. Jan Duffy can confirm gates, dues, and amenities before you tour.',
   },
 ];
 
@@ -130,12 +132,12 @@ export const schoolsFAQs = [
   {
     question: 'What schools serve Lone Mountain Heights Las Vegas 89129?',
     answer:
-      'Lone Mountain Heights students typically attend Lone Mountain Elementary, Desert Ridge Middle, and Shadow Ridge High—all highly rated. Dr. Jan Duffy can show you which homes fall into which school boundaries so you buy in the right zone.',
+      'Clark County School District (CCSD) assigns public schools by street address, and zones can change. Enter any address in CCSD\'s zoning search at ccsd.net/zoning before you buy. Dr. Jan Duffy can pull the zoned schools for each listing you are considering.',
   },
   {
-    question: 'Do school ratings affect home values in Lone Mountain Heights?',
+    question: 'Do school attendance zones matter when buying in Lone Mountain Heights?',
     answer:
-      'Yes. School attendance zones often affect demand and home values. Dr. Jan Duffy helps buyers prioritize school boundaries when searching and explains how different attendance zones impact resale value in Lone Mountain Heights.',
+      'Many buyers ask about them, and zones can change, so verify the assigned schools for each address with CCSD before you write an offer. Dr. Jan Duffy can include zoning details with every listing she sends.',
   },
 ];
 
@@ -143,12 +145,12 @@ export const guideFAQs = [
   {
     question: 'What is it like living in Lone Mountain Heights Las Vegas?',
     answer:
-      'Lone Mountain Heights offers suburban tranquility with easy access to Summerlin, downtown Las Vegas, and Red Rock Canyon. Dr. Jan Duffy has helped hundreds of buyers relocate here—she describes the community as close-knit, with nearby schools and parks.',
+      'Lone Mountain Heights is a residential area in northwest Las Vegas (89129) near Lone Mountain, a rocky butte with a popular summit trail. Lone Mountain Regional Park and Majestic Park are nearby, and the 215 Beltway connects you to Summerlin and the rest of the valley.',
   },
   {
     question: 'What draws buyers to Lone Mountain Heights?',
     answer:
-      'Buyers often choose Lone Mountain Heights for nearby schools, parks, and a tight-knit community. Dr. Jan Duffy helps you compare lots, HOA structures, and commute times to Summerlin and the Strip corridor.',
+      'Buyers often mention mountain views, trail access on Lone Mountain, nearby parks, and quick 215 Beltway access. Dr. Jan Duffy helps you compare lots, HOA structures, and commute times to Summerlin and the Strip corridor.',
   },
 ];
 
@@ -156,12 +158,12 @@ export const amenitiesFAQs = [
   {
     question: 'What amenities are near Lone Mountain Heights Las Vegas?',
     answer:
-      'Lone Mountain Heights is close to parks, trails, shopping, dining, and Red Rock Canyon. Dr. Jan Duffy provides clients with a neighborhood guide covering everything from grocery stores to gyms—so you know exactly what is nearby before you buy.',
+      'Parks in ZIP 89129 include Lone Mountain Regional Park, Lone Mountain Discovery Park, Majestic Park, and Trigono Hills Park. Lone Mountain Plaza and a Walmart Neighborhood Market are on W. Cheyenne Ave., and the 215 Beltway is close by.',
   },
   {
     question: 'Are there hiking trails near Lone Mountain Heights?',
     answer:
-      'Yes. Red Rock Canyon, Lone Mountain Park, and numerous trails are within minutes. Dr. Jan Duffy knows the outdoor lifestyle is a big draw—she can show you homes with the best access to recreation and mountain views.',
+      'Yes. The Lone Mountain summit trail climbs about 550 feet in 1.2 miles from the Vegas Vista Trail trailhead, and a perimeter route circles the base. Red Rock Canyon National Conservation Area is a short drive west.',
   },
 ];
 
@@ -174,7 +176,7 @@ export const marketReportFAQs = [
   {
     question: 'Is now a good time to sell in Lone Mountain Heights?',
     answer:
-      'Market conditions change. Dr. Jan Duffy evaluates inventory, buyer demand, and seasonality to advise on timing. She provides a free market analysis so you can make an informed decision about listing your Lone Mountain Heights home.',
+      'It depends on current inventory, buyer demand, and season. Dr. Jan Duffy reviews those numbers for your price range and provides a free market analysis so you can decide when to list.',
   },
 ];
 
@@ -182,12 +184,12 @@ export const salesFAQs = [
   {
     question: 'How can I see recent home sales in Lone Mountain Heights?',
     answer:
-      'Dr. Jan Duffy shares recent sales data to help buyers understand true market values and help sellers price competitively. Review the Recent Sales section on this site or contact her for a detailed comparable sales report on any property.',
+      'Ask Dr. Jan Duffy for a comparable sales report on any address. She pulls recent closed sales from the MLS, including price per square foot and days on market.',
   },
   {
     question: 'What do homes typically sell for in Lone Mountain Heights?',
     answer:
-      'Recent sales in Lone Mountain Heights vary by neighborhood and size. Dr. Jan Duffy analyzes closed transactions to show you realistic expectations—whether you are buying or selling—with insider knowledge of off-market and competitive situations.',
+      'Sold prices vary by neighborhood, size, and condition. Dr. Jan Duffy analyzes recent closed sales to set realistic expectations, whether you are buying or selling.',
   },
 ];
 
@@ -203,7 +205,7 @@ export const blogFAQs = [
   {
     question: 'Where can I find Lone Mountain Heights real estate news and tips?',
     answer:
-      'Dr. Jan Duffy publishes regular insights on the Lone Mountain Heights market, neighborhood guides, and buying and selling tips. Follow the Blog section for expert advice from your local real estate partner.',
+      'The blog collects Dr. Jan Duffy\'s Lone Mountain Heights community guide and market updates. For numbers on your street, book a call and she will pull current MLS data.',
   },
 ];
 
@@ -212,7 +214,7 @@ export const locationsFAQs = {
     {
       question: 'What makes Lone Mountain Ranch a desirable neighborhood?',
       answer:
-        'Lone Mountain Ranch offers nearby schools, quiet streets, and a strong community feel. Dr. Jan Duffy has sold many homes here and recommends it for buyers seeking quality and older neighborhoods in Lone Mountain Heights.',
+        'Buyers look at Lone Mountain Ranch for its northwest Las Vegas location in 89129, mountain views, and access to nearby parks and the 215 Beltway. Dr. Jan Duffy can share current listings and recent sales so you can compare streets.',
     },
     {
       question: 'What is the average home price in Lone Mountain Ranch?',
@@ -224,7 +226,7 @@ export const locationsFAQs = {
     {
       question: 'What are the benefits of living in Desert Vista Estates?',
       answer:
-        'Desert Vista Estates offers great value, amenities, and a prime Lone Mountain Heights location. Dr. Jan Duffy helps buyers and sellers navigate this sought-after community with insider knowledge of HOA details and recent sales.',
+        'Desert Vista Estates is part of the Lone Mountain Heights area in 89129, close to parks, shopping, and the 215 Beltway. Dr. Jan Duffy can share HOA details, current listings, and recent sales so you can judge value for yourself.',
     },
     {
       question: 'Are there homes for sale in Desert Vista Estates?',
@@ -238,12 +240,12 @@ export const priceRangeFAQs = [
   {
     question: 'What can I buy in Lone Mountain Heights for $600K–$800K?',
     answer:
-      'The $600K–$800K range offers well-maintained 3–4 bedroom homes in older neighborhoods. Dr. Jan Duffy knows the best streets and subdivisions in this price band and can show you properties that represent strong value.',
+      'Inventory in this band changes weekly. The live MLS listings on this page show what is for sale now, and Dr. Jan Duffy can add recent sold prices so you see what the budget buys street by street.',
   },
   {
     question: 'Is $600K–$800K a good price range for Lone Mountain Heights?',
     answer:
-      'Yes. This range is one of the most active in Lone Mountain Heights, with strong buyer demand. Dr. Jan Duffy helps buyers compete effectively and helps sellers price and present their homes to attract serious offers.',
+      'It can be, depending on your must-haves. Dr. Jan Duffy compares current listings and recent sales in this range so buyers can bid with confidence and sellers can price to attract serious offers.',
   },
 ];
 
@@ -251,12 +253,12 @@ export const propertyTypeFAQs = [
   {
     question: 'Are 3-bedroom homes common in Lone Mountain Heights?',
     answer:
-      'Yes. Three-bedroom homes are popular in Lone Mountain Heights and appeal to a wide range of buyers, including those upsizing or downsizing. Dr. Jan Duffy can filter listings to show you the best 3-bedroom options in your preferred neighborhoods and price range.',
+      'They come up regularly, but inventory changes weekly. Dr. Jan Duffy can set up an MLS search for 3-bedroom homes in 89129 and send new listings as they hit the market.',
   },
   {
     question: 'What should I expect when buying a 3-bedroom home in Lone Mountain Heights?',
     answer:
-      'Expect competitive markets and quality construction. Dr. Jan Duffy advises on lot size, school zones, and resale potential—so you choose a 3-bedroom home that fits your lifestyle and holds its value in the 89129 area.',
+      'Compare lot size, HOA dues, the age of the roof and HVAC, and recent nearby sales. Dr. Jan Duffy reviews disclosures and comps with you so the home fits your plans and your budget.',
   },
 ];
 
@@ -264,11 +266,11 @@ export const toolsFAQs = [
   {
     question: 'What real estate tools does Dr. Jan Duffy offer?',
     answer:
-      'Dr. Jan Duffy provides a Home Value calculator, full MLS search, market reports, and scheduling. All tools are free and designed to help Lone Mountain Heights buyers and sellers make informed decisions.',
+      'This site has an instant home value tool, live MLS search, and online scheduling with Dr. Jan Duffy. All are free for Lone Mountain Heights buyers and sellers.',
   },
   {
     question: 'Is the home value tool accurate for Lone Mountain Heights?',
     answer:
-      'The tool uses market data for estimates. For a precise valuation, Dr. Jan Duffy offers a complimentary analysis that considers your specific property, recent comparables, and her deep knowledge of Lone Mountain Heights neighborhoods and communities.',
+      'The tool gives an automated estimate from market data. For a precise valuation, Dr. Jan Duffy offers a free analysis of your home\'s condition, upgrades, and recent comparable sales.',
   },
 ];

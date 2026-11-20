@@ -8,7 +8,7 @@ import { CalendlyInline } from '@/components/shared/CalendlyInline';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { getCloudflareUrl } from '@/lib/cloudflare-images';
 
-const heroImage = getCloudflareUrl('/images/hero/hero-las-vegas.png', { width: 1920, quality: 85 });
+const heroImage = getCloudflareUrl('/images/hero/Lone_Mountain.jpg', { width: 1920, quality: 85 });
 
 export function Hero() {
   const [activeTab, setActiveTab] = useState<'search' | 'valuation' | 'schedule'>('search');
@@ -17,8 +17,8 @@ export function Hero() {
     <section className="relative min-h-[70vh] overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src={heroImage.startsWith('http') ? heroImage : '/images/hero/hero-las-vegas.png'}
-          alt="Lone Mountain Heights Las Vegas skyline"
+          src={heroImage}
+          alt="Lone Mountain rising above northwest Las Vegas neighborhoods near Lone Mountain Heights, ZIP 89129"
           fill
           priority
           className="object-cover"
@@ -33,7 +33,8 @@ export function Hero() {
             Find Your Dream Home in Lone Mountain Heights
           </h1>
           <p className="text-lg text-white md:text-xl">
-            Las Vegas&apos;s premier community with mountain views, luxury amenities, and exceptional value
+            Homes near Lone Mountain in northwest Las Vegas (89129), with live MLS search, instant home
+            values, and private consultations with Dr. Jan Duffy
           </p>
         </div>
 
@@ -92,7 +93,7 @@ export function Hero() {
               <p className="mb-4 text-sm text-[var(--text-color)]">
                 Book a free 15-minute private conversation about buying or selling in Lone Mountain Heights
               </p>
-              <CalendlyInline minHeight={580} />
+              <CalendlyInline minHeight={580} placement="home-hero-scheduler" />
             </div>
           )}
 
@@ -104,6 +105,7 @@ export function Hero() {
               className="rounded-lg bg-[var(--accent-color)] px-5 py-2.5 text-sm font-semibold text-[var(--heading-color)] hover:opacity-90"
             >
               Open Full Search
+              <span className="sr-only"> (opens RealScout in a new tab)</span>
             </a>
             <Link
               href="/valuation"
@@ -113,6 +115,7 @@ export function Hero() {
             </Link>
             <CalendlyLink
               text="Schedule time with me"
+              placement="home-hero"
               className="rounded-lg bg-[var(--heading-color)] px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90"
             />
           </div>

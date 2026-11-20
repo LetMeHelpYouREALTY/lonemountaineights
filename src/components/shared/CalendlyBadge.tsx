@@ -1,16 +1,16 @@
 'use client';
 
-import { CALENDLY_READY_EVENT, CALENDLY_URL, getCalendly } from '@/lib/calendly';
+import { CALENDLY_READY_EVENT, calendlyUrl, getCalendly } from '@/lib/calendly';
 import { useEffect } from 'react';
 
 function initBadge() {
   const Calendly = getCalendly();
   if (Calendly && !document.querySelector('.calendly-badge-widget')) {
     Calendly.initBadgeWidget({
-      url: CALENDLY_URL,
+      url: calendlyUrl('consult', 'floating-badge'),
       text: 'Schedule time with me',
-      color: '#0069ff',
-      textColor: '#ffffff',
+      color: '#d4af37',
+      textColor: '#1e3a8a',
       branding: false,
     });
   }

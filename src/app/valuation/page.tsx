@@ -13,7 +13,7 @@ import { buildPageMetadata } from '@/lib/site-metadata';
 export const metadata: Metadata = buildPageMetadata({
   title: 'Lone Mountain Heights Home Valuation | Las Vegas 89129',
   description:
-    "Get instant home valuation for Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy's expert market analysis and pricing strategy.",
+    "Get an instant home value estimate for Lone Mountain Heights, Las Vegas 89129, then a comparative market analysis and pricing plan from Dr. Jan Duffy.",
   path: '/valuation',
 });
 
@@ -61,16 +61,25 @@ export default function ValuationPage() {
             generic national averages.
           </p>
           <CalendlyLink
-            text="Schedule time with me"
+            text="Book a listing consultation"
+            event="listing"
+            placement="valuation-pricing-consult"
             className="inline-block rounded-lg bg-[var(--accent-color)] px-6 py-3 font-semibold text-[var(--heading-color)] hover:opacity-90"
           />
         </section>
 
-        <FAQSection faqs={valuationFAQs} title="Home Valuation FAQs — Lone Mountain Heights" />
+        <FAQSection
+          faqs={valuationFAQs}
+          title="Home Valuation FAQs — Lone Mountain Heights"
+          calendlyEvent="listing"
+          calendlyPlacement="valuation-faq"
+        />
 
         <CalendlyScheduleSection
           title="Get a Personalized Home Valuation"
-          description="After your instant estimate, schedule a free call with Dr. Jan Duffy for a detailed pricing strategy."
+          description="After your instant estimate, book a listing consultation with Dr. Jan Duffy for comps and a pricing strategy."
+          event="listing"
+          placement="valuation-schedule"
         />
 
         <section className="rounded-xl bg-slate-50 p-8 text-center">
@@ -86,7 +95,9 @@ export default function ValuationPage() {
               Call {NAP.telDisplay}
             </a>
             <CalendlyLink
-              text="Schedule time with me"
+              text="Book a listing consultation"
+              event="listing"
+              placement="valuation-sell-cta"
               className="inline-block rounded-lg border-2 border-[var(--heading-color)] px-5 py-2.5 font-semibold text-[var(--heading-color)] transition hover:bg-[var(--heading-color)] hover:text-white"
             />
           </div>

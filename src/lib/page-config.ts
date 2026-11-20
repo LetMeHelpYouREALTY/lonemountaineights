@@ -1,115 +1,131 @@
+import type { CalendlyEvent } from '@/lib/calendly';
+
 /** Page content config for SEO-rich inner pages */
 export type PageConfig = {
+  /** Full <title>, 60 characters or fewer (no layout template is appended). */
   title: string;
   h1: string;
+  /** Meta description, 160 characters or fewer. */
   description: string;
   canonical: string;
   body: string[];
   faqKey?: string;
+  /** Calendly event for this page's booking CTAs (defaults to the 15-minute call). */
+  calendlyEvent?: CalendlyEvent;
+  /** Price band for the live listings strip under the hero. */
+  listings?: { priceMin: string; priceMax: string };
 };
 
 export const pageConfigs: Record<string, PageConfig> = {
   amenities: {
-    title: 'Lone Mountain Heights Amenities | Parks, Shopping & Recreation',
-    h1: 'Local Amenities Near Lone Mountain Heights',
+    title: 'Lone Mountain Heights Amenities: Parks, Trails, Shopping',
+    h1: 'Parks, Trails & Shopping Near Lone Mountain Heights',
     description:
-      'Explore parks, shopping, dining, and recreation near Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy guides buyers to the lifestyle that fits.',
+      'Parks, hiking trails, shopping, and commute routes near Lone Mountain Heights in Las Vegas 89129, from local REALTOR® Dr. Jan Duffy.',
     canonical: '/amenities',
     body: [
-      'Lone Mountain Heights offers easy access to Lone Mountain Discovery Park, Majestic Park, Trigono Hills Park, and the Lone Mountain Summit Trail.',
-      'Shopping includes Centennial Center with Costco, Target, and Walmart. The 215 Beltway and Summerlin Parkway provide quick commutes across Las Vegas.',
-      'Dr. Jan Duffy helps buyers evaluate amenity access street-by-street — because location within 89129 affects both lifestyle and resale value.',
+      'Lone Mountain itself is the anchor. The summit trail climbs about 550 feet in 1.2 miles from the Vegas Vista Trail trailhead, and a perimeter route circles the base of the peak.',
+      'Parks in ZIP 89129 include Lone Mountain Regional Park (9825 W. Lone Mountain Rd.), Lone Mountain Discovery Park on Jensen Street, Majestic Park, and Trigono Hills Park on Cliff Shadows Parkway.',
+      'For errands, Lone Mountain Plaza and a Walmart Neighborhood Market are on W. Cheyenne Ave. The 215 Beltway passes just outside Lone Mountain for commutes across the valley.',
+      'Dr. Jan Duffy maps amenity access street by street, because location within 89129 affects daily life and resale value. Park and trail details checked November 2026.',
     ],
     faqKey: 'amenitiesFAQs',
+    calendlyEvent: 'buyer',
   },
   neighborhoods: {
-    title: 'Lone Mountain Heights Neighborhoods & Communities Guide | Las Vegas 89129',
+    title: 'Lone Mountain Heights Neighborhoods | Las Vegas 89129',
     h1: 'Neighborhoods & Communities in Lone Mountain Heights',
     description:
-      'Explore Lone Mountain Ranch, Desert Vista Estates, and every neighborhood and community in Lone Mountain Heights 89129 with Dr. Jan Duffy.',
+      'Compare Lone Mountain Ranch, Desert Vista Estates, and other Lone Mountain Heights neighborhoods in Las Vegas 89129 with Dr. Jan Duffy.',
     canonical: '/neighborhoods',
     body: [
-      'Lone Mountain Heights is not one uniform area — neighborhoods and communities differ in lot size, views, HOA fees, and school access.',
-      'Dr. Jan Duffy specializes in matching buyers to the right street and subdivision based on budget, lifestyle, and long-term investment goals.',
-      'Browse location guides for Lone Mountain Ranch and Desert Vista Estates, or schedule a consultation for a personalized neighborhood tour.',
+      'Lone Mountain Heights is not one uniform area. Streets differ in lot size, views, HOA dues, and commute routes.',
+      'Dr. Jan Duffy matches buyers to the right street and subdivision based on budget, must-haves, and long-term plans.',
+      'Start with the guides for Lone Mountain Ranch and Desert Vista Estates, or book a buyer consultation for a neighborhood tour.',
     ],
     faqKey: 'neighborhoodsFAQs',
+    calendlyEvent: 'buyer',
   },
   schools: {
-    title: 'Lone Mountain Heights Schools | CCSD Guide Las Vegas 89129',
+    title: 'Schools Near Lone Mountain Heights | CCSD Zoning, 89129',
     h1: 'Schools Serving Lone Mountain Heights',
     description:
-      'School information for Lone Mountain Heights, Las Vegas 89129 — CCSD assignments, ratings, and private options from Dr. Jan Duffy.',
+      'How to confirm CCSD school assignments for any Lone Mountain Heights address in Las Vegas 89129, plus charter and private school basics.',
     canonical: '/schools',
     body: [
-      'Families in Lone Mountain Heights are served by Clark County School District schools including Eileen Conners Elementary, Walter Johnson Junior High, and Centennial High School.',
-      'The area also offers access to Somerset Academy Lone Mountain and private options like The Meadows School.',
-      'Dr. Jan Duffy helps relocating families verify school boundaries before they buy — a critical step in Lone Mountain Heights real estate.',
+      'Clark County School District (CCSD) assigns public schools by street address, and attendance zones can change from year to year.',
+      'Before you write an offer, enter the property address in CCSD\'s zoning search to see the assigned elementary, middle, and high schools.',
+      'Charter and private schools set their own enrollment rules, so confirm availability directly with each school.',
+      'Dr. Jan Duffy can pull the zoned schools for every listing you are considering.',
     ],
     faqKey: 'schoolsFAQs',
+    calendlyEvent: 'buyer',
   },
   guide: {
-    title: 'Living in Lone Mountain Heights | Complete Community Guide',
+    title: 'Living in Lone Mountain Heights | Las Vegas 89129 Guide',
     h1: 'Complete Guide to Living in Lone Mountain Heights',
     description:
-      'Everything you need to know about living in Lone Mountain Heights, Las Vegas 89129 — homes, lifestyle, schools, and market trends.',
+      'Living in Lone Mountain Heights, Las Vegas 89129: location, homes, parks and trails, schools, and how to buy, from REALTOR® Dr. Jan Duffy.',
     canonical: '/guide',
     body: [
-      'Lone Mountain Heights is a gated community developed between 2001–2005 featuring 3–5 bedroom homes from 2,500–4,400 sq ft with mature landscaping and mountain views.',
-      'The community balances suburban tranquility with access to Summerlin amenities, golf, and major employment centers via the 215 Beltway.',
-      'Dr. Jan Duffy has guided hundreds of buyers and sellers through Lone Mountain Heights — use this guide as a starting point, then call for hyperlocal advice.',
+      'Lone Mountain Heights is in northwest Las Vegas (ZIP 89129), near Lone Mountain, a rocky butte just inside the 215 Beltway.',
+      'Homes, lot sizes, and HOA dues vary by subdivision. Check each listing for gate access and community rules.',
+      'Summerlin and Red Rock Canyon National Conservation Area are a short drive away, and the 215 connects you to the rest of the valley.',
+      'Dr. Jan Duffy (500+ Las Vegas transactions) can walk you through specific streets. Use this guide as a starting point, then call for local advice.',
     ],
     faqKey: 'guideFAQs',
+    calendlyEvent: 'buyer',
   },
   'market-report': {
-    title: 'Lone Mountain Heights Market Report | Las Vegas 89129 Trends',
+    title: 'Lone Mountain Heights Market Report | Las Vegas 89129',
     h1: 'Lone Mountain Heights Market Report',
     description:
-      'Monthly market analysis for Lone Mountain Heights, Las Vegas 89129 — prices, inventory, days on market, and trends from Dr. Jan Duffy.',
+      'How to read the Lone Mountain Heights housing market in Las Vegas 89129: live MLS inventory plus sold comps for your street from Dr. Jan Duffy.',
     canonical: '/market-report',
     body: [
-      'The Lone Mountain Heights market averages approximately $847,000 with homes selling in about 12–23 days depending on price point and condition.',
-      'Inventory remains tight in the 89129 zip code, supporting strong list-to-sale ratios for well-priced, well-marketed properties.',
-      'Request a free custom market report from Dr. Jan Duffy for your specific street or subdivision.',
+      'Prices and days on market in 89129 change month to month, so this page does not publish a single average.',
+      'For homes on the market now, use the live MLS listings above. For sold prices, days on market, and list-to-sale ratios on your street, Dr. Jan Duffy pulls current comps from the MLS.',
+      'Book a listing consultation for a custom report on your street or subdivision.',
     ],
     faqKey: 'marketReportFAQs',
+    calendlyEvent: 'listing',
   },
   sales: {
     title: 'Recent Sales in Lone Mountain Heights | Las Vegas 89129',
     h1: 'Recent Lone Mountain Heights Sales',
     description:
-      'See recent home sales in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy tracks every transaction in the community.',
+      'How to see recent home sales in Lone Mountain Heights, Las Vegas 89129: ask Dr. Jan Duffy for MLS sold comps on any address.',
     canonical: '/sales',
     body: [
-      'Understanding recent sales is essential for pricing, offers, and investment decisions in Lone Mountain Heights.',
-      'Dr. Jan Duffy maintains detailed knowledge of closed transactions across every neighborhood and community in 89129.',
-      'Browse current listings below or contact Dr. Jan for a comp analysis on any address.',
+      'Recent closed sales drive pricing, offers, and appraisals in Lone Mountain Heights.',
+      'Dr. Jan Duffy pulls sold comps from the MLS for any address in 89129, including price per square foot and days on market.',
+      'Browse current listings above, or book a call for a comp analysis on any address.',
     ],
     faqKey: 'salesFAQs',
   },
   tools: {
-    title: 'Real Estate Tools | Lone Mountain Heights Calculators',
-    h1: 'Real Estate Tools & Calculators',
+    title: 'Lone Mountain Heights Real Estate Tools | Home Value',
+    h1: 'Real Estate Tools for Lone Mountain Heights',
     description:
-      'Home value calculator, mortgage tools, and home finder resources for Lone Mountain Heights buyers and sellers.',
+      'Free tools for Lone Mountain Heights buyers and sellers: an instant home value estimate, live MLS search, and online scheduling with Dr. Jan Duffy.',
     canonical: '/tools',
     body: [
-      'Use our RealScout home value widget for instant estimates, then follow up with Dr. Jan Duffy for a professional comp analysis.',
-      'Mortgage calculators and pre-approval guidance help Lone Mountain Heights buyers shop with confidence in the $500K–$1M+ range.',
-      'Schedule a consultation to build a personalized buying or selling plan.',
+      'Start with the RealScout home value tool for an instant estimate, then confirm it with a comparative market analysis from Dr. Jan Duffy.',
+      'Buyers can search live MLS listings and should get pre-approved before touring. Dr. Jan Duffy can explain the steps.',
+      'Book a consultation to build your buying or selling plan.',
     ],
     faqKey: 'toolsFAQs',
   },
   careers: {
-    title: 'Real Estate Careers | Join Dr. Jan Duffy Team',
+    title: 'Real Estate Careers | Join Dr. Jan Duffy\'s Team',
     h1: 'Real Estate Careers with Dr. Jan Duffy',
     description:
-      'Join the Lone Mountain Heights team led by Dr. Jan Duffy. Las Vegas real estate career opportunities.',
+      'Join the Lone Mountain Heights Team led by Dr. Jan Duffy at Berkshire Hathaway HomeServices Nevada Properties in Las Vegas.',
     canonical: '/careers',
     body: [
-      'Dr. Jan Duffy leads a hyperlocal team focused exclusively on Lone Mountain Heights and surrounding 89129 communities.',
+      'Dr. Jan Duffy leads a hyperlocal team focused on Lone Mountain Heights and surrounding 89129 neighborhoods.',
       'The team provides training, marketing technology, and referral network access.',
-      'Schedule a Calendly call with Dr. Jan Duffy to discuss career opportunities on the Lone Mountain Heights team — no web forms required.',
+      'Book a Calendly call with Dr. Jan Duffy to talk about joining the Lone Mountain Heights Team.',
     ],
     faqKey: 'careersFAQs',
   },
@@ -117,35 +133,35 @@ export const pageConfigs: Record<string, PageConfig> = {
     title: 'Lone Mountain Heights Real Estate Blog | Dr. Jan Duffy',
     h1: 'Lone Mountain Heights Real Estate Blog',
     description:
-      'Market updates, neighborhood news, and expert tips for Lone Mountain Heights homeowners and buyers from Dr. Jan Duffy.',
+      'Market updates, neighborhood guides, and buying and selling tips for Lone Mountain Heights in Las Vegas 89129 from Dr. Jan Duffy.',
     canonical: '/blog',
     body: [
-      'Stay informed with weekly market insights, neighborhood spotlights, and buyer/seller guides for Lone Mountain Heights.',
-      'Read the complete guide to living in Lone Mountain Heights or this week\'s market update.',
+      'Read Dr. Jan Duffy\'s guide to living in Lone Mountain Heights and her latest market update.',
+      'For numbers on a specific street, book a call and she will pull current MLS data.',
     ],
     faqKey: 'blogFAQs',
   },
   gallery: {
-    title: 'Photo Gallery | Lone Mountain Heights Homes & Community',
+    title: 'Lone Mountain Photo Gallery | Northwest Las Vegas 89129',
     h1: 'Lone Mountain Heights Photo Gallery',
     description:
-      'Photos of Lone Mountain Heights homes, community, and Las Vegas 89129 lifestyle from Dr. Jan Duffy.',
+      'Photos of Lone Mountain in northwest Las Vegas (89129), plus live MLS listing photos from Dr. Jan Duffy\'s Berkshire Hathaway HomeServices office.',
     canonical: '/gallery',
     body: [
-      'Explore the beauty of Lone Mountain Heights — mountain views, mature landscaping, and quality construction throughout the community.',
-      'Dr. Jan Duffy uses professional photography and video for every listing to maximize exposure and buyer engagement.',
+      'Lone Mountain rises above the 89129 neighborhoods around it. The photo below shows the peak and the surrounding desert.',
+      'For homes, browse current listing photos in the live MLS feed above. Dr. Jan Duffy uses professional photography and video for every listing she markets.',
     ],
   },
   'market-intelligence': {
     title: 'Market Intelligence | Lone Mountain Heights Investment Data',
     h1: 'Lone Mountain Heights Market Intelligence',
     description:
-      'Investment insights, ROI analysis, and market intelligence for Lone Mountain Heights real estate from Dr. Jan Duffy.',
+      'Investor guidance for Lone Mountain Heights, Las Vegas 89129: sold comps, rent comps, HOA leasing rules, and ROI analysis from Dr. Jan Duffy.',
     canonical: '/market-intelligence',
     body: [
-      'Lone Mountain Heights has shown strong year-over-year appreciation with limited inventory supporting long-term value.',
-      'Dr. Jan Duffy provides ROI analysis for investors considering rental, flip, or long-hold strategies in 89129.',
-      'Request a custom investment brief tailored to your goals and budget.',
+      'Before buying in 89129 as an investor, review recent sold comps, rent comps, HOA leasing rules, and days on market.',
+      'Dr. Jan Duffy provides ROI analysis for rental, flip, or long-hold strategies in Lone Mountain Heights.',
+      'Book a call for an investment brief built around your goals and budget.',
     ],
     faqKey: 'marketReportFAQs',
   },
@@ -153,92 +169,102 @@ export const pageConfigs: Record<string, PageConfig> = {
     title: 'Lone Mountain Heights Neighborhood Overview',
     h1: 'Lone Mountain Heights Neighborhood Overview',
     description:
-      'Overview of the Lone Mountain Heights community in Las Vegas 89129 — homes, lifestyle, and real estate with Dr. Jan Duffy.',
+      'Overview of Lone Mountain Heights in northwest Las Vegas 89129: location, homes, parks, and buying or selling with Dr. Jan Duffy.',
     canonical: '/neighborhood',
     body: [
-      'Lone Mountain Heights is one of Las Vegas\'s most desirable northwest communities, known for gated streets, quality builders, and mountain views.',
-      'Dr. Jan Duffy is the recognized local expert — contact her for a personalized neighborhood orientation.',
+      'Lone Mountain Heights is a residential area in northwest Las Vegas (89129), near Lone Mountain and the 215 Beltway.',
+      'Homes, HOA dues, lot sizes, and views vary by subdivision, so compare listings street by street.',
+      'Dr. Jan Duffy focuses on 89129. Call or book a time for a personalized neighborhood orientation.',
     ],
     faqKey: 'neighborhoodsFAQs',
+    calendlyEvent: 'buyer',
   },
   'price-ranges/600k-800k': {
     title: 'Homes $600K–$800K in Lone Mountain Heights',
     h1: 'Homes $600K–$800K in Lone Mountain Heights',
     description:
-      'Browse Lone Mountain Heights homes priced between $600,000 and $800,000. Expert guidance from Dr. Jan Duffy, Las Vegas 89129.',
+      'Browse Lone Mountain Heights homes priced $600,000 to $800,000 in Las Vegas 89129, with live MLS listings and guidance from Dr. Jan Duffy.',
     canonical: '/price-ranges/600k-800k',
     body: [
-      'The $600K–$800K range is the sweet spot for many Lone Mountain Heights families — updated single-story and two-story homes with pools and mountain views.',
-      'Dr. Jan Duffy knows which streets offer the best value in this band and which homes have the strongest resale potential.',
+      'Homes in the $600K–$800K band change weekly. Use the live MLS listings above for what is on the market today.',
+      'Floor plans in this range can include single-story and two-story homes, and some have pools or mountain views.',
+      'Dr. Jan Duffy compares value street by street and flags homes with resale advantages or concerns.',
     ],
     faqKey: 'priceRangeFAQs',
+    calendlyEvent: 'buyer',
+    listings: { priceMin: '600000', priceMax: '800000' },
   },
   'property-types/3-bedroom-homes': {
     title: '3 Bedroom Homes in Lone Mountain Heights | Las Vegas 89129',
     h1: '3 Bedroom Homes in Lone Mountain Heights',
     description:
-      'Find 3 bedroom homes for sale in Lone Mountain Heights, Las Vegas 89129 with Dr. Jan Duffy.',
+      'Find 3 bedroom homes for sale in Lone Mountain Heights, Las Vegas 89129, with live MLS listings and buyer guidance from Dr. Jan Duffy.',
     canonical: '/property-types/3-bedroom-homes',
     body: [
-      'Three-bedroom homes in Lone Mountain Heights typically range from 1,750–2,500 sq ft and appeal to move-up buyers and professionals.',
-      'Dr. Jan Duffy maintains an updated search of all 3-bedroom listings in 89129 — schedule a call for a curated list.',
+      'Three-bedroom homes in Lone Mountain Heights come in single-story and two-story floor plans, and size and lot vary by subdivision.',
+      'Dr. Jan Duffy can set up a search for new 3-bedroom listings in 89129 and send them as they hit the market.',
     ],
     faqKey: 'propertyTypeFAQs',
+    calendlyEvent: 'buyer',
   },
   'locations/lone-mountain-ranch': {
     title: 'Lone Mountain Ranch Homes for Sale | Las Vegas 89129',
     h1: 'Lone Mountain Ranch',
     description:
-      'Homes for sale in Lone Mountain Ranch, Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy local expert.',
+      'Homes for sale in Lone Mountain Ranch, part of the Lone Mountain Heights area of Las Vegas 89129, with local REALTOR® Dr. Jan Duffy.',
     canonical: '/locations/lone-mountain-ranch',
     body: [
-      'Lone Mountain Ranch is a sought-after community within Lone Mountain Heights known for larger lots and mountain views.',
-      'Dr. Jan Duffy has closed numerous transactions in Lone Mountain Ranch and knows every active and recent sale on each street.',
+      'Lone Mountain Ranch is one of the 89129 neighborhoods in the Lone Mountain Heights area of northwest Las Vegas.',
+      'Ask Dr. Jan Duffy for current listings, recent sales, and HOA details on any Lone Mountain Ranch street.',
     ],
     faqKey: 'locationsLoneMountainRanch',
+    calendlyEvent: 'buyer',
   },
   'locations/desert-vista-estates': {
     title: 'Desert Vista Estates Homes for Sale | Las Vegas 89129',
     h1: 'Desert Vista Estates',
     description:
-      'Homes for sale in Desert Vista Estates, Lone Mountain Heights, Las Vegas 89129 with Dr. Jan Duffy.',
+      'Homes for sale in Desert Vista Estates, part of the Lone Mountain Heights area of Las Vegas 89129, with local REALTOR® Dr. Jan Duffy.',
     canonical: '/locations/desert-vista-estates',
     body: [
-      'Desert Vista Estates offers a quiet setting within Lone Mountain Heights near public schools and community amenities.',
+      'Desert Vista Estates is part of the Lone Mountain Heights area in northwest Las Vegas (89129), close to parks and shopping.',
       'Contact Dr. Jan Duffy for current listings, recent sales, and off-market opportunities in Desert Vista Estates.',
     ],
     faqKey: 'locationsDesertVista',
+    calendlyEvent: 'buyer',
   },
   'faq/best-schools': {
-    title: 'Public Schools Near Lone Mountain Heights | FAQ',
-    h1: 'What Are the Public Schools Near Lone Mountain Heights?',
+    title: 'School Zoning for Lone Mountain Heights Homes | FAQ',
+    h1: 'How Do I Find the Zoned Schools for a Lone Mountain Heights Home?',
     description:
-      'FAQ: Nearby public schools serving Lone Mountain Heights, Las Vegas 89129. Expert answer from Dr. Jan Duffy.',
+      'FAQ: How to confirm Clark County School District (CCSD) school assignments for any Lone Mountain Heights address in Las Vegas 89129.',
     canonical: '/faq/best-schools',
     body: [
-      'Lone Mountain Heights is served by highly rated CCSD schools. Assignments vary by address — always verify boundaries before purchasing.',
-      'Dr. Jan Duffy helps families map school zones to specific streets and listings in 89129.',
+      'CCSD assigns schools by address, and zones can change. Enter the property address in CCSD\'s zoning search before you write an offer.',
+      'Dr. Jan Duffy can pull the zoned schools for each listing you are considering in 89129.',
     ],
+    calendlyEvent: 'buyer',
   },
   'faq/hoa-fees': {
     title: 'HOA Fees in Lone Mountain Heights | FAQ',
     h1: 'HOA Fees in Lone Mountain Heights',
     description:
-      'FAQ: HOA fees and community costs in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy explains.',
+      'FAQ: HOA fees and community costs in Lone Mountain Heights, Las Vegas 89129, and how to confirm them for any listing with Dr. Jan Duffy.',
     canonical: '/faq/hoa-fees',
     body: [
-      'HOA fees in Lone Mountain Heights vary by subdivision and cover gated access, common area maintenance, and community amenities.',
-      'Dr. Jan Duffy provides exact HOA amounts and rules for any listing you are considering.',
+      'HOA dues in Lone Mountain Heights vary by subdivision. They can cover common-area maintenance, gates where present, and community amenities.',
+      'Dr. Jan Duffy confirms exact HOA amounts, rules, and leasing restrictions for any listing you are considering.',
     ],
   },
   'faq/home-prices-2025': {
-    title: 'Lone Mountain Heights Home Prices 2025 | FAQ',
-    h1: 'Lone Mountain Heights Home Prices in 2025',
+    title: 'Lone Mountain Heights Home Prices | 89129 FAQ',
+    h1: 'How Much Do Homes Cost in Lone Mountain Heights?',
     description:
-      'FAQ: Current home prices and market trends in Lone Mountain Heights, Las Vegas 89129 for 2025.',
+      'FAQ: How to check current Lone Mountain Heights home prices in Las Vegas 89129, from live MLS asking prices to recent sold comps.',
     canonical: '/faq/home-prices-2025',
     body: [
-      'Average sale prices in Lone Mountain Heights are approximately $847,000 with a range from the mid-$600s to $1M+ for luxury properties.',
+      'Lone Mountain Heights prices vary widely by size, lot, condition, and upgrades, and they move month to month.',
+      'Live MLS listings show current asking prices. For what homes actually sold for, Dr. Jan Duffy pulls recent sold comps for your price range.',
       'Contact Dr. Jan Duffy for a free updated market report with current comps for your target price range.',
     ],
   },
@@ -246,24 +272,27 @@ export const pageConfigs: Record<string, PageConfig> = {
     title: 'This Week in Lone Mountain Heights | Market Update',
     h1: 'This Week in Lone Mountain Heights',
     description:
-      'Weekly market update for Lone Mountain Heights, Las Vegas 89129 — new listings, sales, and trends from Dr. Jan Duffy.',
+      'Market update for Lone Mountain Heights, Las Vegas 89129: new listings, pending sales, and price changes, with current comps from Dr. Jan Duffy.',
     canonical: '/blog/this-week-in-lone-mountain-heights',
     body: [
-      'Each week Dr. Jan Duffy tracks new listings, pending sales, and price changes across Lone Mountain Heights neighborhoods and communities.',
-      'Subscribe to updates by scheduling a consultation or calling 702-500-1955 for the latest 89129 market snapshot.',
+      'Dr. Jan Duffy tracks new listings, pending sales, and price changes across Lone Mountain Heights neighborhoods.',
+      'Call 702-500-1955 or book a call for the latest 89129 market snapshot.',
     ],
   },
   'blog/complete-guide-living-lone-mountain-heights': {
     title: 'Complete Guide to Living in Lone Mountain Heights',
     h1: 'Complete Guide to Living in Lone Mountain Heights',
     description:
-      'The definitive guide to living in Lone Mountain Heights, Las Vegas 89129 — homes, schools, amenities, and lifestyle.',
+      'A guide to living in Lone Mountain Heights, Las Vegas 89129: location, homes, parks and trails, schools, and buying with Dr. Jan Duffy.',
     canonical: '/blog/complete-guide-living-lone-mountain-heights',
     body: [
-      'Lone Mountain Heights is a gated master-planned community in northwest Las Vegas (89129) built primarily between 2001 and 2005.',
-      'Homes range from 2,500 to 4,400 sq ft with 3–5 bedrooms, mature landscaping, and mountain views throughout.',
-      'Dr. Jan Duffy is the community\'s leading real estate expert — schedule a call to discuss buying or selling in Lone Mountain Heights.',
+      'Lone Mountain Heights is in northwest Las Vegas (89129), near Lone Mountain, a rocky butte just inside the 215 Beltway.',
+      'Homes, lot sizes, and HOA dues vary by subdivision, so compare listings street by street.',
+      'The Lone Mountain summit trail, Lone Mountain Regional Park, and Majestic Park are nearby, and Summerlin is a short drive south.',
+      'Check school assignments for any address with CCSD\'s zoning search before you buy.',
+      'Schedule a call with Dr. Jan Duffy to talk about buying or selling in Lone Mountain Heights.',
     ],
     faqKey: 'guideFAQs',
+    calendlyEvent: 'buyer',
   },
 };

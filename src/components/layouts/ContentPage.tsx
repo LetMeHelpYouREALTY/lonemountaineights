@@ -5,6 +5,7 @@ import { Breadcrumbs, ContactCTA } from '@/components/layouts/PageHeader';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
 import { ListingsBelowHero } from '@/components/sections/ListingsBelowHero';
 import { JsonLd } from '@/components/shared/JsonLd';
+import type { CalendlyEvent } from '@/lib/calendly';
 import { generateFAQSchema } from '@/lib/schema';
 import {
   generateBreadcrumbSchema,
@@ -28,6 +29,7 @@ type ContentPageProps = {
   showCta?: boolean;
   showHero?: boolean;
   listingsBelowHero?: false | { priceMin?: string; priceMax?: string; title?: string; description?: string };
+  calendlyEvent?: CalendlyEvent;
 };
 
 export function buildPageMetadata(
@@ -51,7 +53,9 @@ export function ContentPage({
   showCta = true,
   showHero = false,
   listingsBelowHero,
+  calendlyEvent = 'consult',
 }: ContentPageProps) {
+  const placement = `page${canonical.replace(/\//g, '-')}`;
   const listingsStrip =
     listingsBelowHero === false
       ? null
@@ -103,12 +107,17 @@ export function ContentPage({
         )}
         {children}
         {faqs && faqs.length > 0 && (
-          <FAQSection faqs={faqs} title={faqTitle ?? `${title} — FAQs`} />
+          <FAQSection
+            faqs={faqs}
+            title={faqTitle ?? `${title.split(/[|:]/)[0].trim()} FAQs`}
+            calendlyEvent={calendlyEvent}
+            calendlyPlacement={`${placement}-faq`}
+          />
         )}
         {showCta && (
           <>
-            <CalendlyScheduleSection />
-            <ContactCTA />
+            <CalendlyScheduleSection event={calendlyEvent} placement={`${placement}-schedule`} />
+            <ContactCTA calendlyEvent={calendlyEvent} calendlyPlacement={`${placement}-cta`} />
           </>
         )}
       </div>

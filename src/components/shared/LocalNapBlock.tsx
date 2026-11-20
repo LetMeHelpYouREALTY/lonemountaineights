@@ -1,3 +1,4 @@
+import { AgentPortrait } from '@/components/shared/AgentPortrait';
 import { GBP_URLS, NAP } from '@/lib/schema';
 
 type LocalNapBlockProps = {
@@ -12,7 +13,10 @@ export function LocalNapBlock({ className = '', showMap = true }: LocalNapBlockP
       className={`rounded-xl border border-white/15 bg-white/5 p-5 ${className}`}
       aria-label="Business contact and location"
     >
-      <h3 className="mb-3 text-lg font-bold text-white">{NAP.name}</h3>
+      <div className="mb-3 flex items-center gap-3">
+        <AgentPortrait size={56} decorative />
+        <h3 className="text-lg font-bold text-white">{NAP.name}</h3>
+      </div>
       <p className="mb-1 text-sm text-white/85">{NAP.fullAddress}</p>
       <p className="mb-1 text-sm text-white/85">
         <a href={NAP.telHref} className="underline-offset-2 hover:underline">

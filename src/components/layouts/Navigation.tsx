@@ -38,6 +38,19 @@ const aboutLinks: NavLink[] = [
   { href: '/contact', label: 'Contact' },
 ];
 
+const topLinks: NavLink[] = [
+  { href: '/neighborhoods', label: 'COMMUNITIES' },
+  { href: '/luxury', label: 'LUXURY' },
+];
+
+const mobileLinks: NavLink[] = [
+  ...searchLinks,
+  ...buyerLinks,
+  ...sellerLinks,
+  { href: '/luxury', label: 'Luxury Homes' },
+  ...aboutLinks,
+].filter((link, i, all) => all.findIndex((other) => other.href === link.href) === i);
+
 function NavDropdown({
   label,
   links,
@@ -52,30 +65,35 @@ function NavDropdown({
   setOpenId: (id: string | null) => void;
 }) {
   const open = openId === id;
+  const panelId = `nav-panel-${id}`;
   return (
     <li className="relative">
       <button
         type="button"
-        className="flex items-center gap-1 px-3 py-2 text-xs font-bold tracking-wider text-[var(--heading-color)] hover:text-[var(--accent-color)]"
+        className="flex items-center gap-1 whitespace-nowrap px-2.5 py-2 text-xs font-bold tracking-wider text-[var(--heading-color)] hover:text-[var(--accent-color)]"
         aria-expanded={open}
+        aria-controls={panelId}
         onClick={() => setOpenId(open ? null : id)}
       >
-        {label} <span className="text-[10px]">▼</span>
+        {label} <span className="text-[10px]" aria-hidden="true">▼</span>
       </button>
-      {open && (
-        <div className="absolute left-0 top-full z-50 min-w-[220px] rounded-lg border border-slate-200 bg-white py-2 shadow-lg">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-[var(--accent-color)]"
-              onClick={() => setOpenId(null)}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      )}
+      <div
+        id={panelId}
+        className={`absolute left-0 top-full z-50 min-w-[220px] rounded-lg border border-slate-200 bg-white py-2 shadow-lg ${
+          open ? '' : 'hidden'
+        }`}
+      >
+        {links.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-[var(--heading-color)]"
+            onClick={() => setOpenId(null)}
+          >
+            {link.label}
+          </Link>
+        ))}
+      </div>
     </li>
   );
 }
@@ -109,7 +127,7 @@ export function Navigation() {
     <header ref={navRef} className="sticky top-0 z-40 border-b border-slate-200 bg-white shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
         <Link href="/" className="flex shrink-0 items-center gap-3" onClick={closeAll}>
-          <AgentPortrait size={40} linked={false} />
+          <AgentPortrait size={40} linked={false} decorative />
           <div className="flex flex-col leading-tight">
             <span className="text-sm font-bold tracking-wide text-[var(--heading-color)] md:text-base">
               DR. JAN DUFFY
@@ -120,21 +138,16 @@ export function Navigation() {
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
-          <ul className="flex items-center" role="menubar">
+        <nav className="hidden items-center xl:flex" aria-label="Main navigation">
+          <ul className="flex items-center">
             <NavDropdown label="SEARCH" links={searchLinks} id="search" openId={openDropdown} setOpenId={setOpenDropdown} />
             <NavDropdown label="BUYERS" links={buyerLinks} id="buyers" openId={openDropdown} setOpenId={setOpenDropdown} />
             <NavDropdown label="SELLERS" links={sellerLinks} id="sellers" openId={openDropdown} setOpenId={setOpenDropdown} />
-            {[
-              { href: '/neighborhoods', label: 'COMMUNITIES' },
-              { href: '/luxury', label: 'LUXURY' },
-              { href: '/about', label: 'AGENTS' },
-              { href: '/contact', label: 'OFFICES' },
-            ].map((item) => (
+            {topLinks.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`px-3 py-2 text-xs font-bold tracking-wider hover:text-[var(--accent-color)] ${
+                  className={`whitespace-nowrap px-2.5 py-2 text-xs font-bold tracking-wider hover:text-[var(--accent-color)] ${
                     pathname === item.href ? 'text-[var(--accent-color)]' : 'text-[var(--heading-color)]'
                   }`}
                 >
@@ -143,51 +156,51 @@ export function Navigation() {
               </li>
             ))}
             <NavDropdown label="ABOUT US" links={aboutLinks} id="about" openId={openDropdown} setOpenId={setOpenDropdown} />
-            <li>
-              <Link href="/careers" className="px-3 py-2 text-xs font-bold tracking-wider text-[var(--heading-color)] hover:text-[var(--accent-color)]">
-                CAREERS
-              </Link>
-            </li>
-            <li>
-              <Link href="/blog" className="px-3 py-2 text-xs font-bold tracking-wider text-[var(--heading-color)] hover:text-[var(--accent-color)]">
-                BLOG
-              </Link>
-            </li>
           </ul>
         </nav>
 
-        <div className="hidden items-center gap-2 lg:flex">
+        <div className="hidden shrink-0 items-center gap-2 xl:flex">
           <CalendlyLink
             text="Schedule time with me"
-            className="rounded-md bg-[var(--accent-color)] px-3 py-2 text-xs font-semibold text-[var(--heading-color)]"
+            placement="header"
+            className="whitespace-nowrap rounded-md bg-[var(--accent-color)] px-3 py-2 text-xs font-semibold text-[var(--heading-color)]"
           />
           <a
             href={NAP.telHref}
-            className="rounded-md border border-[var(--heading-color)] px-3 py-2 text-xs font-semibold text-[var(--heading-color)] hover:bg-[var(--heading-color)] hover:text-white"
+            className="whitespace-nowrap rounded-md border border-[var(--heading-color)] px-3 py-2 text-xs font-semibold text-[var(--heading-color)] hover:bg-[var(--heading-color)] hover:text-white"
           >
             📞 CALL {NAP.telDisplay}
           </a>
         </div>
 
-        <button
-          type="button"
-          className="flex flex-col gap-1.5 p-2 lg:hidden"
-          aria-label="Toggle mobile menu"
-          aria-expanded={mobileOpen}
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          <span className="block h-0.5 w-6 bg-[var(--heading-color)]" />
-          <span className="block h-0.5 w-6 bg-[var(--heading-color)]" />
-          <span className="block h-0.5 w-6 bg-[var(--heading-color)]" />
-        </button>
+        <div className="flex items-center gap-2 xl:hidden">
+          <a
+            href={NAP.telHref}
+            className="hidden whitespace-nowrap rounded-md border border-[var(--heading-color)] px-3 py-2 text-xs font-semibold text-[var(--heading-color)] sm:inline-block"
+          >
+            📞 {NAP.telDisplay}
+          </a>
+          <button
+            type="button"
+            className="flex flex-col gap-1.5 p-2"
+            aria-label="Toggle mobile menu"
+            aria-expanded={mobileOpen}
+            aria-controls={mobileOpen ? 'mobile-menu' : undefined}
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            <span className="block h-0.5 w-6 bg-[var(--heading-color)]" />
+            <span className="block h-0.5 w-6 bg-[var(--heading-color)]" />
+            <span className="block h-0.5 w-6 bg-[var(--heading-color)]" />
+          </button>
+        </div>
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-slate-200 bg-white px-4 py-4 lg:hidden">
+        <div id="mobile-menu" className="border-t border-slate-200 bg-white px-4 py-4 xl:hidden">
           <div className="space-y-4">
-            {[...searchLinks, ...buyerLinks, ...sellerLinks, ...aboutLinks].map((link) => (
+            {mobileLinks.map((link) => (
               <Link
-                key={`${link.href}-${link.label}`}
+                key={link.href}
                 href={link.href}
                 className="block text-sm font-medium text-slate-700"
                 onClick={closeAll}
@@ -195,7 +208,11 @@ export function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <CalendlyLink text="Schedule time with me" className="block text-sm font-semibold text-[var(--accent-color)]" />
+            <CalendlyLink
+              text="Schedule time with me"
+              placement="mobile-menu"
+              className="block text-sm font-semibold text-[var(--heading-color)] underline underline-offset-2"
+            />
             <a href={NAP.telHref} className="block text-sm font-semibold text-[var(--heading-color)]">
               📞 Call {NAP.telDisplay}
             </a>

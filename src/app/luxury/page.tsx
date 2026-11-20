@@ -8,13 +8,13 @@ import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSec
 import { JsonLd } from '@/components/shared/JsonLd';
 import { luxuryFAQs } from '@/lib/faqs';
 import { generateFAQSchema, NAP } from '@/lib/schema';
-import { generatePlaceSchema, generateWebPageSchema } from '@/lib/structured-data';
+import { generateWebPageSchema } from '@/lib/structured-data';
 import { buildPageMetadata, SITE_URL } from '@/lib/site-metadata';
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Luxury Homes in Lone Mountain Heights | Dr. Jan Duffy',
   description:
-    'Discover luxury homes in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy curates $1M+ listings with mountain views, pools, and resort-style amenities.',
+    'Luxury homes in Lone Mountain Heights, Las Vegas 89129: live $1M–$5M MLS listings, private showings, and pricing guidance from Dr. Jan Duffy.',
   path: '/luxury',
 });
 
@@ -22,12 +22,12 @@ const highlights = [
   {
     icon: '🏔️',
     title: 'Mountain & city views',
-    desc: 'Hand-selected streets with sightlines across northwest Las Vegas and Red Rock.',
+    desc: 'Views vary by lot and elevation. Dr. Jan Duffy confirms sightlines before you tour.',
   },
   {
     icon: '🏊',
-    title: 'Resort amenities',
-    desc: 'Pools, outdoor kitchens, and larger lots common in Lone Mountain Heights luxury tiers.',
+    title: 'Pools & outdoor living',
+    desc: 'Pools, outdoor kitchens, and larger lots show up often at higher price points. Check each listing for details.',
   },
   {
     icon: '🤝',
@@ -44,15 +44,9 @@ export default function LuxuryPage() {
           generateWebPageSchema({
             name: 'Luxury Homes in Lone Mountain Heights | Dr. Jan Duffy',
             description:
-              'Luxury real estate in Lone Mountain Heights, Las Vegas 89129 — curated MLS listings and expert guidance from Dr. Jan Duffy.',
+              'Luxury real estate in Lone Mountain Heights, Las Vegas 89129 — live MLS listings and expert guidance from Dr. Jan Duffy.',
             path: '/luxury',
             includeSpeakable: true,
-          }),
-          generatePlaceSchema({
-            name: 'Lone Mountain Heights Luxury Homes',
-            description:
-              'Luxury home search in Lone Mountain Heights, Las Vegas Nevada 89129.',
-            path: '/luxury',
           }),
           generateFAQSchema(luxuryFAQs),
           {
@@ -72,15 +66,14 @@ export default function LuxuryPage() {
             Luxury Homes in Lone Mountain Heights
           </h1>
           <p className="text-lg text-white/90">
-            $1M+ properties with premium finishes, mountain views, and high-end amenities — curated by
+            $1M+ homes in northwest Las Vegas 89129, with private showings and pricing guidance from
             Dr. Jan Duffy
           </p>
         </div>
       </header>
 
       <ListingsBelowHero
-        title="Luxury Listings in Lone Mountain Heights"
-        description="Live MLS homes $1M–$5M in Las Vegas 89129"
+        title="Las Vegas Luxury Listings, $1M–$5M"
         priceMin="1000000"
         priceMax="5000000"
       />
@@ -105,11 +98,18 @@ export default function LuxuryPage() {
           ))}
         </div>
 
-        <FAQSection faqs={luxuryFAQs} title="Luxury Homes in Lone Mountain Heights — FAQs" />
+        <FAQSection
+          faqs={luxuryFAQs}
+          title="Luxury Homes in Lone Mountain Heights — FAQs"
+          calendlyEvent="buyer"
+          calendlyPlacement="luxury-faq"
+        />
 
         <CalendlyScheduleSection
           title="Schedule a Luxury Home Consultation"
-          description="Book a private conversation with Dr. Jan Duffy about luxury properties in Lone Mountain Heights."
+          description="Book a 30-minute buyer consultation with Dr. Jan Duffy about luxury properties in Lone Mountain Heights."
+          event="buyer"
+          placement="luxury-schedule"
         />
 
         <section className="rounded-xl bg-slate-50 p-8 text-center">
@@ -119,7 +119,9 @@ export default function LuxuryPage() {
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <CalendlyLink
-              text="Schedule time with me"
+              text="Schedule a private showing"
+              event="showing"
+              placement="luxury-showing"
               className="rounded-lg bg-[var(--accent-color)] px-6 py-3 font-semibold text-[var(--heading-color)] hover:opacity-90"
             />
             <a

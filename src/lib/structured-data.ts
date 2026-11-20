@@ -14,10 +14,11 @@ import {
   BROKERAGE,
   ORGANIZATION_SAME_AS,
 } from '@/lib/brand';
-import { SITE_URL } from '@/lib/site-metadata';
+import { calendlyUrl } from '@/lib/calendly';
+import { SITE_NAME, SITE_URL } from '@/lib/site-metadata';
 
 export const SCHEMA_IDS = {
-  agent: `${SITE_URL}/#realestate-agent`,
+  agent: `${SITE_URL}/#realestateagent`,
   person: `${SITE_URL}/#person`,
   organization: `${SITE_URL}/#organization`,
   website: `${SITE_URL}/#website`,
@@ -29,12 +30,46 @@ export const GEO_COORDINATES = {
   longitude: -115.2419,
 };
 
-export const AREA_SERVED_PLACES = [
-  { name: 'Lone Mountain Heights', type: 'Place' as const },
-  { name: 'Lone Mountain Ranch', type: 'Place' as const },
-  { name: 'Desert Vista Estates', type: 'Place' as const },
-  { name: 'Las Vegas', type: 'City' as const },
-  { name: '89129', type: 'PostalCode' as const },
+const LAS_VEGAS = {
+  '@type': 'City',
+  name: 'Las Vegas',
+  containedInPlace: { '@type': 'State', name: 'Nevada' },
+} as const;
+
+const GEO = {
+  '@type': 'GeoCoordinates',
+  latitude: GEO_COORDINATES.latitude,
+  longitude: GEO_COORDINATES.longitude,
+} as const;
+
+const ZIP_89129_ADDRESS = {
+  '@type': 'PostalAddress',
+  addressLocality: 'Las Vegas',
+  addressRegion: 'NV',
+  postalCode: '89129',
+  addressCountry: 'US',
+} as const;
+
+/** Lone Mountain Heights as a Place nested in its real city (fleet areaServed standard). */
+const LONE_MOUNTAIN_HEIGHTS_PLACE = {
+  '@type': 'Place',
+  name: 'Lone Mountain Heights',
+  address: ZIP_89129_ADDRESS,
+  geo: GEO,
+  containedInPlace: LAS_VEGAS,
+} as const;
+
+const AREA_SERVED = [
+  LONE_MOUNTAIN_HEIGHTS_PLACE,
+  { '@type': 'Place', name: 'Lone Mountain Ranch', containedInPlace: LAS_VEGAS },
+  { '@type': 'Place', name: 'Desert Vista Estates', containedInPlace: LAS_VEGAS },
+  {
+    '@type': 'Place',
+    name: 'Las Vegas, NV 89129',
+    address: ZIP_89129_ADDRESS,
+    containedInPlace: LAS_VEGAS,
+  },
+  LAS_VEGAS,
 ];
 
 type FAQ = { question: string; answer: string };
@@ -69,20 +104,6 @@ export function generateSiteGraphSchema(nap: {
   gbpReviewsUrl: string;
   gbpMapUrl: string;
 }) {
-  const areaServed = AREA_SERVED_PLACES.map((place) => ({
-    '@type': place.type,
-    name: place.name,
-    ...(place.type === 'Place' && place.name === 'Lone Mountain Heights'
-      ? {
-          geo: {
-            '@type': 'GeoCoordinates',
-            latitude: GEO_COORDINATES.latitude,
-            longitude: GEO_COORDINATES.longitude,
-          },
-        }
-      : {}),
-  }));
-
   const openingHoursSpecification = [
     {
       '@type': 'OpeningHoursSpecification',
@@ -122,13 +143,9 @@ export function generateSiteGraphSchema(nap: {
           postalCode: nap.address.postalCode,
           addressCountry: nap.address.addressCountry,
         },
-        geo: {
-          '@type': 'GeoCoordinates',
-          latitude: GEO_COORDINATES.latitude,
-          longitude: GEO_COORDINATES.longitude,
-        },
+        geo: GEO,
         hasMap: nap.gbpMapUrl,
-        areaServed,
+        areaServed: AREA_SERVED,
         openingHoursSpecification,
         serviceType: [
           'Residential real estate',
@@ -152,15 +169,14 @@ export function generateSiteGraphSchema(nap: {
         },
         memberOf: { '@id': SCHEMA_IDS.organization },
         parentOrganization: { '@id': SCHEMA_IDS.organization },
-        sameAs: [...AGENT_SAME_AS, nap.gbpReviewsUrl],
+        sameAs: [...AGENT_SAME_AS],
         priceRange: '$$',
         potentialAction: {
           '@type': 'ReserveAction',
           name: 'Schedule a consultation',
           target: {
             '@type': 'EntryPoint',
-            urlTemplate:
-              'https://calendly.com/drjanduffy/dr-duffy-private-15-min-conversation?utm_source=lonemountainheights.com&utm_medium=website&utm_content=schema',
+            urlTemplate: calendlyUrl('consult', 'schema'),
             actionPlatform: [
               'http://schema.org/DesktopWebPlatform',
               'http://schema.org/MobileWebPlatform',
@@ -218,21 +234,14 @@ export function generateSiteGraphSchema(nap: {
       {
         '@type': 'WebSite',
         '@id': SCHEMA_IDS.website,
-        name: 'Lone Mountain Heights Real Estate | Dr. Jan Duffy',
+        name: SITE_NAME,
+        alternateName: 'LoneMountainHeights.com',
         url: SITE_URL,
         description:
           'Homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.',
         publisher: { '@id': SCHEMA_IDS.agent },
         about: { '@id': SCHEMA_IDS.agent },
         inLanguage: 'en-US',
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: {
-            '@type': 'EntryPoint',
-            urlTemplate: `${SITE_URL}/homes?q={search_term_string}`,
-          },
-          'query-input': 'required name=search_term_string',
-        },
       },
     ],
   };
@@ -285,22 +294,9 @@ export function generateWebPageSchema({
     name,
     description,
     isPartOf: { '@id': SCHEMA_IDS.website },
-    about: {
-      '@type': 'Place',
-      name: 'Lone Mountain Heights',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Las Vegas',
-        addressRegion: 'NV',
-        postalCode: '89129',
-        addressCountry: 'US',
-      },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: GEO_COORDINATES.latitude,
-        longitude: GEO_COORDINATES.longitude,
-      },
-    },
+    inLanguage: 'en-US',
+    about: LONE_MOUNTAIN_HEIGHTS_PLACE,
+    author: { '@id': SCHEMA_IDS.person },
     ...(includeSpeakable
       ? {
           speakable: {
@@ -323,21 +319,7 @@ export function generatePlaceSchema({ name, description, path }: PlaceSchemaOpti
     name,
     description,
     url,
-    containedInPlace: {
-      '@type': 'Place',
-      name: 'Lone Mountain Heights',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Las Vegas',
-        addressRegion: 'NV',
-        postalCode: '89129',
-        addressCountry: 'US',
-      },
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: GEO_COORDINATES.latitude,
-      longitude: GEO_COORDINATES.longitude,
-    },
+    address: ZIP_89129_ADDRESS,
+    containedInPlace: LONE_MOUNTAIN_HEIGHTS_PLACE,
   };
 }

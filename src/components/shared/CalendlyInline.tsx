@@ -1,22 +1,36 @@
-import { CALENDLY_INLINE_EMBED_URL, CALENDLY_URL } from '@/lib/calendly';
+import {
+  CALENDLY_EVENTS,
+  type CalendlyEvent,
+  calendlyInlineUrl,
+  calendlyUrl,
+} from '@/lib/calendly';
 
 type CalendlyInlineProps = {
   minHeight?: number;
   className?: string;
+  event?: CalendlyEvent;
+  placement?: string;
 };
 
 /**
  * Iframe embed — does not depend on widget.js, so it renders reliably on static pages.
  */
-export function CalendlyInline({ minHeight = 700, className = '' }: CalendlyInlineProps) {
+export function CalendlyInline({
+  minHeight = 700,
+  className = '',
+  event = 'consult',
+  placement = 'inline',
+}: CalendlyInlineProps) {
+  const label = `Schedule ${CALENDLY_EVENTS[event].label} with Dr. Jan Duffy`;
+
   return (
     <div
       className={`w-full overflow-hidden rounded-lg border border-slate-200 bg-white ${className}`}
       style={{ minWidth: '320px', height: `${minHeight}px` }}
     >
       <iframe
-        src={CALENDLY_INLINE_EMBED_URL}
-        title="Schedule a free 15-minute conversation with Dr. Jan Duffy"
+        src={calendlyInlineUrl(event, placement)}
+        title={label}
         width="100%"
         height="100%"
         style={{ border: 0, minHeight: `${minHeight}px` }}
@@ -24,7 +38,9 @@ export function CalendlyInline({ minHeight = 700, className = '' }: CalendlyInli
         referrerPolicy="no-referrer-when-downgrade"
       />
       <p className="sr-only">
-        <a href={CALENDLY_URL}>Schedule time with Dr. Jan Duffy on Calendly</a>
+        <a href={calendlyUrl(event, placement)} target="_blank" rel="noopener noreferrer">
+          {label} on Calendly (opens in a new tab)
+        </a>
       </p>
     </div>
   );

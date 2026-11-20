@@ -23,8 +23,8 @@ const testimonials = [
 
 const metrics = [
   { value: '500+', label: 'Las Vegas Transactions' },
-  { value: '12 Days', label: 'Avg. Days on Market' },
-  { value: '5.0', label: 'Google Rating' },
+  { value: '2008', label: 'Licensed in Nevada Since' },
+  { value: '5.0★', label: 'Realtor.com Rating (50 Reviews)' },
   { value: '89129', label: 'Hyperlocal Focus' },
 ];
 

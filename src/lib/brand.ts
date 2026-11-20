@@ -23,7 +23,8 @@ export const BROKERAGE = {
 
 /**
  * Cross-platform identity for Person / RealEstateAgent sameAs (E-E-A-T + GEO).
- * Keep aligned with profiles listed on GBP when Place ID is wired.
+ * Only profiles that are Dr. Jan Duffy herself — the brokerage is linked via
+ * worksFor/memberOf, and association pages (e.g. Las Vegas REALTORS®) are not her.
  */
 export const AGENT_SAME_AS = [
   'https://g.co/kgs/uwtzcWj',
@@ -32,9 +33,6 @@ export const AGENT_SAME_AS = [
   'https://www.youtube.com/@DrDuffy',
   'https://x.com/drjanduffy',
   'https://www.tiktok.com/@dr.janduffy',
-  'https://www.linkedin.com/company/lvrmembers/',
-  BROKERAGE.url,
-  BROKERAGE.nationalUrl,
 ] as const;
 
 export const ORGANIZATION_SAME_AS = [

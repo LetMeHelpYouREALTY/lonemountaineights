@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { AnswerLead } from '@/components/sections/AnswerLead';
 import { ContentPage, buildPageMetadata } from '@/components/layouts/ContentPage';
@@ -10,6 +11,8 @@ const LOCATION_SLUGS = new Set([
   'locations/lone-mountain-ranch',
   'locations/desert-vista-estates',
 ]);
+
+const SCHOOL_ZONING_SLUGS = new Set(['schools', 'faq/best-schools']);
 
 export function makeContentPage(slug: string) {
   const config = getPageConfig(slug);
@@ -39,6 +42,8 @@ export function makeContentPage(slug: string) {
         breadcrumbs={breadcrumbs}
         faqs={faqs}
         schema={extraSchema}
+        calendlyEvent={pageConfig.calendlyEvent}
+        listingsBelowHero={pageConfig.listings}
         showCta
         showHero
       >
@@ -56,25 +61,45 @@ export function makeContentPage(slug: string) {
               </p>
             ))}
           </div>
+          {SCHOOL_ZONING_SLUGS.has(slug) && (
+            <p className="mb-8">
+              <a
+                href="https://www.ccsd.net/zoning"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block rounded-lg bg-[var(--accent-color)] px-5 py-2.5 font-semibold text-[var(--heading-color)] hover:opacity-90"
+              >
+                Look up school zoning on ccsd.net
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+            </p>
+          )}
           {slug === 'blog' && (
             <div className="mb-8 grid gap-4 sm:grid-cols-2">
               <Link href="/blog/complete-guide-living-lone-mountain-heights" className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md">
                 <h3 className="font-semibold text-[var(--heading-color)]">Complete Guide to Living Here</h3>
-                <p className="text-sm text-[var(--text-light)]">The definitive Lone Mountain Heights community guide</p>
+                <p className="text-sm text-[var(--text-light)]">Location, homes, parks and trails, and school zoning in 89129</p>
               </Link>
               <Link href="/blog/this-week-in-lone-mountain-heights" className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-md">
                 <h3 className="font-semibold text-[var(--heading-color)]">This Week in Lone Mountain Heights</h3>
-                <p className="text-sm text-[var(--text-light)]">Weekly market update and new listings</p>
+                <p className="text-sm text-[var(--text-light)]">New listings, pending sales, and price changes</p>
               </Link>
             </div>
           )}
           {slug === 'gallery' && (
-            <div className="mb-8 grid grid-cols-2 gap-4 md:grid-cols-3">
-              {['/images/photos/home-featured-1.jpg', '/images/photos/home-featured-2.jpg', '/images/photos/home-featured-3.jpg', '/images/photos/las-vegas-neighborhood.jpg', '/images/hero/hero-las-vegas.png', '/images/hero/Lone_Mountain.jpg'].map((src) => (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img key={src} src={src} alt="Lone Mountain Heights" className="aspect-video rounded-lg object-cover shadow" loading="lazy" />
-              ))}
-            </div>
+            <figure className="mb-8 overflow-hidden rounded-xl bg-white shadow-md">
+              <Image
+                src="/images/hero/Lone_Mountain.jpg"
+                alt="Lone Mountain, a rocky desert butte in northwest Las Vegas, rising above neighborhoods with mountains behind it"
+                width={2992}
+                height={2000}
+                sizes="(min-width: 1152px) 1088px, 100vw"
+                className="h-auto w-full"
+              />
+              <figcaption className="px-4 py-3 text-sm text-[var(--text-light)]">
+                Lone Mountain, northwest Las Vegas (ZIP 89129).
+              </figcaption>
+            </figure>
           )}
           {slug === 'tools' && (
             <div className="mb-8 rounded-xl bg-white p-6 shadow-md">

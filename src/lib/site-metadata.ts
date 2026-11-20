@@ -34,7 +34,8 @@ export function buildPageMetadata({
   const ogImageUrl = getAbsoluteImageUrl(ogImagePath, OG_IMAGE_WIDTH);
 
   return {
-    title,
+    // Absolute: the root layout template would append ~40 more characters.
+    title: { absolute: title },
     description,
     alternates: { canonical },
     openGraph: {
@@ -66,7 +67,7 @@ export function buildPageMetadata({
 /** Default social preview metadata for root layout (fallback for all routes). */
 export function getDefaultSocialMetadata(): Pick<Metadata, 'openGraph' | 'twitter'> {
   const ogImageUrl = getDefaultOgImageUrl();
-  const title = 'Lone Mountain Heights Real Estate | Dr. Jan Duffy | Las Vegas 89129';
+  const title = 'Lone Mountain Heights Real Estate | Dr. Jan Duffy';
   const description =
     'Find homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy leads the Lone Mountain Heights Team.';
 
