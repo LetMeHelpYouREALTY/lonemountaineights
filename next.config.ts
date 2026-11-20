@@ -36,7 +36,10 @@ const nextConfig: NextConfig = {
             value: [
               "default-src 'self'",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://em.realscout.com https://www.realscout.com https://assets.calendly.com https://widgetbe.com https://*.widgetbe.com",
-              "connect-src 'self' https://www.realscout.com https://em.realscout.com https://calendly.com https://www.calendly.com https://assets.calendly.com https://*.calendly.com https://widgetbe.com https://*.widgetbe.com",
+              // Keep widgetbe.com out of connect-src: once its /config call succeeds, the widgetbe
+              // CTA pop-up renders on every page with 702-500-1942 instead of the site's 702-500-1955.
+              // RealScout widgets do not depend on widgetbe.
+              "connect-src 'self' https://www.realscout.com https://em.realscout.com https://calendly.com https://www.calendly.com https://assets.calendly.com https://*.calendly.com",
               "style-src 'self' 'unsafe-inline' https://assets.calendly.com https://fonts.googleapis.com https://em.realscout.com https://www.realscout.com",
               "font-src 'self' data: https://fonts.gstatic.com https://assets.calendly.com",
               "img-src 'self' data: https: blob:",
