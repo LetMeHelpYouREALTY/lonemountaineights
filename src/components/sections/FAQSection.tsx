@@ -30,7 +30,10 @@ export function FAQSection({
       <div className="divide-y divide-slate-200">
         {faqs.map((faq) => (
           <div key={faq.question} className="py-5" itemScope itemType="https://schema.org/Question">
-            <h3 className="mb-2 text-lg font-semibold text-[var(--heading-color)]" itemProp="name">
+            <h3
+              className="faq-question-text mb-2 text-lg font-semibold text-[var(--heading-color)]"
+              itemProp="name"
+            >
               {faq.question}
             </h3>
             <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">

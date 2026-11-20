@@ -1,7 +1,7 @@
 # Lone Mountain Heights Real Estate — Dr. Jan Duffy
 
 > Hyperlocal real estate expert for Lone Mountain Heights, Las Vegas NV 89129.
-> Berkshire Hathaway HomeServices Nevada Properties. License S.0197614.LLC.
+> Berkshire Hathaway HomeServices Nevada Properties (bhhsnv.com). License S.0197614.LLC.
 
 ## Primary pages
 
@@ -16,13 +16,18 @@
 - [Schools](https://www.lonemountainheights.com/schools): CCSD schools serving 89129
 - [Market report](https://www.lonemountainheights.com/market-report): Local market trends
 
-## Service area
+## Entities
 
-Lone Mountain Heights, Las Vegas, Nevada 89129 — including Lone Mountain Ranch and Desert Vista Estates.
+- Person / RealEstateAgent: Dr. Jan Duffy (never "Janet"), phone 702-500-1955
+- Organization / brokerage: Berkshire Hathaway HomeServices Nevada Properties — https://www.bhhsnv.com/
+- Service area Place: Lone Mountain Heights, Las Vegas, Nevada 89129 (Lone Mountain Ranch, Desert Vista Estates)
+- Scheduling: Calendly on the contact page
+- Listings: RealScout MLS widgets on primary pages
 
 ## Contact
 
 - Phone: 702-500-1955
 - Email: DrDuffySells@LoneMountainHeights.com
 - Agent: Dr. Jan Duffy (never "Janet")
+- Broker: Berkshire Hathaway HomeServices Nevada Properties
 - Scheduling: Calendly via contact page (utm: lonemountainheights.com)
