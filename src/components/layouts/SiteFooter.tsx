@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
+import { BrokerageLockup } from '@/components/shared/BrokerageLockup';
+import { LocalNapBlock } from '@/components/shared/LocalNapBlock';
 import { RealScoutOfficeListings } from '@/components/shared/JsonLd';
 import { GBP_URLS, NAP } from '@/lib/schema';
 
@@ -22,40 +24,84 @@ export function SiteFooter() {
       </section>
 
       <footer className="bg-[var(--heading-color)] px-4 py-12 text-white">
-        <div className="mx-auto grid max-w-6xl gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <h4 className="mb-4 text-lg font-bold text-white">{NAP.name}</h4>
-            <p className="mb-2 text-sm text-white/80">Head of Lone Mountain Heights Team</p>
-            <p className="mb-2 text-sm text-white/80">{NAP.fullAddress}</p>
-            <p className="text-sm text-white/80"><strong>Hours:</strong> {NAP.hours}</p>
-          </div>
-          <div>
-            <h4 className="mb-4 text-lg font-bold text-white">Contact</h4>
-            <p className="mb-2"><CalendlyLink text="📅 Schedule time with me" className="text-white/90 hover:text-white" /></p>
-            <p className="mb-2"><a href={NAP.telHref} className="text-white/90 hover:text-white">📞 Call {NAP.telDisplay}</a></p>
-            <p className="mb-2"><a href={GBP_URLS.directions} target="_blank" rel="noopener noreferrer" className="text-white/90 hover:text-white">📍 Directions</a></p>
-            <p className="mb-2"><a href={GBP_URLS.reviews} target="_blank" rel="noopener noreferrer" className="text-white/90 hover:text-white">⭐ View Google Reviews</a></p>
-            <p><a href={`mailto:${NAP.email}`} className="text-white/90 hover:text-white">✉️ {NAP.email}</a></p>
-          </div>
-          <div>
-            <h4 className="mb-4 text-lg font-bold text-white">Quick Links</h4>
-            <p className="mb-2"><a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" target="_blank" rel="noopener noreferrer" className="text-white/90 hover:text-white">🔍 Search All Homes</a></p>
-            <p className="mb-2"><Link href="/homes" className="text-white/90 hover:text-white">Browse Listings</Link></p>
-            <p className="mb-2"><Link href="/sales" className="text-white/90 hover:text-white">Recent Sales</Link></p>
-            <p className="mb-2"><Link href="/valuation" className="text-white/90 hover:text-white">Home Valuation</Link></p>
-            <p><Link href="/market-report" className="text-white/90 hover:text-white">Market Report</Link></p>
-          </div>
-          <div>
-            <h4 className="mb-4 text-lg font-bold text-white">Local Expertise</h4>
-            <p className="mb-2"><Link href="/neighborhoods" className="text-white/90 hover:text-white">Neighborhoods & Communities</Link></p>
-            <p className="mb-2"><Link href="/guide" className="text-white/90 hover:text-white">Living in Lone Mountain Heights</Link></p>
-            <p className="mb-2"><Link href="/schools" className="text-white/90 hover:text-white">School Information</Link></p>
-            <p><Link href="/amenities" className="text-white/90 hover:text-white">Local Amenities</Link></p>
+        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-2">
+          <LocalNapBlock />
+          <div className="grid gap-8 sm:grid-cols-2">
+            <div>
+              <h4 className="mb-4 text-lg font-bold text-white">Contact</h4>
+              <p className="mb-2">
+                <CalendlyLink text="Schedule time with me" className="text-white/90 hover:text-white" />
+              </p>
+              <p className="mb-2">
+                <a href={NAP.telHref} className="text-white/90 hover:text-white">
+                  Call {NAP.telDisplay}
+                </a>
+              </p>
+              <p className="mb-2">
+                <a
+                  href={GBP_URLS.directions}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/90 hover:text-white"
+                >
+                  Directions
+                </a>
+              </p>
+              <p className="mb-2">
+                <a
+                  href={GBP_URLS.reviews}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/90 hover:text-white"
+                >
+                  View Google Reviews
+                </a>
+              </p>
+              <p>
+                <a href={`mailto:${NAP.email}`} className="text-white/90 hover:text-white">
+                  {NAP.email}
+                </a>
+              </p>
+            </div>
+            <div>
+              <h4 className="mb-4 text-lg font-bold text-white">Quick Links</h4>
+              <p className="mb-2">
+                <Link href="/homes" className="text-white/90 hover:text-white">
+                  Homes for sale in Lone Mountain Heights
+                </Link>
+              </p>
+              <p className="mb-2">
+                <Link href="/luxury" className="text-white/90 hover:text-white">
+                  Luxury homes in Lone Mountain Heights
+                </Link>
+              </p>
+              <p className="mb-2">
+                <Link href="/valuation" className="text-white/90 hover:text-white">
+                  Home valuation
+                </Link>
+              </p>
+              <p className="mb-2">
+                <Link href="/market-report" className="text-white/90 hover:text-white">
+                  Lone Mountain Heights market report
+                </Link>
+              </p>
+              <p>
+                <Link href="/neighborhoods" className="text-white/90 hover:text-white">
+                  Neighborhoods &amp; communities
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
-        <div className="mx-auto mt-8 max-w-6xl border-t border-white/20 pt-6 text-center text-sm text-white/80">
-          <p>&copy; 2026 Lone Mountain Heights | Homes by Dr. Jan Duffy. All rights reserved.</p>
-          <p className="mt-2">Berkshire Hathaway HomeServices Nevada Properties since September 2008 · License S.0197614.LLC</p>
+
+        <div className="mx-auto mt-10 flex max-w-6xl flex-col items-center gap-4 border-t border-white/20 pt-8 text-center">
+          <BrokerageLockup />
+          <p className="text-sm text-white/80">
+            &copy; 2026 Lone Mountain Heights | Homes by {NAP.name}. All rights reserved.
+          </p>
+          <p className="text-sm text-white/80">
+            Berkshire Hathaway HomeServices Nevada Properties · License {NAP.license}
+          </p>
         </div>
       </footer>
     </>
@@ -66,20 +112,29 @@ export function GlobalSearchBar() {
   return (
     <section className="border-b border-slate-200 bg-slate-50 px-4 py-2" aria-label="Quick search">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-3">
-        <Link href="/homes" className="rounded-md px-3 py-1.5 text-sm font-medium text-[var(--text-color)] hover:bg-blue-50 hover:text-[var(--heading-color)]">
-          🔍 Search All Homes
+        <Link
+          href="/homes"
+          className="rounded-md px-3 py-1.5 text-sm font-medium text-[var(--text-color)] hover:bg-blue-50 hover:text-[var(--heading-color)]"
+        >
+          Search All Homes
         </Link>
-        <Link href="/valuation" className="rounded-md px-3 py-1.5 text-sm font-medium text-[var(--text-color)] hover:bg-blue-50 hover:text-[var(--heading-color)]">
-          💰 Home Value
+        <Link
+          href="/valuation"
+          className="rounded-md px-3 py-1.5 text-sm font-medium text-[var(--text-color)] hover:bg-blue-50 hover:text-[var(--heading-color)]"
+        >
+          Home Value
         </Link>
-        <CalendlyLink text="Schedule time with me" className="rounded-md px-3 py-1.5 text-sm font-medium text-[var(--text-color)] hover:bg-blue-50 hover:text-[var(--heading-color)]" />
+        <CalendlyLink
+          text="Schedule time with me"
+          className="rounded-md px-3 py-1.5 text-sm font-medium text-[var(--text-color)] hover:bg-blue-50 hover:text-[var(--heading-color)]"
+        />
         <a
           href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx"
           target="_blank"
           rel="noopener noreferrer"
           className="rounded-md bg-[var(--accent-color)] px-3 py-1.5 text-sm font-semibold text-[var(--heading-color)] hover:opacity-90"
         >
-          Open Full Search
+          Full MLS Search
         </a>
       </div>
     </section>

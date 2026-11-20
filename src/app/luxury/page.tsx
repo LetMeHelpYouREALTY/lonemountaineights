@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { AnswerLead } from '@/components/sections/AnswerLead';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
@@ -9,6 +10,7 @@ import { luxuryFAQs } from '@/lib/faqs';
 import { luxuryHomes } from '@/lib/listings-data';
 import { formatPrice } from '@/lib/format';
 import { generateFAQSchema, NAP } from '@/lib/schema';
+import { generateWebPageSchema } from '@/lib/structured-data';
 
 export const metadata: Metadata = {
   title: 'Luxury Homes in Lone Mountain Heights | Dr. Jan Duffy',
@@ -17,16 +19,21 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.lonemountainheights.com/luxury' },
 };
 
-const stats = [
-  { value: '$1.2M', label: 'Average Luxury Home Price' },
-  { value: '4,200', label: 'Average Square Feet' },
-  { value: '98%', label: 'Luxury Market Retention' },
-];
-
 export default function LuxuryPage() {
   return (
     <>
-      <JsonLd data={[generateFAQSchema(luxuryFAQs)]} />
+      <JsonLd
+        data={[
+          generateWebPageSchema({
+            name: 'Luxury Homes in Lone Mountain Heights',
+            description:
+              'Luxury and estate homes in Lone Mountain Heights, Las Vegas 89129 with Dr. Jan Duffy.',
+            path: '/luxury',
+            includeSpeakable: true,
+          }),
+          generateFAQSchema(luxuryFAQs),
+        ]}
+      />
 
       <header className="bg-gradient-to-br from-slate-900 to-slate-700 px-4 py-16 text-center text-white">
         <div className="mx-auto max-w-3xl">
@@ -34,7 +41,7 @@ export default function LuxuryPage() {
             Luxury Homes in Lone Mountain Heights
           </h1>
           <p className="text-lg text-white/90">
-            Premium properties with breathtaking mountain views, high-end amenities, and exceptional quality
+            Premium properties with mountain views, high-end amenities, and strong finishes in Las Vegas 89129
           </p>
         </div>
       </header>
@@ -46,14 +53,11 @@ export default function LuxuryPage() {
       />
 
       <div className="mx-auto max-w-6xl px-4 py-10 md:px-8">
-        <div className="mb-12 grid grid-cols-3 gap-6 text-center">
-          {stats.map((s) => (
-            <div key={s.label}>
-              <div className="text-3xl font-bold text-[var(--accent-color)]">{s.value}</div>
-              <div className="text-sm text-[var(--text-light)]">{s.label}</div>
-            </div>
-          ))}
-        </div>
+        <AnswerLead
+          updatedLabel="Updated November 2026"
+          heading="What counts as luxury in Lone Mountain Heights?"
+          answer="Dr. Jan Duffy treats luxury inventory in Lone Mountain Heights as homes typically priced from about $800,000 upward with premium finishes, larger lots, and mountain or city views. Live MLS results sit under the hero — schedule Calendly for comps and showings rather than relying on static averages."
+        />
 
         <div className="mb-12 grid gap-6 md:grid-cols-3">
           {luxuryHomes.map((home) => (

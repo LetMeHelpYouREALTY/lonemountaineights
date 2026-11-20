@@ -41,6 +41,12 @@ type PlaceSchemaOptions = {
   path: string;
 };
 
+const BROKERAGE_LOGO_URL = `${SITE_URL}/images/brand/bhhs-nevada-properties.svg`;
+const AGENT_PHOTO_URL = `${SITE_URL}/images/agents/dr-jan-duffy.jpg`;
+const BHHS_NV_URL = 'https://www.bhhsnv.com';
+const CALENDLY_BOOK_URL =
+  'https://calendly.com/drjanduffy/dr-duffy-private-15-min-conversation?utm_source=lonemountainheights.com&utm_medium=website&utm_content=schema';
+
 /** Sitewide @graph: RealEstateAgent + Organization + WebSite + Person (entity foundation for SEO/geo/AEO). */
 export function generateSiteGraphSchema(nap: {
   name: string;
@@ -58,9 +64,6 @@ export function generateSiteGraphSchema(nap: {
   gbpReviewsUrl: string;
   gbpMapUrl: string;
 }) {
-  const logoUrl = `${SITE_URL}/images/agents/dr-jan-duffy.jpg`;
-  const agentPhoto = `${SITE_URL}/images/agents/dr-jan-duffy.jpg`;
-
   const areaServed = AREA_SERVED_PLACES.map((place) => ({
     '@type': place.type,
     name: place.name,
@@ -87,8 +90,7 @@ export function generateSiteGraphSchema(nap: {
         url: SITE_URL,
         telephone: nap.telephone,
         email: nap.email,
-        image: agentPhoto,
-        logo: logoUrl,
+        image: AGENT_PHOTO_URL,
         address: {
           '@type': 'PostalAddress',
           streetAddress: nap.address.streetAddress,
@@ -103,6 +105,20 @@ export function generateSiteGraphSchema(nap: {
           longitude: GEO_COORDINATES.longitude,
         },
         hasMap: nap.gbpMapUrl,
+        openingHoursSpecification: {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: [
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday',
+            'Sunday',
+          ],
+          opens: '08:00',
+          closes: '20:00',
+        },
         areaServed,
         serviceType: [
           'Residential real estate',
@@ -125,12 +141,19 @@ export function generateSiteGraphSchema(nap: {
           name: `Nevada Real Estate License ${nap.license}`,
         },
         memberOf: { '@id': SCHEMA_IDS.organization },
-        sameAs: [nap.gbpReviewsUrl, 'https://www.berkshirehathawayhomeservices.com'],
+        sameAs: [nap.gbpReviewsUrl, BHHS_NV_URL, 'https://www.berkshirehathawayhomeservices.com'],
         priceRange: '$$',
         potentialAction: {
           '@type': 'ReserveAction',
           name: 'Schedule a consultation',
-          target: `${SITE_URL}/contact`,
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: CALENDLY_BOOK_URL,
+            actionPlatform: [
+              'http://schema.org/DesktopWebPlatform',
+              'http://schema.org/MobileWebPlatform',
+            ],
+          },
         },
       },
       {
@@ -139,7 +162,7 @@ export function generateSiteGraphSchema(nap: {
         name: nap.name,
         jobTitle: 'Real Estate Agent — Lone Mountain Heights Specialist',
         url: `${SITE_URL}/about`,
-        image: agentPhoto,
+        image: AGENT_PHOTO_URL,
         telephone: nap.telephone,
         email: nap.email,
         worksFor: { '@id': SCHEMA_IDS.organization },
@@ -148,14 +171,20 @@ export function generateSiteGraphSchema(nap: {
           'Las Vegas home sales',
           '89129 neighborhoods',
         ],
+        sameAs: [nap.gbpReviewsUrl],
       },
       {
         '@type': 'Organization',
         '@id': SCHEMA_IDS.organization,
         name: nap.broker,
-        url: 'https://www.berkshirehathawayhomeservices.com',
-        logo: logoUrl,
+        url: BHHS_NV_URL,
+        logo: {
+          '@type': 'ImageObject',
+          url: BROKERAGE_LOGO_URL,
+          caption: nap.broker,
+        },
         employee: { '@id': SCHEMA_IDS.person },
+        sameAs: ['https://www.berkshirehathawayhomeservices.com'],
       },
       {
         '@type': 'WebSite',
@@ -163,7 +192,7 @@ export function generateSiteGraphSchema(nap: {
         name: 'Lone Mountain Heights Real Estate | Dr. Jan Duffy',
         url: SITE_URL,
         description:
-          'Homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy, Berkshire Hathaway HomeServices.',
+          'Homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.',
         publisher: { '@id': SCHEMA_IDS.agent },
         inLanguage: 'en-US',
         potentialAction: {
@@ -246,7 +275,7 @@ export function generateWebPageSchema({
       ? {
           speakable: {
             '@type': 'SpeakableSpecification',
-            cssSelector: ['#faq-heading', '.faq-answer-text'],
+            cssSelector: ['#faq-heading', '#answer-lead-heading', '.faq-answer-text'],
           },
         }
       : {}),

@@ -169,12 +169,12 @@ export const marketReportFAQs = [
   {
     question: 'What is the Lone Mountain Heights real estate market doing now?',
     answer:
-      'Dr. Jan Duffy tracks inventory, days on market, and price trends daily. The market report on this site provides up-to-date statistics. For a personalized analysis of your situation, schedule a call—she explains what the numbers mean for your buy or sale.',
+      'Inventory, days on market, and sold prices in Lone Mountain Heights (89129) move week to week. Dr. Jan Duffy pulls live MLS comps for your street and price band—schedule a 15-minute Calendly call for current numbers rather than relying on a static average.',
   },
   {
     question: 'Is now a good time to sell in Lone Mountain Heights?',
     answer:
-      'Market conditions change. Dr. Jan Duffy evaluates inventory, buyer demand, and seasonality to advise on timing. She provides a free market analysis so you can make an informed decision about listing your Lone Mountain Heights home.',
+      'Timing depends on your equity goal, nearby actives, and buyer demand for your home style. Dr. Jan Duffy reviews competing listings and recent closings, then recommends a list price and prep plan for your Lone Mountain Heights property.',
   },
 ];
 

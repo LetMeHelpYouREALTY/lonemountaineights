@@ -3,7 +3,7 @@ export const CALENDLY_URL =
   'https://calendly.com/drjanduffy/dr-duffy-private-15-min-conversation?utm_source=lonemountainheights.com&utm_medium=website&utm_content=site';
 
 /** Iframe embed URL — works without widget.js (reliable in Next.js). */
-export const CALENDLY_INLINE_EMBED_URL = `${CALENDLY_URL}?hide_event_type_details=1&hide_gdpr_banner=1`;
+export const CALENDLY_INLINE_EMBED_URL = `${CALENDLY_URL}&hide_event_type_details=1&hide_gdpr_banner=1`;
 
 export const CALENDLY_READY_EVENT = 'calendly-ready';
 
