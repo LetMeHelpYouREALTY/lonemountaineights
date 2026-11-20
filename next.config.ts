@@ -1,12 +1,12 @@
 import type { NextConfig } from 'next';
 
 /**
- * CSP for RealScout (em.realscout.com script + www.realscout.com API), Calendly,
- * Google Fonts CSS the widget loads, Mapbox autofill, and Google Maps iframe.
+ * CSP for RealScout (em.realscout.com script + www/drjanduffy.realscout.com API),
+ * Calendly, Google Fonts CSS the widget loads, Mapbox autofill, and Google Maps iframe.
  *
- * Keep widgetbe.com OUT of connect-src: once /config succeeds, WidgetBe injects
- * a sitewide CTA with 702-500-1942 instead of this site's 702-500-1955.
- * RealScout widgets do not depend on widgetbe.
+ * Keep widgetbe.com OUT of connect-src and do not load its script: once /config
+ * succeeds, WidgetBe injects a sitewide CTA with 702-500-1942 instead of this
+ * site's 702-500-1955. RealScout widgets do not depend on widgetbe.
  */
 const contentSecurityPolicy = [
   "default-src 'self'",
@@ -14,15 +14,15 @@ const contentSecurityPolicy = [
     "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
     'https://em.realscout.com',
     'https://www.realscout.com',
+    'https://*.realscout.com',
     'https://assets.calendly.com',
-    'https://widgetbe.com',
-    'https://*.widgetbe.com',
   ].join(' '),
   [
     "connect-src 'self'",
     'https://www.realscout.com',
     'https://em.realscout.com',
     'https://*.realscout.com',
+    'https://drjanduffy.realscout.com',
     'https://api.mapbox.com',
     'https://calendly.com',
     'https://www.calendly.com',
@@ -40,6 +40,8 @@ const contentSecurityPolicy = [
     "font-src 'self' data:",
     'https://fonts.gstatic.com',
     'https://assets.calendly.com',
+    'https://em.realscout.com',
+    'https://www.realscout.com',
   ].join(' '),
   "img-src 'self' data: https: blob:",
   [
@@ -50,6 +52,7 @@ const contentSecurityPolicy = [
     'https://em.realscout.com',
     'https://www.realscout.com',
     'https://*.realscout.com',
+    'https://drjanduffy.realscout.com',
     'https://www.google.com',
     'https://maps.google.com',
     'https://*.google.com',
