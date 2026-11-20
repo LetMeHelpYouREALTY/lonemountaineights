@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHeader, BtnPrimary, BtnSecondary } from '@/components/layouts/PageHeader';
+import { ListingsBelowHero } from '@/components/sections/ListingsBelowHero';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { CalendlyInline } from '@/components/shared/CalendlyInline';
-import { JsonLd, RealScoutOfficeListings } from '@/components/shared/JsonLd';
+import { JsonLd } from '@/components/shared/JsonLd';
 import { contactFAQs } from '@/lib/faqs';
 import { generateBreadcrumbSchema, generateFAQSchema, GBP_URLS, NAP } from '@/lib/schema';
 import { generateWebPageSchema, SCHEMA_IDS } from '@/lib/structured-data';
@@ -55,6 +56,8 @@ export default function ContactPage() {
         title="Contact Dr. Jan Duffy"
         subtitle="Ready to buy or sell in Lone Mountain Heights, Las Vegas 89129? Let's talk!"
       />
+
+      <ListingsBelowHero priceMin="700000" priceMax="1500000" />
 
       <div className="mx-auto max-w-6xl px-4 py-10 md:px-8">
         <div className="mb-10 grid gap-8 lg:grid-cols-2">
@@ -128,12 +131,6 @@ export default function ContactPage() {
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
-        </section>
-
-        <section className="mb-10 text-center">
-          <h2 className="mb-2 text-2xl font-bold text-[var(--heading-color)]">Current Lone Mountain Heights Listings</h2>
-          <p className="mb-6 text-[var(--text-light)]">Browse our latest homes for sale while you&apos;re here</p>
-          <RealScoutOfficeListings priceMin="700000" priceMax="1500000" />
         </section>
 
         <FAQSection faqs={contactFAQs} title="Contact Dr. Jan Duffy — Frequently Asked Questions" />

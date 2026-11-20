@@ -2,10 +2,11 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PageHeader, BtnPrimary, BtnSecondary } from '@/components/layouts/PageHeader';
+import { ListingsBelowHero } from '@/components/sections/ListingsBelowHero';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
-import { JsonLd, RealScoutOfficeListings } from '@/components/shared/JsonLd';
+import { JsonLd } from '@/components/shared/JsonLd';
 import { aboutFAQs } from '@/lib/faqs';
 import { generateBreadcrumbSchema, generateFAQSchema, GBP_URLS, NAP } from '@/lib/schema';
 import { generateWebPageSchema, SCHEMA_IDS } from '@/lib/structured-data';
@@ -67,6 +68,8 @@ export default function AboutPage() {
         title="About Dr. Jan Duffy"
         subtitle="Head of the Lone Mountain Heights Team — your complete real estate partner"
       />
+
+      <ListingsBelowHero />
 
       <div className="mx-auto max-w-6xl px-4 py-10 md:px-8">
         <div className="mb-12 grid gap-10 md:grid-cols-2 md:items-start">
@@ -130,10 +133,6 @@ export default function AboutPage() {
 
         <FAQSection faqs={aboutFAQs} title="About Dr. Jan Duffy — FAQs" />
 
-        <section className="mt-10 text-center">
-          <h2 className="mb-4 text-xl font-bold text-[var(--heading-color)]">Current Listings</h2>
-          <RealScoutOfficeListings />
-        </section>
       </div>
     </>
   );

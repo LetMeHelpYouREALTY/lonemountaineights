@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { AgentPortrait } from '@/components/shared/AgentPortrait';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { NAP } from '@/lib/schema';
 
@@ -107,7 +108,8 @@ export function Navigation() {
   return (
     <header ref={navRef} className="sticky top-0 z-40 border-b border-slate-200 bg-white shadow-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
-        <Link href="/" className="shrink-0" onClick={closeAll}>
+        <Link href="/" className="flex shrink-0 items-center gap-3" onClick={closeAll}>
+          <AgentPortrait size={40} linked={false} />
           <div className="flex flex-col leading-tight">
             <span className="text-sm font-bold tracking-wide text-[var(--heading-color)] md:text-base">
               DR. JAN DUFFY

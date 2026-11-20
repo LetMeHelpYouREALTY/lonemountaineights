@@ -5,15 +5,16 @@
 
 ## Primary pages
 
-- [Home](https://lonemountainheights.com/): Homes for sale in Lone Mountain Heights 89129
-- [About Dr. Jan Duffy](https://lonemountainheights.com/about): Agent bio, credentials, local expertise
-- [Contact & schedule](https://lonemountainheights.com/contact): Phone 702-500-1955, email DrDuffySells@LoneMountainHeights.com
-- [Homes for sale](https://lonemountainheights.com/homes): Browse Lone Mountain Heights listings
-- [Home valuation](https://lonemountainheights.com/valuation): Free home value estimates
-- [Neighborhoods & communities](https://lonemountainheights.com/neighborhoods): Lone Mountain Ranch, Desert Vista Estates
-- [Living guide](https://lonemountainheights.com/guide): Complete guide to Lone Mountain Heights
-- [Schools](https://lonemountainheights.com/schools): CCSD schools serving 89129
-- [Market report](https://lonemountainheights.com/market-report): Local market trends
+- [Home](https://www.lonemountainheights.com/): Homes for sale in Lone Mountain Heights 89129
+- [Luxury homes](https://www.lonemountainheights.com/luxury): $1M+ listings with RealScout MLS search
+- [About Dr. Jan Duffy](https://www.lonemountainheights.com/about): Agent bio, credentials, local expertise
+- [Contact & schedule](https://www.lonemountainheights.com/contact): Calendly booking and NAP
+- [Homes for sale](https://www.lonemountainheights.com/homes): Browse Lone Mountain Heights listings
+- [Home valuation](https://www.lonemountainheights.com/valuation): Free home value estimates
+- [Neighborhoods & communities](https://www.lonemountainheights.com/neighborhoods): Lone Mountain Ranch, Desert Vista Estates
+- [Living guide](https://www.lonemountainheights.com/guide): Complete guide to Lone Mountain Heights
+- [Schools](https://www.lonemountainheights.com/schools): CCSD schools serving 89129
+- [Market report](https://www.lonemountainheights.com/market-report): Local market trends
 
 ## Service area
 
@@ -24,3 +25,4 @@ Lone Mountain Heights, Las Vegas, Nevada 89129 — including Lone Mountain Ranch
 - Phone: 702-500-1955
 - Email: DrDuffySells@LoneMountainHeights.com
 - Agent: Dr. Jan Duffy (never "Janet")
+- Scheduling: Calendly via contact page (utm: lonemountainheights.com)

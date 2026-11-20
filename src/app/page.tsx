@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Hero } from '@/components/sections/Hero';
+import { ListingsBelowHero } from '@/components/sections/ListingsBelowHero';
 import { TrustSignals } from '@/components/sections/TrustSignals';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
-import { JsonLd, RealScoutOfficeListings } from '@/components/shared/JsonLd';
+import { JsonLd } from '@/components/shared/JsonLd';
 import { generateFAQSchema } from '@/lib/schema';
 import { generateWebPageSchema } from '@/lib/structured-data';
 import { homeFAQs } from '@/lib/faqs';
@@ -59,6 +60,8 @@ export default function HomePage() {
 
       <Hero />
 
+      <ListingsBelowHero priceMin="500000" priceMax="1000000" />
+
       <div className="mx-auto max-w-6xl px-4 py-8 md:px-8">
         <TrustSignals />
 
@@ -98,12 +101,6 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-        </section>
-
-        <section className="my-12 rounded-xl border border-slate-200 bg-slate-50 p-8">
-          <h2 className="mb-2 text-center text-3xl font-bold text-[var(--heading-color)]">Current Lone Mountain Heights Listings</h2>
-          <p className="mb-6 text-center text-[var(--text-color)]">Browse our latest homes for sale in Lone Mountain Heights, Las Vegas 89129</p>
-          <RealScoutOfficeListings priceMin="500000" priceMax="1000000" />
         </section>
 
         <section className="my-12 rounded-xl bg-slate-50 p-8">

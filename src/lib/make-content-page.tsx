@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ContentPage, buildPageMetadata } from '@/components/layouts/ContentPage';
-import { RealScoutOfficeListings } from '@/components/shared/JsonLd';
 import { getBreadcrumbs, getPageConfig, getPageFaqs } from '@/lib/content-page';
 
 import { generatePlaceSchema } from '@/lib/structured-data';
@@ -80,10 +79,6 @@ export function makeContentPage(slug: string) {
               </Link>
             </div>
           )}
-          <section className="my-8">
-            <h2 className="mb-4 text-xl font-semibold text-[var(--heading-color)]">Current Listings</h2>
-            <RealScoutOfficeListings />
-          </section>
         </ContentPage>
     );
   }

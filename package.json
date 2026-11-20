@@ -17,6 +17,7 @@
     "typecheck": "tsc --noEmit",
     "check": "pnpm run typecheck && pnpm run lint && pnpm run build",
     "generate:og": "node scripts/generate-og-image.mjs",
+    "generate:favicon": "node scripts/generate-favicon.mjs",
     "vercel:build": "vercel build"
   },
   "dependencies": {

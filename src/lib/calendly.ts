@@ -1,9 +1,14 @@
-/** Dr. Jan Duffy — Calendly booking URL (single source of truth). */
-export const CALENDLY_URL =
+const CALENDLY_BASE =
   'https://calendly.com/drjanduffy/dr-duffy-private-15-min-conversation';
 
+const CALENDLY_UTM =
+  'utm_source=www.lonemountainheights.com&utm_medium=website&utm_campaign=site_cta';
+
+/** Dr. Jan Duffy — Calendly booking URL (single source of truth). */
+export const CALENDLY_URL = `${CALENDLY_BASE}?${CALENDLY_UTM}`;
+
 /** Iframe embed URL — works without widget.js (reliable in Next.js). */
-export const CALENDLY_INLINE_EMBED_URL = `${CALENDLY_URL}?hide_event_type_details=1&hide_gdpr_banner=1`;
+export const CALENDLY_INLINE_EMBED_URL = `${CALENDLY_URL}&hide_event_type_details=1&hide_gdpr_banner=1`;
 
 export const CALENDLY_READY_EVENT = 'calendly-ready';
 
