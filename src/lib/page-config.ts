@@ -232,13 +232,13 @@ export const pageConfigs: Record<string, PageConfig> = {
     ],
   },
   'faq/home-prices-2025': {
-    title: 'Lone Mountain Heights Home Prices 2025 | FAQ',
-    h1: 'Lone Mountain Heights Home Prices in 2025',
+    title: 'Lone Mountain Heights Home Prices, Las Vegas 89129 | FAQ',
+    h1: 'Lone Mountain Heights Home Prices',
     description:
-      'FAQ: Current home prices and market trends in Lone Mountain Heights, Las Vegas 89129 for 2025.',
+      'What drives home prices in Lone Mountain Heights, Las Vegas 89129 — street, lot size, and upgrades — and how to get current comparable sales.',
     canonical: '/faq/home-prices-2025',
     body: [
-      'Lone Mountain Heights prices vary widely by street, lot size, and upgrades, and luxury properties list above $1M. The live MLS listings on this page show current asking prices.',
+      'Lone Mountain Heights prices vary widely by street, lot size, and upgrades, and luxury properties list above $1M. Asking prices change weekly, so a current comparable-sales report is the reliable number for any one address.',
       'Contact Dr. Jan Duffy for a free updated market report with current comps for your target price range.',
     ],
   },
