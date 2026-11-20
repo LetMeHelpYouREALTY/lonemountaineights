@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { AnswerLead } from '@/components/sections/AnswerLead';
 import { ContentPage, buildPageMetadata } from '@/components/layouts/ContentPage';
 import { getBreadcrumbs, getPageConfig, getPageFaqs } from '@/lib/content-page';
 
@@ -9,8 +10,6 @@ const LOCATION_SLUGS = new Set([
   'locations/lone-mountain-ranch',
   'locations/desert-vista-estates',
 ]);
-
-type Props = { slug: string };
 
 export function makeContentPage(slug: string) {
   const config = getPageConfig(slug);
@@ -43,6 +42,13 @@ export function makeContentPage(slug: string) {
         showCta
         showHero
       >
+          {slug === 'market-report' && (
+            <AnswerLead
+              updatedLabel="Updated November 2026"
+              heading="How do I read the Lone Mountain Heights market?"
+              answer="Use live MLS inventory on this site for actives, then ask Dr. Jan Duffy for sold comps on your street in 89129. She explains days on market, list-to-sale ratios, and pricing strategy for your specific home—not a citywide average."
+            />
+          )}
           <div className="prose prose-slate mb-8 max-w-none">
             {pageConfig.body.map((paragraph) => (
               <p key={paragraph.slice(0, 40)} className="mb-4 leading-relaxed text-[var(--text-color)]">

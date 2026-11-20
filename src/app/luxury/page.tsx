@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { AnswerLead } from '@/components/sections/AnswerLead';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { ListingsBelowHero } from '@/components/sections/ListingsBelowHero';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
@@ -85,6 +86,12 @@ export default function LuxuryPage() {
       />
 
       <div className="mx-auto max-w-6xl px-4 py-10 md:px-8">
+        <AnswerLead
+          updatedLabel="Updated November 2026"
+          heading="What counts as luxury in Lone Mountain Heights?"
+          answer="Dr. Jan Duffy treats luxury inventory in Lone Mountain Heights as homes typically priced from about $1M upward with premium finishes, larger lots, and mountain or city views. Live MLS results sit under the hero — schedule Calendly for comps and showings rather than relying on static averages."
+        />
+
         <div className="mb-12 grid gap-6 md:grid-cols-3">
           {highlights.map((item) => (
             <div

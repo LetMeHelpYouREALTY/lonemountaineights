@@ -157,7 +157,15 @@ export function generateSiteGraphSchema(nap: {
         potentialAction: {
           '@type': 'ReserveAction',
           name: 'Schedule a consultation',
-          target: `${SITE_URL}/contact`,
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate:
+              'https://calendly.com/drjanduffy/dr-duffy-private-15-min-conversation?utm_source=lonemountainheights.com&utm_medium=website&utm_content=schema',
+            actionPlatform: [
+              'http://schema.org/DesktopWebPlatform',
+              'http://schema.org/MobileWebPlatform',
+            ],
+          },
         },
       },
       {

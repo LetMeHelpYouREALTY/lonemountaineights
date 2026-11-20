@@ -57,7 +57,7 @@ export function ContentPage({
       ? null
       : listingsBelowHero ?? (showHero ? {} : null);
   const breadcrumbSchema = generateBreadcrumbSchema(
-    breadcrumbs.map((b, i) => ({
+    breadcrumbs.map((b) => ({
       name: b.name,
       url: b.href ? `${SITE_URL}${b.href}` : `${SITE_URL}${canonical}`,
     })),
