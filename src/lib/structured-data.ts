@@ -1,8 +1,19 @@
 /**
  * JSON-LD structured data — RealEstateAgent entity graph, WebPage, Place, FAQ (AEO).
- * Aligned with schema.org + Google Search Central FAQ guidance (2025–2026).
+ * Aligned with schema.org + Google Search Central Organization / FAQ guidance (2025–2026).
+ *
+ * Entity split (SEO/GEO/AEO):
+ * - Person.image = agent portrait
+ * - RealEstateAgent.logo/image = agent brand (portrait favicon / photo)
+ * - Organization.logo = BHHS Nevada lockup (not the agent face)
  */
 
+import {
+  AGENT_SAME_AS,
+  BRAND_ASSETS,
+  BROKERAGE,
+  ORGANIZATION_SAME_AS,
+} from '@/lib/brand';
 import { SITE_URL } from '@/lib/site-metadata';
 
 export const SCHEMA_IDS = {
@@ -58,9 +69,6 @@ export function generateSiteGraphSchema(nap: {
   gbpReviewsUrl: string;
   gbpMapUrl: string;
 }) {
-  const logoUrl = `${SITE_URL}/images/icons/favicon.png`;
-  const agentPhoto = `${SITE_URL}/images/agents/dr-jan-duffy.jpg`;
-
   const areaServed = AREA_SERVED_PLACES.map((place) => ({
     '@type': place.type,
     name: place.name,
@@ -75,6 +83,23 @@ export function generateSiteGraphSchema(nap: {
       : {}),
   }));
 
+  const openingHoursSpecification = [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday',
+      ],
+      opens: '08:00',
+      closes: '20:00',
+    },
+  ];
+
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -87,8 +112,8 @@ export function generateSiteGraphSchema(nap: {
         url: SITE_URL,
         telephone: nap.telephone,
         email: nap.email,
-        image: agentPhoto,
-        logo: logoUrl,
+        image: BRAND_ASSETS.agentPhoto,
+        logo: BRAND_ASSETS.agentLogo,
         address: {
           '@type': 'PostalAddress',
           streetAddress: nap.address.streetAddress,
@@ -104,6 +129,7 @@ export function generateSiteGraphSchema(nap: {
         },
         hasMap: nap.gbpMapUrl,
         areaServed,
+        openingHoursSpecification,
         serviceType: [
           'Residential real estate',
           'Home buyer representation',
@@ -125,7 +151,8 @@ export function generateSiteGraphSchema(nap: {
           name: `Nevada Real Estate License ${nap.license}`,
         },
         memberOf: { '@id': SCHEMA_IDS.organization },
-        sameAs: [nap.gbpReviewsUrl, 'https://www.berkshirehathawayhomeservices.com'],
+        parentOrganization: { '@id': SCHEMA_IDS.organization },
+        sameAs: [...AGENT_SAME_AS, nap.gbpReviewsUrl],
         priceRange: '$$',
         potentialAction: {
           '@type': 'ReserveAction',
@@ -139,22 +166,45 @@ export function generateSiteGraphSchema(nap: {
         name: nap.name,
         jobTitle: 'Real Estate Agent — Lone Mountain Heights Specialist',
         url: `${SITE_URL}/about`,
-        image: agentPhoto,
+        image: BRAND_ASSETS.agentPhoto,
         telephone: nap.telephone,
         email: nap.email,
         worksFor: { '@id': SCHEMA_IDS.organization },
+        affiliation: { '@id': SCHEMA_IDS.organization },
+        sameAs: [...AGENT_SAME_AS],
         knowsAbout: [
           'Lone Mountain Heights real estate',
           'Las Vegas home sales',
           '89129 neighborhoods',
         ],
+        hasCredential: {
+          '@type': 'EducationalOccupationalCredential',
+          credentialCategory: 'Real Estate License',
+          name: `Nevada Real Estate License ${nap.license}`,
+        },
       },
       {
         '@type': 'Organization',
         '@id': SCHEMA_IDS.organization,
-        name: nap.broker,
-        url: 'https://www.berkshirehathawayhomeservices.com',
-        logo: logoUrl,
+        name: nap.broker || BROKERAGE.name,
+        alternateName: BROKERAGE.shortName,
+        url: BROKERAGE.url,
+        logo: {
+          '@type': 'ImageObject',
+          url: BRAND_ASSETS.organizationLogo,
+          width: 512,
+          height: 512,
+        },
+        image: BRAND_ASSETS.organizationLogo,
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: '3185 St. Rose Parkway, Suite 100',
+          addressLocality: 'Henderson',
+          addressRegion: 'NV',
+          postalCode: '89052',
+          addressCountry: 'US',
+        },
+        sameAs: [...ORGANIZATION_SAME_AS],
         employee: { '@id': SCHEMA_IDS.person },
       },
       {
@@ -163,8 +213,9 @@ export function generateSiteGraphSchema(nap: {
         name: 'Lone Mountain Heights Real Estate | Dr. Jan Duffy',
         url: SITE_URL,
         description:
-          'Homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy, Berkshire Hathaway HomeServices.',
+          'Homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy, Berkshire Hathaway HomeServices Nevada Properties.',
         publisher: { '@id': SCHEMA_IDS.agent },
+        about: { '@id': SCHEMA_IDS.agent },
         inLanguage: 'en-US',
         potentialAction: {
           '@type': 'SearchAction',
@@ -246,7 +297,7 @@ export function generateWebPageSchema({
       ? {
           speakable: {
             '@type': 'SpeakableSpecification',
-            cssSelector: ['#faq-heading', '.faq-answer-text'],
+            cssSelector: ['#faq-heading', '.faq-question-text', '.faq-answer-text'],
           },
         }
       : {}),

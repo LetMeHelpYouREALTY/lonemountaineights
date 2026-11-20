@@ -1,6 +1,8 @@
 import Link from 'next/link';
+import { BrokerBadge } from '@/components/shared/BrokerBadge';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { RealScoutOfficeListings } from '@/components/shared/JsonLd';
+import { BROKERAGE } from '@/lib/brand';
 import { GBP_URLS, NAP } from '@/lib/schema';
 
 export function SiteFooter() {
@@ -54,8 +56,18 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="mx-auto mt-8 max-w-6xl border-t border-white/20 pt-6 text-center text-sm text-white/80">
+          <div className="mb-6 flex justify-center">
+            <BrokerBadge />
+          </div>
           <p>&copy; 2026 Lone Mountain Heights | Homes by Dr. Jan Duffy. All rights reserved.</p>
-          <p className="mt-2">Berkshire Hathaway HomeServices Nevada Properties since September 2008 · License S.0197614.LLC</p>
+          <p className="mt-2">
+            {BROKERAGE.name} since September 2008 · License {NAP.license}
+          </p>
+          <p className="mt-1">
+            <a href={BROKERAGE.url} className="underline hover:text-white" target="_blank" rel="noopener noreferrer">
+              {BROKERAGE.url.replace('https://', '')}
+            </a>
+          </p>
         </div>
       </footer>
     </>
