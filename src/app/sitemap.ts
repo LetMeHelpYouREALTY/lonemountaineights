@@ -34,11 +34,13 @@ const routes = [
   '/valuation',
 ];
 
+/** Bump when page content changes; Google ignores lastmod values that are always "now". */
+const CONTENT_UPDATED = new Date('2026-11-20T00:00:00-08:00');
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
   return routes.map((path) => ({
     url: `${BASE}${path === '/' ? '' : path}`,
-    lastModified: now,
+    lastModified: CONTENT_UPDATED,
     changeFrequency: path === '/' || path === '/homes' ? 'daily' : 'weekly',
     priority: path === '/' ? 1 : path === '/homes' ? 0.9 : 0.7,
   }));
