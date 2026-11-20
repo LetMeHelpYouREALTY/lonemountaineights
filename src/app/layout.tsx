@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Inter } from 'next/font/google';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { GlobalSearchBar, SiteFooter } from '@/components/layouts/SiteFooter';
 import { Navigation } from '@/components/layouts/Navigation';
 import { CalendlyBadge } from '@/components/shared/CalendlyBadge';
@@ -79,6 +80,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         {/* WidgetBe (widgetbe.com) intentionally not loaded: its CTA uses 702-500-1942
             instead of this site's client line 702-500-1955. RealScout does not need it. */}
+        
+        <SpeedInsights />
       </body>
     </html>
   );
