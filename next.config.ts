@@ -44,6 +44,7 @@ const contentSecurityPolicy = [
     'https://www.realscout.com',
   ].join(' '),
   "img-src 'self' data: https: blob:",
+  "worker-src 'self' blob:",
   [
     'frame-src',
     'https://calendly.com',

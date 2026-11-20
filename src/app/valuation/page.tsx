@@ -4,7 +4,8 @@ import { ListingsBelowHero } from '@/components/sections/ListingsBelowHero';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
-import { JsonLd, RealScoutHomeValue } from '@/components/shared/JsonLd';
+import { JsonLd } from '@/components/shared/JsonLd';
+import { RealScoutHomeValue } from '@/components/shared/RealScoutWidgets';
 import { valuationFAQs } from '@/lib/faqs';
 import { generateBreadcrumbSchema, generateFAQSchema, NAP } from '@/lib/schema';
 import { generateWebPageSchema } from '@/lib/structured-data';
@@ -56,7 +57,6 @@ export default function ValuationPage() {
       <ListingsBelowHero priceMin="500000" priceMax="1200000" />
 
       <div className="mx-auto max-w-3xl px-4 py-10 md:px-8">
-
         <section className="mb-8 rounded-xl bg-white p-6 shadow-md md:p-8 text-center">
           <h2 className="mb-3 text-xl font-bold text-[var(--heading-color)]">Want a seller pricing consult?</h2>
           <p className="mb-6 text-[var(--text-light)]">

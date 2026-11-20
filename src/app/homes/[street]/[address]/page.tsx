@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
 import { CalendlyScheduleSection } from '@/components/shared/CalendlyScheduleSection';
-import { PageContainer, RealScoutOfficeListings } from '@/components/shared/JsonLd';
+import { PageContainer } from '@/components/shared/JsonLd';
+import { RealScoutOfficeListings } from '@/components/shared/RealScoutWidgets';
 import { NAP } from '@/lib/schema';
 
 type PageProps = {

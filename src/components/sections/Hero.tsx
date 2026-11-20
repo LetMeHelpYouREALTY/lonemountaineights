@@ -3,9 +3,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { RealScoutHomeValue, RealScoutSimpleSearch } from '@/components/shared/JsonLd';
 import { CalendlyInline } from '@/components/shared/CalendlyInline';
 import { CalendlyLink } from '@/components/shared/CalendlyLink';
+import { RealScoutHomeValue, RealScoutSimpleSearch } from '@/components/shared/RealScoutWidgets';
 import { HERO_IMAGES } from '@/lib/hero-images';
 
 const heroImage = HERO_IMAGES.loneMountain;
@@ -77,27 +77,27 @@ export function Hero() {
             </button>
           </div>
 
-          {activeTab === 'search' ? (
-            <div>
-              <h2 className="mb-1 text-xl font-bold text-[var(--heading-color)]">Search Properties</h2>
-              <p className="mb-4 text-sm text-[var(--text-color)]">Find your perfect home in Lone Mountain Heights</p>
-              <RealScoutSimpleSearch />
-            </div>
-          ) : activeTab === 'valuation' ? (
-            <div>
-              <h2 className="mb-1 text-xl font-bold text-[var(--heading-color)]">Get Your Home&apos;s Value</h2>
-              <p className="mb-4 text-sm text-[var(--text-color)]">Free instant valuation powered by local market data</p>
-              <RealScoutHomeValue />
-            </div>
-          ) : (
-            <div>
-              <h2 className="mb-1 text-xl font-bold text-[var(--heading-color)]">Schedule with Dr. Jan Duffy</h2>
-              <p className="mb-4 text-sm text-[var(--text-color)]">
-                Book a free 15-minute private conversation about buying or selling in Lone Mountain Heights
-              </p>
-              <CalendlyInline minHeight={580} placement="home-hero-scheduler" />
-            </div>
-          )}
+          {/* Keep RealScout hosts mounted — unmounting on tab switch leaves empty custom elements */}
+          <div className={activeTab === 'search' ? '' : 'hidden'} aria-hidden={activeTab !== 'search'}>
+            <h2 className="mb-1 text-xl font-bold text-[var(--heading-color)]">Search Properties</h2>
+            <p className="mb-4 text-sm text-[var(--text-color)]">Find your perfect home in Lone Mountain Heights</p>
+            <RealScoutSimpleSearch />
+          </div>
+          <div
+            className={activeTab === 'valuation' ? '' : 'hidden'}
+            aria-hidden={activeTab !== 'valuation'}
+          >
+            <h2 className="mb-1 text-xl font-bold text-[var(--heading-color)]">Get Your Home&apos;s Value</h2>
+            <p className="mb-4 text-sm text-[var(--text-color)]">Free instant valuation powered by local market data</p>
+            <RealScoutHomeValue />
+          </div>
+          <div className={activeTab === 'schedule' ? '' : 'hidden'} aria-hidden={activeTab !== 'schedule'}>
+            <h2 className="mb-1 text-xl font-bold text-[var(--heading-color)]">Schedule with Dr. Jan Duffy</h2>
+            <p className="mb-4 text-sm text-[var(--text-color)]">
+              Book a free 15-minute private conversation about buying or selling in Lone Mountain Heights
+            </p>
+            <CalendlyInline minHeight={580} placement="home-hero-scheduler" />
+          </div>
 
           <div className="mt-6 flex flex-wrap gap-3">
             <a

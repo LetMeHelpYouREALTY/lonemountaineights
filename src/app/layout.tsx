@@ -74,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <Script
           src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         />
         {/* WidgetBe (widgetbe.com) intentionally not loaded: its CTA uses 702-500-1942
             instead of this site's client line 702-500-1955. RealScout does not need it. */}

@@ -1,4 +1,4 @@
-import { RealScoutOfficeListings } from '@/components/shared/JsonLd';
+import { RealScoutOfficeListings } from '@/components/shared/RealScoutWidgets';
 
 const FULL_SEARCH_URL =
   'https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx';
