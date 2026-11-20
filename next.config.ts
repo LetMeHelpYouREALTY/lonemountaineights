@@ -28,6 +28,7 @@ const contentSecurityPolicy = [
     'https://www.calendly.com',
     'https://assets.calendly.com',
     'https://*.calendly.com',
+    'https://va.vercel-scripts.com',
   ].join(' '),
   [
     "style-src 'self' 'unsafe-inline'",
