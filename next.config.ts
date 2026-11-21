@@ -3,15 +3,15 @@ import type { NextConfig } from 'next';
 /**
  * CSP for RealScout (em.realscout.com script + www/drjanduffy.realscout.com API),
  * Calendly, Google Fonts CSS the widget loads, Mapbox autofill, and Google Maps iframe.
- *
- * Keep widgetbe.com OUT of connect-src and do not load its script: once /config
- * succeeds, WidgetBe injects a sitewide CTA with 702-500-1942 instead of this
- * site's 702-500-1955. RealScout widgets do not depend on widgetbe.
+ * Also allows the Follow Up Boss tracker (widgetbe.com), which shows Follow Up
+ * Boss's call-or-text box; Dr. Jan chose to keep that box on (Nov 21 2026).
  */
 const contentSecurityPolicy = [
   "default-src 'self'",
   [
     "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+    'https://widgetbe.com',
+    'https://*.widgetbe.com',
     'https://em.realscout.com',
     'https://www.realscout.com',
     'https://*.realscout.com',
@@ -19,6 +19,8 @@ const contentSecurityPolicy = [
   ].join(' '),
   [
     "connect-src 'self'",
+    'https://widgetbe.com',
+    'https://*.widgetbe.com',
     'https://www.realscout.com',
     'https://em.realscout.com',
     'https://*.realscout.com',
@@ -47,6 +49,8 @@ const contentSecurityPolicy = [
   "worker-src 'self' blob:",
   [
     'frame-src',
+    'https://widgetbe.com',
+    'https://*.widgetbe.com',
     'https://calendly.com',
     'https://www.calendly.com',
     'https://*.calendly.com',
